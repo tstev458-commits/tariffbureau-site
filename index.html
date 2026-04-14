@@ -9,800 +9,198 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy: #0E1F35;
-    --navy-mid: #1B3A5C;
-    --navy-light: #2A537D;
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --cream: #F5F0E8;
-    --cream-dark: #EDE5D8;
-    --white: #FFFFFF;
-    --gray: #8A9BAD;
-    --gray-light: #C4CDD6;
-    --text-body: #2C3E50;
+    --navy: #0E1F35; --navy-mid: #1B3A5C; --gold: #C9A84C; --gold-light: #E8C97A;
+    --cream: #F5F0E8; --cream-dark: #EDE5D8; --gray: #8A9BAD; --gray-light: #C4CDD6;
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Barlow', sans-serif;
     --font-condensed: 'Barlow Condensed', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--navy); color: var(--cream); overflow-x: hidden; line-height: 1.6; }
 
-  body {
-    font-family: var(--font-body);
-    background: var(--navy);
-    color: var(--cream);
-    overflow-x: hidden;
-    line-height: 1.6;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: rgba(14, 31, 53, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
-  }
-
-  .nav-logo {
-    font-family: var(--font-condensed);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: var(--font-condensed);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray-light);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(14,31,53,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.15); }
+  .nav-logo { font-family: var(--font-condensed); font-size: 1rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: var(--font-condensed); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-light); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
-
-  .nav-cta {
-    font-family: var(--font-condensed);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--navy);
-    background: var(--gold);
-    padding: 0.55rem 1.4rem;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
+  .nav-cta { font-family: var(--font-condensed); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 0.55rem 1.4rem; text-decoration: none; transition: background 0.2s; }
   .nav-cta:hover { background: var(--gold-light); }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 3rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(27, 58, 92, 0.6) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-condensed);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 5vw, 5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--gray-light);
-    line-height: 1.7;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    font-family: var(--font-condensed);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--navy);
-    background: var(--gold);
-    padding: 0.9rem 2rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, transform 0.15s;
-  }
-
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(27,58,92,0.6) 0%, transparent 70%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; }
+  .hero-eyebrow { font-family: var(--font-condensed); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+  .hero-title { font-family: var(--font-display); font-size: clamp(3rem,5vw,5rem); font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 1.5rem; }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-subtitle { font-size: 1rem; font-weight: 300; color: var(--gray-light); line-height: 1.7; max-width: 480px; margin-bottom: 2.5rem; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { font-family: var(--font-condensed); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 0.9rem 2rem; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-  .btn-secondary {
-    font-family: var(--font-condensed);
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cream);
-    background: transparent;
-    border: 1px solid rgba(201, 168, 76, 0.4);
-    padding: 0.9rem 2rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
+  .btn-secondary { font-family: var(--font-condensed); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); background: transparent; border: 1px solid rgba(201,168,76,0.4); padding: 0.9rem 2rem; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
   .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* Hero right — stat card */
-  .hero-stat-card {
-    background: rgba(27, 58, 92, 0.4);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 2.5rem;
-    position: relative;
-  }
-
-  .hero-stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--gold);
-  }
-
-  .stat-label {
-    font-family: var(--font-condensed);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 2rem;
-  }
-
-  .stat-item {
-    margin-bottom: 1.75rem;
-    padding-bottom: 1.75rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
+  /* STAT CARD */
+  .hero-stat-card { background: rgba(27,58,92,0.4); border: 1px solid rgba(201,168,76,0.2); padding: 2.5rem; position: relative; }
+  .hero-stat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--gold); }
+  .stat-label { font-family: var(--font-condensed); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+  .stat-item { margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .stat-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .stat-number { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--cream); line-height: 1; margin-bottom: 0.3rem; }
+  .stat-desc { font-size: 0.82rem; font-weight: 300; color: var(--gray); line-height: 1.5; }
 
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-desc {
-    font-size: 0.82rem;
-    font-weight: 300;
-    color: var(--gray);
-    line-height: 1.5;
-  }
-
-  /* ── ALERT BANNER ── */
-  .alert-banner {
-    background: rgba(201, 168, 76, 0.08);
-    border-top: 1px solid rgba(201, 168, 76, 0.3);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
-    padding: 1rem 3rem;
-    text-align: center;
-  }
-
-  .alert-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .alert-tag {
-    font-family: var(--font-condensed);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--navy);
-    background: var(--gold);
-    padding: 0.2rem 0.6rem;
-  }
-
-  .alert-text {
-    font-size: 0.85rem;
-    font-weight: 400;
-    color: var(--cream-dark);
-  }
-
+  /* ALERT */
+  .alert-banner { background: rgba(201,168,76,0.08); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); padding: 1rem 3rem; text-align: center; }
+  .alert-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .alert-tag { font-family: var(--font-condensed); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 0.2rem 0.6rem; }
+  .alert-text { font-size: 0.85rem; font-weight: 400; color: var(--cream-dark); }
   .alert-text strong { color: var(--gold); font-weight: 600; }
+  .alert-text a { color: var(--gold); text-decoration: none; }
 
-  /* ── SECTIONS ── */
+  /* SECTIONS */
   section { padding: 6rem 3rem; }
-
-  .section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-eyebrow {
-    font-family: var(--font-condensed);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 1.5rem;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.5vw, 3.2rem);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--cream);
-    margin-bottom: 1.25rem;
-  }
-
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow { font-family: var(--font-condensed); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 300; line-height: 1.15; color: var(--cream); margin-bottom: 1.25rem; }
   .section-title em { font-style: italic; color: var(--gold); }
+  .section-body { font-size: 0.95rem; font-weight: 300; color: var(--gray-light); line-height: 1.8; max-width: 600px; }
 
-  .section-body {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--gray-light);
-    line-height: 1.8;
-    max-width: 600px;
-  }
-
-  /* ── OPPORTUNITY ── */
-  .opportunity { background: var(--navy); }
-
-  .opportunity-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-    margin-top: 3.5rem;
-  }
-
+  /* OPPORTUNITY */
+  .opportunity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
   .opportunity-points { display: flex; flex-direction: column; gap: 1.5rem; }
+  .opportunity-point { display: flex; gap: 1.25rem; padding: 1.5rem; background: rgba(27,58,92,0.3); border-left: 2px solid var(--gold); }
+  .point-number { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; color: var(--gold); opacity: 0.6; line-height: 1; min-width: 2rem; }
+  .point-content h4 { font-family: var(--font-condensed); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); margin-bottom: 0.4rem; }
+  .point-content p { font-size: 0.85rem; font-weight: 300; color: var(--gray); line-height: 1.6; }
 
-  .opportunity-point {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    background: rgba(27, 58, 92, 0.3);
-    border-left: 2px solid var(--gold);
-  }
+  /* TARIFFIQ */
+  .tariffiq { background: rgba(27,58,92,0.2); }
+  .tariffiq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3.5rem; }
+  .alex-card { background: rgba(14,31,53,0.8); border: 1px solid rgba(201,168,76,0.2); padding: 2.5rem; position: relative; }
+  .alex-card::after { content: 'TariffIQ'; position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--font-condensed); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.5; }
+  .alex-avatar { width: 56px; height: 56px; background: var(--navy-mid); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-family: var(--font-condensed); font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+  .alex-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 0.2rem; }
+  .alex-title { font-family: var(--font-condensed); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .alex-message { font-size: 0.88rem; font-weight: 300; color: var(--gray-light); line-height: 1.7; font-style: italic; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; }
+  .tariffiq-features { display: flex; flex-direction: column; gap: 1.25rem; }
+  .feature-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .feature-dot { width: 6px; height: 6px; background: var(--gold); margin-top: 0.5rem; flex-shrink: 0; }
+  .feature-text h4 { font-family: var(--font-condensed); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; color: var(--cream); margin-bottom: 0.3rem; }
+  .feature-text p { font-size: 0.83rem; font-weight: 300; color: var(--gray); line-height: 1.6; }
 
-  .point-number {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--gold);
-    opacity: 0.6;
-    line-height: 1;
-    min-width: 2rem;
-  }
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3.5rem; }
+  .service-card { background: rgba(27,58,92,0.25); border: 1px solid rgba(255,255,255,0.06); padding: 2rem; transition: border-color 0.25s, background 0.25s; position: relative; }
+  .service-card:hover { border-color: rgba(201,168,76,0.3); background: rgba(27,58,92,0.4); }
+  .service-card.featured { border-color: rgba(201,168,76,0.35); background: rgba(27,58,92,0.4); }
+  .service-card.featured::before { content: 'Most Popular'; position: absolute; top: -1px; left: 1.5rem; font-family: var(--font-condensed); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 0.2rem 0.6rem; }
+  .service-name { font-family: var(--font-condensed); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .service-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--cream); margin-bottom: 0.75rem; line-height: 1.2; }
+  .service-desc { font-size: 0.82rem; font-weight: 300; color: var(--gray); line-height: 1.6; margin-bottom: 1.25rem; }
+  .service-price { font-family: var(--font-condensed); font-size: 0.82rem; font-weight: 500; color: var(--cream-dark); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; }
 
-  .point-content h4 {
-    font-family: var(--font-condensed);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  /* PROCESS */
+  .process { background: rgba(27,58,92,0.15); }
+  .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 3.5rem; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 1.75rem; left: 12.5%; right: 12.5%; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.2) 100%); }
+  .process-step { padding: 0 1.5rem; }
+  .step-num { width: 3.5rem; height: 3.5rem; background: var(--navy); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.3rem; font-weight: 300; color: var(--gold); margin-bottom: 1.25rem; position: relative; z-index: 1; }
+  .step-title { font-family: var(--font-condensed); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.8rem; font-weight: 300; color: var(--gray); line-height: 1.6; }
+
+  /* CONTACT FORM SECTION */
+  .contact-section { background: var(--navy-mid); border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 6rem 3rem; }
+  .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-left { }
+  .contact-note { font-size: 0.85rem; font-weight: 300; color: var(--gray); line-height: 1.7; margin-top: 1.5rem; max-width: 400px; }
+  .contact-note strong { color: var(--cream); font-weight: 400; }
+  .contact-details { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-detail { display: flex; align-items: center; gap: 0.75rem; }
+  .contact-detail-label { font-family: var(--font-condensed); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); min-width: 80px; }
+  .contact-detail-value { font-size: 0.82rem; font-weight: 300; color: var(--gray-light); }
+  .contact-detail-value a { color: var(--gray-light); text-decoration: none; transition: color 0.2s; }
+  .contact-detail-value a:hover { color: var(--gold); }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-family: var(--font-condensed); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(14,31,53,0.6);
+    border: 1px solid rgba(201,168,76,0.2);
     color: var(--cream);
-    margin-bottom: 0.4rem;
-  }
-
-  .point-content p {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--gray);
-    line-height: 1.6;
-  }
-
-  /* ── TARIFFIQ ── */
-  .tariffiq { background: rgba(27, 58, 92, 0.2); }
-
-  .tariffiq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    margin-top: 3.5rem;
-  }
-
-  .alex-card {
-    background: rgba(14, 31, 53, 0.8);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .alex-card::after {
-    content: 'TariffIQ';
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-family: var(--font-condensed);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.5;
-  }
-
-  .alex-avatar {
-    width: 56px;
-    height: 56px;
-    background: var(--navy-mid);
-    border: 2px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-    font-family: var(--font-condensed);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-  }
-
-  .alex-name {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.2rem;
-  }
-
-  .alex-title {
-    font-family: var(--font-condensed);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .alex-message {
+    font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 300;
-    color: var(--gray-light);
-    line-height: 1.7;
-    font-style: italic;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 1.25rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
   }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(138,155,173,0.5); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: rgba(201,168,76,0.6); }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group select option { background: var(--navy); color: var(--cream); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-submit { font-family: var(--font-condensed); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); background: var(--gold); border: none; padding: 1rem 2rem; cursor: pointer; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; width: 100%; }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .form-fine { font-size: 0.72rem; font-weight: 300; color: var(--gray); line-height: 1.6; margin-top: 0.5rem; }
+  .form-success { display: none; background: rgba(29,158,117,0.1); border: 1px solid rgba(29,158,117,0.3); padding: 1.5rem; text-align: center; }
+  .form-success p { font-family: var(--font-condensed); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; color: #5DCAA5; }
 
-  .tariffiq-features { display: flex; flex-direction: column; gap: 1.25rem; }
+  /* DISCLOSURE */
+  .disclosure { background: rgba(14,31,53,0.6); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); padding: 2.5rem 3rem; }
+  .disclosure-inner { max-width: 1200px; margin: 0 auto; }
+  .disclosure-title { font-family: var(--font-condensed); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .disclosure-text { font-size: 0.8rem; font-weight: 300; color: var(--gray); line-height: 1.7; max-width: 900px; }
 
-  .feature-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .feature-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
-    margin-top: 0.5rem;
-    flex-shrink: 0;
-  }
-
-  .feature-text h4 {
-    font-family: var(--font-condensed);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--cream);
-    margin-bottom: 0.3rem;
-  }
-
-  .feature-text p {
-    font-size: 0.83rem;
-    font-weight: 300;
-    color: var(--gray);
-    line-height: 1.6;
-  }
-
-  /* ── SERVICES ── */
-  .services { background: var(--navy); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3.5rem;
-  }
-
-  .service-card {
-    background: rgba(27, 58, 92, 0.25);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 2rem;
-    transition: border-color 0.25s, background 0.25s;
-    position: relative;
-  }
-
-  .service-card:hover {
-    border-color: rgba(201, 168, 76, 0.3);
-    background: rgba(27, 58, 92, 0.4);
-  }
-
-  .service-card.featured {
-    border-color: rgba(201, 168, 76, 0.35);
-    background: rgba(27, 58, 92, 0.4);
-  }
-
-  .service-card.featured::before {
-    content: 'Most Popular';
-    position: absolute;
-    top: -1px;
-    left: 1.5rem;
-    font-family: var(--font-condensed);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--navy);
-    background: var(--gold);
-    padding: 0.2rem 0.6rem;
-  }
-
-  .service-name {
-    font-family: var(--font-condensed);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-
-  .service-title {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-  }
-
-  .service-desc {
-    font-size: 0.82rem;
-    font-weight: 300;
-    color: var(--gray);
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-  }
-
-  .service-price {
-    font-family: var(--font-condensed);
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--cream-dark);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 1rem;
-  }
-
-  /* ── PROCESS ── */
-  .process { background: rgba(27, 58, 92, 0.15); }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin-top: 3.5rem;
-    position: relative;
-  }
-
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 1.75rem;
-    left: 12.5%;
-    right: 12.5%;
-    height: 1px;
-    background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.2) 100%);
-  }
-
-  .process-step { padding: 0 1.5rem; text-align: left; }
-
-  .step-num {
-    width: 3.5rem;
-    height: 3.5rem;
-    background: var(--navy);
-    border: 1px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-title {
-    font-family: var(--font-condensed);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-bottom: 0.5rem;
-  }
-
-  .step-desc {
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: var(--gray);
-    line-height: 1.6;
-  }
-
-  /* ── CTA ── */
-  .cta-section {
-    background: var(--navy-mid);
-    border-top: 1px solid rgba(201, 168, 76, 0.2);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 5rem 3rem;
-    text-align: center;
-  }
-
-  .cta-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 300;
-    color: var(--cream);
-    margin-bottom: 1rem;
-  }
-
-  .cta-title em { font-style: italic; color: var(--gold); }
-
-  .cta-sub {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--gray-light);
-    margin-bottom: 2.5rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-fine {
-    font-size: 0.75rem;
-    color: var(--gray);
-    font-weight: 300;
-  }
-
-  .cta-fine a { color: var(--gold); text-decoration: none; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: rgba(14, 31, 53, 0.95);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 3rem;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-  }
-
-  .footer-brand {
-    font-family: var(--font-condensed);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-
-  .footer-tagline {
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: var(--gray);
-    line-height: 1.6;
-    max-width: 280px;
-    margin-bottom: 1rem;
-  }
-
-  .footer-legal {
-    font-size: 0.72rem;
-    color: rgba(138, 155, 173, 0.6);
-    line-height: 1.6;
-  }
-
-  .footer-col h5 {
-    font-family: var(--font-condensed);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
+  /* FOOTER */
+  footer { background: rgba(14,31,53,0.95); border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
+  .footer-brand { font-family: var(--font-condensed); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .footer-tagline { font-size: 0.8rem; font-weight: 300; color: var(--gray); line-height: 1.6; max-width: 280px; margin-bottom: 1rem; }
+  .footer-legal { font-size: 0.72rem; color: rgba(138,155,173,0.6); line-height: 1.6; }
+  .footer-col h5 { font-family: var(--font-condensed); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
   .footer-col ul { list-style: none; }
-
   .footer-col ul li { margin-bottom: 0.5rem; }
-
-  .footer-col ul li a {
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: var(--gray);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .footer-col ul li a { font-size: 0.8rem; font-weight: 300; color: var(--gray); text-decoration: none; transition: color 0.2s; }
   .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom p { font-size: 0.72rem; color: rgba(138,155,173,0.5); }
+  .footer-ein { font-size: 0.68rem; color: rgba(138,155,173,0.35); font-family: var(--font-condensed); letter-spacing: 0.08em; }
 
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 2rem auto 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.72rem;
-    color: rgba(138, 155, 173, 0.5);
-  }
-
-  .footer-ein {
-    font-size: 0.68rem;
-    color: rgba(138, 155, 173, 0.35);
-    font-family: var(--font-condensed);
-    letter-spacing: 0.08em;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .hero-eyebrow { animation: fadeUp 0.6s ease both; }
   .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
   .hero-subtitle { animation: fadeUp 0.7s 0.2s ease both; }
   .hero-actions { animation: fadeUp 0.7s 0.3s ease both; }
   .hero-stat-card { animation: fadeUp 0.8s 0.2s ease both; }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4rem; }
-    .hero-grid,
-    .opportunity-grid,
-    .tariffiq-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-grid, .opportunity-grid, .tariffiq-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .services-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .process-steps::before { display: none; }
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .cta-section { padding: 4rem 1.5rem; }
+    .contact-section, .disclosure { padding: 4rem 1.5rem; }
     footer { padding: 2rem 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -815,20 +213,20 @@
     <li><a href="#opportunity">The Opportunity</a></li>
     <li><a href="#tariffiq">TariffIQ</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="/cdn-cgi/l/email-protection#3d55585151527d495c4f545b5b5f484f585c48135e5250" class="nav-cta">Request Consultation</a>
+  <a href="#contact" class="nav-cta">Request Assessment</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid">
-    <div class="hero-left">
+    <div>
       <p class="hero-eyebrow">AI-Powered Trade Intelligence</p>
       <h1 class="hero-title">Recover What<br>Tariffs <em>Took</em><br>From You</h1>
-      <p class="hero-subtitle">The Tariff Bureau deploys AI-driven analysis to identify, quantify, and recover IEEPA tariff refunds for U.S. importers — before the CBP CAPE portal window closes.</p>
+      <p class="hero-subtitle">The Tariff Bureau deploys AI-driven analysis to identify, quantify, and recover IEEPA tariff refunds for U.S. importers &mdash; before the CBP CAPE portal window closes.</p>
       <div class="hero-actions">
-        <a href="/cdn-cgi/l/email-protection#82eae7eeeeedc2f6e3f0ebe4e4e0f7f0e7e3f7ace1edef" class="btn-primary">Request Consultation</a>
+        <a href="#contact" class="btn-primary">Request Preliminary Assessment</a>
         <a href="#services" class="btn-secondary">View Services</a>
       </div>
     </div>
@@ -840,30 +238,30 @@
       </div>
       <div class="stat-item">
         <div class="stat-number">$0</div>
-        <p class="stat-desc">owed unless we recover — Full Recovery Package operates on contingency</p>
+        <p class="stat-desc">owed unless we recover &mdash; Full Recovery Package operates on contingency</p>
       </div>
       <div class="stat-item">
         <div class="stat-number">Late Apr</div>
-        <p class="stat-desc">CBP CAPE portal launch — the window to file is open now and closes fast</p>
+        <p class="stat-desc">CBP CAPE portal launch &mdash; the window to file is open now and closes fast</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ALERT BANNER -->
+<!-- ALERT -->
 <div class="alert-banner">
   <div class="alert-inner">
     <span class="alert-tag">Time Sensitive</span>
-    <p class="alert-text">The CBP CAPE portal launches <strong>late April 2026</strong>. Importers who act now recover significantly more. <a href="/cdn-cgi/l/email-protection#345c5158585b744055465d52525641465155411a575b59" style="color: var(--gold); text-decoration: none;">Schedule your assessment →</a></p>
+    <p class="alert-text">The CBP CAPE portal launches <strong>late April 2026</strong>. Importers who act now recover significantly more. <a href="#contact">Request your assessment &rarr;</a></p>
   </div>
 </div>
 
 <!-- OPPORTUNITY -->
-<section class="opportunity" id="opportunity">
+<section id="opportunity" style="background: var(--navy);">
   <div class="section-inner">
     <p class="section-eyebrow">The Opportunity</p>
     <h2 class="section-title">A Narrow Window<br>for <em>Maximum Recovery</em></h2>
-    <p class="section-body">Federal court rulings and CBP administrative guidance have opened significant refund opportunities for importers who paid duties under IEEPA-based tariff orders. This window is limited — and most importers are unaware it exists.</p>
+    <p class="section-body">Federal court rulings and CBP administrative guidance have opened significant refund opportunities for importers who paid duties under IEEPA-based tariff orders. This window is limited and most importers are unaware it exists.</p>
     <div class="opportunity-grid">
       <div class="opportunity-points">
         <div class="opportunity-point">
@@ -877,7 +275,7 @@
           <span class="point-number">02</span>
           <div class="point-content">
             <h4>CBP CAPE Portal</h4>
-            <p>The newly launched CBP CAPE portal is the primary filing channel for eligible refund claims. Proper preparation before filing is critical to maximizing recovery.</p>
+            <p>The CBP CAPE portal is the primary filing channel for eligible refund claims. Proper preparation before filing is critical to maximizing recovery.</p>
           </div>
         </div>
         <div class="opportunity-point">
@@ -890,10 +288,10 @@
       </div>
       <div>
         <p class="section-eyebrow">Who Qualifies</p>
-        <p class="section-body" style="margin-bottom: 1.5rem;">U.S. importers who paid IEEPA-related duties on eligible entries from China, Vietnam, Taiwan, South Korea, or other affected origins may qualify for significant refunds. Foreign manufacturers operating as Importer of Record (IOR) under DDP terms are also eligible.</p>
-        <p class="section-body">Our preliminary assessment process identifies your eligibility, estimates your refund pool, and maps your highest-value entry clusters — before you commit to a full recovery engagement.</p>
+        <p class="section-body" style="margin-bottom: 1.5rem;">U.S. importers who paid IEEPA-related duties on eligible entries from China, Vietnam, Taiwan, South Korea, or other affected origins may qualify for significant refunds. Foreign manufacturers operating as Importer of Record under DDP terms are also eligible.</p>
+        <p class="section-body">Our preliminary assessment identifies your eligibility, estimates your refund pool, and maps your highest-value entry clusters before you commit to a full recovery engagement.</p>
         <br>
-        <a href="/cdn-cgi/l/email-protection#b8d0ddd4d4d7f8ccd9cad1dededacdcaddd9cd96dbd7d5" class="btn-primary" style="margin-top: 1rem;">Check Your Eligibility</a>
+        <a href="#contact" class="btn-primary" style="margin-top: 1rem;">Check Your Eligibility</a>
       </div>
     </div>
   </div>
@@ -908,40 +306,16 @@
       <div class="alex-card">
         <div class="alex-avatar">AM</div>
         <p class="alex-name">Alex Monroe</p>
-        <p class="alex-title">Senior Trade Intelligence Analyst — TariffIQ</p>
-        <p class="alex-message">"Most importers don't know what they're owed. That's exactly the problem I was built to solve. I analyze your entry history, identify every eligible HTS code, and build the claim package — so you walk into the CAPE portal with maximum precision and minimum exposure."</p>
+        <p class="alex-title">Senior Trade Intelligence Analyst &mdash; TariffIQ</p>
+        <p class="alex-message">"Most importers don't know what they're owed. That's exactly the problem I was built to solve. I analyze your entry history, identify every eligible HTS code, and build the claim package so you walk into the CAPE portal with maximum precision and minimum exposure."</p>
       </div>
       <div>
         <p class="section-body" style="margin-bottom: 2rem;">TariffIQ is The Tariff Bureau's proprietary AI platform, purpose-built for IEEPA tariff analysis and refund recovery. It processes import data at a scale and speed that manual analysis cannot match.</p>
         <div class="tariffiq-features">
-          <div class="feature-item">
-            <span class="feature-dot"></span>
-            <div class="feature-text">
-              <h4>HTS Code Analysis</h4>
-              <p>Scans every entry across all eligible HTS classifications to identify refundable duties with precision.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <span class="feature-dot"></span>
-            <div class="feature-text">
-              <h4>CBP-Compliant Claim Packages</h4>
-              <p>Generates documentation in the exact format required by CBP for CAPE portal submission.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <span class="feature-dot"></span>
-            <div class="feature-text">
-              <h4>Real-Time Recovery Tracking</h4>
-              <p>Monitor your claim status, CBP correspondence, and recovery timeline in a live dashboard.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <span class="feature-dot"></span>
-            <div class="feature-text">
-              <h4>Regulatory Intelligence</h4>
-              <p>Continuous monitoring of CBP policy changes, court orders, and tariff rate updates affecting your entries.</p>
-            </div>
-          </div>
+          <div class="feature-item"><span class="feature-dot"></span><div class="feature-text"><h4>HTS Code Analysis</h4><p>Scans every entry across all eligible HTS classifications to identify refundable duties with precision.</p></div></div>
+          <div class="feature-item"><span class="feature-dot"></span><div class="feature-text"><h4>CBP-Compliant Claim Packages</h4><p>Generates documentation in the exact format required by CBP for CAPE portal submission.</p></div></div>
+          <div class="feature-item"><span class="feature-dot"></span><div class="feature-text"><h4>Real-Time Recovery Tracking</h4><p>Monitor your claim status, CBP correspondence, and recovery timeline in a live dashboard.</p></div></div>
+          <div class="feature-item"><span class="feature-dot"></span><div class="feature-text"><h4>Regulatory Intelligence</h4><p>Continuous monitoring of CBP policy changes, court orders, and tariff rate updates affecting your entries.</p></div></div>
         </div>
       </div>
     </div>
@@ -949,7 +323,7 @@
 </section>
 
 <!-- SERVICES -->
-<section class="services" id="services">
+<section id="services" style="background: var(--navy);">
   <div class="section-inner">
     <p class="section-eyebrow">Service Tiers</p>
     <h2 class="section-title">Structured for Every<br><em>Stage of Recovery</em></h2>
@@ -974,21 +348,21 @@
       </div>
       <div class="service-card">
         <p class="service-name">Audit</p>
-        <h3 class="service-title">Claim Audit & Optimization</h3>
+        <h3 class="service-title">Claim Audit &amp; Optimization</h3>
         <p class="service-desc">Review and enhancement of existing claims. Identify missed entries or underclaimed amounts to maximize recovery.</p>
         <p class="service-price">$3,500 flat or 15% contingency on incremental recovery</p>
       </div>
       <div class="service-card">
         <p class="service-name">Supply Chain</p>
-        <h3 class="service-title">Rerouting & Supply Chain Analysis</h3>
+        <h3 class="service-title">Rerouting &amp; Supply Chain Analysis</h3>
         <p class="service-desc">Trade route restructuring analysis, IEEPA exposure mapping, and IOR/DDP strategy for foreign manufacturers.</p>
-        <p class="service-price">$4,000–$8,000 flat (scoped per engagement)</p>
+        <p class="service-price">$4,000&ndash;$8,000 flat (scoped per engagement)</p>
       </div>
       <div class="service-card">
         <p class="service-name">Retainer</p>
         <h3 class="service-title">Monitoring Retainer</h3>
         <p class="service-desc">Ongoing tariff intelligence, regulatory alerts, CBP policy updates, TariffIQ platform access, and monthly advisory calls.</p>
-        <p class="service-price">$1,500/month — 3-month minimum</p>
+        <p class="service-price">$1,500/month &mdash; 3-month minimum</p>
       </div>
     </div>
   </div>
@@ -1024,15 +398,96 @@
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-section">
-  <h2 class="cta-title">Your Refund Window<br>Is <em>Open Now</em></h2>
-  <p class="cta-sub">Schedule a no-obligation consultation to find out what you're owed. Assessment results delivered within 5 business days.</p>
-  <div class="cta-actions">
-    <a href="/cdn-cgi/l/email-protection#533b363f3f3c132732213a35353126213632267d303c3e" class="btn-primary">Schedule Consultation</a>
-    <a href="/cdn-cgi/l/email-protection#b9d5dcded8d5f9cdd8cbd0dfdfdbcccbdcd8cc97dad6d4" class="btn-secondary">Contact Legal Team</a>
+<!-- CONTACT FORM -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="section-eyebrow">Start the Conversation</p>
+      <h2 class="section-title">Request a<br><em>Preliminary Assessment</em></h2>
+      <p class="contact-note">Send us your information and we will be in touch within <strong>one business day</strong>. There is no obligation and no cost for an initial conversation. We will tell you honestly whether we believe a recovery opportunity exists for your company.</p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#49212c252526093d283b202f2f2b3c3b2c283c672a2624"><span class="__cf_email__" data-cfemail="325a575e5e5d724653405b54545047405753471c515d5f">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Principal</span>
+          <span class="contact-detail-value">Terrence Stevens, Principal Advisor</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Response</span>
+          <span class="contact-detail-value">Within one business day</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Location</span>
+          <span class="contact-detail-value">College Park, Georgia</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <!-- REPLACE https://formspree.io/f/xvzdgzyo with your Web3Forms or Formspree endpoint -->
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvzdgzyo" method="POST">
+        <input type="hidden" name="subject" value="New Assessment Request — The Tariff Bureau">
+        <input type="hidden" name="from_name" value="The Tariff Bureau Website">
+        <input type="hidden" name="redirect" value="https://tariffbureau.com?submitted=true">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" name="first_name" placeholder="First name" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name *</label>
+            <input type="text" id="lname" name="last_name" placeholder="Last name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="company">Company Name *</label>
+          <input type="text" id="company" name="company" placeholder="Your company name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Business Email *</label>
+          <input type="email" id="email" name="email" placeholder="your@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="title">Your Title</label>
+          <input type="text" id="title" name="title" placeholder="CFO, Import Manager, etc.">
+        </div>
+        <div class="form-group">
+          <label for="volume">Estimated Annual Import Volume</label>
+          <select id="volume" name="import_volume">
+            <option value="" disabled selected>Select a range</option>
+            <option value="under_1m">Under $1M</option>
+            <option value="1m_5m">$1M &ndash; $5M</option>
+            <option value="5m_25m">$5M &ndash; $25M</option>
+            <option value="25m_100m">$25M &ndash; $100M</option>
+            <option value="over_100m">Over $100M</option>
+            <option value="prefer_not">Prefer not to say</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="origins">Primary Import Origins</label>
+          <input type="text" id="origins" name="import_origins" placeholder="e.g. China, Vietnam, Taiwan">
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Information</label>
+          <textarea id="message" name="message" placeholder="Tell us anything relevant about your import operations or what you're hoping to learn..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit Assessment Request</button>
+        <p class="form-fine">By submitting this form you agree to be contacted by The Tariff Bureau LLC regarding your inquiry. We do not sell or share your information. See our Privacy Policy for details.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <p>&#10003; &nbsp; Your request has been received. We will be in touch within one business day.</p>
+      </div>
+    </div>
   </div>
-  <p class="cta-fine">No recovery, no fee on Full Recovery Package. Questions? Email <a href="/cdn-cgi/l/email-protection#ec8489808083ac988d9e858a8a8e999e898d99c28f8381"><span class="__cf_email__" data-cfemail="59313c353536192d382b303f3f3b2c2b3c382c773a3634">[email&#160;protected]</span></a></p>
+</div>
+
+<!-- DISCLOSURE -->
+<div class="disclosure">
+  <div class="disclosure-inner">
+    <p class="disclosure-title">Full Disclosure</p>
+    <p class="disclosure-text">The Tariff Bureau LLC is a solo-founder AI-powered trade intelligence and advisory firm. Terrence Stevens is the sole member and Principal Advisor. We are not a law firm, licensed customs broker, licensed attorney, or financial advisor. All services are informational and advisory in nature. Clients are responsible for retaining licensed customs brokers, attorneys, or other professionals as required for formal legal proceedings or licensed broker activities. No engagement with The Tariff Bureau LLC creates an attorney-client relationship or any other professional relationship beyond what is expressly stated in a signed Client Services Agreement.</p>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -1041,20 +496,37 @@
     <div>
       <p class="footer-brand">The Tariff Bureau</p>
       <p class="footer-tagline">AI-powered trade intelligence and IEEPA tariff refund recovery advisory services for U.S. importers and international importers of record.</p>
-      <p class="footer-legal">The Tariff Bureau LLC provides advisory services only. We are not a licensed customs broker or law firm. All services are informational and advisory in nature.</p>
+      <p class="footer-legal">The Tariff Bureau LLC is a solo-founder advisory firm. Terrence Stevens, Principal Advisor. Not a law firm, licensed customs broker, or financial advisor. All services are informational and advisory in nature.</p>
     </div>
     <div class="footer-col">
       <h5>Services</h5>
       <ul>
-        <li><a href="/cdn-cgi/l/email-protection#4129242d2d2e013520332827272334332420346f222e2c">Assessment Only</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#670f020b0b08271306150e01010512150206124904080a">Refund Claim Valuation</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#adc5c8c1c1c2edd9ccdfc4cbcbcfd8dfc8ccd883cec2c0">Full Recovery Package</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#f39b969f9f9cb38792819a9595918681969286dd909c9e">Claim Audit</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#dcb4b9b0b0b39ca8bdaeb5bababea9aeb9bda9f2bfb3b1">Rerouting Analysis</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#ea828f868685aa9e8b98838c8c889f988f8b9fc4898587">Monitoring Retainer</a></li>
+        <li><a href="#contact">Assessment Only</a></li>
+        <li><a href="#contact">Refund Claim Valuation</a></li>
+        <li><a href="#contact">Full Recovery Package</a></li>
+        <li><a href="#contact">Claim Audit</a></li>
+        <li><a href="#contact">Rerouting Analysis</a></li>
+        <li><a href="#contact">Monitoring Retainer</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Contact</h5>
       <ul>
-        <li><a href="/cdn-cgi/l/email-protection#69010c050506291d081b000f0f0b1c1b0c081c470a0604"><span class="__cf_email__" data-cfemail="4129242d2d
+        <li><a href="/cdn-cgi/l/email-protection#bcd4d9d0d0d3fcc8ddced5dadadec9ced9ddc992dfd3d1"><span class="__cf_email__" data-cfemail="fd9598919192bd899c8f949b9b9f888f989c88d39e9290">[email&#160;protected]</span></a></li>
+        <li><a href="/cdn-cgi/l/email-protection#1c68796e6e79727f795c687d6e757a7a7e696e797d69327f7371"><span class="__cf_email__" data-cfemail="86f2e3f4f4e3e8e5e3c6f2e7f4efe0e0e4f3f4e3e7f3a8e5e9eb">[email&#160;protected]</span></a></li>
+      </ul>
+      <h5 style="margin-top: 1.5rem;">Legal</h5>
+      <ul>
+        <li><a href="/cdn-cgi/l/email-protection#4028252c2c2f003421322926262235322521356e232f2d">Terms of Service</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#d6beb3babab996a2b7a4bfb0b0b4a3a4b3b7a3f8b5b9bb">Privacy Policy</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#523a373e3e3d122633203b34343027203733277c313d3f">Engagement Letter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 The Tariff Bureau LLC. All rights reserved. College Park, Georgia.</p>
+    <p class="footer-ein">EIN 42-1842417 &middot; GA SOS 2026 0410 1351 7978 13488 195 &middot; Name Reservation 31356377</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min
