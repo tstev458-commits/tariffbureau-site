@@ -43,6 +43,64 @@
   "serviceType": "Tariff Refund Recovery Advisory"
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the CBP CAPE portal and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CBP Claims and Appeals Portal (CAPE) is U.S. Customs and Border Protection's official system for submitting IEEPA tariff refund claims. It opened April 20, 2026. Importers who paid IEEPA tariffs on qualifying goods can file for refunds — but only if they have completed ACE and ACH enrollment first. Most importers have not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is eligible for an IEEPA tariff refund?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "U.S. importers who paid IEEPA Section 232 or executive-order tariffs on goods imported from China or other affected countries during the eligible lookback period. Eligibility depends on your HTS codes, entry dates, duty payment records, and ACE enrollment status."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the 92% ACE enrollment gap?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CBP data shows that only approximately 6% of U.S. importers have completed both ACE system enrollment and ACH payment linkage — the two prerequisites required to file a CAPE refund claim. The remaining 92%+ cannot submit a single claim until enrollment is complete."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a deadline to file an IEEPA tariff refund claim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The U.S. Court of International Trade has a hard protest deadline of May 4, 2026 for certain entries. CAPE filing windows are time-limited and CBP has not committed to extensions. Importers who delay risk losing their right to recover entirely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does The Tariff Bureau charge for refund recovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Tariff Bureau offers six service tiers. The Full Recovery Package is structured as a $4,000 base fee plus 12-15% contingency — meaning the contingency is only collected when you actually receive your refund. Flat-fee engagements start at $8,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is The Tariff Bureau a law firm or licensed customs broker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The Tariff Bureau LLC is an AI-powered trade intelligence and advisory firm. We are not a law firm and do not provide legal advice. We are not a licensed customs broker. Our services are advisory in nature."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1148,6 +1206,60 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* ── FAQ ── */
+  .faq-section {
+    position: relative;
+    z-index: 1;
+    padding: 100px 40px;
+    background: var(--navy);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .faq-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border-subtle);
+    margin-top: 60px;
+  }
+
+  .faq-item {
+    background: var(--navy-mid);
+    padding: 36px 32px;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .faq-item:hover { background: var(--navy-light); }
+
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-a {
+    font-size: 0.88rem;
+    color: var(--text-body);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-section { padding: 60px 20px; }
+  }
+
 </style>
 </head>
 <body>
@@ -1430,6 +1542,50 @@
         <h3>Recovery</h3>
         <p>We submit through CAPE, manage CBP correspondence, and track disbursement — with no contingency fee until funds arrive.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">FAQ</div>
+      <h2>Common questions about<br>IEEPA tariff refund recovery.</h2>
+    </div>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal">
+        <div class="faq-q">What is the CBP CAPE portal and why does it matter?</div>
+        <div class="faq-a">The CBP Claims and Appeals Portal (CAPE) is U.S. Customs and Border Protection's official system for submitting IEEPA tariff refund claims. It opened April 20, 2026. Importers who paid IEEPA tariffs on qualifying goods can file for refunds — but only if they have completed ACE and ACH enrollment first. Most importers have not.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Who is eligible for an IEEPA tariff refund?</div>
+        <div class="faq-a">U.S. importers who paid IEEPA Section 232 or executive-order tariffs on goods imported from China or other affected countries during the eligible lookback period. Eligibility depends on your HTS codes, entry dates, duty payment records, and ACE enrollment status. The Tariff Bureau screens your import profile at no obligation before recommending an engagement.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">What is the 92% ACE enrollment gap?</div>
+        <div class="faq-a">CBP data shows that only approximately 6% of U.S. importers have completed both ACE system enrollment and ACH payment linkage — the two prerequisites required to file a CAPE refund claim. The remaining 92%+ cannot submit a single claim until enrollment is complete. The Tariff Bureau handles enrollment navigation as part of every Full Recovery engagement.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Is there a deadline to file?</div>
+        <div class="faq-a">Yes. The U.S. Court of International Trade has a hard protest deadline of May 4, 2026 for certain entries. CAPE filing windows are time-limited and CBP has not committed to extensions. Importers who delay risk losing their right to recover entirely. We recommend beginning your assessment immediately.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">How much does The Tariff Bureau charge?</div>
+        <div class="faq-a">We offer six service tiers starting with a free eligibility screen. Our Full Recovery Package is structured as a $4,000 base fee plus 12–15% contingency — meaning we only collect the contingency percentage when you actually receive your refund. Flat-fee engagements start at $8,000. No recovery, no contingency fee.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Is The Tariff Bureau a law firm or licensed customs broker?</div>
+        <div class="faq-a">No. The Tariff Bureau LLC is an AI-powered trade intelligence and advisory firm. We are not a law firm and do not provide legal advice. We are not a licensed customs broker. Our services are advisory in nature and clients are encouraged to consult qualified legal counsel for legal determinations. TariffIQ outputs are informational only.</div>
+      </div>
+
     </div>
   </div>
 </section>
