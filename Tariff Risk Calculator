@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tariff Risk Calculator | Import Duty and Compliance Risk Tool</title>
+  <meta name="description" content="Use the Tariff Bureau tariff risk calculator to estimate import duty exposure, tariff risk, country-of-origin risk, and compliance review priority.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.tariffbureau.com/tariff-risk-calculator.html">
+  <link rel="icon" href="/favicon.ico">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #111;
+    }
+
+    header, footer {
+      background: #111;
+      color: #fff;
+      padding: 18px 24px;
+    }
+
+    header a, footer a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 16px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px;
+      background: #111;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      width: 100%;
+    }
+
+    .result {
+      margin-top: 24px;
+      padding: 18px;
+      background: #f1f5f9;
+      border-left: 4px solid #111;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <strong>Tariff Bureau</strong>
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/intake.html">Start Review</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Tariff Risk Calculator</h1>
+
+  <p>
+    Use this simple calculator to estimate potential import duty exposure and identify whether
+    your product may need a deeper tariff or compliance review.
+  </p>
+
+  <p><em>This tool is for preliminary planning only and does not provide legal, customs, or binding classification advice.</em></p>
+
+  <label for="value">Estimated Import Value ($)</label>
+  <input type="number" id="value" placeholder="Example: 50000">
+
+  <label for="rate">Estimated Duty / Tariff Rate (%)</label>
+  <input type="number" id="rate" placeholder="Example: 12.5">
+
+  <label for="origin">Country of Origin Risk</label>
+  <select id="origin">
+    <option value="0">Low / Known origin</option>
+    <option value="1">Medium / Multiple suppliers or countries</option>
+    <option value="2">High / Unclear origin or multi-country manufacturing</option>
+  </select>
+
+  <label for="classification">HTS Classification Confidence</label>
+  <select id="classification">
+    <option value="0">High confidence</option>
+    <option value="1">Some uncertainty</option>
+    <option value="2">Unknown or supplier-provided only</option>
+  </select>
+
+  <label for="volume">Import Frequency</label>
+  <select id="volume">
+    <option value="0">One-time shipment</option>
+    <option value="1">Occasional shipments</option>
+    <option value="2">Recurring or high-volume shipments</option>
+  </select>
+
+  <button onclick="calculateRisk()">Calculate Risk</button>
+
+  <div id="result" class="result" style="display:none;"></div>
+
+  <h2>How to Use This Estimate</h2>
+  <p>
+    The estimated duty exposure is based only on import value and entered rate. The risk score
+    also considers origin uncertainty, HTS classification confidence, and import frequency.
+  </p>
+
+  <p>
+    For a deeper review, use our <a href="/intake.html">structured review form</a>.
+  </p>
+</main>
+
+<footer>
+  <p>© 2026 Tariff Bureau. All rights reserved.</p>
+</footer>
+
+<script>
+  function calculateRisk() {
+    var value = parseFloat(document.getElementById("value").value) || 0;
+    var rate = parseFloat(document.getElementById("rate").value) || 0;
+    var origin = parseInt(document.getElementById("origin").value);
+    var classification = parseInt(document.getElementById("classification").value);
+    var volume = parseInt(document.getElementById("volume").value);
+
+    var dutyExposure = value * (rate / 100);
+    var riskScore = origin + classification + volume;
+
+    var riskLevel = "Low";
+    var recommendation = "Monitor assumptions and confirm documentation before shipment.";
+
+    if (riskScore >= 3 && riskScore <= 4) {
+      riskLevel = "Moderate";
+      recommendation = "A structured tariff and compliance review is recommended before committing to shipment or pricing.";
+    }
+
+    if (riskScore >= 5) {
+      riskLevel = "High";
+      recommendation = "A deeper review is strongly recommended before goods move or purchase commitments are finalized.";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").innerHTML =
+      "<h2>Estimated Result</h2>" +
+      "<p><strong>Estimated Duty Exposure:</strong> $" + dutyExposure.toLocaleString(undefined, {maximumFractionDigits: 2}) + "</p>" +
+      "<p><strong>Risk Level:</strong> " + riskLevel + "</p>" +
+      "<p><strong>Recommendation:</strong> " + recommendation + "</p>" +
+      "<p><a href='/intake.html'>Start Your Tariff and Compliance Review</a></p>";
+  }
+</script>
+
+</body>
+</html>
