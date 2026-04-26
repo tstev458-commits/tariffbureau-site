@@ -1,15 +1,15 @@
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Start Your Tariff and Compliance Review | Tariff Bureau</title>
- 
+  <meta name="description" content="Submit your project details to begin a structured review of tariff exposure, country-of-origin considerations, and import compliance risk.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.tariffbureau.com/intake.html">
   <link rel="icon" href="/favicon.ico">
-<meta name="description" content="Submit your project details to begin a structured review of tariff exposure, country-of-origin considerations, and import compliance risk.">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,15 +17,19 @@
       background: #f9fafb;
       color: #111;
     }
-<header>
-  <strong>Tariff Bureau</strong>
-  <nav>
-    <a href="/index.html">Home</a>
-    <a href="/services.html">Services</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
-</header>
+
+    header, footer {
+      background: #111;
+      color: #fff;
+      padding: 18px 24px;
+    }
+
+    header a, footer a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 16px;
+    }
+
     main {
       max-width: 900px;
       margin: 40px auto;
@@ -41,9 +45,9 @@
     }
 
     label {
+      font-weight: 600;
       display: block;
       margin-bottom: 6px;
-      font-weight: 600;
     }
 
     input, textarea, select {
@@ -62,95 +66,110 @@
 
     button {
       grid-column: span 2;
-      padding: 12px;
+      padding: 14px;
+      background: #111;
+      color: #fff;
+      border: none;
       cursor: pointer;
+      font-weight: 700;
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <h1>Start Your Tariff and Compliance Review</h1>
-<p>
-  Submit your project details to begin a structured review of tariff exposure,
-  country-of-origin considerations, and import compliance factors.
-</p>
-    
-<form action="https://formspree.io/f/xvzdgzyo" method="POST">
-  <input type="hidden" name="_subject" value="Tariff Bureau Review Request">
-  <input type="hidden" name="_redirect" value="https://www.tariffbureau.com/thank-you.html">
-  <input type="text" name="_gotcha" style="display:none">
-  
-      
-      
 
-      <div>
-        <label>Name</label>
-        <input type="text" name="name" required>
-      </div>
+<header>
+  <strong>Tariff Bureau</strong>
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
 
-      <div>
-        <label>Company</label>
-        <input type="text" name="company">
-      </div>
+<main>
+  <h1>Start Your Tariff and Compliance Review</h1>
 
-      <div>
-        <label>Email</label>
-        <input type="email" name="_replyto" required>
-      </div>
+  <p>
+    Submit your project details to begin a structured review of tariff exposure,
+    country-of-origin considerations, and import compliance factors.
+  </p>
 
-      <div>
-        <label>Phone</label>
-        <input type="tel" name="phone">
-      </div>
+  <form action="https://formspree.io/f/xvzdgzyo" method="POST">
+    <input type="hidden" name="_subject" value="Tariff Bureau Review Request">
+    <input type="hidden" name="_redirect" value="https://www.tariffbureau.com/thank-you.html">
+    <input type="text" name="_gotcha" style="display:none">
 
-      <div class="full">
-        <label>Product Description</label>
-        <textarea name="product_description" required></textarea>
-      </div>
+    <div>
+      <label>Name</label>
+      <input type="text" name="name" required>
+    </div>
 
-      <div>
-        <label>Country of Origin</label>
-        <input type="text" name="country_of_origin" required>
-      </div>
+    <div>
+      <label>Company</label>
+      <input type="text" name="company">
+    </div>
 
-      <div>
-        <label>Target Markets</label>
-        <input type="text" name="target_markets">
-      </div>
+    <div>
+      <label>Email</label>
+      <input type="email" name="_replyto" required>
+    </div>
 
-      <div>
-        <label>Estimated Volume</label>
-        <input type="text" name="estimated_volume">
-      </div>
+    <div>
+      <label>Phone</label>
+      <input type="tel" name="phone">
+    </div>
 
-      <div>
-        <label>Urgency</label>
-        <select name="urgency">
-          <option value="">Select one</option>
-          <option value="standard">Standard</option>
-          <option value="urgent">Urgent</option>
-          <option value="not_sure">Not sure</option>
-        </select>
-      </div>
+    <div class="full">
+      <label>Product Description</label>
+      <textarea name="product_description" required></textarea>
+    </div>
 
-      <div class="full">
-        <label>Additional Details</label>
-        <textarea name="additional_details"></textarea>
-      </div>
+    <div>
+      <label>Country of Origin</label>
+      <input type="text" name="country_of_origin" required>
+    </div>
 
-      <div class="full">
-        <label>
-          <input type="checkbox" name="consent" required>
-          I understand this submission does not establish a client relationship until accepted in writing.
-        </label>
-      </div>
-<button type="submit">Submit for Review</button>
-      
-    </form>
+    <div>
+      <label>Target Markets</label>
+      <input type="text" name="target_markets">
+    </div>
 
-    <p><a href="/index.html">Home</a></p>
-  </main>
+    <div>
+      <label>Estimated Volume</label>
+      <input type="text" name="estimated_volume">
+    </div>
+
+    <div>
+      <label>Urgency</label>
+      <select name="urgency">
+        <option value="">Select one</option>
+        <option value="standard">Standard</option>
+        <option value="urgent">Urgent</option>
+        <option value="not_sure">Not sure</option>
+      </select>
+    </div>
+
+    <div class="full">
+      <label>Additional Details</label>
+      <textarea name="additional_details"></textarea>
+    </div>
+
+    <div class="full">
+      <label>
+        <input type="checkbox" name="consent" required>
+        I understand this submission does not establish a client relationship until accepted in writing.
+      </label>
+    </div>
+
+    <button type="submit">Submit for Review</button>
+  </form>
+</main>
+
+<footer>
+  <p>© 2026 Tariff Bureau. All rights reserved.</p>
+</footer>
+
 </body>
-</html>
-     
+</html>    
