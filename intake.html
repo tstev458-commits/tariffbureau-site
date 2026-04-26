@@ -1,7 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+ <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f9fafb;
+    color: #111;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  .full {
+    grid-column: span 2;
+  }
+
+  button {
+    grid-column: span 2;
+    padding: 12px;
+    cursor: pointer;
+  }
+</style> <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Intake | Tariff Bureau</title>
   <meta name="description" content="Submit project details to Tariff Bureau for tariff, compliance, and import assessment intake.">
