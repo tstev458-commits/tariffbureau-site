@@ -15,7 +15,21 @@
 
   <p>Submit your project details to begin your tariff and compliance assessment.</p>
 
-  <form action="https://formspree.io/f/xvzdgzyo" method="POST">
+  
+
+   <input type="hidden" name="_subject" value="The Tariff Bureau Client Intake">
+
+    <label>
+      Name<br>
+      <input type="text" name="name" required>
+    </label><br><br>
+
+    <label>
+      Company<br>
+      <input type="text" name="company">
+    </label><br><br>
+
+  <label><form action="https://formspree.io/f/xvzdgzyo" method="POST">
 
   <input type="hidden" name="_subject" value="The Tariff Bureau Client Intake">
   <input type="hidden" name="_redirect" value="https://www.tariffbureau.com/thank-you.html">
@@ -41,25 +55,49 @@
     <input type="tel" name="phone">
   </label><br><br>
 
-  <!-- rest unchanged -->
+  <label>
+    Product Description<br>
+    <textarea name="product_description" required></textarea>
+  </label><br><br>
+
+  <label>
+    Country of Origin<br>
+    <input type="text" name="country_of_origin" required>
+  </label><br><br>
+
+  <label>
+    Target Markets<br>
+    <input type="text" name="target_markets">
+  </label><br><br>
+
+  <label>
+    Estimated Volume<br>
+    <input type="text" name="estimated_volume">
+  </label><br><br>
+
+  <label>
+    Urgency<br>
+    <select name="urgency">
+      <option value="">Select one</option>
+      <option value="standard">Standard</option>
+      <option value="urgent">Urgent</option>
+      <option value="not_sure">Not sure</option>
+    </select>
+  </label><br><br>
+
+  <label>
+    Additional Details<br>
+    <textarea name="additional_details"></textarea>
+  </label><br><br>
+
+  <label>
+    <input type="checkbox" name="consent" required>
+    I understand this submission does not establish a client relationship until accepted in writing.
+  </label><br><br>
 
   <button type="submit">Submit Intake</button>
 
 </form>
-
-   <input type="hidden" name="_subject" value="The Tariff Bureau Client Intake">
-
-    <label>
-      Name<br>
-      <input type="text" name="name" required>
-    </label><br><br>
-
-    <label>
-      Company<br>
-      <input type="text" name="company">
-    </label><br><br>
-
-  <label>
   Email<br>
   <input type="email" name="_replyto" required>
 </label><br><br>
