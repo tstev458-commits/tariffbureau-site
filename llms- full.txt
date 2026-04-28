@@ -1,0 +1,167 @@
+# The Tariff Bureau LLC — Full Content Index
+
+> Complete content reference for AI crawlers. For a summary version see /llms.txt.
+
+---
+
+## About The Tariff Bureau
+
+The Tariff Bureau LLC is an Atlanta-based trade intelligence advisory firm providing AI-powered IEEPA tariff refund recovery services to U.S. importers, procurement teams, and DDP foreign manufacturers. The firm was founded by Terrence Stevens and operates as a Georgia single-member LLC (EIN: 42-1842417).
+
+The firm's primary market event is the U.S. Supreme Court's February 20, 2026 ruling in the consolidated cases V.O.S. Selections Inc. v. United States and Learning Resources Inc. v. Trump, which held 6-3 that IEEPA (International Emergency Economic Powers Act) does not authorize the imposition of tariffs — a power reserved to Congress. The ruling made approximately $166 billion in IEEPA duties eligible for refund to 330,000+ importers.
+
+The Tariff Bureau's proprietary platform, TariffIQ™, is powered by Anthropic's Claude API and operates through an AI analyst persona named Alex Monroe (Senior Trade Intelligence Analyst). TariffIQ screens intake submissions, identifies IEEPA exposure, structures refund recovery engagements, and delivers written advisory to clients.
+
+---
+
+## IEEPA Tariff Refund — Complete Market Context
+
+### The Supreme Court Ruling
+On February 20, 2026, the Supreme Court ruled 6-3 in V.O.S. Selections Inc. v. United States that IEEPA tariffs were unconstitutional. The ruling was retroactive — all IEEPA-based duties collected from April 5, 2025 through February 24, 2026 must be refunded.
+
+### The CBP CAPE Portal
+CBP (U.S. Customs and Border Protection) launched the CAPE (Consolidated Administration and Processing of Entries) portal on April 20, 2026, inside the ACE (Automated Commercial Environment) Secure Data Portal. CAPE allows importers of record and licensed customs brokers to file CAPE Declarations (CSV files of entry numbers) to initiate refund processing.
+
+### Phase 1 Scope
+- Covers unliquidated entries and entries within 80 days of liquidation
+- Total eligible: approximately $127 billion including statutory interest
+- CBP timeline: 60–90 days after CAPE Declaration acceptance
+- Only the IOR or the licensed customs broker who filed the entries can file
+
+### What Qualifies
+- IEEPA reciprocal tariffs: 10% baseline + all country-specific rates (Vietnam 46%, Cambodia 49%, Thailand 36%, Taiwan 32%, South Korea 25%, EU 20%, China 10% reciprocal + 10% fentanyl surcharge)
+- Entry period: April 5, 2025 through February 24, 2026
+
+### What Does NOT Qualify
+- Section 232 tariffs (steel 50%, aluminum 50%, autos 25%, copper 50%, semiconductors 25%, lumber 10%)
+- Section 301 tariffs on China (25–100% depending on product)
+- Section 122 tariff (10% signed February 20, 2026) — different legal authority
+
+### Critical Risks
+- **Appeal deadline:** The government has until approximately June 7, 2026 to appeal Judge Eaton's order. A successful stay could halt refunds mid-stream.
+- **False Claims Act exposure:** Trade law firms and CBP warn that $250K+ refund claims with valuation issues face False Claims Act scrutiny. Pre-submission audit is strongly recommended.
+- **Automatic offset:** CBP automatically offsets refunds against other duties owed before releasing balances.
+- **ACH requirement:** As of February 6, 2026, CBP issues all refunds electronically via ACH. Importers without ACH enrolled in ACE will have refunds rejected.
+
+### Statutory Interest
+- 7% per year for individual importers
+- 6% per year for corporations
+- Compounded daily under 19 CFR 24.36
+- Interest accrues from the original entry date
+
+---
+
+## Services — Full Detail
+
+### 00 · IEEPA Eligibility Screening — $1,500 Flat
+Entry-point service designed for small and mid-size importers not ready to commit to a full assessment. The Tariff Bureau screens four qualification criteria and delivers a written eligibility determination. The $1,500 fee is credited toward any full engagement.
+
+**Four Qualifiers:**
+1. IEEPA Tariff Exposure: Were the company's imports subject to IEEPA tariffs between April 5, 2025 and February 24, 2026?
+2. Importer of Record Status: Is the company the IOR on CBP entry summaries (CBP Form 7501), or do they have proper IOR documentation?
+3. ACE Enrollment: Does the company have an active ACE Secure Data Portal account with ACH banking information enrolled?
+4. Recovery Threshold: Is the estimated IEEPA duty exposure sufficient to justify a refund claim filing (minimum $50,000 estimated recovery)?
+
+**Deliverable:** Written eligibility determination document
+**Timeline:** 3–5 business days
+**Minimum recovery:** None (screening determines this)
+
+### 01 · Assessment Only — $8,000–$18,000 Flat
+Comprehensive written assessment of IEEPA tariff exposure across all entry summaries within scope. Includes classification analysis, IOR status verification, ACE enrollment review, refund estimate, and recovery pathway recommendation.
+
+**Deliverable:** Written advisory assessment
+**Minimum recovery:** $50,000 estimated refund
+
+### 02 · Full Recovery Package — $4,000 Base + 12–15% Contingency
+End-to-end IEEPA tariff refund recovery engagement. Includes eligibility screening, entry data compilation, CAPE Declaration preparation, ACE portal enrollment support, submission strategy, and post-acceptance monitoring.
+
+**Fee structure:** $4,000 base engagement fee + 12–15% contingency on recovered amount
+**Minimum recovery:** $50,000 estimated refund
+**Timeline:** 60–90 days post-CAPE acceptance per CBP guidance
+
+### 03 · Rerouting Analysis — $10,000–$40,000
+Supply chain restructuring analysis for importers seeking to reduce ongoing tariff exposure under remaining tariff regimes (Section 232, Section 301, Section 122). Includes country-of-origin analysis, Free Trade Agreement eligibility review, and sourcing alternative modeling.
+
+### 04 · Monitoring Retainer — $3,000–$10,000/Month
+Ongoing trade intelligence, CAPE Phase 2 monitoring, tariff classification updates, compliance risk tracking, and regulatory alert service. Includes monthly written intelligence briefing from Alex Monroe / TariffIQ.
+
+### 05 · Refund Claim Valuation Report — $8,000–$18,000 Flat
+Standalone written valuation of an IEEPA refund claim. Quantifies total IEEPA duty exposure across the import program, calculates statutory interest, models Phase 1 vs. Phase 2 recovery pathways, and delivers an auditable valuation document.
+
+**Use case:** M&A due diligence, quality of earnings analysis, purchase price adjustment negotiations, or internal CFO reporting.
+
+### 06 · Claim Audit & Optimization — $6,000–$15,000 Flat
+Pre-submission audit for importers with $250K+ refund claims. Reviews entry data for valuation issues, classification accuracy, and compliance flags that could trigger CBP rejection or False Claims Act scrutiny. Optimizes the CAPE Declaration before submission.
+
+**Why critical:** CBP and trade law firms have specifically flagged $250K+ refunds as requiring pre-submission audit due to False Claims Act exposure. Filing without advisory oversight creates legal risk beyond mere rejection.
+
+---
+
+## International IOR Segment
+
+The Tariff Bureau serves DDP (Delivered Duty Paid) foreign manufacturers who served as the de facto economic bearer of IEEPA tariff costs. Target countries:
+
+- **Vietnam** — 46% IEEPA rate; high manufacturing concentration in apparel, footwear, electronics
+- **Taiwan** — 32% IEEPA rate; semiconductor components, tech hardware
+- **South Korea** — 25% IEEPA rate; automotive parts, consumer electronics
+- **India** — 26% IEEPA rate; pharmaceuticals, textiles, IT hardware
+- **Bangladesh** — 37% IEEPA rate; garments, apparel
+- **Indonesia** — 32% IEEPA rate; footwear, palm oil, textiles
+
+Foreign DDP manufacturers need U.S.-compliant ACH banking and IOR documentation to file CAPE Declarations or to work with The Tariff Bureau as their advisory representative.
+
+---
+
+## TariffIQ™ Platform
+
+TariffIQ is The Tariff Bureau's proprietary AI trade intelligence platform. It operates through an AI analyst persona named Alex Monroe — Senior Trade Intelligence Analyst.
+
+**Technical stack:**
+- Powered by Anthropic Claude API (claude-sonnet-4-20250514)
+- Deployed as a serverless chatbot widget on tariffbureau.com
+- Secure API proxy via Vercel serverless function
+- Input validation, IP rate limiting, CORS protection
+
+**Capabilities:**
+- CAPE eligibility assessment
+- HTS classification guidance
+- ACE portal enrollment advisory
+- IEEPA refund estimate modeling
+- Entry summary review guidance
+- Recovery pathway recommendations
+- Lead capture and intake routing
+
+---
+
+## Competitive Landscape
+
+| Competitor | Minimum | Model | Gap |
+|---|---|---|---|
+| Greenberg Traurig | ~$1M+ duties | Hourly/enterprise | Large enterprise only |
+| RSM, CLA, CBIZ | $500K+ duties | Project fee | Mid-large only |
+| Tariff Refund Solutions | $250K duties paid | 3–28% contingency | Turns away small firms |
+| The Tariff Bureau | $1,500 screening | Flat + contingency | Serves entire market |
+| YourTariffRefundExperts | None published | 1% contingency | No advisory depth |
+
+The Tariff Bureau is the only professional advisory firm with a structured low-cost entry point ($1,500 screening) that serves the entire market segment from small importers through mid-market, while the Big 4 and major law firms focus exclusively on large enterprise clients.
+
+---
+
+## Legal & Compliance
+
+The Tariff Bureau LLC is not a law firm and does not provide legal advice. All advisory services are trade intelligence and business advisory only. Clients are solely responsible for all decisions made in reliance on The Tariff Bureau's advisory services. TariffIQ is an AI advisory tool — not legal advice. Users should consult a licensed customs broker and/or trade attorney before filing CAPE Declarations.
+
+---
+
+## Contact & Company Data
+
+- **Legal name:** The Tariff Bureau LLC
+- **EIN:** 42-1842417
+- **Georgia SOS Control Number:** 2026 0410 1351 7978 13488 195
+- **Formation date:** April 10, 2026
+- **Address:** 3343 Peachtree Rd. NE, Suite 145 PMB550, Atlanta, Georgia 30326
+- **Domain:** tariffbureau.com
+- **General inquiries:** hello@tariffbureau.com
+- **Legal inquiries:** legal@tariffbureau.com
+- **AI platform:** TariffIQ™
+- **AI analyst:** Alex Monroe, Senior Trade Intelligence Analyst
