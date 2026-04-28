@@ -9,6 +9,7 @@
     { "src": "/about",     "dest": "/about.html" },
     { "src": "/privacy",   "dest": "/privacy.html" },
     { "src": "/thank-you", "dest": "/thank-you.html" },
-    { "src": "/api/chat",  "dest": "/api/chat.js" }
+    { "src": "/terms",     "dest": "/terms.html" },
+{ "src": "/api/chat",  "dest": "/api/chat.js" }
   ]
 }
