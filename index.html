@@ -3,349 +3,711 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Tariff Bureau | Tariff, Import & Compliance Advisory</title>
-  <meta name="description" content="Tariff Bureau provides tariff, import, country-of-origin, classification, and compliance advisory support for businesses." />
+  <title>The Tariff Bureau | IEEPA Tariff Refund Recovery</title>
+  <meta name="description" content="AI-powered trade intelligence and IEEPA tariff refund recovery advisory. CBP CAPE portal is live — 92% of eligible importers not enrolled. Powered by TariffIQ." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.tariffbureau.com/" />
   <link rel="icon" href="/favicon.ico" />
-
-  <meta property="og:title" content="Tariff Bureau | Import & Tariff Advisory" />
-  <meta property="og:description" content="Tariff, import, classification, origin, and compliance advisory for businesses." />
+  <meta property="og:title" content="The Tariff Bureau | IEEPA Tariff Refund Recovery" />
+  <meta property="og:description" content="92% of eligible importers are not enrolled in CBP CAPE. The refund window is open now. Powered by TariffIQ." />
   <meta property="og:url" content="https://www.tariffbureau.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.tariffbureau.com/tariff-analysis.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:     #070707;
+      --navy:      #09101f;
+      --navy-mid:  #0f1a2e;
+      --navy-light:#182338;
+      --gold:      #c8922a;
+      --gold-lt:   #e2af46;
+      --gold-pale: #f5dfa0;
+      --red:       #9b1c1c;
+      --red-lt:    #dc2626;
+      --red-pale:  #fca5a5;
+      --white:     #f8f4ee;
+      --cream:     #ddd5c5;
+      --muted:     #7a8ba8;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --mono:      'DM Mono', 'Courier New', monospace;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
+      font-family: var(--sans);
+      background: var(--black);
+      color: var(--white);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a { text-decoration: none; color: inherit; }
 
+    /* TOPBAR */
     .topbar {
-      background: #020617;
-      color: #cbd5e1;
+      background: var(--red);
+      color: #fff;
       text-align: center;
-      padding: 9px 6%;
-      font-size: 14px;
+      padding: 10px 6%;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.07em;
     }
+    .topbar strong { color: var(--gold-pale); font-weight: 600; }
 
+    /* HEADER */
     header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 20px 8%;
+      background: rgba(7,7,7,0.97);
+      border-bottom: 1px solid rgba(200,146,42,0.2);
+      backdrop-filter: blur(16px);
+      padding: 0 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 70px;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 300;
     }
 
-    
-    nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      font-size: 15px;
-      font-weight: 700;
-      color: #334155;
-    }.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 24px;
-  font-weight: 900;
-  color: #0f172a;
-  letter-spacing: -0.4px;
-}
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-logo { width: 42px; height: 42px; object-fit: contain; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--white); letter-spacing: 0.03em; }
+    .brand-sub { font-family: var(--mono); font-size: 9.5px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; }
 
-.brand img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-}
-
-    nav a:hover { color: #0369a1; }
+    nav { display: flex; gap: 26px; align-items: center; font-size: 13.5px; font-weight: 500; color: var(--muted); }
+    nav a:hover { color: var(--gold-lt); transition: color 0.18s; }
 
     .nav-cta {
-      background: #0369a1;
-      color: #ffffff;
-      padding: 10px 16px;
-      border-radius: 8px;
+      background: var(--gold);
+      color: var(--black);
+      padding: 8px 18px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: background 0.18s;
+    }
+    .nav-cta:hover { background: var(--gold-lt); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 70% 55% at 65% 10%, rgba(200,146,42,0.08), transparent 65%),
+        radial-gradient(ellipse 50% 40% at 15% 80%, rgba(155,28,28,0.09), transparent 60%),
+        linear-gradient(155deg, var(--black) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+      padding: 96px 7% 88px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero {
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
       background:
-        linear-gradient(135deg, rgba(2,6,23,0.94), rgba(12,74,110,0.92)),
-        url('/tariff-analysis.jpg') center/cover no-repeat;
-      color: #ffffff;
-      padding: 105px 8%;
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(200,146,42,0.03) 60px, rgba(200,146,42,0.03) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(200,146,42,0.02) 60px, rgba(200,146,42,0.02) 61px);
+      pointer-events: none;
     }
 
     .hero-wrap {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: auto;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(155,28,28,0.15);
+      border: 1px solid rgba(155,28,28,0.4);
+      color: var(--red-pale);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .eyebrow-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--red-lt);
+      animation: blink 1.8s infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 66px;
+      font-weight: 300;
+      line-height: 1.03;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    h1 .gold-em { font-style: italic; color: var(--gold-lt); }
+    h1 .red-em  { font-style: italic; color: #ef4444; }
+
+    .ruling-bar {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.055em;
+      padding: 11px 0;
+      border-top: 1px solid rgba(200,146,42,0.18);
+      border-bottom: 1px solid rgba(200,146,42,0.18);
+      margin-bottom: 26px;
+      line-height: 1.8;
+    }
+
+    .ruling-bar .hi   { color: var(--gold-lt); }
+    .ruling-bar .alert{ color: #f87171; }
+
+    .hero-lede {
+      font-size: 18px;
+      color: var(--cream);
+      max-width: 580px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons { display: flex; gap: 13px; flex-wrap: wrap; margin-bottom: 34px; }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 14.5px;
+      transition: all 0.18s;
+      cursor: pointer;
+    }
+
+    .btn-red  { background: var(--red); color: #fff; }
+    .btn-red:hover  { background: var(--red-lt); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--black); }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid rgba(200,146,42,0.35);
+      color: var(--gold-pale);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+
+    .trust-row { display: flex; gap: 7px; flex-wrap: wrap; }
+    .trust-pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+
+    /* CHATBOT PANEL */
+    .hero-panel {
+      background: var(--navy);
+      border: 1px solid rgba(200,146,42,0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .hero-panel::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--gold-lt));
+    }
+
+    .panel-topbar {
+      background: var(--navy-mid);
+      border-bottom: 1px solid rgba(200,146,42,0.15);
+      padding: 13px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-dots { display: flex; gap: 6px; }
+    .panel-dots span { width: 10px; height: 10px; border-radius: 50%; display: block; }
+    .panel-dots span:nth-child(1) { background: #ef4444; }
+    .panel-dots span:nth-child(2) { background: var(--gold); }
+    .panel-dots span:nth-child(3) { background: #22c55e; }
+
+    .panel-label { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.1em; }
+
+    .panel-status {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: #4ade80;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .panel-status::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: blink 2.2s infinite;
+    }
+
+    .chat-messages {
+      height: 320px;
+      overflow-y: auto;
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scroll-behavior: smooth;
+    }
+
+    .chat-messages::-webkit-scrollbar { width: 3px; }
+    .chat-messages::-webkit-scrollbar-thumb { background: rgba(200,146,42,0.3); border-radius: 4px; }
+
+    .msg { display: flex; gap: 10px; align-items: flex-start; }
+    .msg-user { flex-direction: row-reverse; }
+
+    .msg-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #9b1c1c);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--black);
+      flex-shrink: 0;
+      border: 1px solid rgba(200,146,42,0.35);
+    }
+
+    .msg-user .msg-avatar {
+      background: rgba(200,146,42,0.12);
+      border-color: rgba(200,146,42,0.22);
+      color: var(--gold-lt);
+    }
+
+    .msg-name { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 5px; }
+    .msg-user .msg-name { color: var(--muted); text-align: right; }
+
+    .msg-bubble {
+      background: var(--navy-light);
+      border: 1px solid rgba(200,146,42,0.12);
+      border-radius: 4px 12px 12px 12px;
+      padding: 12px 14px;
+      font-size: 13.5px;
+      color: var(--cream);
+      line-height: 1.62;
+    }
+
+    .msg-user .msg-bubble {
+      background: rgba(200,146,42,0.08);
+      border-color: rgba(200,146,42,0.2);
+      border-radius: 12px 4px 12px 12px;
+      color: var(--white);
+    }
+
+    .typing-indicator { display: flex; gap: 4px; align-items: center; padding: 10px 14px; }
+    .typing-indicator span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: typing 1.2s infinite;
+    }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing { 0%,80%,100%{transform:scale(0.7);opacity:0.4;} 40%{transform:scale(1);opacity:1;} }
+
+    .chat-input-bar { display: flex; border-top: 1px solid rgba(200,146,42,0.16); background: var(--navy-mid); }
+
+    .chat-input-bar input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 14px 16px;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      color: var(--white);
+    }
+
+    .chat-input-bar input::placeholder { color: var(--muted); }
+
+    .send-btn {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 14px 20px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.18s;
+      white-space: nowrap;
+    }
+    .send-btn:hover { background: var(--gold-lt); }
+    .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .chat-disclaimer {
+      background: var(--navy);
+      padding: 9px 18px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* SECTIONS */
+    section { padding: 88px 7%; }
+
+    .section-head { max-width: 820px; margin: 0 auto 50px; text-align: center; }
+
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      font-family: var(--serif);
+      font-size: 44px;
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 em       { font-style: italic; color: var(--gold-lt); }
+    .section-head h2 .r       { font-style: italic; color: #ef4444; }
+    .section-head p           { color: var(--muted); font-size: 17px; line-height: 1.65; }
+
+    /* CRISIS BAND */
+    .crisis {
+      background: var(--navy);
+      border-top: 1px solid rgba(200,146,42,0.14);
+      border-bottom: 1px solid rgba(200,146,42,0.14);
+      padding: 52px 7%;
+    }
+
+    .crisis-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 26px;
+    }
+
+    .crisis-stat {
+      text-align: center;
+      padding: 28px 20px;
+      border: 1px solid rgba(200,146,42,0.15);
+      border-radius: 12px;
+      background: rgba(200,146,42,0.03);
+    }
+
+    .crisis-stat.red-stat {
+      border-color: rgba(155,28,28,0.35);
+      background: rgba(155,28,28,0.06);
+    }
+
+    .crisis-stat .big {
+      font-family: var(--serif);
+      font-size: 56px;
+      font-weight: 600;
+      color: var(--gold-lt);
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .crisis-stat.red-stat .big { color: #f87171; }
+
+    .crisis-stat .label { font-size: 14px; color: var(--cream); line-height: 1.5; }
+
+    .crisis-stat .sub {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.07em;
+      display: block;
+      margin-top: 7px;
+    }
+
+    /* SERVICES */
+    .services-sec { background: var(--black); }
+
+    .grid-3 {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .svc-card {
+      background: var(--navy);
+      border: 1px solid rgba(200,146,42,0.14);
+      border-radius: 13px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc-card:hover { border-color: rgba(200,146,42,0.42); transform: translateY(-3px); }
+
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .svc-card:hover::after { opacity: 1; }
+
+    .svc-num {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 11px;
+      display: block;
+    }
+
+    .svc-card h3 { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--white); margin-bottom: 7px; }
+    .svc-price { font-family: var(--mono); font-size: 11.5px; color: var(--gold-lt); letter-spacing: 0.05em; margin-bottom: 12px; display: block; }
+    .svc-card p { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+
+    /* PROCESS */
+    .process-sec {
+      background: var(--navy);
+      border-top: 1px solid rgba(200,146,42,0.1);
+    }
+
+    .steps {
+      max-width: 860px;
+      margin: auto;
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      background: var(--navy-mid);
+      border: 1px solid rgba(200,146,42,0.13);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 24px 26px 24px 68px;
+      position: relative;
+      counter-increment: step;
+    }
+
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 18px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--mono);
+      font-size: 24px;
+      color: var(--gold);
+      opacity: 0.55;
+    }
+
+    .step strong { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--white); display: block; margin-bottom: 5px; }
+    .step p { color: var(--muted); font-size: 14px; }
+
+    /* ANALYST */
+    .analyst-sec { background: var(--black); }
+
+    .analyst-inner {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
       gap: 56px;
       align-items: center;
     }
 
-    .eyebrow {
-      display: inline-block;
-      background: rgba(14,165,233,0.18);
-      border: 1px solid rgba(125,211,252,0.45);
-      color: #bae6fd;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 22px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    h1 {
-      font-size: 58px;
-      line-height: 1.05;
-      letter-spacing: -1.8px;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      max-width: 720px;
-      color: #dbeafe;
-      margin-bottom: 34px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 16px;
-    }
-
-    .btn-primary {
-      background: #38bdf8;
-      color: #082f49;
-    }
-
-    .btn-secondary {
-      border: 1px solid #93c5fd;
-      color: #ffffff;
-    }
-
-    .trust-row {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: #cbd5e1;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .hero-panel {
-      background: rgba(255,255,255,0.96);
-      color: #0f172a;
-      padding: 32px;
-      border-radius: 22px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-    }
-
-    .hero-panel h2 {
-      font-size: 28px;
-      margin-bottom: 14px;
-    }
-
-    .hero-panel p {
-      color: #475569;
-      font-size: 16px;
-      margin-bottom: 22px;
-    }
-
-    .checklist {
-      list-style: none;
-      display: grid;
-      gap: 13px;
-    }
-
-    .checklist li {
-      padding-left: 28px;
-      position: relative;
-      color: #334155;
-      font-weight: 700;
-    }
-
-    .checklist li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #0284c7;
-      font-weight: 900;
-    }
-
-    section {
-      padding: 82px 8%;
-    }
-
-    .section-head {
-      max-width: 820px;
-      margin: 0 auto 46px;
+    .analyst-card {
+      background: var(--navy);
+      border: 1px solid rgba(200,146,42,0.26);
+      border-radius: 16px;
+      padding: 30px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .section-head h2 {
-      font-size: 40px;
-      line-height: 1.15;
-      letter-spacing: -0.8px;
-      margin-bottom: 16px;
+    .analyst-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--gold-lt));
     }
 
-    .section-head p {
-      color: #475569;
-      font-size: 18px;
+    .analyst-avatar-wrap {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      margin: 0 auto 16px;
+      background: var(--navy-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 38px;
+      color: var(--gold-lt);
+      overflow: hidden;
     }
 
-    .grid {
-      max-width: 1180px;
-      margin: auto;
+    .analyst-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .analyst-name { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .analyst-title { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; }
+
+    .analyst-body h2 { font-family: var(--serif); font-size: 38px; font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 18px; }
+    .analyst-body h2 em { color: var(--gold-lt); font-style: italic; }
+    .analyst-body p { color: var(--muted); font-size: 15.5px; line-height: 1.7; margin-bottom: 14px; }
+
+    .tariffiq-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,146,42,0.09);
+      border: 1px solid rgba(200,146,42,0.26);
+      border-radius: 7px;
+      padding: 10px 16px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--gold-pale);
+      letter-spacing: 0.06em;
+      margin-top: 6px;
+    }
+
+    /* IOR */
+    .ior-sec { background: var(--navy); border-top: 1px solid rgba(200,146,42,0.09); }
+
+    .ior-grid {
+      max-width: 1100px;
+      margin: 46px auto 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
+      gap: 15px;
     }
 
-    .card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 14px 36px rgba(15,23,42,0.07);
-    }
+    .ior-card { background: var(--navy-mid); border: 1px solid rgba(200,146,42,0.11); border-radius: 10px; padding: 20px; }
+    .ior-country { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 7px; }
+    .ior-card h4 { font-family: var(--serif); font-size: 17px; color: var(--white); margin-bottom: 7px; }
+    .ior-card p { color: var(--muted); font-size: 13px; line-height: 1.55; }
 
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #475569;
-    }
-
-    .process {
-      background: #eef6fb;
-    }
-
-    .steps {
-      max-width: 980px;
-      margin: auto;
-      display: grid;
-      gap: 18px;
-    }
-
-    .step {
-      background: #ffffff;
-      border-left: 6px solid #0284c7;
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 10px 28px rgba(15,23,42,0.06);
-    }
-
-    .step strong {
-      color: #0369a1;
-    }
-
-    .cta {
-      background: #0f172a;
-      color: #ffffff;
+    /* CTA */
+    .cta-sec {
+      background: var(--black);
+      border-top: 1px solid rgba(155,28,28,0.28);
       text-align: center;
+      padding: 96px 7%;
+      position: relative;
+      overflow: hidden;
     }
 
-    .cta h2 {
-      font-size: 42px;
-      margin-bottom: 16px;
+    .cta-sec::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(155,28,28,0.09), transparent);
+      pointer-events: none;
     }
 
-    .cta p {
-      max-width: 760px;
-      margin: 0 auto 30px;
-      color: #dbeafe;
-      font-size: 18px;
-    }
+    .cta-sec h2 { font-family: var(--serif); font-size: 52px; font-weight: 300; color: var(--white); margin-bottom: 16px; position: relative; }
+    .cta-sec h2 em { color: var(--gold-lt); font-style: italic; }
+    .cta-sec h2 .r { color: #ef4444; font-style: italic; }
+    .cta-sec p { max-width: 660px; margin: 0 auto 36px; color: var(--muted); font-size: 17px; line-height: 1.65; position: relative; }
 
+    /* FOOTER */
     footer {
-      background: #020617;
-      color: #94a3b8;
-      padding: 38px 8%;
-      text-align: center;
-      font-size: 14px;
+      background: var(--navy);
+      border-top: 1px solid rgba(200,146,42,0.13);
+      color: var(--muted);
+      padding: 36px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    footer a { color: #38bdf8; }
+    .footer-brand { font-family: var(--serif); font-size: 16px; color: var(--cream); }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    footer a { color: var(--gold); }
+    footer a:hover { color: var(--gold-lt); }
 
-    @media (max-width: 900px) {
-      header {
-        padding: 18px 6%;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      .hero {
-        padding: 72px 6%;
-      }
-
-      .hero-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 64px 6%;
-      }
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      header { padding: 0 5%; }
+      nav { gap: 14px; font-size: 12.5px; }
+      .hero { padding: 76px 5% 64px; min-height: unset; }
+      .hero-wrap { grid-template-columns: 1fr; gap: 40px; }
+      h1 { font-size: 44px; }
+      .crisis-inner, .grid-3, .ior-grid { grid-template-columns: 1fr; }
+      .analyst-inner { grid-template-columns: 1fr; gap: 30px; }
+      .analyst-card { max-width: 260px; margin: auto; }
+      section { padding: 60px 5%; }
+      footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
-
 <body>
 
+  <!-- TOPBAR -->
   <div class="topbar">
-    Tariff, import, classification, origin, and compliance advisory for businesses.
+    <strong>ALERT:</strong> CBP CAPE Portal now live — <strong>92% of eligible importers not enrolled</strong> — IEEPA refund window is open now
   </div>
 
+  <!-- HEADER -->
   <header>
-   <a class="brand" href="/index.html">
-  <img src="/tariff-bureau-logo.png" alt="Tariff Bureau logo">
-  <span>Tariff Bureau</span>
-</a>
-
+    <a class="brand" href="/index.html">
+      <img class="brand-logo" src="/tariff-bureau-logo.png" alt="The Tariff Bureau" onerror="this.style.display='none'" />
+      <div class="brand-text">
+        <span class="brand-name">The Tariff Bureau</span>
+        <span class="brand-sub">Powered by TariffIQ&trade;</span>
+      </div>
+    </a>
     <nav>
       <a href="/index.html">Home</a>
       <a href="/services.html">Services</a>
@@ -358,158 +720,333 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-wrap">
-
         <div>
-          <div class="eyebrow">Import Risk Advisory</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>IEEPA Tariff Refund Recovery — Live</div>
 
-          <h1>Tariff strategy for businesses that import, source, and sell globally.</h1>
+          <h1>Recover what<br/>the tariffs<br/><span class="red-em">cost you.</span></h1>
 
-          <p>
-            Tariff Bureau helps companies evaluate tariff exposure, classification issues,
-            country-of-origin risk, supplier documentation, and practical compliance next steps.
+          <div class="ruling-bar">
+            <span class="hi">Learning Resources Inc. v. Trump</span>&nbsp;·&nbsp;Feb. 2026&nbsp;·&nbsp;SCOTUS struck down all IEEPA tariffs<br/>
+            <span class="alert">$100B–$175B estimated refund pool now open&nbsp;·&nbsp;CBP CAPE portal launched April 2026</span>
+          </div>
+
+          <p class="hero-lede">
+            The Tariff Bureau helps importers, DDP foreign manufacturers, and procurement teams
+            enroll in CBP CAPE, recover IEEPA tariff overpayments, and navigate classification
+            and compliance risk — powered by TariffIQ&trade;.
           </p>
 
           <div class="hero-buttons">
-            <a class="btn btn-primary" href="/intake.html">Start an Intake</a>
-            <a class="btn btn-secondary" href="/services.html">Explore Services</a>
+            <a class="btn btn-red" href="/intake.html">Begin Intake Now</a>
+            <a class="btn btn-gold" href="#chatbot">Ask Alex Monroe →</a>
+            <a class="btn btn-outline" href="/services.html">Services</a>
           </div>
 
           <div class="trust-row">
-            <span>Classification Review</span>
-            <span>Origin Analysis</span>
-            <span>Duty Exposure</span>
-            <span>Compliance Support</span>
+            <span class="trust-pill">CAPE Enrollment</span>
+            <span class="trust-pill">Refund Recovery</span>
+            <span class="trust-pill">Classification Review</span>
+            <span class="trust-pill">Origin Analysis</span>
+            <span class="trust-pill">IOR Advisory</span>
           </div>
         </div>
 
-        <div class="hero-panel">
-          <h2>Import Risk Review</h2>
-          <p>
-            A structured advisory review focused on product details, documentation,
-            origin, tariff exposure, and business decision support.
-          </p>
+        <!-- CHATBOT -->
+        <div class="hero-panel" id="chatbot">
+          <div class="panel-topbar">
+            <div class="panel-dots"><span></span><span></span><span></span></div>
+            <span class="panel-label">TariffIQ&trade; · Alex Monroe</span>
+            <span class="panel-status">Online</span>
+          </div>
 
-          <ul class="checklist">
-            <li>Product and supplier documentation review</li>
-            <li>Tariff classification risk screening</li>
-            <li>Country-of-origin issue spotting</li>
-            <li>Duty exposure and sourcing implications</li>
-            <li>Practical advisory next steps</li>
-          </ul>
-        </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="msg">
+              <div class="msg-avatar">AM</div>
+              <div>
+                <div class="msg-name">Alex Monroe · TariffIQ</div>
+                <div class="msg-bubble">
+                  Good day. I'm Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau.<br><br>
+                  The CBP CAPE portal is now live for IEEPA tariff refund claims. If your company imports goods subject to IEEPA tariffs, you may be owed a significant refund — and the filing window is time-limited.<br><br>
+                  Ask me about CAPE eligibility, the IEEPA refund process, ACE enrollment, classification risk, or what a recovery engagement looks like.
+                </div>
+              </div>
+            </div>
+          </div>
 
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <h2>Practical advisory for tariff and import decisions</h2>
-        <p>
-          Tariff Bureau supports importers, vendors, manufacturers, founders,
-          procurement teams, and trade-facing businesses.
-        </p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Tariff Classification</h3>
-          <p>
-            Review product descriptions, specifications, materials, function, and use
-            to identify classification concerns and possible duty exposure.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Country of Origin</h3>
-          <p>
-            Evaluate supplier claims, sourcing structure, manufacturing location,
-            transformation issues, and origin documentation risk.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Compliance Assessment</h3>
-          <p>
-            Identify documentation gaps, customs risk areas, and next-step actions
-            before products move through commercial channels.
-          </p>
+          <div class="chat-input-bar">
+            <input type="text" id="chatInput" placeholder="Ask about IEEPA refunds, CAPE eligibility, classification..." />
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send →</button>
+          </div>
+          <div class="chat-disclaimer">TariffIQ is an AI advisory tool. Not legal advice.&nbsp;·&nbsp;The Tariff Bureau LLC</div>
         </div>
       </div>
     </section>
 
-    <section class="process">
-      <div class="section-head">
-        <h2>How the intake process works</h2>
-        <p>
-          A simple front-end process designed to collect the facts needed for a meaningful advisory review.
-        </p>
+    <!-- CRISIS BAND -->
+    <div class="crisis">
+      <div class="crisis-inner">
+        <div class="crisis-stat red-stat">
+          <span class="big">92%</span>
+          <span class="label">of eligible importers have not enrolled in the CBP CAPE portal</span>
+          <span class="sub">CBP CAPE · Launched April 2026</span>
+        </div>
+        <div class="crisis-stat">
+          <span class="big">$175B</span>
+          <span class="label">estimated IEEPA tariff refund pool opened by SCOTUS ruling</span>
+          <span class="sub">Learning Resources v. Trump · Feb. 2026</span>
+        </div>
+        <div class="crisis-stat red-stat">
+          <span class="big">Now</span>
+          <span class="label">the enrollment window is open — closing for firms that wait</span>
+          <span class="sub">Refund eligibility is time-sensitive</span>
+        </div>
       </div>
+    </div>
 
+    <!-- SERVICES -->
+    <section class="services-sec">
+      <div class="section-head">
+        <span class="section-tag">Advisory Services</span>
+        <h2>Built for the full<br/><em>tariff recovery lifecycle</em></h2>
+        <p>From initial assessment through claim optimization — structured advisory for every stage of IEEPA exposure and refund recovery.</p>
+      </div>
+      <div class="grid-3">
+        <div class="svc-card"><span class="svc-num">01 · Assessment Only</span><h3>Tariff Risk Assessment</h3><span class="svc-price">$8,000 – $18,000 flat</span><p>Structured review of tariff exposure, classification risk, origin documentation, and CAPE eligibility. Ideal first step for importers evaluating their position.</p></div>
+        <div class="svc-card"><span class="svc-num">02 · Full Recovery</span><h3>Recovery Package</h3><span class="svc-price">$4,000 base + 12–15% contingency</span><p>End-to-end IEEPA refund recovery advisory including CAPE enrollment support, documentation preparation, and claim filing strategy.</p></div>
+        <div class="svc-card"><span class="svc-num">03 · Rerouting</span><h3>Rerouting Analysis</h3><span class="svc-price">$10,000 – $40,000</span><p>Supplier diversification, country-of-origin restructuring, and alternative sourcing analysis to reduce long-term tariff exposure.</p></div>
+        <div class="svc-card"><span class="svc-num">04 · Monitoring</span><h3>Monitoring Retainer</h3><span class="svc-price">$3,000 – $10,000 / month</span><p>Ongoing trade intelligence, regulatory alerts, classification changes, and TariffIQ-powered monitoring for active importers.</p></div>
+        <div class="svc-card"><span class="svc-num">05 · Valuation</span><h3>Refund Claim Valuation</h3><span class="svc-price">$8,000 – $18,000 flat</span><p>Detailed report quantifying potential IEEPA refund recovery, supporting claim valuation for lenders, investors, or internal finance teams.</p></div>
+        <div class="svc-card"><span class="svc-num">06 · Audit</span><h3>Claim Audit &amp; Optimization</h3><span class="svc-price">$6,000 – $15,000 flat</span><p>Review and strengthen existing refund claims, documentation packages, and CAPE enrollment files before CBP submission.</p></div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process-sec">
+      <div class="section-head">
+        <span class="section-tag">Intake Process</span>
+        <h2>How the intake<br/><em>process works</em></h2>
+        <p>A structured front-end process designed to collect the facts needed for a meaningful IEEPA refund and compliance advisory review.</p>
+      </div>
       <div class="steps">
-        <div class="step">
-          <strong>Step 1:</strong> Submit product details, supplier information, country of origin, target markets, and estimated volume.
-        </div>
+        <div class="step"><strong>Submit Your Information</strong><p>Provide product details, supplier information, country of origin, import volume, and any existing CBP entry records via the secure intake form.</p></div>
+        <div class="step"><strong>TariffIQ™ Analysis</strong><p>The Tariff Bureau reviews the available facts using TariffIQ — identifying classification risk, CAPE enrollment eligibility, and IEEPA overpayment recovery potential.</p></div>
+        <div class="step"><strong>Engagement &amp; Advisory</strong><p>You receive a structured advisory direction, engagement letter, and a clear roadmap — from CAPE enrollment through claim filing or documentation remediation.</p></div>
+        <div class="step"><strong>Recovery &amp; Monitoring</strong><p>For Full Recovery clients, The Tariff Bureau supports documentation, CBP coordination, and ongoing trade intelligence through your selected service tier.</p></div>
+      </div>
+    </section>
 
-        <div class="step">
-          <strong>Step 2:</strong> Tariff Bureau reviews the available facts and identifies classification, origin, and documentation issues.
+    <!-- ANALYST -->
+    <section class="analyst-sec">
+      <div class="analyst-inner">
+        <div class="analyst-card">
+          <div class="analyst-avatar-wrap">
+            <img src="/alex-monroe.png" alt="Alex Monroe" onerror="this.style.display='none';this.parentElement.innerHTML='A';" />
+          </div>
+          <div class="analyst-name">Alex Monroe</div>
+          <div class="analyst-title">Senior Bureau Analyst · TariffIQ™</div>
         </div>
-
-        <div class="step">
-          <strong>Step 3:</strong> You receive practical advisory direction for risk mitigation, documentation cleanup, and next decisions.
+        <div class="analyst-body">
+          <h2>Trade intelligence,<br/><em>delivered with precision.</em></h2>
+          <p>Alex Monroe is The Tariff Bureau's senior analyst persona — the intelligence layer inside TariffIQ that reviews intake submissions, identifies exposure, and delivers structured advisory to every client engagement.</p>
+          <p>Every assessment, classification review, and refund recovery strategy that leaves The Tariff Bureau passes through TariffIQ's analytical framework before it reaches your desk.</p>
+          <div class="tariffiq-badge">⚡ TariffIQ™ — AI-Powered Trade Intelligence Platform</div>
         </div>
       </div>
     </section>
 
-    <section>
+    <!-- IOR -->
+    <section class="ior-sec">
       <div class="section-head">
-        <h2>Built for real business decisions</h2>
-        <p>
-          Tariff decisions affect pricing, sourcing, margins, supplier selection, and market entry.
-        </p>
+        <span class="section-tag">International Importer of Record</span>
+        <h2>DDP foreign manufacturers<br/><span class="r">have exposure too.</span></h2>
+        <p>If you manufacture under DDP terms and your U.S. buyer absorbed IEEPA tariffs, your pricing and margins may reflect that exposure — and you may have recovery options.</p>
       </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Cost Exposure</h3>
-          <p>
-            Understand how duties, tariffs, classification, and origin may affect landed cost and margins.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Supplier Review</h3>
-          <p>
-            Evaluate whether supplier-provided documents are complete, consistent, and usable for import review.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Strategic Support</h3>
-          <p>
-            Support sourcing, pricing, procurement, and compliance planning with a structured advisory process.
-          </p>
-        </div>
+      <div class="ior-grid">
+        <div class="ior-card"><div class="ior-country">Vietnam</div><h4>Textile &amp; Apparel</h4><p>DDP exporters facing Section 301 + IEEPA stacked exposure with rerouting and documentation review options.</p></div>
+        <div class="ior-card"><div class="ior-country">Taiwan</div><h4>Electronics &amp; Components</h4><p>Complex classification and origin issues for semiconductor exporters with U.S. importer clients.</p></div>
+        <div class="ior-card"><div class="ior-country">South Korea</div><h4>Industrial &amp; Auto Parts</h4><p>FTA interaction with IEEPA tariffs, Section 232 steel/aluminum, and classification review for DDP manufacturers.</p></div>
+        <div class="ior-card"><div class="ior-country">India</div><h4>Pharmaceuticals &amp; Textiles</h4><p>GSP expiry, IEEPA layering, and origin documentation gaps for Indian DDP exporters with U.S. channel exposure.</p></div>
+        <div class="ior-card"><div class="ior-country">Bangladesh</div><h4>Apparel &amp; RMG</h4><p>LDC status considerations, IEEPA tariff impact on DDP pricing structures, and CAPE enrollment advisory.</p></div>
+        <div class="ior-card"><div class="ior-country">Indonesia</div><h4>Consumer Goods &amp; Furniture</h4><p>Wooden goods classification risk, origin transformation analysis, and Section 301 interaction review.</p></div>
       </div>
     </section>
 
-    <section class="cta">
-      <h2>Start with a structured intake.</h2>
-      <p>
-        Submit your product information and documentation so Tariff Bureau can begin the review process.
-      </p>
-      <a class="btn btn-primary" href="/intake.html">Begin Intake</a>
+    <!-- CTA -->
+    <section class="cta-sec">
+      <h2>The window is open.<br/><span class="r">Don't wait.</span></h2>
+      <p>92% of eligible importers have not enrolled in CBP CAPE. The IEEPA refund pool is estimated at $100B–$175B. The Tariff Bureau is taking intake now.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-red" href="/intake.html" style="font-size:16px;padding:15px 32px;">Begin Your Intake →</a>
+        <a class="btn btn-gold" href="#chatbot" style="font-size:16px;padding:15px 32px;">Ask Alex Monroe</a>
+      </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <p>
-      © 2026 Tariff Bureau. All rights reserved. |
+    <span class="footer-brand">The Tariff Bureau LLC &nbsp;·&nbsp; College Park, GA</span>
+    <div class="footer-links">
+      <a href="/services.html">Services</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/intake.html">Intake</a>
       <a href="/contact.html">Contact</a>
-    </p>
+    </div>
+    <span>© 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;·&nbsp; TariffIQ™ is a trademark of The Tariff Bureau LLC.</span>
   </footer>
+
+  <!-- TARIFFIQ CHATBOT ENGINE -->
+  <script>
+    const SYSTEM_PROMPT = `You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau — the AI analyst persona powering TariffIQ, the firm's proprietary trade intelligence platform.
+
+Your role: provide authoritative, structured advisory on IEEPA tariff refund recovery, CBP CAPE portal enrollment, tariff classification, country-of-origin analysis, and import compliance.
+
+KEY FACTS:
+- SCOTUS ruled in Learning Resources Inc. v. Trump (February 2026) that all IEEPA tariffs were unlawfully imposed
+- This opened an estimated $100B–$175B refund pool for eligible U.S. importers
+- The CBP CAPE portal launched late April 2026 for IEEPA refund claim enrollment
+- 92% of eligible importers have not yet enrolled in CAPE — primary urgency driver
+- The Tariff Bureau's six service tiers:
+  1. Assessment Only: $8K–$18K flat
+  2. Full Recovery Package: $4K base + 12–15% contingency
+  3. Rerouting Analysis: $10K–$40K
+  4. Monitoring Retainer: $3K–$10K/month
+  5. Refund Claim Valuation Report: $8K–$18K flat
+  6. Claim Audit & Optimization: $6K–$15K flat
+- The Tariff Bureau serves U.S. importers, procurement teams, and DDP foreign manufacturers (Vietnam, Taiwan, South Korea, India, Bangladesh, Indonesia)
+- Principal office: 2459 Roosevelt Hwy., Suite A10, College Park, Georgia 30337
+- Intake form: tariffbureau.com/intake.html
+
+PERSONA GUIDELINES:
+- Measured, authoritative, professional — senior financial/trade advisor tone
+- Direct and specific — no vague platitudes
+- Use trade terminology correctly (HTS codes, ACE, entry summary, CBP Form 7501, ACE portal, etc.)
+- Always orient toward a next step: intake form, specific service tier, or defined advisory action
+- You are not a lawyer — note this when providing anything that could be construed as legal advice
+- Responses: concise and structured, 3–4 short paragraphs maximum
+- Never break character. You are Alex Monroe.`;
+
+    let conversationHistory = [];
+    let isTyping = false;
+
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput    = document.getElementById('chatInput');
+    const sendBtn      = document.getElementById('sendBtn');
+
+    function scrollToBottom() {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addMessage(role, text) {
+      const wrap = document.createElement('div');
+      wrap.className = 'msg' + (role === 'user' ? ' msg-user' : '');
+
+      const avatar = document.createElement('div');
+      avatar.className = 'msg-avatar';
+      avatar.textContent = role === 'user' ? 'YOU' : 'AM';
+
+      const inner = document.createElement('div');
+
+      const name = document.createElement('div');
+      name.className = 'msg-name';
+      name.textContent = role === 'user' ? 'You' : 'Alex Monroe · TariffIQ';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.innerHTML = text.replace(/\n\n/g, '<br/><br/>').replace(/\n/g, '<br/>');
+
+      inner.appendChild(name);
+      inner.appendChild(bubble);
+      wrap.appendChild(avatar);
+      wrap.appendChild(inner);
+      chatMessages.appendChild(wrap);
+      scrollToBottom();
+    }
+
+    function showTyping() {
+      const wrap = document.createElement('div');
+      wrap.className = 'msg';
+      wrap.id = 'typingWrap';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'msg-avatar';
+      avatar.textContent = 'AM';
+
+      const inner = document.createElement('div');
+      const name = document.createElement('div');
+      name.className = 'msg-name';
+      name.textContent = 'Alex Monroe · TariffIQ';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+
+      inner.appendChild(name);
+      inner.appendChild(bubble);
+      wrap.appendChild(avatar);
+      wrap.appendChild(inner);
+      chatMessages.appendChild(wrap);
+      scrollToBottom();
+    }
+
+    function removeTyping() {
+      const t = document.getElementById('typingWrap');
+      if (t) t.remove();
+    }
+
+    async function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text || isTyping) return;
+
+      isTyping = true;
+      chatInput.value = '';
+      sendBtn.disabled = true;
+      sendBtn.textContent = '···';
+
+      addMessage('user', text);
+      conversationHistory.push({ role: 'user', content: text });
+      showTyping();
+
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1000,
+            system: SYSTEM_PROMPT,
+            messages: conversationHistory
+          })
+        });
+
+        const data = await res.json();
+        removeTyping();
+
+        const reply = (data.content && data.content[0] && data.content[0].text)
+          ? data.content[0].text
+          : 'There was a brief connection issue. Please try again or submit your intake directly at tariffbureau.com/intake.html.';
+
+        addMessage('assistant', reply);
+        conversationHistory.push({ role: 'assistant', content: reply });
+
+      } catch (err) {
+        removeTyping();
+        addMessage('assistant', 'Connection issue — please try again or go directly to the intake form at tariffbureau.com/intake.html.');
+        console.error('TariffIQ error:', err);
+      }
+
+      isTyping = false;
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'Send →';
+    }
+
+    chatInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+    });
+  </script>
 
 </body>
 </html>
