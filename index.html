@@ -901,7 +901,7 @@
               <div style="font-family:var(--serif);font-size:15px;font-style:italic;color:var(--cream);line-height:1.55;border-left:2px solid var(--gold);padding-left:12px;">"The CAPE window is open. 92% of eligible importers haven't enrolled. The June 7 appeal deadline makes this more urgent than most firms realize."</div>
             </div>
             <div style="flex-shrink:0;text-align:center;">
-              <a href="#chatbot" style="display:block;background:var(--gold);color:var(--black);padding:10px 18px;border-radius:7px;font-family:var(--sans);font-weight:700;font-size:12.5px;white-space:nowrap;margin-bottom:8px;">Ask Alex →</a>
+              <a href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;" style="display:block;background:var(--gold);color:var(--black);padding:10px 18px;border-radius:7px;font-family:var(--sans);font-weight:700;font-size:12.5px;white-space:nowrap;margin-bottom:8px;">Ask Alex →</a>
               <span style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.06em;">Available now</span>
             </div>
           </div>
@@ -923,7 +923,7 @@
 
           <div class="hero-buttons">
             <a class="btn btn-red" href="/intake.html">Begin Intake Now</a>
-            <a class="btn btn-gold" href="#chatbot">Talk to Alex Monroe →</a>
+            <a class="btn btn-gold" href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;">Talk to Alex Monroe →</a>
             <a class="btn btn-outline" href="/services.html">Services</a>
           </div>
 
@@ -937,7 +937,7 @@
         </div>
 
         <!-- CHATBOT -->
-        <div class="hero-panel" id="chatbot">
+        <div class="hero-panel" id="chatbot" style="scroll-margin-top:80px;">
           <div class="panel-topbar" style="gap:10px;">
             <div class="panel-dots"><span></span><span></span><span></span></div>
             <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#0f1a2e,#1a2a45);display:flex;align-items:center;justify-content:center;position:relative;">
@@ -977,7 +977,7 @@
           </div>
 
           <div class="chat-input-bar">
-            <input type="text" id="chatInput" placeholder="Ask about IEEPA refunds, CAPE eligibility, classification..." />
+            <input type="text" id="chatInput" style="scroll-margin-top:100px;" placeholder="Ask about IEEPA refunds, CAPE eligibility, classification..." />
             <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send →</button>
           </div>
           <div class="chat-disclaimer">TariffIQ is an AI advisory tool. Not legal advice.&nbsp;·&nbsp;The Tariff Bureau LLC</div>
@@ -1095,7 +1095,7 @@
       <p>92% of eligible importers have not enrolled in CBP CAPE. The IEEPA refund pool is estimated at $100B–$175B. The Tariff Bureau is taking intake now.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
         <a class="btn btn-red" href="/intake.html" style="font-size:16px;padding:15px 32px;">Begin Your Intake →</a>
-        <a class="btn btn-gold" href="#chatbot" style="font-size:16px;padding:15px 32px;">Ask Alex Monroe</a>
+        <a class="btn btn-gold" href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;" style="font-size:16px;padding:15px 32px;">Ask Alex Monroe</a>
       </div>
     </section>
 
