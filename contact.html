@@ -1,15 +1,596 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Contact | Tariff Bureau</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | The Tariff Bureau</title>
+  <meta name="description" content="Contact The Tariff Bureau. Reach Alex Monroe and the TariffIQ team for IEEPA tariff refund recovery advisory and CAPE enrollment support." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.tariffbureau.com/contact.html" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:     #070707;
+      --navy:      #09101f;
+      --navy-mid:  #0f1a2e;
+      --navy-light:#182338;
+      --gold:      #c8922a;
+      --gold-lt:   #e2af46;
+      --gold-pale: #f5dfa0;
+      --red:       #9b1c1c;
+      --red-lt:    #dc2626;
+      --red-pale:  #fca5a5;
+      --white:     #f8f4ee;
+      --cream:     #ddd5c5;
+      --muted:     #7a8ba8;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --mono:      'DM Mono', 'Courier New', monospace;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* TOPBAR */
+    .topbar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 10px 6%;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.07em;
+    }
+    .topbar strong { color: var(--gold-pale); font-weight: 600; }
+
+    /* HEADER */
+    header {
+      background: rgba(7,7,7,0.97);
+      border-bottom: 1px solid rgba(200,146,42,0.2);
+      backdrop-filter: blur(16px);
+      padding: 0 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      position: sticky;
+      top: 0;
+      z-index: 300;
+    }
+
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-logo { width: 42px; height: 42px; object-fit: contain; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--white); letter-spacing: 0.03em; }
+    .brand-sub { font-family: var(--mono); font-size: 9.5px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; }
+
+    nav { display: flex; gap: 26px; align-items: center; font-size: 13.5px; font-weight: 500; color: var(--muted); }
+    nav a:hover { color: var(--gold-lt); transition: color 0.18s; }
+    nav a.active { color: var(--gold-lt); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black);
+      padding: 8px 18px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: background 0.18s;
+    }
+    .nav-cta:hover { background: var(--gold-lt); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background:
+        radial-gradient(ellipse 70% 55% at 65% 10%, rgba(200,146,42,0.07), transparent 65%),
+        radial-gradient(ellipse 50% 40% at 15% 80%, rgba(155,28,28,0.07), transparent 60%),
+        linear-gradient(155deg, var(--black) 0%, var(--navy) 100%);
+      padding: 72px 7% 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(200,146,42,0.025) 60px, rgba(200,146,42,0.025) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(200,146,42,0.02) 60px, rgba(200,146,42,0.02) 61px);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: 860px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 em { font-style: italic; color: var(--gold-lt); }
+
+    .page-hero p {
+      font-size: 17px;
+      color: var(--cream);
+      max-width: 560px;
+      line-height: 1.7;
+      opacity: 0.88;
+    }
+
+    /* MAIN CONTENT */
+    .contact-section {
+      padding: 72px 7%;
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* LEFT COLUMN */
+    .contact-info h2 {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .contact-info h2 em { font-style: italic; color: var(--gold-lt); }
+
+    .info-block {
+      margin-bottom: 30px;
+    }
+
+    .info-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .info-value {
+      font-size: 15px;
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    .info-value a { color: var(--gold-lt); }
+    .info-value a:hover { color: var(--gold-pale); }
+
+    .analyst-mini {
+      background: var(--navy);
+      border: 1px solid rgba(200,146,42,0.22);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .analyst-mini::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .mini-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--navy-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--gold-lt);
+      overflow: hidden;
+    }
+
+    .mini-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .mini-body {}
+    .mini-name { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--white); }
+    .mini-title { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+    .mini-note { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+    /* FORM */
+    .contact-form-wrap {
+      background: var(--navy);
+      border: 1px solid rgba(200,146,42,0.22);
+      border-radius: 16px;
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-wrap::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--gold-lt));
+    }
+
+    .form-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-wrap h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--navy-mid);
+      border: 1px solid rgba(200,146,42,0.2);
+      border-radius: 7px;
+      padding: 12px 14px;
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.18s;
+      appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option { background: var(--navy-mid); color: var(--white); }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 15px 24px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s;
+      margin-top: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-submit:hover { background: var(--red-lt); }
+
+    .form-note {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* SUCCESS STATE */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .form-success .check {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .form-success h4 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .form-success p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(200,146,42,0.13);
+      color: var(--muted);
+      padding: 36px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .footer-brand { font-family: var(--serif); font-size: 16px; color: var(--cream); }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    footer a { color: var(--gold); }
+    footer a:hover { color: var(--gold-lt); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      header { padding: 0 5%; }
+      nav { gap: 14px; font-size: 12.5px; }
+      .page-hero { padding: 56px 5% 48px; }
+      .page-hero h1 { font-size: 38px; }
+      .contact-section { grid-template-columns: 1fr; gap: 40px; padding: 48px 5%; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-<h1>Contact</h1>
 
-<p>Email: info@tariffbureau.com</p>
-<p>For inquiries, partnerships, or project requests, reach out directly.</p>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <strong>ALERT:</strong> CBP CAPE Portal now live — <strong>92% of eligible importers not enrolled</strong> — IEEPA refund window is open now
+  </div>
 
-<a href="/index.html">Home</a>
+  <!-- HEADER -->
+  <header>
+    <a class="brand" href="/index.html">
+      <img class="brand-logo" src="/tariff-bureau-logo.png" alt="The Tariff Bureau" onerror="this.style.display='none'" />
+      <div class="brand-text">
+        <span class="brand-name">The Tariff Bureau</span>
+        <span class="brand-sub">Powered by TariffIQ&trade;</span>
+      </div>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/services.html">Services</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/intake.html">Intake</a>
+      <a href="/contact.html" class="active">Contact</a>
+      <a class="nav-cta" href="/intake.html">Start Intake</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-tag">Contact The Tariff Bureau</span>
+      <h1>Get in touch with<br/><em>our advisory team.</em></h1>
+      <p>For IEEPA refund recovery, CAPE enrollment, classification review, or general inquiries — send us a message and we will respond within one business day.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <div class="contact-section">
+
+    <!-- LEFT: INFO -->
+    <div class="contact-info">
+      <h2>Reach The<br/><em>Tariff Bureau</em></h2>
+
+      <div class="info-block">
+        <span class="info-label">Email</span>
+        <div class="info-value">
+          <a href="mailto:hello@tariffbureau.com">hello@tariffbureau.com</a>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <span class="info-label">Legal &amp; Engagements</span>
+        <div class="info-value">
+          <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <span class="info-label">Principal Office</span>
+        <div class="info-value">
+          2459 Roosevelt Hwy., Suite A10<br/>
+          College Park, Georgia 30337
+        </div>
+      </div>
+
+      <div class="info-block">
+        <span class="info-label">Response Time</span>
+        <div class="info-value">Within one business day</div>
+      </div>
+
+      <div class="info-block">
+        <span class="info-label">Intake Form</span>
+        <div class="info-value">
+          For a structured advisory review, use the<br/>
+          <a href="/intake.html">formal intake form →</a>
+        </div>
+      </div>
+
+      <!-- ALEX MONROE MINI CARD -->
+      <div class="analyst-mini">
+        <div class="mini-avatar">
+          <img src="/alex-monroe.png" alt="Alex Monroe" onerror="this.style.display='none';this.parentElement.innerHTML='A';" />
+        </div>
+        <div class="mini-body">
+          <div class="mini-name">Alex Monroe</div>
+          <div class="mini-title">Senior Bureau Analyst · TariffIQ™</div>
+          <div class="mini-note">Available via the chatbot on the homepage for immediate IEEPA and CAPE questions.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="contact-form-wrap">
+      <span class="form-tag">Send a Message</span>
+      <h3>Contact The Tariff Bureau</h3>
+
+      <div id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="First name" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last name" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@company.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company / Organization</label>
+          <input type="text" id="company" name="company" placeholder="Company name" />
+        </div>
+
+        <div class="form-group">
+          <label for="inquiry">Inquiry Type</label>
+          <select id="inquiry" name="inquiry">
+            <option value="" disabled selected>Select inquiry type</option>
+            <option value="cape">CAPE Enrollment</option>
+            <option value="recovery">IEEPA Refund Recovery</option>
+            <option value="assessment">Tariff Risk Assessment</option>
+            <option value="classification">Classification Review</option>
+            <option value="rerouting">Rerouting Analysis</option>
+            <option value="monitoring">Monitoring Retainer</option>
+            <option value="ior">International IOR / DDP</option>
+            <option value="general">General Inquiry</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your situation, products, import volume, or specific questions..." required></textarea>
+        </div>
+
+        <button class="form-submit" onclick="submitForm()">Send Message →</button>
+        <div class="form-note">Not legal advice. All inquiries are confidential. &nbsp;·&nbsp; The Tariff Bureau LLC</div>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="form-success" id="formSuccess">
+        <div class="check">✓</div>
+        <h4>Message Received</h4>
+        <p>Thank you for reaching out. The Tariff Bureau will respond within one business day.<br/><br/>
+        For immediate assistance, use the <a href="/index.html#chatbot" style="color:var(--gold-lt);">TariffIQ chatbot</a> on the homepage.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">The Tariff Bureau LLC &nbsp;·&nbsp; College Park, GA</span>
+    <div class="footer-links">
+      <a href="/services.html">Services</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/intake.html">Intake</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <span>© 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;·&nbsp; TariffIQ™ is a trademark of The Tariff Bureau LLC.</span>
+  </footer>
+
+  <script>
+    function submitForm() {
+      const firstName = document.getElementById('firstName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!firstName || !email || !message) {
+        alert('Please fill in your name, email, and message before submitting.');
+        return;
+      }
+
+      // Hide form, show success
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+
+      // If you add Formspree or similar, replace above with:
+      // fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(form) })
+    }
+  </script>
+
 </body>
 </html>
