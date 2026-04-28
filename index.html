@@ -691,6 +691,162 @@
       footer { flex-direction: column; text-align: center; }
     }
   </style>
+
+  <!-- JSON-LD Structured Data — AI + Search Engine Indexing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.tariffbureau.com/#organization",
+        "name": "The Tariff Bureau LLC",
+        "alternateName": "TariffIQ",
+        "description": "AI-powered IEEPA tariff refund recovery and CAPE enrollment advisory for U.S. importers and DDP foreign manufacturers. Powered by TariffIQ™ with analyst Alex Monroe.",
+        "url": "https://www.tariffbureau.com",
+        "logo": "https://www.tariffbureau.com/tariff-bureau-logo.png",
+        "image": "https://www.tariffbureau.com/alex-monroe.png",
+        "email": "hello@tariffbureau.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3343 Peachtree Rd. NE, Suite 145 PMB550",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30326",
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "knowsAbout": [
+          "IEEPA tariff refund recovery",
+          "CBP CAPE portal enrollment",
+          "HTS tariff classification",
+          "Importer of Record advisory",
+          "ACE Secure Data Portal",
+          "Trade compliance",
+          "Supply chain rerouting",
+          "IEEPA duty recovery",
+          "DDP foreign manufacturer advisory"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "TariffIQ Advisory Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "IEEPA Eligibility Screening",
+              "description": "4-qualifier written eligibility determination for IEEPA tariff refund recovery. Designed for small and mid-size importers.",
+              "price": "1500",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "1500",
+                "priceCurrency": "USD",
+                "description": "Flat fee. Credited toward full engagement."
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Full Recovery Package",
+              "description": "End-to-end IEEPA tariff refund recovery. Includes CAPE enrollment, claim preparation, and submission strategy.",
+              "price": "4000",
+              "priceCurrency": "USD",
+              "description": "$4,000 base + 12-15% contingency on recovered amount"
+            },
+            {
+              "@type": "Offer",
+              "name": "Claim Audit & Optimization",
+              "description": "Pre-submission audit for $250K+ refund claims. Mitigates False Claims Act exposure.",
+              "priceRange": "$6,000–$15,000"
+            }
+          ]
+        },
+        "employee": {
+          "@type": "Person",
+          "name": "Alex Monroe",
+          "jobTitle": "Senior Trade Intelligence Analyst",
+          "description": "AI analyst persona powering TariffIQ — The Tariff Bureau's proprietary trade intelligence platform.",
+          "worksFor": {
+            "@id": "https://www.tariffbureau.com/#organization"
+          }
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.tariffbureau.com/#website",
+        "url": "https://www.tariffbureau.com",
+        "name": "The Tariff Bureau",
+        "description": "AI-powered IEEPA tariff refund recovery — $127B in Phase 1 refunds available. Powered by TariffIQ™.",
+        "publisher": {
+          "@id": "https://www.tariffbureau.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.tariffbureau.com/intake",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the IEEPA tariff refund and how much is available?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The U.S. Supreme Court ruled in February 2026 that IEEPA tariffs were unconstitutional. Approximately $166 billion in duties paid by 330,000+ importers between April 2025 and February 2026 are eligible for refund. $127 billion is available in Phase 1 through the CBP CAPE portal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the CBP CAPE portal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CAPE (Consolidated Administration and Processing of Entries) is a CBP system launched April 20, 2026 inside the ACE Secure Data Portal. It allows importers of record and licensed customs brokers to file CAPE Declarations to claim IEEPA tariff refunds. Valid refunds are expected within 60-90 days of acceptance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does The Tariff Bureau charge for IEEPA refund recovery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Tariff Bureau offers an IEEPA Eligibility Screening for $1,500 flat — a 4-qualifier written determination credited toward full engagement. Full recovery engagements start at $4,000 base plus 12-15% contingency on recovered amounts. Minimum $50,000 estimated recovery for full engagements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tariffs are NOT eligible for IEEPA refunds?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Section 232 tariffs (steel, aluminum, autos), Section 301 tariffs on China, and the Section 122 tariff signed February 20, 2026 are NOT eligible. Only IEEPA reciprocal tariffs imposed between April 5, 2025 and February 24, 2026 qualify for refund through the CAPE portal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the June 7, 2026 deadline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The U.S. government has until approximately June 7, 2026 to appeal the court order requiring IEEPA refunds. If the government files a successful stay, refunds could be halted mid-stream. Importers who obtain CAPE Declaration acceptance before June 7 are better protected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is TariffIQ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TariffIQ is The Tariff Bureau's AI trade intelligence platform powered by Anthropic's Claude API. The platform's analyst persona, Alex Monroe, provides CAPE eligibility assessments, HTS classification guidance, ACE enrollment advisory, and structured refund recovery strategy to importers and DDP foreign manufacturers."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- AI Crawler Content Files -->
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Content Index" />
+  <meta name="ai-content-policy" content="allow" />
 </head>
 <body>
 
