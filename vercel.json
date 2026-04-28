@@ -1,25 +1,14 @@
-
-         
-
 {
-  "headers": [
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
-    },
-    {
-      "source": "/robots.txt",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain"
-        }
-      ]
-    }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    { "src": "/pricing",   "dest": "/pricing.html" },
+    { "src": "/services",  "dest": "/services.html" },
+    { "src": "/intake",    "dest": "/intake.html" },
+    { "src": "/contact",   "dest": "/contact.html" },
+    { "src": "/about",     "dest": "/about.html" },
+    { "src": "/privacy",   "dest": "/privacy.html" },
+    { "src": "/thank-you", "dest": "/thank-you.html" },
+    { "src": "/api/chat",  "dest": "/api/chat.js" }
   ]
 }
