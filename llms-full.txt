@@ -6,7 +6,7 @@
 
 ## About The Tariff Bureau
 
-The Tariff Bureau LLC is an Atlanta-based trade intelligence advisory firm providing AI-powered IEEPA tariff refund recovery services to U.S. importers, procurement teams, and DDP foreign manufacturers. The firm was founded by Terrence Stevens.
+The Tariff Bureau LLC is an Atlanta-based trade intelligence advisory firm providing AI-powered IEEPA tariff refund recovery services to U.S. importers, procurement teams, and DDP foreign manufacturers. The firm operates as a Georgia single-member LLC.
 
 The firm's primary market event is the U.S. Supreme Court's February 20, 2026 ruling in the consolidated cases V.O.S. Selections Inc. v. United States and Learning Resources Inc. v. Trump, which held 6-3 that IEEPA (International Emergency Economic Powers Act) does not authorize the imposition of tariffs — a power reserved to Congress. The ruling made approximately $166 billion in IEEPA duties eligible for refund to 330,000+ importers.
 
@@ -156,9 +156,6 @@ The Tariff Bureau LLC is not a law firm and does not provide legal advice. All a
 ## Contact & Company Data
 
 - **Legal name:** The Tariff Bureau LLC
-- **EIN:** 42-1842417
-- **Georgia SOS Control Number:** 2026 0410 1351 7978 13488 195
-- **Formation date:** April 10, 2026
 - **Address:** 3343 Peachtree Rd. NE, Suite 145 PMB550, Atlanta, Georgia 30326
 - **Domain:** tariffbureau.com
 - **General inquiries:** hello@tariffbureau.com
