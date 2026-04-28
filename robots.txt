@@ -1,10 +1,35 @@
+# The Tariff Bureau LLC — robots.txt
+# https://www.tariffbureau.com
+
+# ── General crawlers ────────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /.env
+Disallow: /node_modules/
 
+# ── Google ──────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# ── Bing / Microsoft ────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+# ── AI Crawlers — explicitly allowed ────────────────────
+
+# OpenAI / ChatGPT
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
@@ -13,10 +38,48 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
+# Google AI (Gemini / AI Overviews)
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://tariffbureau.com/sitemap.xml
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Amazon Alexa / AI
+User-agent: ia_archiver
+Allow: /
+
+# ── Sitemaps ─────────────────────────────────────────────
+Sitemap: https://www.tariffbureau.com/sitemap.xml
+
+# ── AI Content Files ─────────────────────────────────────
+# LLM-optimized content index
+# https://www.tariffbureau.com/llms.txt
+# https://www.tariffbureau.com/llms-full.txt
