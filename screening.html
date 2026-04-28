@@ -182,7 +182,8 @@
         <span class="progress-label" id="pl1">01 · Tariff Exposure</span>
         <span class="progress-label" id="pl2">02 · IOR Status</span>
         <span class="progress-label" id="pl3">03 · ACE Enrollment</span>
-        <span class="progress-label" id="pl4">04 · Recovery Threshold</span>
+        <span class="progress-label" id="pl4">04 · Recovery</span>
+        <span class="progress-label" id="pl5">05 · Risk Check</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
     </div>
@@ -239,6 +240,16 @@
         no:  { label: "No — our IEEPA duty payments were below $50,000", sub: "Our import volume or tariff exposure was relatively small" },
         failReason: "Our full advisory engagement requires a minimum estimated recovery of $50,000 to ensure the economics work for your firm. Below this threshold, advisory fees may exceed the recovery value.",
         failNext: "Even below $50K, you can file your own CAPE Declaration directly through the ACE Portal at no cost — CBP's CAPE tool is self-service. We've put together guidance on how to do it yourself."
+      },
+      {
+        id: 5,
+        num: "Risk Check · Final Step",
+        title: "Pre-Filing Audit Status",
+        desc: "Is your estimated IEEPA refund $250,000 or more? CBP flags all claims at this level for mandatory pre-submission audit. Every CAPE Declaration requires you to certify that all entry summaries comply with applicable law. The DOJ–DHS Trade Fraud Task Force is actively monitoring CAPE filings using AI. This is not a disqualifier — it is a risk checkpoint.",
+        yes: { label: "Yes — our estimated refund is $250,000 or more", sub: "We understand a pre-submission audit is strongly recommended" },
+        no:  { label: "No — our estimated refund is under $250,000", sub: "Below the CBP mandatory audit threshold" },
+        failReason: "",
+        failNext: ""
       }
     ];
 
@@ -316,14 +327,16 @@
         current = idx + 1;
         setTimeout(() => showQuestion(current), 200);
       } else {
-        showQualified();
+        // Q5 — check if $250K+ (yes = needs audit CTA, no = standard qualified)
+        const q5Answer = answers.find(a => a.q === 5);
+        showQualified(q5Answer && q5Answer.answer === 'yes');
       }
     }
 
     function updateProgress(idx) {
       const pct = ((idx) / questions.length) * 100;
       document.getElementById('progressFill').style.width = pct + '%';
-      ['pl1','pl2','pl3','pl4'].forEach((id, i) => {
+      ['pl1','pl2','pl3','pl4','pl5'].forEach((id, i) => {
         const el = document.getElementById(id);
         el.classList.toggle('active', i === idx);
       });
@@ -408,7 +421,7 @@
       btn.style.borderColor = 'rgba(200,146,42,0.4)';
     }
 
-    function showQualified() {
+    function showQualified(needsAudit = false) {
       document.getElementById('progressFill').style.width = '100%';
       const aceMaybe = answers.find(a => a.q === 3 && a.answer === 'maybe');
       const aceNote = aceMaybe ? '<strong style="color:var(--gold-lt);">Note:</strong> ACE/ACH enrollment needs to be confirmed before filing — we\'ll guide you through this as part of your screening.' : '';
@@ -428,15 +441,23 @@
 
           ${aceNote ? `<p style="font-size:13px;color:var(--cream);margin-bottom:20px;line-height:1.6;">${aceNote}</p>` : ''}
 
+          \${needsAudit ? \`
+          <div style="background:rgba(155,28,28,0.12);border:1px solid rgba(155,28,28,0.3);border-left:4px solid #dc2626;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 auto 20px;max-width:480px;text-align:left;">
+            <div style="font-family:var(--mono);font-size:9.5px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;">⚠️ $250K+ Risk Alert — Pre-Filing Audit Required</div>
+            <p style="font-size:13.5px;color:var(--cream);line-height:1.65;margin:0;">CBP flags all claims of $250,000 or more for mandatory review. The DOJ–DHS Trade Fraud Task Force monitors CAPE filings using AI. Before you certify your entries, The Tariff Bureau's Claim Audit & Optimization tier reviews your data for classification errors, valuation issues, and origin inconsistencies. One error can void your entire filing — or worse, trigger enforcement.</p>
+          </div>\` : ''}
+
           <div class="price-box">
-            <div class="price">$1,500</div>
-            <div class="price-label">Flat fee · Written eligibility determination · 3–5 business days</div>
-            <div class="price-note">Credited in full toward any full advisory engagement. This is not a sales call — it's a written deliverable signed by The Tariff Bureau.</div>
+            <div class="price">\${needsAudit ? '$6K–$15K + $1,500' : '$1,500'}</div>
+            <div class="price-label">\${needsAudit ? 'Claim Audit first · then Eligibility Screening · both credited toward full engagement' : 'Flat fee · Written eligibility determination · 3–5 business days'}</div>
+            <div class="price-note">\${needsAudit ? 'Given your $250K+ exposure, we recommend starting with the Claim Audit to protect your filing before the $1,500 screening. Both fees are credited toward full engagement.' : 'Credited in full toward any full advisory engagement. This is not a sales call — it\'s a written deliverable signed by The Tariff Bureau.'}</div>
           </div>
 
           <div style="font-family:var(--mono);font-size:10px;color:var(--red-lt);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">⚠️ Appeal deadline: June 7, 2026</div>
 
-          <a class="btn-primary" href="/intake.html">Start My $1,500 Screening →</a>
+          <a class="btn-primary" href="\${needsAudit ? '/intake.html?type=claim-audit' : '/intake.html'}">
+            \${needsAudit ? 'Request Pre-Filing Audit + Screening →' : 'Start My $1,500 Screening →'}
+          </a>
           <br/>
           <span class="btn-secondary" onclick="restart()">Restart screening</span>
 
