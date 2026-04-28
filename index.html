@@ -1,18 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Tariff Bureau | Tariff, Import & Compliance Advisory</title>
-  <meta name="description" content="Tariff Bureau helps businesses assess import exposure, tariff classification, country-of-origin issues, and compliance risk.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.tariffbureau.com/">
-  <link rel="icon" href="/favicon.ico">
+  <meta name="description" content="Tariff Bureau helps businesses assess import exposure, tariff classification, country-of-origin issues, and compliance risk." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.tariffbureau.com/" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      min-height: 620px;
+      padding: 90px 8%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #0f172a 100%);
+      color: #ffffff;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.08;
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #dbeafe;
+      margin-bottom: 34px;
+      max-width: 700px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #082f49;
+    }
+
+    .btn-secondary {
+      border: 1px solid #93c5fd;
+      color: #ffffff;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      color: #111827;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 22px;
+      background: #e5e7eb;
+    }
+
+    .hero-card h2 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .hero-card p {
+      color: #475569;
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    section {
+      padding: 72px 8%;
+    }
+
+    .section-title {
+      font-size: 36px;
+      color: #0f172a;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+      color: #475569;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .card h3 {
+      color: #0f172a;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 16px;
+    }
+
+    .band {
+      background: #0f172a;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .band h2 {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .band p {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: #dbeafe;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5e1;
+      padding: 34px 8%;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #38bdf8;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 70px 6%;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 20px 6%;
+      }
+
+      section {
+        padding: 58px 6%;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
   <header>
-    <strong>Tariff Bureau</strong>
+    <div class="logo">Tariff Bureau</div>
     <nav>
       <a href="/index.html">Home</a>
       <a href="/services.html">Services</a>
@@ -22,58 +252,109 @@
     </nav>
   </header>
 
- <main>
-  <h1>Avoid Tariff and Import Compliance Mistakes Before They Cost You</h1>
+  <main>
 
-  <p><strong><a href="/intake.html">Start Client Intake</a></strong></p>
+    <section class="hero">
+      <div>
+        <h1>Tariff, Import & Compliance Advisory for Businesses</h1>
+        <p>
+          Tariff Bureau helps importers, manufacturers, vendors, and trade-facing businesses evaluate tariff exposure,
+          classification issues, country-of-origin concerns, sourcing risks, and compliance strategy.
+        </p>
 
-  <p>
-    Tariff Bureau helps businesses evaluate tariff exposure, country-of-origin risk,
-    and compliance issues before products move, contracts are signed, or costs escalate.
-  </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="/intake.html">Start an Intake</a>
+          <a class="btn btn-secondary" href="/services.html">View Services</a>
+        </div>
+      </div>
 
-    <p><strong>Serving importers, manufacturers, distributors, and project-based operators.</strong></p>
+      <div class="hero-card">
+        <img src="/tariff-analysis.jpg" alt="Tariff analysis and import compliance advisory">
+        <h2>Import Risk Review</h2>
+        <p>
+          Structured review for product descriptions, tariff classification, origin documentation,
+          duty exposure, and advisory next steps.
+        </p>
+      </div>
+    </section>
 
-    <h2>What We Help With</h2>
+    <section>
+      <h2 class="section-title">What Tariff Bureau Helps With</h2>
+      <p class="section-subtitle">
+        Practical advisory support for businesses navigating import costs, tariff changes, and documentation requirements.
+      </p>
 
-    <h3>Tariff Classification</h3>
-    <p>Review product details and support classification assessment for import planning.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Tariff Classification</h3>
+          <p>
+            Review product details and supporting documentation to help identify classification concerns and duty exposure.
+          </p>
+        </div>
 
-    <h3>Country of Origin</h3>
-    <p>Evaluate sourcing, manufacturing location, and origin-related compliance concerns.</p>
+        <div class="card">
+          <h3>Country of Origin</h3>
+          <p>
+            Assess origin issues, supplier documentation, sourcing structure, and import compliance risk factors.
+          </p>
+        </div>
 
-    <h3>Import Risk Review</h3>
-    <p>Identify tariff, documentation, and compliance issues before goods move.</p>
+        <div class="card">
+          <h3>Compliance Assessment</h3>
+          <p>
+            Identify documentation gaps, customs risk areas, and practical next steps before products enter commerce.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <h2>How It Works</h2>
+    <section class="band">
+      <h2>Start With a Structured Intake</h2>
+      <p>
+        Submit product details, country of origin, target markets, estimated volume, and available documentation.
+      </p>
+      <a class="btn btn-primary" href="/intake.html">Begin Intake</a>
+    </section>
 
-    <h3>1. Submit Intake</h3>
-    <p>Provide basic project details through a structured intake form.</p>
+    <section>
+      <h2 class="section-title">Built for Business Decisions</h2>
+      <p class="section-subtitle">
+        Tariff Bureau is designed for founders, operators, vendors, procurement teams, and companies that need practical
+        import advisory before making sourcing, pricing, or market-entry decisions.
+      </p>
 
-    <h3>2. Review & Assessment</h3>
-    <p>We evaluate tariff exposure, origin considerations, and compliance factors.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Cost Exposure</h3>
+          <p>
+            Understand how tariffs, duties, and classification risk may affect margins and pricing.
+          </p>
+        </div>
 
-    <h3>3. Next Step Recommendation</h3>
-    <p>You receive a clear direction for classification, risk, or deeper advisory work.</p>
+        <div class="card">
+          <h3>Supplier Review</h3>
+          <p>
+            Evaluate supplier-provided product, origin, and compliance information before relying on it.
+          </p>
+        </div>
 
-    <h2>Built for Practical Business Decisions</h2>
-    <p>
-      Our process is designed for founders, importers, manufacturers, distributors,
-      and project teams that need clear, structured guidance before committing to
-      sourcing, shipping, or procurement decisions.
-    </p>
+        <div class="card">
+          <h3>Decision Support</h3>
+          <p>
+            Receive a practical advisory path for documentation, risk mitigation, and next-step review.
+          </p>
+        </div>
+      </div>
+    </section>
 
- 
- <p><a href="/intake.html">Submit Your Project</a></p>
-
-<p>
-  Questions before submitting?
-  <a href="mailto:info@tariffbureau.com">info@tariffbureau.com</a>
-</p>
-</main> </main>
+  </main>
 
   <footer>
-    <p>© 2026 Tariff Bureau. All rights reserved.</p>
+    <p>
+      © 2026 Tariff Bureau. All rights reserved. |
+      <a href="/contact.html">Contact</a>
+    </p>
   </footer>
+
 </body>
 </html>
