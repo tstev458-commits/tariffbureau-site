@@ -214,9 +214,10 @@
         title: "Importer of Record Status",
         desc: "Is your company the Importer of Record (IOR) on the CBP entry summaries (CBP Form 7501) for the shipments in question? The IOR is the party legally responsible for the import and the only party CBP will issue a refund to — unless a Form 4811 designee is on file.",
         yes: { label: "Yes — we are the Importer of Record", sub: "Our company name appears on CBP Form 7501 as the IOR" },
-        no:  { label: "No — a third party was the IOR", sub: "A freight forwarder, broker, or supplier was listed as IOR" },
-        failReason: "CBP only issues IEEPA refunds directly to the Importer of Record on each entry summary. If a third party was the IOR, they would receive the refund — not your company.",
-        failNext: "If your supplier was the IOR under a DDP arrangement, they may be eligible to file on your behalf or pass the refund to you. Contact us to explore your options — this situation is more complex but not always hopeless."
+        maybe: { label: "We are a foreign DDP supplier — our US buyer was the IOR", sub: "We shipped goods DDP and absorbed the IEEPA tariff in our price" },
+        no:  { label: "No — an unrelated third party was the IOR", sub: "A freight forwarder or unrelated broker was listed as IOR" },
+        failReason: "CBP only issues IEEPA refunds directly to the Importer of Record on each entry summary. If an unrelated third party was the IOR, the refund goes to them — not your company.",
+        failNext: "If no contractual relationship exists with the IOR, recovery becomes very difficult. However, if you have a supply agreement that addresses duty costs, consult a trade attorney about your contractual rights to any refund passed through."
       },
       {
         id: 3,
@@ -297,7 +298,13 @@
       answers.push({ q: idx + 1, answer: val });
       const q = questions[idx];
 
-      // Q3 "maybe" treated as conditional pass — move forward but flag
+      // Q2 "maybe" = DDP international path — separate qualified result
+      if (idx === 1 && val === 'maybe') {
+        showDDPPath();
+        return;
+      }
+
+      // Q3 "maybe" = ACE fixable — pass through with flag
       if (val === 'no') {
         qualified = false;
         failedAt = q;
@@ -320,6 +327,85 @@
         const el = document.getElementById(id);
         el.classList.toggle('active', i === idx);
       });
+    }
+
+    function showDDPPath() {
+      document.getElementById('progressFill').style.width = '50%';
+      document.getElementById('questionContainer').innerHTML = `
+        <div class="q-card result result-qualified">
+          <span class="result-icon">🌐</span>
+          <h2>International <em>DDP Supplier Path</em></h2>
+          <p>You shipped goods to a U.S. buyer under a DDP (Delivered Duty Paid) arrangement — meaning you absorbed the IEEPA tariff cost in your sale price. Your U.S. buyer was the IOR and is the direct refund recipient. However, you have commercial leverage to recover that cost.</p>
+
+          <div class="score-card">
+            <div class="score-row"><span class="score-check">✓</span> IEEPA tariff exposure confirmed — April 2025 to February 2026</div>
+            <div class="score-row"><span class="score-check" style="color:var(--gold-lt);">→</span> DDP arrangement — US buyer holds the IOR refund</div>
+            <div class="score-row"><span class="score-check" style="color:var(--gold-lt);">→</span> Your recovery pathway: commercial negotiation + contract analysis</div>
+          </div>
+
+          <div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.22);border-radius:12px;padding:20px 24px;margin:0 auto 24px;max-width:480px;text-align:left;">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Your Recovery Options</div>
+            <div style="display:grid;gap:10px;">
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="color:var(--gold);font-size:16px;flex-shrink:0;">①</span>
+                <div>
+                  <div style="font-size:13.5px;color:var(--white);font-weight:600;margin-bottom:2px;">Contractual Pass-Through</div>
+                  <div style="font-size:12.5px;color:var(--muted);line-height:1.55;">If your supply agreement includes duty cost provisions, your US buyer may be contractually obligated to pass the IEEPA refund to you once received.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="color:var(--gold);font-size:16px;flex-shrink:0;">②</span>
+                <div>
+                  <div style="font-size:13.5px;color:var(--white);font-weight:600;margin-bottom:2px;">Price Renegotiation Leverage</div>
+                  <div style="font-size:12.5px;color:var(--muted);line-height:1.55;">Even without contractual provisions, the refund creates renegotiation leverage on pricing, payment terms, or future DDP vs. DAP/FOB arrangements.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="color:var(--gold);font-size:16px;flex-shrink:0;">③</span>
+                <div>
+                  <div style="font-size:13.5px;color:var(--white);font-weight:600;margin-bottom:2px;">IOR Restructuring (Forward)</div>
+                  <div style="font-size:12.5px;color:var(--muted);line-height:1.55;">Restructure future shipments from DDP to DAP or FOB so your US buyer bears IOR costs directly — protecting your margins from future tariff exposure.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="price-box">
+            <div class="price" style="font-size:36px;">International DDP Advisory</div>
+            <div class="price-label" style="margin-top:6px;">Commercial recovery analysis · Contract review · Renegotiation strategy</div>
+            <div class="price-note">The Tariff Bureau advises DDP foreign manufacturers across Vietnam, China, Taiwan, South Korea, India, Bangladesh, Indonesia, Netherlands, and Brazil. Our $1,500 screening evaluates your supply agreement and quantifies your recovery leverage.</div>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Tell us where you're based</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:420px;margin:0 auto 16px;">
+              ${['🇨🇳 China','🇻🇳 Vietnam','🇹🇼 Taiwan','🇰🇷 South Korea','🇳🇱 Netherlands','🇧🇷 Brazil','🇮🇳 India','🇧🇩 Bangladesh','🇮🇩 Indonesia'].map(c =>
+                \`<button onclick="selectCountry(this)" style="padding:8px 6px;background:rgba(200,146,42,0.06);border:1px solid rgba(200,146,42,0.15);border-radius:7px;color:var(--cream);font-size:12px;cursor:pointer;transition:all 0.15s;" onmouseover="this.style.background='rgba(200,146,42,0.15)'" onmouseout="this.style.background=selectedCountry===this.textContent?'rgba(200,146,42,0.2)':'rgba(200,146,42,0.06)'">\${c}</button>\`
+              ).join('')}
+            </div>
+          </div>
+
+          <a class="btn-primary" href="/intake.html?type=international-ddp">Start International DDP Screening →</a>
+          <br/>
+          <span class="btn-secondary" onclick="restart()">Restart screening</span>
+
+          <div class="disclaimer" style="margin-top:24px;">
+            International advisory is trade intelligence only — not legal advice, not customs brokerage.<br/>
+            All engagements governed by Georgia law · Arbitration in Fulton County, Georgia.<br/>
+            <a href="/terms.html">Terms of Service</a> · <a href="/privacy.html">Privacy Policy</a>
+          </div>
+        </div>`;
+    }
+
+    let selectedCountry = '';
+    function selectCountry(btn) {
+      selectedCountry = btn.textContent;
+      document.querySelectorAll('.q-card button[onclick^="selectCountry"]').forEach(b => {
+        b.style.background = 'rgba(200,146,42,0.06)';
+        b.style.borderColor = 'rgba(200,146,42,0.15)';
+      });
+      btn.style.background = 'rgba(200,146,42,0.2)';
+      btn.style.borderColor = 'rgba(200,146,42,0.4)';
     }
 
     function showQualified() {
