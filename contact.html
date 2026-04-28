@@ -573,22 +573,49 @@
   </footer>
 
   <script>
-    function submitForm() {
+    async function submitForm() {
       const firstName = document.getElementById('firstName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const message   = document.getElementById('message').value.trim();
 
       if (!firstName || !email || !message) {
         alert('Please fill in your name, email, and message before submitting.');
         return;
       }
 
-      // Hide form, show success
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
+      const btn = document.querySelector('.form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
 
-      // If you add Formspree or similar, replace above with:
-      // fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(form) })
+      const data = {
+        firstName,
+        lastName: document.getElementById('lastName').value.trim(),
+        email,
+        company:  document.getElementById('company').value.trim(),
+        inquiry:  document.getElementById('inquiry').value,
+        message
+      };
+
+      try {
+        const res = await fetch('https://formspree.io/f/xvzdgzyo', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body:    JSON.stringify(data)
+        });
+
+        if (res.ok) {
+          document.getElementById('contactForm').style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send Message →';
+          alert('There was an issue submitting. Please email hello@tariffbureau.com directly.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+        alert('Connection error. Please email hello@tariffbureau.com directly.');
+      }
     }
   </script>
 
