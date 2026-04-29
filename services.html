@@ -1,140 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tariff Classification and Import Compliance Services | Tariff Bureau</title>
-  <meta name="description" content="Tariff Bureau provides tariff classification, HTS code review, country-of-origin analysis, import compliance advisory, and tariff risk assessment services for importers and manufacturers.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.tariffbureau.com/services.html">
-  <link rel="icon" href="/favicon.ico">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — The Tariff Bureau LLC</title>
+<meta name="description" content="IEEPA tariff refund recovery services for U.S. importers and international DDP manufacturers. Assessment, full recovery, rerouting, and monitoring."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #1B3A5C;
+  --navy-dark: #0f2238;
+  --navy-mid: #243f63;
+  --gold: #C9A84C;
+  --gold-light: #e8c96b;
+  --gold-dim: rgba(201,168,76,0.15);
+  --cream: #FAF8F3;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --border: rgba(201,168,76,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--navy);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-brand { color: var(--gold); font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: rgba(255,255,255,0.65); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { background: var(--gold); color: var(--navy); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 20px; text-decoration: none; transition: all 0.2s; }
+.nav-cta:hover { background: var(--gold-light); }
+
+/* HERO */
+.hero {
+  background: var(--navy-dark);
+  padding: 120px 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-rule { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px; }
+.hero-rule span { width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+.hero-rule em { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; font-style: normal; }
+h1 { font-size: clamp(36px, 5vw, 60px); color: #fff; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 20px; }
+h1 em { color: var(--gold); font-style: italic; }
+.hero-sub { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; max-width: 500px; margin: 0 auto 40px; line-height: 1.7; }
+.hero-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-num { font-size: 28px; color: var(--gold); font-weight: 700; letter-spacing: -0.02em; }
+.stat-label { font-family: 'DM Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px; }
+
+/* SECTION */
+.section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+.section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+.section-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.15em; opacity: 0.7; }
+.section-title { font-size: clamp(22px, 3vw, 32px); color: var(--navy); font-weight: 600; }
+.section-line { flex: 1; height: 1px; background: var(--border); }
+
+/* SERVICE CARDS */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+.service-card {
+  background: #fff;
+  padding: 36px 32px;
+  position: relative;
+  transition: all 0.25s;
+  cursor: default;
+}
+.service-card:hover { background: var(--navy); }
+.service-card:hover .sc-icon-wrap { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+.service-card:hover .sc-icon { color: var(--gold); }
+.service-card:hover .sc-tag { color: rgba(255,255,255,0.4); }
+.service-card:hover .sc-name { color: #fff; }
+.service-card:hover .sc-price { color: var(--gold); }
+.service-card:hover .sc-price-label { color: rgba(255,255,255,0.4); }
+.service-card:hover .sc-desc { color: rgba(255,255,255,0.7); }
+.service-card:hover .sc-feature { color: rgba(255,255,255,0.6); border-color: rgba(201,168,76,0.2); }
+.service-card:hover .sc-feature::before { color: var(--gold); }
+.service-card:hover .sc-cta { background: var(--gold); color: var(--navy); }
+.sc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+.sc-icon-wrap { width: 44px; height: 44px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.25s; }
+.sc-icon { font-size: 20px; transition: color 0.25s; }
+.sc-badge { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--gold-dim); color: var(--gold); padding: 4px 10px; border: 1px solid var(--border); transition: all 0.25s; }
+.service-card:hover .sc-badge { background: rgba(201,168,76,0.2); }
+.sc-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; transition: color 0.25s; }
+.sc-name { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 4px; transition: color 0.25s; line-height: 1.2; }
+.sc-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px; }
+.sc-price { font-family: 'DM Mono', monospace; font-size: 15px; color: var(--navy); font-weight: 500; transition: color 0.25s; }
+.sc-price-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-light); letter-spacing: 0.1em; transition: color 0.25s; }
+.sc-desc { font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 20px; transition: color 0.25s; }
+.sc-features { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
+.sc-feature { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-light); letter-spacing: 0.04em; padding-left: 16px; position: relative; border-left: 1px solid var(--border); transition: all 0.25s; }
+.sc-feature::before { content: '→'; position: absolute; left: -2px; color: var(--gold); font-size: 10px; }
+.sc-cta { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--navy); color: var(--gold); padding: 9px 20px; text-decoration: none; border: 1px solid var(--border); transition: all 0.25s; }
+.sc-cta:hover { background: var(--gold); color: var(--navy); }
+.service-card:hover .sc-cta:hover { background: #fff; color: var(--navy); }
+
+/* FEATURED CARD */
+.service-card.featured {
+  background: var(--navy);
+  grid-column: span 2;
+}
+@media (max-width: 700px) { .service-card.featured { grid-column: span 1; } }
+.service-card.featured .sc-tag { color: rgba(255,255,255,0.4); }
+.service-card.featured .sc-name { color: #fff; font-size: 24px; }
+.service-card.featured .sc-price { color: var(--gold); font-size: 17px; }
+.service-card.featured .sc-price-label { color: rgba(255,255,255,0.4); }
+.service-card.featured .sc-desc { color: rgba(255,255,255,0.65); }
+.service-card.featured .sc-feature { color: rgba(255,255,255,0.55); border-color: rgba(201,168,76,0.2); }
+.service-card.featured .sc-feature::before { color: var(--gold); }
+.service-card.featured .sc-cta { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.service-card.featured .sc-badge { background: rgba(201,168,76,0.15); }
+.service-card.featured .sc-icon-wrap { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.08); }
+.service-card.featured .sc-icon { color: var(--gold); }
+.service-card.featured:hover { background: var(--navy-mid); }
+
+/* HOW IT WORKS */
+.how-section { background: var(--navy-dark); padding: 80px 40px; }
+.how-inner { max-width: 1100px; margin: 0 auto; }
+.how-header { text-align: center; margin-bottom: 56px; }
+.how-header h2 { font-size: clamp(24px, 3vw, 36px); color: #fff; font-weight: 600; margin-bottom: 10px; }
+.how-header p { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; }
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+.steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.3; }
+.step { text-align: center; padding: 0 16px; position: relative; }
+.step-num { width: 56px; height: 56px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; background: var(--navy-dark); }
+.step-num span { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--gold); font-weight: 500; }
+.step-title { font-size: 14px; color: #fff; font-weight: 600; margin-bottom: 8px; }
+.step-desc { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; line-height: 1.7; }
+@media (max-width: 700px) { .steps { grid-template-columns: 1fr 1fr; gap: 32px; } .steps::before { display: none; } }
+
+/* SEGMENT BANDS */
+.segments { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+.segment { background: #fff; padding: 40px 36px; transition: background 0.2s; }
+.segment:hover { background: var(--gold-dim); }
+.seg-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.seg-title { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+.seg-desc { font-size: 14px; color: var(--text-light); line-height: 1.75; margin-bottom: 20px; }
+.seg-list { display: flex; flex-direction: column; gap: 8px; }
+.seg-item { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-light); padding-left: 18px; position: relative; }
+.seg-item::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+@media (max-width: 700px) { .segments { grid-template-columns: 1fr; } }
+
+/* CTA BAND */
+.cta-band { background: var(--gold); padding: 60px 40px; text-align: center; }
+.cta-band h2 { font-size: clamp(24px, 4vw, 42px); color: var(--navy); font-weight: 700; margin-bottom: 12px; }
+.cta-band p { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(27,58,92,0.65); letter-spacing: 0.06em; margin-bottom: 32px; }
+.cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-primary { background: var(--navy); color: var(--gold); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; transition: all 0.2s; }
+.cta-primary:hover { background: var(--navy-dark); }
+.cta-secondary { background: transparent; color: var(--navy); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; border: 2px solid var(--navy); transition: all 0.2s; }
+.cta-secondary:hover { background: rgba(27,58,92,0.1); }
+
+/* FOOTER */
+footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; border-top: 1px solid var(--border); }
+.footer-text { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; line-height: 1.8; }
+.footer-text a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+.footer-text a:hover { opacity: 1; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp 0.6s ease forwards; }
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero, .section, .how-section { padding-left: 20px; padding-right: 20px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card.featured { grid-column: span 1; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 28px; }
+}
+</style>
 </head>
-
 <body>
-  <header>
-    <strong>Tariff Bureau</strong>
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="/services.html">Services</a>
-      <a href="/pricing.html">Pricing</a>
-     <a href="/intake.html">Start Review</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Tariff Classification and Import Compliance Services</h1>
+<nav>
+  <a class="nav-brand" href="/">The Tariff Bureau</a>
+  <div class="nav-links">
+    <a href="/services" class="active">Services</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="/intake">Start Assessment</a>
+</nav>
 
-    <p>
-      Tariff Bureau helps importers, manufacturers, distributors, and sourcing teams evaluate
-      tariff exposure, HTS code considerations, country-of-origin issues, and import compliance
-      risk before products move, contracts are signed, or costs escalate.
-    </p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-rule fade-up">
+    <span></span>
+    <em>IEEPA Recovery Services</em>
+    <span></span>
+  </div>
+  <h1 class="fade-up delay-1">Every Service Built Around<br/><em>One Outcome: Your Refund</em></h1>
+  <p class="hero-sub fade-up delay-2">From rapid eligibility assessment to full CBP CAPE filing — six service tiers designed for U.S. importers and international DDP manufacturers.</p>
+  <div class="hero-stats fade-up delay-3">
+    <div class="stat">
+      <div class="stat-num">$166B</div>
+      <div class="stat-label">Refund Pool</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">92%</div>
+      <div class="stat-label">Unenrolled Importers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">60–90</div>
+      <div class="stat-label">Day CBP Processing</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$0</div>
+      <div class="stat-label">Upfront on Contingency</div>
+    </div>
+  </div>
+</section>
 
-    <p><strong><a href="/intake.html">Start Your Tariff and Compliance Review</a></strong></p>
+<!-- SERVICES GRID -->
+<div style="padding: 80px 40px; max-width: 1100px; margin: 0 auto;">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Service Tiers</h2>
+    <div class="section-line"></div>
+  </div>
 
-    <h2>Services for Importers</h2>
+  <div class="services-grid">
 
-    <p>
-      Importers face cost, documentation, and compliance risk when product details are incomplete
-      or tariff exposure is misunderstood. Tariff Bureau supports importers with structured review
-      before shipment, purchasing, or supplier commitment.
-    </p>
+    <!-- FEATURED -->
+    <div class="service-card featured">
+      <div class="sc-top">
+        <div class="sc-icon-wrap"><div class="sc-icon">⚡</div></div>
+        <span class="sc-badge">Most Popular</span>
+      </div>
+      <div class="sc-tag">Full Service</div>
+      <div class="sc-name">Full Recovery Package</div>
+      <div class="sc-price-row">
+        <span class="sc-price">$4,000 base + 12–15% contingency</span>
+        <span class="sc-price-label">of refund recovered</span>
+      </div>
+      <p class="sc-desc">Our end-to-end service. We handle ACE/ACH enrollment, documentation, CBP CAPE filing, and Form 4811 ACH authorization. You sign. We file. CBP pays. Zero upfront beyond the base engagement — contingency deducted from your refund.</p>
+      <div class="sc-features">
+        <div class="sc-feature">ACE/ACH enrollment verification and completion</div>
+        <div class="sc-feature">HTS classification review and CAPE eligibility mapping</div>
+        <div class="sc-feature">Entry summary compilation and documentation package</div>
+        <div class="sc-feature">CAPE Declaration filing through licensed customs broker</div>
+        <div class="sc-feature">Form 4811 ACH routing and net proceeds wire to client</div>
+      </div>
+      <a href="/intake" class="sc-cta">Start Full Recovery →</a>
+    </div>
 
-    <h3>Tariff Classification Review</h3>
-    <p>
-      Review product descriptions, materials, use cases, and technical details to support tariff
-      classification planning and HTS code review.
-    </p>
+    <!-- CARD 2 -->
+    <div class="service-card">
+      <div class="sc-top">
+        <div class="sc-icon-wrap"><div class="sc-icon">🔍</div></div>
+        <span class="sc-badge">Entry Point</span>
+      </div>
+      <div class="sc-tag">Advisory</div>
+      <div class="sc-name">Assessment Only</div>
+      <div class="sc-price-row">
+        <span class="sc-price">$8,000 – $18,000</span>
+        <span class="sc-price-label">flat fee</span>
+      </div>
+      <p class="sc-desc">A comprehensive IEEPA tariff exposure analysis. Know your refund potential before committing to full recovery. Includes HTS mapping, CAPE eligibility scoring, ACE enrollment status, and a written refund estimate.</p>
+      <div class="sc-features">
+        <div class="sc-feature">Full HTS code review against IEEPA tariff schedules</div>
+        <div class="sc-feature">Refund exposure estimate by entry and period</div>
+        <div class="sc-feature">ACE/ACH enrollment gap analysis</div>
+        <div class="sc-feature">Written advisory report with recovery recommendations</div>
+      </div>
+      <a href="/intake" class="sc-cta">Request Assessment →</a>
+    </div>
 
-    <h3>HTS Code and Duty Exposure Support</h3>
-    <p>
-      Evaluate potential duty exposure and identify classification questions that may affect landed
-      cost, pricing, and sourcing decisions.
-    </p>
+    <!-- CARD 3 -->
+    <div class="service-card">
+      <div class="sc-top">
+        <div class="sc-icon-wrap"><div class="sc-icon">📋</div></div>
+        <span class="sc-badge">Lender Use</span>
+      </div>
+      <div class="sc-tag">Valuation</div>
+      <div class="sc-name">Refund Claim Valuation Report</div>
+      <div class="sc-price-row">
+        <span class="sc-price">$8,000 – $18,000</span>
+        <span class="sc-price-label">flat fee</span>
+      </div>
+      <p class="sc-desc">Independent refund claim valuations for credit underwriting, collateral assessment, and borrowing base calculations. Designed for trade finance lenders and asset-based lenders with importer borrowers.</p>
+      <div class="sc-features">
+        <div class="sc-feature">Quantified refund exposure documentation</div>
+        <div class="sc-feature">CBP ACH payment traceability analysis</div>
+        <div class="sc-feature">Form 4811 authorization mapping</div>
+        <div class="sc-feature">Lender-ready report format for underwriting</div>
+      </div>
+      <a href="/contact" class="sc-cta">Request Valuation →</a>
+    </div>
 
-    <h3>Import Documentation Review</h3>
-    <p>
-      Review commercial invoice details, product descriptions, declared origin, and related import
-      documentation for practical compliance risk.
-    </p>
+    <!-- CARD 4 -->
+    <div class="service-card">
+      <div class="sc-top">
+        <div class="sc-icon-wrap"><div class="sc-icon">🔧</div></div>
+        <span class="sc-badge">Optimization</span>
+      </div>
+      <div class="sc-tag">Advisory</div>
+      <div class="sc-name">Claim Audit & Optimization</div>
+      <div class="sc-price-row">
+        <span class="sc-price">$6,000 – $15,000</span>
+        <span class="sc-price-label">flat fee</span>
+      </div>
+      <p class="sc-desc">Already filed a claim? We audit it for missed entries, misclassified HTS codes, and documentation gaps that could reduce your recovery or trigger a CBP rejection.</p>
+      <div class="sc-features">
+        <div class="sc-feature">Line-by-line entry summary audit</div>
+        <div class="sc-feature">HTS reclassification review</div>
+        <div class="sc-feature">Documentation completeness scoring</div>
+        <div class="sc-feature">Amended filing recommendations</div>
+      </div>
+      <a href="/intake" class="sc-cta">Request Audit →</a>
+    </div>
 
-    <h3>Tariff Risk Assessment</h3>
-    <p>
-      Identify tariff-related risk before goods move through the supply chain, especially when sourcing
-      from new suppliers, countries, or product categories.
-    </p>
+    <!-- CARD 5 -->
+    <div class="service-card">
+      <div class="sc-top">
+        <div class="sc-icon-wrap"><div class="sc-icon">🌐</div></div>
+        <span class="sc-badge">Strategic</span>
+      </div>
+      <div class="sc-tag">Supply Chain</div>
+      <div class="sc-name">Rerouting Analysis</div>
+      <div class="sc-price-row">
+        <span class="sc-price">$10,000 – $40,000</span>
+        <span class="sc-price-label">flat fee</span>
+      </div>
+      <p class="sc-desc">Forward-looking supply chain restructuring analysis to reduce future tariff exposure. Evaluates alternative country of origin, FTA utilization, bonded warehouse strategies, and HTS engineering.</p>
+      <div class="sc-features">
+        <div class="sc-feature">Country of origin shift feasibility analysis</div>
+        <div class="sc-feature">Free Trade Agreement (FTA) utilization mapping</div>
+        <div class="sc-feature">Bonded warehouse and FTZ opportunity assessment</div>
+        <div class="sc-feature">HTS engineering review for duty minimization</div>
+      </div>
+      <a href="/intake" class="sc-cta">Request Analysis →</a>
+    </div>
 
-    <h2>Services for Manufacturers</h2>
+    <!-- CARD 6 -->
+    <div class="service-card">
+      <div class="sc-top">
+        <div class="sc-icon-wrap"><div class="sc-icon">📡</div></div>
+        <span class="sc-badge">Ongoing</span>
+      </div>
+      <div class="sc-tag">Intelligence</div>
+      <div class="sc-name">Trade Monitoring Retainer</div>
+      <div class="sc-price-row">
+        <span class="sc-price">$3,000 – $10,000</span>
+        <span class="sc-price-label">per month</span>
+      </div>
+      <p class="sc-desc">Continuous tariff landscape monitoring, CBP regulatory updates, IEEPA litigation tracking, and proactive alerts for changes affecting your import portfolio. Delivered via TariffIQ weekly intelligence briefs.</p>
+      <div class="sc-features">
+        <div class="sc-feature">Weekly TariffIQ trade intelligence brief</div>
+        <div class="sc-feature">CBP CAPE portal status and deadline tracking</div>
+        <div class="sc-feature">IEEPA litigation and regulatory change alerts</div>
+        <div class="sc-feature">On-call Alex Monroe advisory access</div>
+      </div>
+      <a href="/contact" class="sc-cta">Start Retainer →</a>
+    </div>
 
-    <p>
-      Manufacturers need clarity when materials, components, assembly steps, or production locations
-      affect country-of-origin analysis and tariff planning. Tariff Bureau helps manufacturing teams
-      evaluate these factors before procurement or production decisions are locked in.
-    </p>
+  </div>
+</div>
 
-    <h3>Country of Origin Review</h3>
-    <p>
-      Assess sourcing, manufacturing location, assembly steps, component inputs, and origin-related
-      considerations that may affect import compliance and tariff treatment.
-    </p>
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="how-header">
+      <h2>How Full Recovery Works</h2>
+      <p>From first conversation to ACH wire — five steps, 60–90 days</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"><span>01</span></div>
+        <div class="step-title">Assessment</div>
+        <div class="step-desc">TariffIQ maps your HTS codes to CAPE eligibility and quantifies refund exposure.</div>
+      </div>
+      <div class="step">
+        <div class="step-num"><span>02</span></div>
+        <div class="step-title">Enrollment</div>
+        <div class="step-desc">We verify and complete your ACE/ACH enrollment — the step 80% of importers miss.</div>
+      </div>
+      <div class="step">
+        <div class="step-num"><span>03</span></div>
+        <div class="step-title">Documentation</div>
+        <div class="step-desc">Entry summaries, payment records, and supporting docs compiled in CBP-ready format.</div>
+      </div>
+      <div class="step">
+        <div class="step-num"><span>04</span></div>
+        <div class="step-title">Filing</div>
+        <div class="step-desc">CAPE Declaration filed through licensed broker. You sign Form 4811 for ACH authorization.</div>
+      </div>
+      <div class="step">
+        <div class="step-num"><span>05</span></div>
+        <div class="step-title">Recovery</div>
+        <div class="step-desc">CBP processes, ACH arrives, contingency deducted, net proceeds wired to you.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <h3>Supply Chain and Sourcing Risk Review</h3>
-    <p>
-      Evaluate how supplier changes, country changes, or manufacturing process changes may affect
-      tariff exposure and import compliance risk.
-    </p>
+<!-- WHO WE SERVE -->
+<div style="padding: 80px 40px; max-width: 1100px; margin: 0 auto;">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Who We Serve</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="segments">
+    <div class="segment">
+      <div class="seg-eyebrow">Segment A</div>
+      <div class="seg-title">U.S. Mid-Market Importers</div>
+      <p class="seg-desc">Companies importing $5M–$500M annually that paid IEEPA tariffs on Chinese goods, consumer products, electronics, apparel, or industrial inputs. If you haven't filed a CAPE claim — or aren't sure — your refund may still be recoverable.</p>
+      <div class="seg-list">
+        <div class="seg-item">Annual import spend $5M–$500M</div>
+        <div class="seg-item">Goods subject to Section 301, 232, or Liberation Day tariffs</div>
+        <div class="seg-item">Active or lapsed ACE portal account</div>
+        <div class="seg-item">U.S.-based importer of record</div>
+      </div>
+    </div>
+    <div class="segment">
+      <div class="seg-eyebrow">Segment B</div>
+      <div class="seg-title">International DDP Manufacturers</div>
+      <p class="seg-desc">Foreign manufacturers in Vietnam, Taiwan, South Korea, India, Bangladesh, and Indonesia who shipped DDP to U.S. buyers and absorbed IEEPA tariffs into their pricing. You may be the IOR — and the refund may belong to you.</p>
+      <div class="seg-list">
+        <div class="seg-item">DDP Incoterms on U.S.-bound shipments</div>
+        <div class="seg-item">Manufacturer as importer of record</div>
+        <div class="seg-item">Tariff costs absorbed into DDP pricing</div>
+        <div class="seg-item">No U.S. office required to file</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <h3>Product and Component Review</h3>
-    <p>
-      Review product composition, bill-of-material style details, and component sourcing information
-      to support practical tariff and origin analysis.
-    </p>
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Ready to Know What You're Owed?</h2>
+  <p>Free eligibility assessment. No retainer. No commitment until you see the numbers.</p>
+  <div class="cta-group">
+    <a href="/intake" class="cta-primary">Start Free Assessment</a>
+    <a href="/" class="cta-secondary">Talk to Alex Monroe</a>
+  </div>
+</div>
 
-    <h3>Pre-Procurement Advisory</h3>
-    <p>
-      Support business teams before committing to suppliers, manufacturing locations, purchase orders,
-      or large-volume import decisions.
-    </p>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">
+    The Tariff Bureau LLC &nbsp;·&nbsp; Atlanta, Georgia &nbsp;·&nbsp;
+    <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a> &nbsp;·&nbsp;
+    <a href="/terms">Terms</a> &nbsp;·&nbsp;
+    <a href="/privacy">Privacy</a><br/>
+    Advisory information only. Not legal advice. Not licensed customs brokerage. No specific refund amount or CBP approval guaranteed.
+  </div>
+</footer>
 
-    <h2>Common Review Areas</h2>
-
-    <ul>
-      <li>Tariff classification services</li>
-      <li>HTS code review</li>
-      <li>Import compliance advisory</li>
-      <li>Country-of-origin review</li>
-      <li>Tariff risk assessment</li>
-      <li>Import documentation review</li>
-      <li>Supply chain tariff exposure</li>
-      <li>Product classification support</li>
-      <li>Manufacturing and sourcing risk review</li>
-    </ul>
-
-    <h2>When to Request a Review</h2>
-
-    <ul>
-      <li>Before importing a new product</li>
-      <li>Before changing suppliers or countries of origin</li>
-      <li>Before committing to a large purchase order</li>
-      <li>Before quoting customers based on landed cost assumptions</li>
-      <li>Before launching a new manufactured product line</li>
-      <li>When tariff classification or origin details are unclear</li>
-    </ul>
-
-    <h2>Start With a Structured Review</h2>
-
-    <p>
-      The review process begins with basic project details. Tariff Bureau reviews the submission and
-      determines the appropriate next step based on product type, origin questions, tariff exposure,
-      documentation needs, and business urgency.
-    </p>
-
-    <p><a href="/intake.html">Start Your Tariff and Compliance Review</a></p>
-  </main>
-
-  <footer>
-    <p>© 2026 Tariff Bureau. All rights reserved.</p>
-  </footer>
 </body>
 </html>
