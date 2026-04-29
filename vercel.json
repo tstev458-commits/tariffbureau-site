@@ -1,3 +1,4 @@
+
 {
   "cleanUrls": true,
   "trailingSlash": false,
@@ -11,6 +12,7 @@
     { "src": "/thank-you",    "dest": "/thank-you.html" },
     { "src": "/terms",        "dest": "/terms.html" },
     { "src": "/screening",    "dest": "/screening.html" },
-    { "src": "/intake-smart", "dest": "/intake-smart.html" }
+    { "src": "/intake-smart", "dest": "/intake-smart.html" },
+    { "src": "/api/chat",     "dest": "/api/chat.js" }
   ]
 }
