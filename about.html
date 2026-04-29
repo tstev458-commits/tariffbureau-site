@@ -1,18 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>About | Tariff Bureau</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — The Tariff Bureau LLC</title>
+<meta name="description" content="The Tariff Bureau LLC is an AI-powered trade intelligence and IEEPA tariff refund recovery advisory firm based in Atlanta, Georgia."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #1B3A5C;
+  --navy-dark: #0f2238;
+  --navy-mid: #243f63;
+  --gold: #C9A84C;
+  --gold-light: #e8c96b;
+  --gold-dim: rgba(201,168,76,0.12);
+  --cream: #FAF8F3;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --border: rgba(201,168,76,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Cormorant Garamond', Georgia, serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--navy); border-bottom: 1px solid var(--border);
+  padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 60px;
+}
+.nav-brand { color: var(--gold); font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: rgba(255,255,255,0.65); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { background: var(--gold); color: var(--navy); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 20px; text-decoration: none; transition: all 0.2s; }
+.nav-cta:hover { background: var(--gold-light); }
+
+/* HERO — FULL BLEED STATEMENT */
+.hero {
+  background: var(--navy-dark);
+  min-height: 420px;
+  display: flex; align-items: flex-end;
+  padding: 100px 40px 64px;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: 'TB';
+  position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif; font-size: 320px; font-weight: 700;
+  color: rgba(201,168,76,0.04); line-height: 1; pointer-events: none; user-select: none;
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: 0.5; }
+h1 { font-size: clamp(38px, 5.5vw, 72px); color: #fff; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; max-width: 800px; }
+h1 em { color: var(--gold); font-style: italic; }
+
+/* MISSION BAND */
+.mission {
+  background: var(--gold);
+  padding: 48px 40px;
+}
+.mission-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center; }
+.mission-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); opacity: 0.6; }
+.mission-text { font-size: clamp(18px, 2.5vw, 26px); color: var(--navy); font-weight: 600; line-height: 1.5; font-style: italic; }
+@media (max-width: 700px) { .mission-inner { grid-template-columns: 1fr; gap: 16px; } }
+
+/* SECTION STRUCTURE */
+.section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+.section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+.section-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.15em; opacity: 0.7; }
+.section-title { font-size: clamp(22px, 3vw, 32px); color: var(--navy); font-weight: 600; }
+.section-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ORIGIN STORY */
+.origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.origin-body p { font-size: 17px; color: var(--text); line-height: 1.85; margin-bottom: 20px; }
+.origin-body p:last-child { margin-bottom: 0; }
+.origin-body strong { color: var(--navy); font-weight: 700; }
+.origin-aside { display: flex; flex-direction: column; gap: 24px; }
+.aside-card { border-left: 2px solid var(--gold); padding: 20px 24px; background: #fff; }
+.aside-card-num { font-family: 'DM Mono', monospace; font-size: 28px; color: var(--gold); font-weight: 500; line-height: 1; margin-bottom: 6px; }
+.aside-card-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--navy); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.aside-card-desc { font-size: 13px; color: var(--text-light); line-height: 1.65; }
+@media (max-width: 768px) { .origin-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+/* RULING CALLOUT */
+.ruling-band { background: var(--navy); padding: 64px 40px; }
+.ruling-inner { max-width: 1100px; margin: 0 auto; }
+.ruling-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
+.ruling-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--border); padding: 5px 12px; }
+.ruling-title { font-size: clamp(20px, 3vw, 30px); color: #fff; font-weight: 600; }
+.ruling-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(201,168,76,0.12); border: 1px solid var(--border); }
+.ruling-item { background: var(--navy-mid); padding: 32px 28px; }
+.ruling-item-icon { font-size: 24px; margin-bottom: 16px; }
+.ruling-item-title { font-size: 16px; color: #fff; font-weight: 600; margin-bottom: 10px; }
+.ruling-item-text { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.75; letter-spacing: 0.02em; }
+@media (max-width: 700px) { .ruling-grid { grid-template-columns: 1fr; } }
+
+/* PLATFORM */
+.platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); }
+.platform-card { background: #fff; padding: 36px 32px; }
+.platform-card:hover { background: var(--gold-dim); }
+.pc-icon { font-size: 28px; margin-bottom: 16px; }
+.pc-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.pc-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+.pc-text { font-size: 14px; color: var(--text-light); line-height: 1.75; }
+@media (max-width: 700px) { .platform-grid { grid-template-columns: 1fr; } }
+
+/* VALUES */
+.values-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
+.value-row { display: grid; grid-template-columns: 80px 1fr; gap: 0; border-bottom: 1px solid var(--border); transition: background 0.2s; }
+.value-row:last-child { border-bottom: none; }
+.value-row:hover { background: var(--gold-dim); }
+.value-num { padding: 28px 24px; font-family: 'DM Mono', monospace; font-size: 24px; color: var(--gold); font-weight: 500; border-right: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.value-content { padding: 28px 32px; }
+.value-name { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.value-text { font-size: 14px; color: var(--text-light); line-height: 1.75; }
+
+/* LOCATION */
+.location-band { background: var(--navy-dark); padding: 64px 40px; }
+.location-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.loc-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.loc-title { font-size: clamp(24px, 3vw, 40px); color: #fff; font-weight: 600; margin-bottom: 20px; }
+.loc-text { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 28px; }
+.loc-details { display: flex; flex-direction: column; gap: 12px; }
+.loc-detail { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; display: flex; align-items: center; gap: 12px; }
+.loc-detail::before { content: '→'; color: var(--gold); }
+.loc-map { background: var(--navy-mid); border: 1px solid var(--border); padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; min-height: 220px; }
+.loc-map-city { font-size: 36px; color: #fff; font-weight: 600; }
+.loc-map-state { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; }
+.loc-map-addr { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-align: center; line-height: 1.8; }
+@media (max-width: 700px) { .location-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+/* CTA BAND */
+.cta-band { background: var(--gold); padding: 60px 40px; text-align: center; }
+.cta-band h2 { font-size: clamp(24px, 4vw, 44px); color: var(--navy); font-weight: 700; margin-bottom: 12px; }
+.cta-band p { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(27,58,92,0.6); letter-spacing: 0.06em; margin-bottom: 32px; }
+.cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-primary { background: var(--navy); color: var(--gold); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; transition: all 0.2s; }
+.cta-primary:hover { background: var(--navy-dark); }
+.cta-secondary { border: 2px solid var(--navy); color: var(--navy); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; transition: all 0.2s; }
+.cta-secondary:hover { background: rgba(27,58,92,0.08); }
+
+/* FOOTER */
+footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; border-top: 1px solid var(--border); }
+.footer-text { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; line-height: 1.8; }
+.footer-text a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp 0.65s ease forwards; }
+.d1 { animation-delay: 0.1s; opacity: 0; }
+.d2 { animation-delay: 0.2s; opacity: 0; }
+.d3 { animation-delay: 0.35s; opacity: 0; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; } .nav-links { display: none; }
+  .hero, .section, .ruling-band, .location-band, .cta-band { padding-left: 20px; padding-right: 20px; }
+  .hero::after { display: none; }
+}
+</style>
 </head>
 <body>
-<h1>About Tariff Bureau</h1>
 
-<p>Tariff Bureau is a specialized advisory platform focused on global trade intelligence, tariff exposure analysis, and import/export compliance strategy.</p>
+<nav>
+  <a class="nav-brand" href="/">The Tariff Bureau</a>
+  <div class="nav-links">
+    <a href="/services">Services</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/about" class="active">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="/intake">Start Assessment</a>
+</nav>
 
-<p>We support businesses navigating complex tariff environments by providing structured analysis, classification guidance, and actionable trade insights.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow fade-up">About The Tariff Bureau</div>
+    <h1 class="fade-up d1">Built for <em>One Moment</em><br/>in Trade History.</h1>
+  </div>
+</section>
 
-<p>Our approach combines regulatory awareness with practical execution, helping clients reduce risk, improve cost positioning, and maintain compliance across jurisdictions.</p>
+<!-- MISSION -->
+<div class="mission">
+  <div class="mission-inner">
+    <div class="mission-label">Our Mission</div>
+    <div class="mission-text">"To give every eligible U.S. importer and international DDP manufacturer the intelligence, enrollment support, and filing infrastructure to recover what the Supreme Court has ruled is rightfully theirs."</div>
+  </div>
+</div>
 
-<a href="/index.html">Home</a>
+<!-- ORIGIN -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Why We Exist</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="origin-grid">
+    <div class="origin-body">
+      <p>In February 2026, the U.S. Supreme Court ruled in <strong>Learning Resources Inc. v. Trump</strong> that IEEPA-based tariffs were an unconstitutional overreach of executive authority. The decision opened an estimated <strong>$100 billion to $175 billion</strong> in recoverable tariff payments through CBP's CAPE portal.</p>
+      <p>The problem was immediate: most eligible importers had no idea the ruling happened. Fewer understood the CAPE filing process. And the vast majority — <strong>over 92%</strong> of the 330,000 eligible importers — had never enrolled in the ACE/ACH electronic payment system required for CBP to actually pay them.</p>
+      <p>The Tariff Bureau was formed on April 10, 2026, with a single mandate: close that gap. We built TariffIQ — powered by Alex Monroe — to bring enterprise-grade trade intelligence directly to the mid-market importers and international DDP manufacturers who have the most to recover and the least institutional support to do it.</p>
+      <p>This is not a long-term consulting engagement. It is a precise, time-sensitive recovery operation. We move fast, we file correctly, and we take our fee from the refund — never from your operating budget.</p>
+    </div>
+    <div class="origin-aside">
+      <div class="aside-card">
+        <div class="aside-card-num">$166B</div>
+        <div class="aside-card-label">Estimated Refund Pool</div>
+        <div class="aside-card-desc">Tariff payments collected under IEEPA authority — now subject to recovery following the February 2026 Supreme Court ruling.</div>
+      </div>
+      <div class="aside-card">
+        <div class="aside-card-num">92%</div>
+        <div class="aside-card-label">ACE/ACH Enrollment Gap</div>
+        <div class="aside-card-desc">Only ~26,664 of 330,000 eligible importers are enrolled in the electronic payment system CBP requires to process refunds.</div>
+      </div>
+      <div class="aside-card">
+        <div class="aside-card-num">Apr 10</div>
+        <div class="aside-card-label">Founded — Atlanta, Georgia</div>
+        <div class="aside-card-desc">The Tariff Bureau LLC was formed in response to the Supreme Court ruling — built specifically for this recovery window.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE RULING -->
+<section class="ruling-band">
+  <div class="ruling-inner">
+    <div class="ruling-header">
+      <span class="ruling-tag">The Legal Basis</span>
+      <h2 class="ruling-title">Learning Resources Inc. v. Trump — February 2026</h2>
+    </div>
+    <div class="ruling-grid">
+      <div class="ruling-item">
+        <div class="ruling-item-icon">⚖️</div>
+        <div class="ruling-item-title">The Ruling</div>
+        <div class="ruling-item-text">The Supreme Court held that IEEPA tariffs levied by executive action — including Section 301 China tariffs and the April 2025 "Liberation Day" schedule — exceeded the statutory authority granted by Congress and were constitutionally invalid.</div>
+      </div>
+      <div class="ruling-item">
+        <div class="ruling-item-icon">🏛️</div>
+        <div class="ruling-item-title">The Mechanism</div>
+        <div class="ruling-item-text">CBP opened the CAPE (Claims for Administrative Processing and Entry) portal to receive refund declarations. Importers with valid ACE/ACH enrollment who file correctly are entitled to direct ACH reimbursement of overpaid duties.</div>
+      </div>
+      <div class="ruling-item">
+        <div class="ruling-item-icon">⏱️</div>
+        <div class="ruling-item-title">The Window</div>
+        <div class="ruling-item-text">Refund claims operate under statutory timelines. Protest and reliquidation deadlines are strict and non-extendable. Importers who delay risk permanently forfeiting recoverable balances. Speed and accuracy are not optional — they are the strategy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PLATFORM -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Our Platform</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="platform-grid">
+    <div class="platform-card">
+      <div class="pc-icon">🤖</div>
+      <div class="pc-tag">AI Engine</div>
+      <div class="pc-title">TariffIQ</div>
+      <p class="pc-text">Our proprietary AI trade intelligence platform. TariffIQ analyzes HTS codes against IEEPA tariff schedules, maps CAPE eligibility, identifies ACE/ACH enrollment gaps, and delivers a structured refund recovery strategy — in minutes, not weeks. Built on Anthropic's Claude API and secured through Cloudflare's enterprise WAF infrastructure.</p>
+    </div>
+    <div class="platform-card">
+      <div class="pc-icon">👤</div>
+      <div class="pc-tag">Analyst Persona</div>
+      <div class="pc-title">Alex Monroe</div>
+      <p class="pc-text">Alex Monroe is The Tariff Bureau's AI trade analyst — available 24/7 to qualify leads, assess CAPE eligibility, explain the ACE enrollment process, and guide importers through the fastest path to recovery. Alex is not a chatbot. He is a structured intelligence interface designed to deliver the kind of first-call clarity that used to require a senior trade attorney.</p>
+    </div>
+    <div class="platform-card">
+      <div class="pc-icon">📋</div>
+      <div class="pc-tag">Filing Infrastructure</div>
+      <div class="pc-title">Form 4811 ACH Model</div>
+      <p class="pc-text">Our Form 4811 full-service model authorizes CBP to send refund payments directly to The Tariff Bureau via ACH. We deduct our contingency fee and wire the net proceeds to the client. No escrow. No delay. No ambiguity. The client signs once and CBP handles the rest.</p>
+    </div>
+    <div class="platform-card">
+      <div class="pc-icon">🔐</div>
+      <div class="pc-tag">Security Stack</div>
+      <div class="pc-title">Enterprise-Grade Protection</div>
+      <p class="pc-text">Client data is protected by a multi-layer security infrastructure: 1Password credential management, Cloudflare WAF with Bot Fight Mode, DKIM/DMARC/SPF authenticated email, and encrypted API proxy isolation. We treat your import data with the same security standards applied to the financial institutions we work alongside.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="section" style="padding-top: 0;">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">How We Operate</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="values-list">
+    <div class="value-row">
+      <div class="value-num">01</div>
+      <div class="value-content">
+        <div class="value-name">Contingency-First</div>
+        <p class="value-text">We take our fee from the refund, not from your operating budget. Our Full Recovery Package requires only a base engagement fee — the rest is contingency. If you don't recover, we don't profit. That alignment is not a marketing position. It is the foundation of every client relationship.</p>
+      </div>
+    </div>
+    <div class="value-row">
+      <div class="value-num">02</div>
+      <div class="value-content">
+        <div class="value-name">Speed Over Ceremony</div>
+        <p class="value-text">CBP refund windows are not indefinite. We were designed to move fast — TariffIQ assessment in minutes, ACE enrollment in days, documentation and filing in weeks. Every process we built was optimized for the reality that delay has a dollar cost.</p>
+      </div>
+    </div>
+    <div class="value-row">
+      <div class="value-num">03</div>
+      <div class="value-content">
+        <div class="value-name">Precision Over Volume</div>
+        <p class="value-text">We are not a mass-market filing service. We work with clients where the refund exposure is material and the documentation is recoverable. Every engagement receives direct advisory attention. We will decline engagements that do not meet our quality threshold.</p>
+      </div>
+    </div>
+    <div class="value-row">
+      <div class="value-num">04</div>
+      <div class="value-content">
+        <div class="value-name">Transparency in Every Step</div>
+        <p class="value-text">We publish our process, our pricing, and our service scope publicly. There are no hidden fees, no scope expansions without written agreement, and no ambiguity about what you are signing. Our engagement letters, NDAs, and operating agreements are drafted to protect both parties equally.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<section class="location-band">
+  <div class="location-inner">
+    <div>
+      <div class="loc-eyebrow">Headquarters</div>
+      <h2 class="loc-title">Atlanta, Georgia</h2>
+      <p class="loc-text">The Tariff Bureau LLC is headquartered in College Park, Georgia — at the gateway to Hartsfield-Jackson Atlanta International Airport, the busiest cargo hub in the southeastern United States. Our location is intentional: we are where American trade moves.</p>
+      <div class="loc-details">
+        <div class="loc-detail">2459 Roosevelt Hwy., Suite A10</div>
+        <div class="loc-detail">College Park, GA 30337</div>
+        <div class="loc-detail">legal@tariffbureau.com</div>
+        <div class="loc-detail">EIN: 42-1842417</div>
+        <div class="loc-detail">Georgia LLC · Formed April 10, 2026</div>
+      </div>
+    </div>
+    <div class="loc-map">
+      <div class="loc-map-city">Atlanta</div>
+      <div class="loc-map-state">Georgia · USA</div>
+      <div class="loc-map-addr">2459 Roosevelt Hwy., Suite A10<br/>College Park, GA 30337<br/>tariffbureau.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>The Refund Window Is Open.</h2>
+  <p>Free eligibility assessment. No retainer to start. No commitment until you see the numbers.</p>
+  <div class="cta-group">
+    <a href="/intake" class="cta-primary">Start Free Assessment</a>
+    <a href="/" class="cta-secondary">Talk to Alex Monroe</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-text">
+    The Tariff Bureau LLC &nbsp;·&nbsp; Atlanta, Georgia &nbsp;·&nbsp;
+    <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a> &nbsp;·&nbsp;
+    <a href="/terms">Terms</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a><br/>
+    Advisory information only. Not legal advice. Not licensed customs brokerage. No specific refund amount or CBP approval guaranteed.
+  </div>
+</footer>
+
 </body>
 </html>
