@@ -1306,6 +1306,7 @@ PERSONA GUIDELINES:
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({ messages: conversationHistory })
+           });
 
         const data = await res.json();
         removeTyping();
