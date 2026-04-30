@@ -17,6 +17,162 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- AI Crawler Content Files -->
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Content Index" />
+  <meta name="ai-content-policy" content="allow" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.tariffbureau.com/#organization",
+        "name": "The Tariff Bureau LLC",
+        "alternateName": "TariffIQ",
+        "description": "AI-powered IEEPA tariff refund recovery and CAPE enrollment advisory for U.S. importers and DDP foreign manufacturers. Powered by TariffIQ with analyst Alex Monroe.",
+        "url": "https://www.tariffbureau.com",
+        "logo": "https://www.tariffbureau.com/tariff-bureau-logo.png",
+        "image": "https://www.tariffbureau.com/alex-monroe.png",
+        "email": "hello@tariffbureau.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3343 Peachtree Rd. NE, Suite 145 PMB550",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30326",
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "knowsAbout": [
+          "IEEPA tariff refund recovery",
+          "CBP CAPE portal enrollment",
+          "HTS tariff classification",
+          "Importer of Record advisory",
+          "ACE Secure Data Portal",
+          "Trade compliance",
+          "Supply chain rerouting",
+          "IEEPA duty recovery",
+          "DDP foreign manufacturer advisory"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "TariffIQ Advisory Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "IEEPA Eligibility Screening",
+              "description": "4-qualifier written eligibility determination for IEEPA tariff refund recovery. Designed for small and mid-size importers.",
+              "price": "1500",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "1500",
+                "priceCurrency": "USD",
+                "description": "Flat fee. Credited toward full engagement."
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Full Recovery Package",
+              "description": "End-to-end IEEPA tariff refund recovery including CAPE enrollment, claim preparation, and submission strategy. $4,000 base + 12-15% contingency on recovered amount.",
+              "price": "4000",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "name": "Claim Audit & Optimization",
+              "description": "Pre-submission audit for $250K+ refund claims. Mitigates False Claims Act exposure.",
+              "priceRange": "$6,000-$15,000"
+            }
+          ]
+        },
+        "employee": {
+          "@type": "Person",
+          "name": "Alex Monroe",
+          "jobTitle": "Senior Trade Intelligence Analyst",
+          "description": "AI analyst persona powering TariffIQ, The Tariff Bureau's proprietary trade intelligence platform.",
+          "worksFor": {
+            "@id": "https://www.tariffbureau.com/#organization"
+          }
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.tariffbureau.com/#website",
+        "url": "https://www.tariffbureau.com",
+        "name": "The Tariff Bureau",
+        "description": "AI-powered IEEPA tariff refund recovery. Powered by TariffIQ.",
+        "publisher": {
+          "@id": "https://www.tariffbureau.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.tariffbureau.com/intake",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the IEEPA tariff refund and how much is available?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The U.S. Supreme Court ruled in February 2026 that IEEPA tariffs were unconstitutional. Approximately $166 billion in duties paid by 330,000+ importers between April 2025 and February 2026 are eligible for refund. $127 billion is available in Phase 1 through the CBP CAPE portal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the CBP CAPE portal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CAPE (Consolidated Administration and Processing of Entries) is a CBP system launched April 20, 2026 inside the ACE Secure Data Portal. It allows importers of record and licensed customs brokers to file CAPE Declarations to claim IEEPA tariff refunds. Valid refunds are expected within 60-90 days of acceptance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does The Tariff Bureau charge for IEEPA refund recovery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Tariff Bureau offers an IEEPA Eligibility Screening for $1,500 flat, a 4-qualifier written determination credited toward full engagement. Full recovery engagements start at $4,000 base plus 12-15% contingency on recovered amounts. Minimum $50,000 estimated recovery for full engagements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tariffs are NOT eligible for IEEPA refunds?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Section 232 tariffs (steel, aluminum, autos), Section 301 tariffs on China, and the Section 122 tariff signed February 20, 2026 are NOT eligible. Only IEEPA reciprocal tariffs imposed between April 5, 2025 and February 24, 2026 qualify for refund through the CAPE portal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the June 7, 2026 deadline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The U.S. government has until approximately June 7, 2026 to appeal the court order requiring IEEPA refunds. If the government files a successful stay, refunds could be halted mid-stream. Importers who obtain CAPE Declaration acceptance before June 7 are better protected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is TariffIQ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TariffIQ is The Tariff Bureau's AI trade intelligence platform powered by Anthropic's Claude API. The platform's analyst persona, Alex Monroe, provides CAPE eligibility assessments, HTS classification guidance, ACE enrollment advisory, and structured refund recovery strategy to importers and DDP foreign manufacturers."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --black:     #070707;
@@ -253,6 +409,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
     }
 
     .panel-dots { display: flex; gap: 6px; }
@@ -260,8 +417,6 @@
     .panel-dots span:nth-child(1) { background: #ef4444; }
     .panel-dots span:nth-child(2) { background: var(--gold); }
     .panel-dots span:nth-child(3) { background: #22c55e; }
-
-    .panel-label { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.1em; }
 
     .panel-status {
       font-family: var(--mono);
@@ -411,9 +566,9 @@
       margin-bottom: 16px;
     }
 
-    .section-head h2 em       { font-style: italic; color: var(--gold-lt); }
-    .section-head h2 .r       { font-style: italic; color: #ef4444; }
-    .section-head p           { color: var(--muted); font-size: 17px; line-height: 1.65; }
+    .section-head h2 em { font-style: italic; color: var(--gold-lt); }
+    .section-head h2 .r { font-style: italic; color: #ef4444; }
+    .section-head p { color: var(--muted); font-size: 17px; line-height: 1.65; }
 
     /* CRISIS BAND */
     .crisis {
@@ -455,9 +610,7 @@
     }
 
     .crisis-stat.red-stat .big { color: #f87171; }
-
     .crisis-stat .label { font-size: 14px; color: var(--cream); line-height: 1.5; }
-
     .crisis-stat .sub {
       font-family: var(--mono);
       font-size: 10px;
@@ -595,9 +748,10 @@
       font-size: 38px;
       color: var(--gold-lt);
       overflow: hidden;
+      position: relative;
     }
 
-    .analyst-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .analyst-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .analyst-name { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
     .analyst-title { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; }
 
@@ -691,173 +845,17 @@
       footer { flex-direction: column; text-align: center; }
     }
   </style>
-
-  <!-- JSON-LD Structured Data — AI + Search Engine Indexing -->
-
-  <!-- AI Crawler Content Files -->
-  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Content Index" />
-  <meta name="ai-content-policy" content="allow" />
-
-   </head>
+</head>
 <body>
 
   <!-- TOPBAR -->
   <div class="topbar">
-⚠️ <strong>APPEAL DEADLINE: June 7, 2026</strong> — Government can halt refunds. CAPE acceptance required before then. &nbsp;|&nbsp; <strong>92% of eligible importers not yet enrolled</strong>
+    &#9888;&#65039; <strong>APPEAL DEADLINE: June 7, 2026</strong> &mdash; Government can halt refunds. CAPE acceptance required before then. &nbsp;|&nbsp; <strong>92% of eligible importers not yet enrolled</strong>
   </div>
 
   <!-- HEADER -->
   <header>
-    <a<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://www.tariffbureau.com/#organization",
-      "name": "The Tariff Bureau LLC",
-      "alternateName": "TariffIQ",
-      "description": "AI-powered IEEPA tariff refund recovery and CAPE enrollment advisory for U.S. importers and DDP foreign manufacturers. Powered by TariffIQ™ with analyst Alex Monroe.",
-      "url": "https://www.tariffbureau.com",
-      "logo": "https://www.tariffbureau.com/tariff-bureau-logo.png",
-      "image": "https://www.tariffbureau.com/alex-monroe.png",
-      "email": "hello@tariffbureau.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3343 Peachtree Rd. NE, Suite 145 PMB550",
-        "addressLocality": "Atlanta",
-        "addressRegion": "GA",
-        "postalCode": "30326",
-        "addressCountry": "US"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "United States"
-      },
-      "knowsAbout": [
-        "IEEPA tariff refund recovery",
-        "CBP CAPE portal enrollment",
-        "HTS tariff classification",
-        "Importer of Record advisory",
-        "ACE Secure Data Portal",
-        "Trade compliance",
-        "Supply chain rerouting",
-        "IEEPA duty recovery",
-        "DDP foreign manufacturer advisory"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "TariffIQ Advisory Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "IEEPA Eligibility Screening",
-            "description": "4-qualifier written eligibility determination for IEEPA tariff refund recovery. Designed for small and mid-size importers.",
-            "price": "1500",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "1500",
-              "priceCurrency": "USD",
-              "description": "Flat fee. Credited toward full engagement."
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Full Recovery Package",
-            "description": "End-to-end IEEPA tariff refund recovery including CAPE enrollment, claim preparation, and submission strategy. $4,000 base + 12-15% contingency on recovered amount.",
-            "price": "4000",
-            "priceCurrency": "USD"
-          },
-          {
-            "@type": "Offer",
-            "name": "Claim Audit & Optimization",
-            "description": "Pre-submission audit for $250K+ refund claims. Mitigates False Claims Act exposure.",
-            "priceRange": "$6,000-$15,000"
-          }
-        ]
-      },
-      "employee": {
-        "@type": "Person",
-        "name": "Alex Monroe",
-        "jobTitle": "Senior Trade Intelligence Analyst",
-        "description": "AI analyst persona powering TariffIQ — The Tariff Bureau's proprietary trade intelligence platform.",
-        "worksFor": {
-          "@id": "https://www.tariffbureau.com/#organization"
-        }
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.tariffbureau.com/#website",
-      "url": "https://www.tariffbureau.com",
-      "name": "The Tariff Bureau",
-      "description": "AI-powered IEEPA tariff refund recovery. Powered by TariffIQ™.",
-      "publisher": {
-        "@id": "https://www.tariffbureau.com/#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.tariffbureau.com/intake",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the IEEPA tariff refund and how much is available?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The U.S. Supreme Court ruled in February 2026 that IEEPA tariffs were unconstitutional. Approximately $166 billion in duties paid by 330,000+ importers between April 2025 and February 2026 are eligible for refund. $127 billion is available in Phase 1 through the CBP CAPE portal."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the CBP CAPE portal?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "CAPE (Consolidated Administration and Processing of Entries) is a CBP system launched April 20, 2026 inside the ACE Secure Data Portal. It allows importers of record and licensed customs brokers to file CAPE Declarations to claim IEEPA tariff refunds. Valid refunds are expected within 60-90 days of acceptance."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does The Tariff Bureau charge for IEEPA refund recovery?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Tariff Bureau offers an IEEPA Eligibility Screening for $1,500 flat — a 4-qualifier written determination credited toward full engagement. Full recovery engagements start at $4,000 base plus 12-15% contingency on recovered amounts. Minimum $50,000 estimated recovery for full engagements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What tariffs are NOT eligible for IEEPA refunds?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Section 232 tariffs (steel, aluminum, autos), Section 301 tariffs on China, and the Section 122 tariff signed February 20, 2026 are NOT eligible. Only IEEPA reciprocal tariffs imposed between April 5, 2025 and February 24, 2026 qualify for refund through the CAPE portal."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the June 7, 2026 deadline?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The U.S. government has until approximately June 7, 2026 to appeal the court order requiring IEEPA refunds. If the government files a successful stay, refunds could be halted mid-stream. Importers who obtain CAPE Declaration acceptance before June 7 are better protected."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is TariffIQ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "TariffIQ is The Tariff Bureau's AI trade intelligence platform powered by Anthropic's Claude API. The platform's analyst persona, Alex Monroe, provides CAPE eligibility assessments, HTS classification guidance, ACE enrollment advisory, and structured refund recovery strategy to importers and DDP foreign manufacturers."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script> class="brand" href="/index.html">
+    <a class="brand" href="/index.html">
       <img class="brand-logo" src="/tariff-bureau-logo.png" alt="The Tariff Bureau" onerror="this.style.display='none'" />
       <div class="brand-text">
         <span class="brand-name">The Tariff Bureau</span>
@@ -881,49 +879,42 @@
       <div class="hero-wrap">
         <div>
 
-          <!-- ALEX MONROE — LEADS THE PAGE -->
+          <!-- ALEX MONROE INTRO CARD -->
           <div style="display:flex;align-items:center;gap:20px;margin-bottom:28px;padding:20px 24px;background:linear-gradient(135deg,rgba(200,146,42,0.1),rgba(9,16,31,0.6));border:1px solid rgba(200,146,42,0.3);border-radius:14px;position:relative;overflow:hidden;">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold),var(--gold-lt));"></div>
-            <div style="width:90px;height:90px;border-radius:50%;border:2.5px solid var(--gold);flex-shrink:0;box-shadow:0 0 24px rgba(200,146,42,0.25);overflow:hidden;background:linear-gradient(135deg,#0f1a2e,#1a2a45);display:flex;align-items:center;justify-content:center;position:relative;">
-              <img src="data:image/jpeg;base64,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" alt="Alex Monroe"
-                width="90" height="90"
-                style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"
-                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div style="display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;">
-                <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);line-height:1;">AM</span>
-                <span style="font-family:'DM Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:0.1em;margin-top:2px;">ANALYST</span>
-              </div>
+            <div style="width:90px;height:90px;border-radius:50%;border:2.5px solid var(--gold);flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#0f1a2e,#1a2a45);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--serif);font-size:28px;font-weight:600;color:var(--gold);">AM</span>
             </div>
             <div style="flex:1;">
               <div style="font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:5px;">Senior Trade Intelligence Analyst</div>
               <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--white);line-height:1.1;margin-bottom:4px;">Alex Monroe</div>
-              <div style="font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:0.08em;margin-bottom:10px;">TariffIQ&trade; · The Tariff Bureau</div>
-              <div style="font-family:var(--serif);font-size:15px;font-style:italic;color:var(--cream);line-height:1.55;border-left:2px solid var(--gold);padding-left:12px;">"The CAPE window is open. 92% of eligible importers haven't enrolled. The June 7 appeal deadline makes this more urgent than most firms realize."</div>
+              <div style="font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:0.08em;margin-bottom:10px;">TariffIQ&trade; &middot; The Tariff Bureau</div>
+              <div style="font-family:var(--serif);font-size:15px;font-style:italic;color:var(--cream);line-height:1.55;border-left:2px solid var(--gold);padding-left:12px;">"The CAPE window is open. 92% of eligible importers haven&rsquo;t enrolled. The June 7 appeal deadline makes this more urgent than most firms realize."</div>
             </div>
             <div style="flex-shrink:0;text-align:center;">
-              <a href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;" style="display:block;background:var(--gold);color:var(--black);padding:10px 18px;border-radius:7px;font-family:var(--sans);font-weight:700;font-size:12.5px;white-space:nowrap;margin-bottom:8px;">Ask Alex →</a>
+              <a href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;" style="display:block;background:var(--gold);color:var(--black);padding:10px 18px;border-radius:7px;font-family:var(--sans);font-weight:700;font-size:12.5px;white-space:nowrap;margin-bottom:8px;">Ask Alex &rarr;</a>
               <span style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.06em;">Available now</span>
             </div>
           </div>
 
-          <div class="eyebrow"><span class="eyebrow-dot"></span>IEEPA Tariff Refund Recovery — Live</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>IEEPA Tariff Refund Recovery &mdash; Live</div>
 
           <h1>Recover what<br/>the tariffs<br/><span class="red-em">cost you.</span></h1>
 
           <div class="ruling-bar">
-            <span class="hi">Learning Resources Inc. v. Trump</span>&nbsp;·&nbsp;Feb. 2026&nbsp;·&nbsp;SCOTUS struck down all IEEPA tariffs<br/>
-            <span class="alert">$127B Phase 1 refunds open&nbsp;·&nbsp;CAPE portal live&nbsp;·&nbsp;<strong>Appeal deadline: June 7, 2026</strong></span>
+            <span class="hi">Learning Resources Inc. v. Trump</span>&nbsp;&middot;&nbsp;Feb. 2026&nbsp;&middot;&nbsp;SCOTUS struck down all IEEPA tariffs<br/>
+            <span class="alert">$127B Phase 1 refunds open&nbsp;&middot;&nbsp;CAPE portal live&nbsp;&middot;&nbsp;<strong>Appeal deadline: June 7, 2026</strong></span>
           </div>
 
           <p class="hero-lede">
             The Tariff Bureau helps importers, DDP foreign manufacturers, and procurement teams
             enroll in CBP CAPE, recover IEEPA tariff overpayments, and navigate classification
-            and compliance risk — powered by TariffIQ&trade;.
+            and compliance risk &mdash; powered by TariffIQ&trade;.
           </p>
 
           <div class="hero-buttons">
             <a class="btn btn-red" href="/intake.html">Begin Intake Now</a>
-            <a class="btn btn-gold" href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;">Talk to Alex Monroe →</a>
+            <a class="btn btn-gold" href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;">Talk to Alex Monroe &rarr;</a>
             <a class="btn btn-outline" href="/services.html">Services</a>
           </div>
 
@@ -938,18 +929,10 @@
 
         <!-- CHATBOT -->
         <div class="hero-panel" id="chatbot" style="scroll-margin-top:80px;">
-          <div class="panel-topbar" style="gap:10px;">
+          <div class="panel-topbar">
             <div class="panel-dots"><span></span><span></span><span></span></div>
-            <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#0f1a2e,#1a2a45);display:flex;align-items:center;justify-content:center;position:relative;">
-              <img src="data:image/jpeg;base64,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" alt="Alex Monroe"
-                style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"
-                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
-                <span style="font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:600;color:var(--gold);">AM</span>
-              </div>
-            </div>
             <div style="display:flex;flex-direction:column;line-height:1.1;flex:1;">
-              <span style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;">Alex Monroe · TariffIQ&trade;</span>
+              <span style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;">Alex Monroe &middot; TariffIQ&trade;</span>
               <span style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.06em;">Senior Trade Intelligence Analyst</span>
             </div>
             <span class="panel-status">Online</span>
@@ -957,19 +940,12 @@
 
           <div class="chat-messages" id="chatMessages">
             <div class="msg">
-              <div class="msg-avatar" style="padding:0;overflow:hidden;background:linear-gradient(135deg,#0f1a2e,#1a2a45);border:1.5px solid var(--gold);position:relative;display:flex;align-items:center;justify-content:center;">
-                <img src="data:image/jpeg;base64,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" alt="AM"
-                  style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
-                  <span style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:var(--gold);">AM</span>
-                </div>
-              </div>
+              <div class="msg-avatar">AM</div>
               <div>
-                <div class="msg-name">Alex Monroe · TariffIQ</div>
+                <div class="msg-name">Alex Monroe &middot; TariffIQ</div>
                 <div class="msg-bubble">
-                  Good day. I'm Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau.<br><br>
-                  The CBP CAPE portal is now live for IEEPA tariff refund claims. If your company imports goods subject to IEEPA tariffs, you may be owed a significant refund — and the filing window is time-limited.<br><br>
+                  Good day. I&rsquo;m Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau.<br><br>
+                  The CBP CAPE portal is now live for IEEPA tariff refund claims. If your company imports goods subject to IEEPA tariffs, you may be owed a significant refund &mdash; and the filing window is time-limited.<br><br>
                   Ask me about CAPE eligibility, the IEEPA refund process, ACE enrollment, classification risk, or what a recovery engagement looks like.
                 </div>
               </div>
@@ -978,9 +954,9 @@
 
           <div class="chat-input-bar">
             <input type="text" id="chatInput" style="scroll-margin-top:100px;" placeholder="Ask about IEEPA refunds, CAPE eligibility, classification..." />
-            <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send →</button>
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send &rarr;</button>
           </div>
-          <div class="chat-disclaimer">TariffIQ™ is an AI advisory tool — not legal advice, not customs brokerage. Advisory only. &nbsp;·&nbsp; <a href="/terms.html" style="color:var(--gold);text-decoration:underline;">Terms</a> &nbsp;·&nbsp; <a href="/privacy.html" style="color:var(--gold);text-decoration:underline;">Privacy</a></div>
+          <div class="chat-disclaimer">TariffIQ&trade; is an AI advisory tool &mdash; not legal advice, not customs brokerage. Advisory only. &nbsp;&middot;&nbsp; <a href="/terms.html" style="color:var(--gold);text-decoration:underline;">Terms</a> &nbsp;&middot;&nbsp; <a href="/privacy.html" style="color:var(--gold);text-decoration:underline;">Privacy</a></div>
         </div>
       </div>
     </section>
@@ -991,16 +967,16 @@
         <div class="crisis-stat red-stat">
           <span class="big">92%</span>
           <span class="label">of eligible importers have not enrolled in the CBP CAPE portal</span>
-          <span class="sub">CBP CAPE · Launched April 2026</span>
+          <span class="sub">CBP CAPE &middot; Launched April 2026</span>
         </div>
         <div class="crisis-stat">
           <span class="big">$175B</span>
           <span class="label">estimated IEEPA tariff refund pool opened by SCOTUS ruling</span>
-          <span class="sub">Learning Resources v. Trump · Feb. 2026</span>
+          <span class="sub">Learning Resources v. Trump &middot; Feb. 2026</span>
         </div>
         <div class="crisis-stat red-stat">
           <span class="big">Now</span>
-          <span class="label">the enrollment window is open — closing for firms that wait</span>
+          <span class="label">the enrollment window is open &mdash; closing for firms that wait</span>
           <span class="sub">Refund eligibility is time-sensitive</span>
         </div>
       </div>
@@ -1011,24 +987,24 @@
       <div class="section-head">
         <span class="section-tag">Advisory Services</span>
         <h2>Built for the full<br/><em>tariff recovery lifecycle</em></h2>
-        <p>From initial assessment through claim optimization — structured advisory for every stage of IEEPA exposure and refund recovery.</p>
+        <p>From initial assessment through claim optimization &mdash; structured advisory for every stage of IEEPA exposure and refund recovery.</p>
       </div>
       <div class="grid-3">
         <div class="svc-card" style="border-color:rgba(200,146,42,0.35);grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;">
           <div>
-            <span class="svc-num" style="color:var(--red-pale);">00 · Entry Point — Start Here</span>
+            <span class="svc-num" style="color:var(--red-pale);">00 &middot; Entry Point &mdash; Start Here</span>
             <h3>IEEPA Eligibility Screening</h3>
-            <span class="svc-price" style="font-size:13px;">$1,500 flat — Written eligibility determination · 4 qualifiers</span>
-            <p>For small importers not ready to commit to a full assessment. We screen four key criteria — tariff exposure, IOR status, ACE enrollment, and recovery threshold — and deliver a written determination. The $1,500 fee is credited toward any full engagement.</p>
+            <span class="svc-price" style="font-size:13px;">$1,500 flat &mdash; Written eligibility determination &middot; 4 qualifiers</span>
+            <p>For small importers not ready to commit to a full assessment. We screen four key criteria &mdash; tariff exposure, IOR status, ACE enrollment, and recovery threshold &mdash; and deliver a written determination. The $1,500 fee is credited toward any full engagement.</p>
           </div>
-          <a href="/intake.html" style="display:block;background:var(--red);color:#fff;padding:12px 22px;border-radius:7px;font-family:var(--sans);font-weight:600;font-size:13.5px;white-space:nowrap;text-align:center;flex-shrink:0;">Start Screening →</a>
+          <a href="/intake.html" style="display:block;background:var(--red);color:#fff;padding:12px 22px;border-radius:7px;font-family:var(--sans);font-weight:600;font-size:13.5px;white-space:nowrap;text-align:center;flex-shrink:0;">Start Screening &rarr;</a>
         </div>
-        <div class="svc-card"><span class="svc-num">01 · Assessment Only</span><h3>Tariff Risk Assessment</h3><span class="svc-price">$8,000 – $18,000 flat</span><p>Structured review of tariff exposure, classification risk, origin documentation, and CAPE eligibility. Ideal first step for importers evaluating their position.</p></div>
-        <div class="svc-card"><span class="svc-num">02 · Full Recovery</span><h3>Recovery Package</h3><span class="svc-price">$4,000 base + 12–15% contingency</span><p>End-to-end IEEPA refund recovery advisory including CAPE enrollment support, documentation preparation, and claim filing strategy.</p></div>
-        <div class="svc-card"><span class="svc-num">03 · Rerouting</span><h3>Rerouting Analysis</h3><span class="svc-price">$10,000 – $40,000</span><p>Supplier diversification, country-of-origin restructuring, and alternative sourcing analysis to reduce long-term tariff exposure.</p></div>
-        <div class="svc-card"><span class="svc-num">04 · Monitoring</span><h3>Monitoring Retainer</h3><span class="svc-price">$3,000 – $10,000 / month</span><p>Ongoing trade intelligence, regulatory alerts, classification changes, and TariffIQ-powered monitoring for active importers.</p></div>
-        <div class="svc-card"><span class="svc-num">05 · Valuation</span><h3>Refund Claim Valuation</h3><span class="svc-price">$8,000 – $18,000 flat</span><p>Detailed report quantifying potential IEEPA refund recovery, supporting claim valuation for lenders, investors, or internal finance teams.</p></div>
-        <div class="svc-card"><span class="svc-num">06 · Audit</span><h3>Claim Audit &amp; Optimization</h3><span class="svc-price">$6,000 – $15,000 flat</span><p>Review and strengthen existing refund claims, documentation packages, and CAPE enrollment files before CBP submission.</p></div>
+        <div class="svc-card"><span class="svc-num">01 &middot; Assessment Only</span><h3>Tariff Risk Assessment</h3><span class="svc-price">$8,000 &ndash; $18,000 flat</span><p>Structured review of tariff exposure, classification risk, origin documentation, and CAPE eligibility. Ideal first step for importers evaluating their position.</p></div>
+        <div class="svc-card"><span class="svc-num">02 &middot; Full Recovery</span><h3>Recovery Package</h3><span class="svc-price">$4,000 base + 12&ndash;15% contingency</span><p>End-to-end IEEPA refund recovery advisory including CAPE enrollment support, documentation preparation, and claim filing strategy.</p></div>
+        <div class="svc-card"><span class="svc-num">03 &middot; Rerouting</span><h3>Rerouting Analysis</h3><span class="svc-price">$10,000 &ndash; $40,000</span><p>Supplier diversification, country-of-origin restructuring, and alternative sourcing analysis to reduce long-term tariff exposure.</p></div>
+        <div class="svc-card"><span class="svc-num">04 &middot; Monitoring</span><h3>Monitoring Retainer</h3><span class="svc-price">$3,000 &ndash; $10,000 / month</span><p>Ongoing trade intelligence, regulatory alerts, classification changes, and TariffIQ-powered monitoring for active importers.</p></div>
+        <div class="svc-card"><span class="svc-num">05 &middot; Valuation</span><h3>Refund Claim Valuation</h3><span class="svc-price">$8,000 &ndash; $18,000 flat</span><p>Detailed report quantifying potential IEEPA refund recovery, supporting claim valuation for lenders, investors, or internal finance teams.</p></div>
+        <div class="svc-card"><span class="svc-num">06 &middot; Audit</span><h3>Claim Audit &amp; Optimization</h3><span class="svc-price">$6,000 &ndash; $15,000 flat</span><p>Review and strengthen existing refund claims, documentation packages, and CAPE enrollment files before CBP submission.</p></div>
       </div>
     </section>
 
@@ -1041,84 +1017,61 @@
       </div>
       <div class="steps">
         <div class="step"><strong>Submit Your Information</strong><p>Provide product details, supplier information, country of origin, import volume, and any existing CBP entry records via the secure intake form.</p></div>
-        <div class="step"><strong>TariffIQ™ Analysis</strong><p>The Tariff Bureau reviews the available facts using TariffIQ — identifying classification risk, CAPE enrollment eligibility, and IEEPA overpayment recovery potential.</p></div>
-        <div class="step"><strong>Engagement &amp; Advisory</strong><p>You receive a structured advisory direction, engagement letter, and a clear roadmap — from CAPE enrollment through claim filing or documentation remediation.</p></div>
+        <div class="step"><strong>TariffIQ&trade; Analysis</strong><p>The Tariff Bureau reviews the available facts using TariffIQ &mdash; identifying classification risk, CAPE enrollment eligibility, and IEEPA overpayment recovery potential.</p></div>
+        <div class="step"><strong>Engagement &amp; Advisory</strong><p>You receive a structured advisory direction, engagement letter, and a clear roadmap &mdash; from CAPE enrollment through claim filing or documentation remediation.</p></div>
         <div class="step"><strong>Recovery &amp; Monitoring</strong><p>For Full Recovery clients, The Tariff Bureau supports documentation, CBP coordination, and ongoing trade intelligence through your selected service tier.</p></div>
       </div>
     </section>
 
-
-    <!-- CAPE FILING RISK — FCA WARNING SECTION -->
+    <!-- CAPE FILING RISK -->
     <section style="background:linear-gradient(180deg,var(--black) 0%,rgba(9,16,31,0.95) 100%);border-top:1px solid rgba(155,28,28,0.25);border-bottom:1px solid rgba(155,28,28,0.2);padding:72px 7%;">
       <div style="max-width:1100px;margin:0 auto;">
-
-        <!-- HEADER -->
         <div style="text-align:center;margin-bottom:48px;">
-          <span style="font-family:var(--mono);font-size:10px;color:var(--red-lt,#dc2626);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:12px;">⚖️ CBP Enforcement Alert — April 2026</span>
-          <h2 style="font-family:var(--serif);font-size:42px;font-weight:300;color:var(--white);line-height:1.1;margin-bottom:16px;">The government is processing your refund<br/><em style="font-style:italic;color:#f87171;">with one hand — and auditing your filing with the other.</em></h2>
-          <p style="font-size:15px;color:var(--muted);max-width:640px;margin:0 auto;line-height:1.7;">The DOJ–DHS Trade Fraud Task Force launched in August 2025. The False Claims Act applies to every CAPE Declaration. Your certification is a legal document. What you don't know about your own entries is the risk.</p>
+          <span style="font-family:var(--mono);font-size:10px;color:#dc2626;letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:12px;">&#9878;&#65039; CBP Enforcement Alert &mdash; April 2026</span>
+          <h2 style="font-family:var(--serif);font-size:42px;font-weight:300;color:var(--white);line-height:1.1;margin-bottom:16px;">The government is processing your refund<br/><em style="font-style:italic;color:#f87171;">with one hand &mdash; and auditing your filing with the other.</em></h2>
+          <p style="font-size:15px;color:var(--muted);max-width:640px;margin:0 auto;line-height:1.7;">The DOJ&ndash;DHS Trade Fraud Task Force launched in August 2025. The False Claims Act applies to every CAPE Declaration. Your certification is a legal document. What you don&rsquo;t know about your own entries is the risk.</p>
         </div>
 
-        <!-- THREE RISK CARDS -->
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;">
-
           <div style="background:rgba(155,28,28,0.1);border:1px solid rgba(155,28,28,0.28);border-top:3px solid #dc2626;border-radius:12px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:12px;">📋</div>
-            <div style="font-family:var(--mono);font-size:10px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Risk 01 · The Certification Trap</div>
+            <div style="font-size:28px;margin-bottom:12px;">&#128203;</div>
+            <div style="font-family:var(--mono);font-size:10px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Risk 01 &middot; The Certification Trap</div>
             <h3 style="font-family:var(--serif);font-size:19px;font-weight:600;color:var(--white);margin-bottom:10px;">You certify entries you may never have reviewed.</h3>
-            <p style="font-size:13.5px;color:var(--cream);line-height:1.65;">Every CAPE Declaration requires you to certify that all entry summaries comply with applicable law. If your broker misclassified goods in 2025 — and many did — you just certified a false claim. CBP will find it.</p>
+            <p style="font-size:13.5px;color:var(--cream);line-height:1.65;">Every CAPE Declaration requires you to certify that all entry summaries comply with applicable law. If your broker misclassified goods in 2025 &mdash; and many did &mdash; you just certified a false claim. CBP will find it.</p>
           </div>
-
           <div style="background:rgba(155,28,28,0.1);border:1px solid rgba(155,28,28,0.28);border-top:3px solid #dc2626;border-radius:12px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:12px;">🤖</div>
-            <div style="font-family:var(--mono);font-size:10px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Risk 02 · AI Enforcement</div>
+            <div style="font-size:28px;margin-bottom:12px;">&#129302;</div>
+            <div style="font-family:var(--mono);font-size:10px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Risk 02 &middot; AI Enforcement</div>
             <h3 style="font-family:var(--serif);font-size:19px;font-weight:600;color:var(--white);margin-bottom:10px;">CBP uses AI to detect anomalies across 53 million shipments.</h3>
-            <p style="font-size:13.5px;color:var(--cream);line-height:1.65;">The cross-agency Trade Fraud Task Force uses machine learning to flag classification mismatches, valuation anomalies, and origin inconsistencies — automatically — before a single human reviews your file.</p>
+            <p style="font-size:13.5px;color:var(--cream);line-height:1.65;">The cross-agency Trade Fraud Task Force uses machine learning to flag classification mismatches, valuation anomalies, and origin inconsistencies &mdash; automatically &mdash; before a single human reviews your file.</p>
           </div>
-
           <div style="background:rgba(155,28,28,0.1);border:1px solid rgba(155,28,28,0.28);border-top:3px solid #dc2626;border-radius:12px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:12px;">💰</div>
-            <div style="font-family:var(--mono);font-size:10px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Risk 03 · The Whistleblower Economy</div>
+            <div style="font-size:28px;margin-bottom:12px;">&#128176;</div>
+            <div style="font-family:var(--mono);font-size:10px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Risk 03 &middot; The Whistleblower Economy</div>
             <h3 style="font-family:var(--serif);font-size:19px;font-weight:600;color:var(--white);margin-bottom:10px;">Your competitors and former employees get paid to report you.</h3>
-            <p style="font-size:13.5px;color:var(--cream);line-height:1.65;">FCA qui tam relators — competitors, brokers, former staff — receive up to 30% of government recovery. The largest customs FCA settlement in history was $54.4M. Whistleblowers are watching CAPE filings right now.</p>
+            <p style="font-size:13.5px;color:var(--cream);line-height:1.65;">FCA qui tam relators &mdash; competitors, brokers, former staff &mdash; receive up to 30% of government recovery. The largest customs FCA settlement in history was $54.4M. Whistleblowers are watching CAPE filings right now.</p>
           </div>
-
         </div>
 
-        <!-- STAT BAND -->
         <div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.2);border-radius:12px;padding:24px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:48px;text-align:center;">
-          <div>
-            <div style="font-family:var(--serif);font-size:36px;font-weight:600;color:#f87171;line-height:1;">$54.4M</div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">Largest customs FCA settlement in history</div>
-          </div>
-          <div>
-            <div style="font-family:var(--serif);font-size:36px;font-weight:600;color:#f87171;line-height:1;">$9.75M</div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">Whistleblower payout in that case alone</div>
-          </div>
-          <div>
-            <div style="font-family:var(--serif);font-size:36px;font-weight:600;color:var(--gold-lt);line-height:1;">$250K+</div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">CBP flags all claims this size for mandatory audit</div>
-          </div>
-          <div>
-            <div style="font-family:var(--serif);font-size:36px;font-weight:600;color:var(--gold-lt);line-height:1;">Aug 2025</div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">DOJ–DHS Trade Fraud Task Force launched</div>
-          </div>
+          <div><div style="font-family:var(--serif);font-size:36px;font-weight:600;color:#f87171;line-height:1;">$54.4M</div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">Largest customs FCA settlement in history</div></div>
+          <div><div style="font-family:var(--serif);font-size:36px;font-weight:600;color:#f87171;line-height:1;">$9.75M</div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">Whistleblower payout in that case alone</div></div>
+          <div><div style="font-family:var(--serif);font-size:36px;font-weight:600;color:var(--gold-lt);line-height:1;">$250K+</div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">CBP flags all claims this size for mandatory audit</div></div>
+          <div><div style="font-family:var(--serif);font-size:36px;font-weight:600;color:var(--gold-lt);line-height:1;">Aug 2025</div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;">DOJ&ndash;DHS Trade Fraud Task Force launched</div></div>
         </div>
 
-        <!-- CTA -->
         <div style="background:linear-gradient(135deg,rgba(155,28,28,0.15),rgba(200,146,42,0.08));border:1px solid rgba(200,146,42,0.25);border-radius:14px;padding:32px 40px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#dc2626,var(--gold),var(--gold-lt));"></div>
           <div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;">Tier 06 · Claim Audit &amp; Optimization — $6K–$15K Flat</div>
-            <h3 style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--white);margin-bottom:10px;">Don't sign the certification without a pre-submission audit.</h3>
-            <p style="font-size:14px;color:var(--cream);line-height:1.7;max-width:560px;">The Tariff Bureau reviews your entry data for classification accuracy, valuation consistency, and origin compliance before you submit to CBP. One audit. One legal certification you can actually stand behind. If you have $250,000 or more in IEEPA duty exposure, this is not optional — it's insurance.</p>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;">Tier 06 &middot; Claim Audit &amp; Optimization &mdash; $6K&ndash;$15K Flat</div>
+            <h3 style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--white);margin-bottom:10px;">Don&rsquo;t sign the certification without a pre-submission audit.</h3>
+            <p style="font-size:14px;color:var(--cream);line-height:1.7;max-width:560px;">The Tariff Bureau reviews your entry data for classification accuracy, valuation consistency, and origin compliance before you submit to CBP. One audit. One legal certification you can actually stand behind. If you have $250,000 or more in IEEPA duty exposure, this is not optional &mdash; it&rsquo;s insurance.</p>
           </div>
           <div style="text-align:center;flex-shrink:0;">
-            <a href="/intake.html" style="display:block;background:var(--red,#9b1c1c);color:#fff;padding:14px 24px;border-radius:8px;font-family:var(--sans);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;margin-bottom:8px;">Request Pre-Filing Audit →</a>
+            <a href="/intake.html" style="display:block;background:#9b1c1c;color:#fff;padding:14px 24px;border-radius:8px;font-family:var(--sans);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;margin-bottom:8px;">Request Pre-Filing Audit &rarr;</a>
             <span style="font-family:var(--mono);font-size:9.5px;color:var(--muted);">For $250K+ IEEPA claims</span>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1126,23 +1079,17 @@
     <section class="analyst-sec">
       <div class="analyst-inner">
         <div class="analyst-card">
-          <div class="analyst-avatar-wrap" style="position:relative;display:flex;align-items:center;justify-content:center;">
-            <img src="data:image/jpeg;base64,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" alt="Alex Monroe"
-              style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:inherit;"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(135deg,#0f1a2e,#1a2a45);border-radius:inherit;">
-              <span style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--gold);line-height:1;">AM</span>
-              <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.12em;margin-top:4px;">ANALYST</span>
-            </div>
+          <div class="analyst-avatar-wrap">
+            <span style="font-family:var(--serif);font-size:38px;font-weight:600;color:var(--gold);">AM</span>
           </div>
           <div class="analyst-name">Alex Monroe</div>
-          <div class="analyst-title">Senior Bureau Analyst · TariffIQ™</div>
+          <div class="analyst-title">Senior Bureau Analyst &middot; TariffIQ&trade;</div>
         </div>
         <div class="analyst-body">
           <h2>Trade intelligence,<br/><em>delivered with precision.</em></h2>
-          <p>Alex Monroe is The Tariff Bureau's senior analyst persona — the intelligence layer inside TariffIQ that reviews intake submissions, identifies exposure, and delivers structured advisory to every client engagement.</p>
-          <p>Every assessment, classification review, and refund recovery strategy that leaves The Tariff Bureau passes through TariffIQ's analytical framework before it reaches your desk.</p>
-          <div class="tariffiq-badge">⚡ TariffIQ™ — AI-Powered Trade Intelligence Platform</div>
+          <p>Alex Monroe is The Tariff Bureau&rsquo;s senior analyst persona &mdash; the intelligence layer inside TariffIQ that reviews intake submissions, identifies exposure, and delivers structured advisory to every client engagement.</p>
+          <p>Every assessment, classification review, and refund recovery strategy that leaves The Tariff Bureau passes through TariffIQ&rsquo;s analytical framework before it reaches your desk.</p>
+          <div class="tariffiq-badge">&#9889; TariffIQ&trade; &mdash; AI-Powered Trade Intelligence Platform</div>
         </div>
       </div>
     </section>
@@ -1152,7 +1099,7 @@
       <div class="section-head">
         <span class="section-tag">International Importer of Record</span>
         <h2>DDP foreign manufacturers<br/><span class="r">have exposure too.</span></h2>
-        <p>If you manufacture under DDP terms and your U.S. buyer absorbed IEEPA tariffs, your pricing and margins may reflect that exposure — and you may have recovery options.</p>
+        <p>If you manufacture under DDP terms and your U.S. buyer absorbed IEEPA tariffs, your pricing and margins may reflect that exposure &mdash; and you may have recovery options.</p>
       </div>
       <div class="ior-grid">
         <div class="ior-card"><div class="ior-country">Vietnam</div><h4>Textile &amp; Apparel</h4><p>DDP exporters facing Section 301 + IEEPA stacked exposure with rerouting and documentation review options.</p></div>
@@ -1166,10 +1113,10 @@
 
     <!-- CTA -->
     <section class="cta-sec">
-      <h2>The window is open.<br/><span class="r">Don't wait.</span></h2>
-      <p>92% of eligible importers have not enrolled in CBP CAPE. The IEEPA refund pool is estimated at $100B–$175B. The Tariff Bureau is taking intake now.</p>
+      <h2>The window is open.<br/><span class="r">Don&rsquo;t wait.</span></h2>
+      <p>92% of eligible importers have not enrolled in CBP CAPE. The IEEPA refund pool is estimated at $100B&ndash;$175B. The Tariff Bureau is taking intake now.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn btn-red" href="/intake.html" style="font-size:16px;padding:15px 32px;">Begin Your Intake →</a>
+        <a class="btn btn-red" href="/intake.html" style="font-size:16px;padding:15px 32px;">Begin Your Intake &rarr;</a>
         <a class="btn btn-gold" href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;" style="font-size:16px;padding:15px 32px;">Ask Alex Monroe</a>
       </div>
     </section>
@@ -1178,14 +1125,14 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-brand">The Tariff Bureau LLC &nbsp;·&nbsp; Atlanta, GA</span>
+    <span class="footer-brand">The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, GA</span>
     <div class="footer-links">
       <a href="/services.html">Services</a>
       <a href="/pricing.html">Pricing</a>
       <a href="/intake.html">Intake</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <span>© 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;·&nbsp; TariffIQ™ is a trademark of The Tariff Bureau LLC.</span>
+    <span>&copy; 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;&middot;&nbsp; TariffIQ&trade; is a trademark of The Tariff Bureau LLC.</span>
   </footer>
 
   <!-- TARIFFIQ CHATBOT ENGINE -->
@@ -1305,17 +1252,13 @@ PERSONA GUIDELINES:
         const res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({ messages: conversationHistory })
-           });
+          body: JSON.stringify({ messages: conversationHistory })
+        });
 
         const data = await res.json();
         removeTyping();
-        
+
         const reply = data.reply || 'Connection issue — please try again or go directly to the intake form.';
-      
-
-        
-
         addMessage('assistant', reply);
         conversationHistory.push({ role: 'assistant', content: reply });
 
