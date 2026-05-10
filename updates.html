@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IEEPA Refund Updates | The Tariff Bureau</title>
+  <meta name="description" content="Breaking developments on IEEPA tariff refund recovery — Supreme Court rulings, CBP CAPE portal updates, appeal deadlines, and trade enforcement news. Updated weekly." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.tariffbureau.com/updates" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta property="og:title" content="IEEPA Refund Updates | The Tariff Bureau" />
+  <meta property="og:description" content="Weekly updates on IEEPA tariff refund recovery — court rulings, CBP CAPE portal, appeal deadlines, and enforcement news." />
+  <meta property="og:url" content="https://www.tariffbureau.com/updates" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:      #070707;
+      --navy:       #09101f;
+      --navy-mid:   #0f1a2e;
+      --navy-light: #182338;
+      --gold:       #c8922a;
+      --gold-lt:    #e2af46;
+      --gold-pale:  #f5dfa0;
+      --gold-dim:   rgba(200,146,42,0.09);
+      --red:        #9b1c1c;
+      --red-lt:     #dc2626;
+      --white:      #f8f4ee;
+      --cream:      #ddd5c5;
+      --muted:      #7a8ba8;
+      --border:     rgba(200,146,42,0.16);
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --mono:       'DM Mono', 'Courier New', monospace;
+      --sans:       'DM Sans', system-ui, sans-serif;
+
+      /* Category colors */
+      --cat-court:  #818cf8;
+      --cat-cbp:    #34d399;
+      --cat-leg:    #f59e0b;
+      --cat-adv:    #7a8ba8;
+      --cat-alert:  #f87171;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* TOPBAR */
+    .topbar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 10px 6%;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.07em;
+    }
+    .topbar strong { color: var(--gold-pale); }
+
+    /* HEADER */
+    header {
+      background: rgba(7,7,7,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      padding: 0 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      position: sticky;
+      top: 0;
+      z-index: 300;
+    }
+
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-logo { width: 42px; height: 42px; object-fit: contain; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--white); letter-spacing: 0.03em; }
+    .brand-sub { font-family: var(--mono); font-size: 9.5px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; }
+
+    nav { display: flex; gap: 26px; align-items: center; font-size: 13.5px; font-weight: 500; color: var(--muted); }
+    nav a:hover { color: var(--gold-lt); transition: color 0.18s; }
+    nav a.active { color: var(--gold-lt); }
+    .nav-cta { background: var(--gold); color: var(--black); padding: 8px 18px; border-radius: 5px; font-weight: 600; font-size: 13px; transition: background 0.18s; }
+    .nav-cta:hover { background: var(--gold-lt); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background:
+        radial-gradient(ellipse 80% 50% at 60% 0%, rgba(200,146,42,0.07), transparent 60%),
+        radial-gradient(ellipse 40% 60% at 5% 100%, rgba(155,28,28,0.07), transparent 55%),
+        linear-gradient(160deg, var(--black) 0%, var(--navy) 100%);
+      padding: 64px 7% 56px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(200,146,42,0.02) 60px, rgba(200,146,42,0.02) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(200,146,42,0.015) 60px, rgba(200,146,42,0.015) 61px);
+      pointer-events: none;
+    }
+
+    /* Watermark */
+    .page-hero::after {
+      content: 'TB';
+      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+      font-family: var(--serif); font-size: 220px; font-weight: 700;
+      color: rgba(200,146,42,0.03); line-height: 1; pointer-events: none; user-select: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: end;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+    .page-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.5vw, 58px);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--gold-lt); }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .hero-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .hero-meta-label { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+    .hero-meta-date { font-family: var(--serif); font-size: 28px; color: var(--gold-lt); font-weight: 600; line-height: 1.1; }
+    .hero-meta-sub { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.1em; margin-top: 4px; }
+
+    @media (max-width: 700px) { .hero-inner { grid-template-columns: 1fr; } .hero-meta { text-align: left; } .page-hero::after { display: none; } }
+
+    /* FILTER BAR */
+    .filter-bar {
+      background: var(--navy);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 7%;
+      position: sticky;
+      top: 70px;
+      z-index: 200;
+    }
+
+    .filter-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .filter-btn.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold-lt); }
+
+    .filter-btn[data-cat="court"].active   { background: rgba(129,140,248,0.1); border-color: var(--cat-court); color: var(--cat-court); }
+    .filter-btn[data-cat="cbp"].active     { background: rgba(52,211,153,0.1); border-color: var(--cat-cbp); color: var(--cat-cbp); }
+    .filter-btn[data-cat="legislation"].active { background: rgba(245,158,11,0.1); border-color: var(--cat-leg); color: var(--cat-leg); }
+    .filter-btn[data-cat="advisory"].active{ background: rgba(122,139,168,0.12); border-color: var(--cat-adv); color: var(--cat-adv); }
+    .filter-btn[data-cat="alert"].active   { background: rgba(248,113,113,0.1); border-color: var(--cat-alert); color: var(--cat-alert); }
+
+    /* MAIN LAYOUT */
+    .updates-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 7% 80px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) { .updates-wrap { grid-template-columns: 1fr; } }
+
+    /* ENTRIES */
+    .entries { display: flex; flex-direction: column; gap: 0; }
+
+    .entry {
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 28px;
+      align-items: start;
+      transition: background 0.2s;
+    }
+
+    .entry:first-child { padding-top: 0; }
+    .entry:last-child { border-bottom: none; }
+
+    .entry.hidden { display: none; }
+
+    .entry-date-col {
+      text-align: right;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .entry-month {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .entry-day {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--gold-lt);
+      line-height: 1;
+      display: block;
+    }
+
+    .entry-year {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .entry-body {}
+
+    .entry-cats {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .cat-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 3px;
+      border: 1px solid;
+    }
+
+    .cat-tag.court      { color: var(--cat-court); border-color: rgba(129,140,248,0.3); background: rgba(129,140,248,0.08); }
+    .cat-tag.cbp        { color: var(--cat-cbp); border-color: rgba(52,211,153,0.3); background: rgba(52,211,153,0.07); }
+    .cat-tag.legislation{ color: var(--cat-leg); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.07); }
+    .cat-tag.advisory   { color: var(--cat-adv); border-color: rgba(122,139,168,0.25); background: rgba(122,139,168,0.07); }
+    .cat-tag.alert      { color: var(--cat-alert); border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.08); }
+
+    .entry-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .entry-body-text {
+      font-size: 14.5px;
+      color: var(--cream);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .entry-body-text strong { color: var(--white); }
+
+    .entry-impact {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 11px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 14px;
+    }
+
+    .impact-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .impact-text {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cream);
+      line-height: 1.65;
+      letter-spacing: 0.02em;
+    }
+
+    /* ALERT ENTRY */
+    .entry.is-alert .entry-title { color: #f87171; }
+    .entry.is-alert .entry-day   { color: #f87171; }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 140px; }
+
+    /* SUBSTACK CTA */
+    .substack-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .substack-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--gold-lt));
+    }
+
+    .substack-icon { font-size: 28px; margin-bottom: 12px; }
+    .substack-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+    .substack-card p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
+
+    .substack-btn {
+      display: block;
+      background: var(--gold);
+      color: var(--black);
+      text-align: center;
+      padding: 11px 16px;
+      border-radius: 7px;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 13px;
+      transition: background 0.18s;
+    }
+    .substack-btn:hover { background: var(--gold-lt); }
+
+    .substack-note { font-family: var(--mono); font-size: 9.5px; color: var(--muted); letter-spacing: 0.06em; text-align: center; margin-top: 10px; }
+
+    /* SIDEBAR STATS */
+    .sidebar-stats {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .sidebar-stats-label { font-family: var(--mono); font-size: 9.5px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 18px; }
+
+    .sidebar-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(200,146,42,0.08); }
+    .sidebar-stat:last-child { border-bottom: none; }
+    .ss-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.04em; }
+    .ss-val { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--gold-lt); }
+    .ss-val.red { color: #f87171; }
+
+    /* SIDEBAR INTAKE */
+    .sidebar-intake {
+      background: linear-gradient(135deg, rgba(155,28,28,0.18), rgba(200,146,42,0.08));
+      border: 1px solid rgba(200,146,42,0.2);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .sidebar-intake h4 { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+    .sidebar-intake p { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+    .sidebar-intake a { display: block; background: var(--red); color: #fff; padding: 11px 16px; border-radius: 7px; font-family: var(--sans); font-weight: 700; font-size: 13px; transition: background 0.18s; }
+    .sidebar-intake a:hover { background: var(--red-lt); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      padding: 36px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-brand { font-family: var(--serif); font-size: 16px; color: var(--cream); }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    footer a { color: var(--gold); }
+    footer a:hover { color: var(--gold-lt); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 5%; }
+      nav { display: none; }
+      .page-hero { padding: 48px 5% 40px; }
+      .updates-wrap { padding: 40px 5% 60px; }
+      .filter-bar { padding: 14px 5%; }
+      .entry { grid-template-columns: 80px 1fr; gap: 16px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .entry { animation: fadeUp 0.4s ease forwards; }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    ⚠️ <strong>APPEAL DEADLINE: June 7, 2026</strong> — Government can halt refunds. CAPE acceptance required before then. &nbsp;|&nbsp; <strong>92% of eligible importers not yet enrolled</strong>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <a class="brand" href="/">
+      <img class="brand-logo" src="/tariff-bureau-logo.png" alt="The Tariff Bureau" onerror="this.style.display='none'" />
+      <div class="brand-text">
+        <span class="brand-name">The Tariff Bureau</span>
+        <span class="brand-sub">Powered by TariffIQ&trade;</span>
+      </div>
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/intake">Intake</a>
+      <a href="/updates" class="active">Updates</a>
+      <a href="/contact">Contact</a>
+      <a class="nav-cta" href="/intake">Start Intake</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">IEEPA Refund Intelligence</div>
+        <h1>Court rulings, CBP changes,<br/><em>refund window updates.</em></h1>
+        <p class="hero-sub">The Tariff Bureau tracks every material development in IEEPA tariff refund recovery — from SCOTUS opinions and CBP portal changes to enforcement alerts and legislative activity. Updated weekly.</p>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-label">Last Updated</div>
+        <div class="hero-meta-date">May 9<br/>2026</div>
+        <div class="hero-meta-sub">By Alex Monroe · TariffIQ™</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" data-cat="all" onclick="filterEntries('all')">All Updates</button>
+      <button class="filter-btn" data-cat="court" onclick="filterEntries('court')">⚖️ Court</button>
+      <button class="filter-btn" data-cat="cbp" onclick="filterEntries('cbp')">🏛️ CBP</button>
+      <button class="filter-btn" data-cat="legislation" onclick="filterEntries('legislation')">📜 Legislation</button>
+      <button class="filter-btn" data-cat="advisory" onclick="filterEntries('advisory')">📋 Advisory</button>
+      <button class="filter-btn" data-cat="alert" onclick="filterEntries('alert')">🚨 Alert</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="updates-wrap">
+
+    <!-- ENTRIES -->
+    <div class="entries" id="entriesList">
+
+      <!-- ENTRY 1 -->
+      <div class="entry is-alert" data-cats="alert cbp">
+        <div class="entry-date-col">
+          <span class="entry-month">May</span>
+          <span class="entry-day">9</span>
+          <span class="entry-year">2026</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-cats">
+            <span class="cat-tag alert">Alert</span>
+            <span class="cat-tag cbp">CBP</span>
+          </div>
+          <div class="entry-title">29 Days to June 7 Appeal Deadline — CAPE Acceptance Is the Threshold That Matters</div>
+          <p class="entry-body-text">The government's window to appeal the February 24 court order expires on or around <strong>June 7, 2026</strong>. A successful stay or appeal could halt the processing of new CAPE Declarations mid-stream. Importers who have obtained <strong>CAPE Declaration acceptance</strong> before that date are meaningfully better protected than those still in queue.</p>
+          <p class="entry-body-text">CBP is currently processing Phase 1 declarations. Processing times vary by claim size and entry complexity — large claims ($250K+) are subject to mandatory review that can extend timelines by 3–4 weeks. If you have not yet filed, the effective deadline to start is now.</p>
+          <div class="entry-impact">
+            <span class="impact-label">Action</span>
+            <span class="impact-text">Begin intake immediately. CAPE Declaration acceptance — not filing — is the milestone that provides protection before June 7.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTRY 2 -->
+      <div class="entry" data-cats="cbp advisory">
+        <div class="entry-date-col">
+          <span class="entry-month">May</span>
+          <span class="entry-day">2</span>
+          <span class="entry-year">2026</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-cats">
+            <span class="cat-tag cbp">CBP</span>
+            <span class="cat-tag advisory">Advisory</span>
+          </div>
+          <div class="entry-title">CBP Issues Supplemental CAPE Guidance: Phase 2 Eligibility Criteria Clarified</div>
+          <p class="entry-body-text">U.S. Customs and Border Protection released supplemental guidance clarifying Phase 2 CAPE eligibility — covering entries filed under IEEPA between October 2024 and the April 5, 2025 tariff schedule effective date. The guidance addresses a previously ambiguous category of entries where importers paid partial IEEPA duties during the phase-in period.</p>
+          <p class="entry-body-text">The supplemental guidance confirms that <strong>importers of record who paid any IEEPA-assessed duty</strong> on qualifying HTS codes between October 2024 and February 24, 2026 may be eligible for Phase 2 recovery — even if the duty rate was below the full Liberation Day schedule. ACE/ACH enrollment remains required for all claimants regardless of phase.</p>
+          <div class="entry-impact">
+            <span class="impact-label">Impact</span>
+            <span class="impact-text">Expands the eligible importer population. Importers who previously believed they fell outside Phase 1 thresholds should request a new eligibility review.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTRY 3 -->
+      <div class="entry" data-cats="cbp">
+        <div class="entry-date-col">
+          <span class="entry-month">Apr</span>
+          <span class="entry-day">29</span>
+          <span class="entry-year">2026</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-cats">
+            <span class="cat-tag cbp">CBP</span>
+          </div>
+          <div class="entry-title">CAPE Portal Now Live Inside ACE — Phase 1 Declarations Processing as of April 29</div>
+          <p class="entry-body-text">Following the April 20 soft launch, CBP confirmed on April 29 that the CAPE (Consolidated Administration and Processing of Entries) portal is fully operational for Phase 1 IEEPA refund declarations. The portal is accessible through the ACE Secure Data Portal and requires active ACE enrollment with a valid ACH bank account on file.</p>
+          <p class="entry-body-text">CBP has stated that valid Phase 1 declarations will receive acknowledgment within 5–7 business days and that payment processing is expected within <strong>60–90 days</strong> of acceptance. As of the launch date, an estimated <strong>92% of the 330,000 eligible importers</strong> have not yet enrolled in ACE/ACH — the threshold requirement for receiving any refund payment.</p>
+          <div class="entry-impact">
+            <span class="impact-label">Impact</span>
+            <span class="impact-text">The refund window is officially open. ACE/ACH enrollment is the critical path blocker for the majority of eligible importers. This must be completed before any CAPE Declaration can be filed or processed.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTRY 4 -->
+      <div class="entry" data-cats="court alert">
+        <div class="entry-date-col">
+          <span class="entry-month">Apr</span>
+          <span class="entry-day">15</span>
+          <span class="entry-year">2026</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-cats">
+            <span class="cat-tag court">Court</span>
+            <span class="cat-tag alert">Alert</span>
+          </div>
+          <div class="entry-title">DOJ Files for Extension; Appeal Deadline Set at June 7, 2026 — Partial Stay Denied</div>
+          <p class="entry-body-text">The Department of Justice filed a motion for a 90-day administrative extension of the February 24 court order deadline, citing the complexity of implementing a government-wide refund mechanism of this scale. The court granted a <strong>partial extension to June 7, 2026</strong> — roughly half the requested period — while denying the government's request for a stay pending appeal.</p>
+          <p class="entry-body-text">The denial of the stay is significant: it means CBP was required to open the CAPE portal and begin processing refunds <strong>without waiting for appeal resolution</strong>. However, the June 7 date remains the window within which the government may file a further appeal or seek emergency relief from a higher court, which could potentially pause or modify the refund program.</p>
+          <div class="entry-impact">
+            <span class="impact-label">Impact</span>
+            <span class="impact-text">June 7 is the definitive near-term risk horizon. Importers with CAPE Declarations accepted before that date are in a substantially stronger position regardless of subsequent government action.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTRY 5 -->
+      <div class="entry" data-cats="court">
+        <div class="entry-date-col">
+          <span class="entry-month">Feb</span>
+          <span class="entry-day">24</span>
+          <span class="entry-year">2026</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-cats">
+            <span class="cat-tag court">Court</span>
+          </div>
+          <div class="entry-title">SCOTUS Rules IEEPA Tariffs Unconstitutional — Learning Resources Inc. v. Trump</div>
+          <p class="entry-body-text">The U.S. Supreme Court issued a landmark ruling in <em>Learning Resources Inc. v. Trump</em>, holding that the executive branch's imposition of IEEPA reciprocal tariffs — including the April 2025 "Liberation Day" schedule and all related tariff actions under the International Emergency Economic Powers Act — exceeded statutory authority and was constitutionally invalid.</p>
+          <p class="entry-body-text">The Court's majority opinion held that <strong>IEEPA does not grant the President open-ended authority to impose tariffs</strong> as a tool of economic leverage, and that the tariff actions taken between April 5, 2025 and the ruling date constituted an unlawful delegation of congressional taxing power. The decision ordered CBP to establish a refund mechanism — which became the CAPE portal — for the estimated <strong>$100 billion to $175 billion</strong> in duties paid during the affected period.</p>
+          <p class="entry-body-text">The ruling explicitly excludes Section 232 tariffs (steel, aluminum), Section 301 China tariffs, and the Section 122 tariff signed February 20, 2026 from the refund pool. Only IEEPA reciprocal tariffs imposed between April 5, 2025 and February 24, 2026 are covered.</p>
+          <div class="entry-impact">
+            <span class="impact-label">Foundation</span>
+            <span class="impact-text">This ruling is the legal basis for the entire IEEPA refund program. Every CAPE Declaration, every ACE enrollment, and every advisory engagement The Tariff Bureau provides flows from this decision.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTRY 6 -->
+      <div class="entry" data-cats="legislation alert">
+        <div class="entry-date-col">
+          <span class="entry-month">Aug</span>
+          <span class="entry-day">12</span>
+          <span class="entry-year">2025</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-cats">
+            <span class="cat-tag legislation">Legislation</span>
+            <span class="cat-tag alert">Alert</span>
+          </div>
+          <div class="entry-title">DOJ–DHS Trade Fraud Task Force Launches; False Claims Act Enforcement Formally Expanded to Customs Filings</div>
+          <p class="entry-body-text">The Department of Justice and Department of Homeland Security jointly announced the formation of a cross-agency <strong>Trade Fraud Task Force</strong> with an expanded mandate to apply False Claims Act enforcement to customs declarations, including IEEPA tariff filings and, prospectively, any CAPE Declarations submitted under the refund program.</p>
+          <p class="entry-body-text">The Task Force operates a machine learning system trained on CBP's database of over 53 million annual shipments to flag classification anomalies, valuation inconsistencies, and country-of-origin mismatches. The announcement confirmed that qui tam relators — whistleblowers including competitors, customs brokers, and former employees — are eligible for up to <strong>30% of government recovery</strong> on successful FCA actions. The largest prior customs FCA settlement stands at $54.4 million.</p>
+          <div class="entry-impact">
+            <span class="impact-label">Risk</span>
+            <span class="impact-text">Every CAPE Declaration is a certified legal document. Importers with classification errors, valuation discrepancies, or undocumented transshipment in their 2025–2026 entries face material FCA exposure. Pre-submission audit is strongly recommended for any claim exceeding $250,000.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- SUBSTACK -->
+      <div class="substack-card">
+        <div class="substack-icon">📬</div>
+        <h3>Get updates in your inbox</h3>
+        <p>The Tariff Bureau publishes weekly IEEPA intelligence on Substack — court developments, CBP changes, and refund window alerts delivered directly to you.</p>
+        <a class="substack-btn" href="https://tariffbureau.substack.com" target="_blank" rel="noopener">Subscribe on Substack →</a>
+        <div class="substack-note">Free · No spam · Unsubscribe anytime</div>
+      </div>
+
+      <!-- KEY NUMBERS -->
+      <div class="sidebar-stats">
+        <div class="sidebar-stats-label">Key Numbers · May 2026</div>
+        <div class="sidebar-stat">
+          <span class="ss-label">Phase 1 Refund Pool</span>
+          <span class="ss-val">$127B</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="ss-label">Total Est. Pool</span>
+          <span class="ss-val">$175B</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="ss-label">Eligible Importers</span>
+          <span class="ss-val">330,000</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="ss-label">ACE/ACH Enrolled</span>
+          <span class="ss-val red">~8%</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="ss-label">Appeal Deadline</span>
+          <span class="ss-val red">Jun 7</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="ss-label">CBP Processing Time</span>
+          <span class="ss-val">60–90d</span>
+        </div>
+      </div>
+
+      <!-- INTAKE CTA -->
+      <div class="sidebar-intake">
+        <h4>Start your recovery before June 7</h4>
+        <p>Submit an intake and Alex Monroe will assess your CAPE eligibility, ACE enrollment status, and refund exposure.</p>
+        <a href="/intake">Begin Intake →</a>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">The Tariff Bureau LLC &nbsp;·&nbsp; Atlanta, GA</span>
+    <div class="footer-links">
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/updates">Updates</a>
+      <a href="/intake">Intake</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <span>© 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;·&nbsp; TariffIQ™ is a trademark of The Tariff Bureau LLC.</span>
+  </footer>
+
+  <script>
+    function filterEntries(cat) {
+      // Update buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.cat === cat) btn.classList.add('active');
+      });
+
+      // Filter entries
+      document.querySelectorAll('.entry').forEach(entry => {
+        if (cat === 'all') {
+          entry.classList.remove('hidden');
+        } else {
+          const cats = (entry.dataset.cats || '').split(' ');
+          entry.classList.toggle('hidden', !cats.includes(cat));
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
