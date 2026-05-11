@@ -6,11 +6,11 @@
   <title>The Tariff Bureau | IEEPA Tariff Refund Recovery</title>
   <meta name="description" content="AI-powered trade intelligence and IEEPA tariff refund recovery advisory. CBP CAPE portal is live — 92% of eligible importers not enrolled. Powered by TariffIQ." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.tariffbureau.com/" />
+  <link rel="canonical" href="https://tariffbureau.com/" />
   <link rel="icon" href="/favicon.ico" />
   <meta property="og:title" content="The Tariff Bureau | IEEPA Tariff Refund Recovery" />
   <meta property="og:description" content="92% of eligible importers are not enrolled in CBP CAPE. The refund window is open now. Powered by TariffIQ." />
-  <meta property="og:url" content="https://www.tariffbureau.com/" />
+  <meta property="og:url" content="https://tariffbureau.com/" />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,14 +28,15 @@
     "@graph": [
       {
         "@type": "ProfessionalService",
-        "@id": "https://www.tariffbureau.com/#organization",
+        "@id": "https://tariffbureau.com/#organization",
         "name": "The Tariff Bureau LLC",
         "alternateName": "TariffIQ",
         "description": "AI-powered IEEPA tariff refund recovery and CAPE enrollment advisory for U.S. importers and DDP foreign manufacturers. Powered by TariffIQ with analyst Alex Monroe.",
-        "url": "https://www.tariffbureau.com",
-        "logo": "https://www.tariffbureau.com/tariff-bureau-logo.png",
-        "image": "https://www.tariffbureau.com/alex-monroe.png",
+        "url": "https://tariffbureau.com",
+        "logo": "https://tariffbureau.com/tariff-bureau-logo.png",
+        "image": "https://tariffbureau.com/alex-monroe.png",
         "email": "hello@tariffbureau.com",
+        "telephone": "+18886809992",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "3343 Peachtree Rd. NE, Suite 145 PMB550",
@@ -97,22 +98,22 @@
           "jobTitle": "Senior Trade Intelligence Analyst",
           "description": "AI analyst persona powering TariffIQ, The Tariff Bureau's proprietary trade intelligence platform.",
           "worksFor": {
-            "@id": "https://www.tariffbureau.com/#organization"
+            "@id": "https://tariffbureau.com/#organization"
           }
         }
       },
       {
         "@type": "WebSite",
-        "@id": "https://www.tariffbureau.com/#website",
-        "url": "https://www.tariffbureau.com",
+        "@id": "https://tariffbureau.com/#website",
+        "url": "https://tariffbureau.com",
         "name": "The Tariff Bureau",
         "description": "AI-powered IEEPA tariff refund recovery. Powered by TariffIQ.",
         "publisher": {
-          "@id": "https://www.tariffbureau.com/#organization"
+          "@id": "https://tariffbureau.com/#organization"
         },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://www.tariffbureau.com/intake",
+          "target": "https://tariffbureau.com/intake",
           "query-input": "required name=search_term_string"
         }
       },
@@ -856,7 +857,7 @@
 
   <!-- HEADER -->
   <header>
-    <a class="brand" href="/index.html">
+    <a class="brand" href="/">
       <img class="brand-logo" src="/tariff-bureau-logo.png" alt="The Tariff Bureau" onerror="this.style.display='none'" />
       <div class="brand-text">
         <span class="brand-name">The Tariff Bureau</span>
@@ -864,12 +865,12 @@
       </div>
     </a>
     <nav>
-      <a href="/index.html">Home</a>
-      <a href="/services.html">Services</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/intake.html">Intake</a>
-      <a href="/contact.html">Contact</a>
-      <a class="nav-cta" href="/intake.html">Start Intake</a>
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/intake">Intake</a>
+      <a href="/contact">Contact</a>
+      <a class="nav-cta" href="/intake">Start Intake</a>
     </nav>
   </header>
 
@@ -914,9 +915,9 @@
           </p>
 
           <div class="hero-buttons">
-            <a class="btn btn-red" href="/intake.html">Begin Intake Now</a>
+            <a class="btn btn-red" href="/intake">Begin Intake Now</a>
             <a class="btn btn-gold" href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;">Talk to Alex Monroe &rarr;</a>
-            <a class="btn btn-outline" href="/services.html">Services</a>
+            <a class="btn btn-outline" href="/services">Services</a>
           </div>
 
           <div class="trust-row">
@@ -957,7 +958,7 @@
             <input type="text" id="chatInput" style="scroll-margin-top:100px;" placeholder="Ask about IEEPA refunds, CAPE eligibility, classification..." />
             <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send &rarr;</button>
           </div>
-          <div class="chat-disclaimer">TariffIQ&trade; is an AI advisory tool &mdash; not legal advice, not customs brokerage. Advisory only. &nbsp;&middot;&nbsp; <a href="/terms.html" style="color:var(--gold);text-decoration:underline;">Terms</a> &nbsp;&middot;&nbsp; <a href="/privacy.html" style="color:var(--gold);text-decoration:underline;">Privacy</a></div>
+          <div class="chat-disclaimer">TariffIQ&trade; is an AI advisory tool &mdash; not legal advice, not customs brokerage. Advisory only. &nbsp;&middot;&nbsp; <a href="/terms" style="color:var(--gold);text-decoration:underline;">Terms</a> &nbsp;&middot;&nbsp; <a href="/privacy" style="color:var(--gold);text-decoration:underline;">Privacy</a></div>
         </div>
       </div>
     </section>
@@ -998,7 +999,7 @@
             <span class="svc-price" style="font-size:13px;">$1,500 flat &mdash; Written eligibility determination &middot; 4 qualifiers</span>
             <p>For small importers not ready to commit to a full assessment. We screen four key criteria &mdash; tariff exposure, IOR status, ACE enrollment, and recovery threshold &mdash; and deliver a written determination. The $1,500 fee is credited toward any full engagement.</p>
           </div>
-          <a href="/intake.html" style="display:block;background:var(--red);color:#fff;padding:12px 22px;border-radius:7px;font-family:var(--sans);font-weight:600;font-size:13.5px;white-space:nowrap;text-align:center;flex-shrink:0;">Start Screening &rarr;</a>
+          <a href="/intake" style="display:block;background:var(--red);color:#fff;padding:12px 22px;border-radius:7px;font-family:var(--sans);font-weight:600;font-size:13.5px;white-space:nowrap;text-align:center;flex-shrink:0;">Start Screening &rarr;</a>
         </div>
         <div class="svc-card"><span class="svc-num">01 &middot; Assessment Only</span><h3>Tariff Risk Assessment</h3><span class="svc-price">$8,000 &ndash; $18,000 flat</span><p>Structured review of tariff exposure, classification risk, origin documentation, and CAPE eligibility. Ideal first step for importers evaluating their position.</p></div>
         <div class="svc-card"><span class="svc-num">02 &middot; Full Recovery</span><h3>Recovery Package</h3><span class="svc-price">$4,000 base + 12&ndash;15% contingency</span><p>End-to-end IEEPA refund recovery advisory including CAPE enrollment support, documentation preparation, and claim filing strategy.</p></div>
@@ -1069,7 +1070,7 @@
             <p style="font-size:14px;color:var(--cream);line-height:1.7;max-width:560px;">The Tariff Bureau reviews your entry data for classification accuracy, valuation consistency, and origin compliance before you submit to CBP. One audit. One legal certification you can actually stand behind. If you have $250,000 or more in IEEPA duty exposure, this is not optional &mdash; it&rsquo;s insurance.</p>
           </div>
           <div style="text-align:center;flex-shrink:0;">
-            <a href="/intake.html" style="display:block;background:#9b1c1c;color:#fff;padding:14px 24px;border-radius:8px;font-family:var(--sans);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;margin-bottom:8px;">Request Pre-Filing Audit &rarr;</a>
+            <a href="/intake" style="display:block;background:#9b1c1c;color:#fff;padding:14px 24px;border-radius:8px;font-family:var(--sans);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;margin-bottom:8px;">Request Pre-Filing Audit &rarr;</a>
             <span style="font-family:var(--mono);font-size:9.5px;color:var(--muted);">For $250K+ IEEPA claims</span>
           </div>
         </div>
@@ -1117,7 +1118,7 @@
       <h2>The window is open.<br/><span class="r">Don&rsquo;t wait.</span></h2>
       <p>92% of eligible importers have not enrolled in CBP CAPE. The IEEPA refund pool is estimated at $100B&ndash;$175B. The Tariff Bureau is taking intake now.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn btn-red" href="/intake.html" style="font-size:16px;padding:15px 32px;">Begin Your Intake &rarr;</a>
+        <a class="btn btn-red" href="/intake" style="font-size:16px;padding:15px 32px;">Begin Your Intake &rarr;</a>
         <a class="btn btn-gold" href="#chatbot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('chatInput').focus(),400);return false;" style="font-size:16px;padding:15px 32px;">Ask Alex Monroe</a>
       </div>
     </section>
@@ -1128,10 +1129,10 @@
   <footer>
     <span class="footer-brand">The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, GA</span>
     <div class="footer-links">
-      <a href="/services.html">Services</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/intake.html">Intake</a>
-      <a href="/contact.html">Contact</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/intake">Intake</a>
+      <a href="/contact">Contact</a>
     </div>
     <span>&copy; 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;&middot;&nbsp; TariffIQ&trade; is a trademark of The Tariff Bureau LLC.</span>
   </footer>
@@ -1157,7 +1158,8 @@ KEY FACTS:
   6. Claim Audit & Optimization: $6K–$15K flat
 - The Tariff Bureau serves U.S. importers, procurement teams, and DDP foreign manufacturers (Vietnam, Taiwan, South Korea, India, Bangladesh, Indonesia)
 - Principal office: 3343 Peachtree Rd. NE, Suite 145 PMB550, Atlanta, Georgia 30326
-- Intake form: tariffbureau.com/intake.html
+- Phone: 888-680-9992
+- Intake form: tariffbureau.com/intake
 
 PERSONA GUIDELINES:
 - Measured, authoritative, professional — senior financial/trade advisor tone
@@ -1265,7 +1267,7 @@ PERSONA GUIDELINES:
 
       } catch (err) {
         removeTyping();
-        addMessage('assistant', 'Connection issue — please try again or go directly to the intake form at tariffbureau.com/intake.html.');
+        addMessage('assistant', 'Connection issue — please try again or go directly to the intake form at tariffbureau.com/intake.');
         console.error('TariffIQ error:', err);
       }
 
