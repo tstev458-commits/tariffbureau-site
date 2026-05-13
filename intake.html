@@ -1,196 +1,378 @@
-// api/intake.js
-// M1: Intake endpoint for Tariff Bureau
-// Receives POST from intake form, validates 6 sections, logs structured JSON, returns 200 OK
-// CommonJS pattern (matches existing api/chat.js)
-// Field structure confirmed by client. M2 (DocuSign) and M3 (QuickBooks) will extend this.
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Start Your Tariff and Compliance Review | Tariff Bureau</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-module.exports = async function handler(req, res) {
-  // CORS headers (same pattern as api/chat.js)
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    <meta
+      name="description"
+      content="Submit your project details to begin a structured review of tariff exposure, country-of-origin considerations, and import compliance risk."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tariffbureau.com/intake" />
+    <link rel="icon" href="/favicon.ico" />
 
-  if (req.method === "OPTIONS") return res.status(200).end();
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f9fafb;
+        color: #111;
+      }
+      header,
+      footer {
+        background: #111;
+        color: #fff;
+        padding: 18px 24px;
+      }
+      header a,
+      footer a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 16px;
+      }
+      main {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 24px;
+        background: #fff;
+        border-radius: 8px;
+      }
+      h2 {
+        margin-top: 32px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ddd;
+        font-size: 18px;
+        color: #111;
+      }
+      h2:first-of-type {
+        margin-top: 16px;
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+      .required-mark {
+        color: #c00;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      textarea {
+        min-height: 80px;
+      }
+      .full {
+        grid-column: span 2;
+      }
+      .consent-block {
+        background: #f5f5f5;
+        padding: 14px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+      }
+      .consent-block label {
+        font-weight: 400;
+        font-size: 13.5px;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+      .consent-block input[type="checkbox"] {
+        width: auto;
+        margin-right: 8px;
+        vertical-align: top;
+      }
+      button {
+        grid-column: span 2;
+        padding: 14px;
+        background: #111;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        border-radius: 4px;
+        font-size: 15px;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    </style>
+    <script defer src="/_vercel/insights/script.js"></script>
+  </head>
 
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
+  <body>
+    <header>
+      <strong>Tariff Bureau</strong>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/intake.html">Review</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </header>
 
-  try {
-    const formData = req.body;
+    <main>
+      <h1>Start Your Tariff and Compliance Review</h1>
 
-    // Validate all M1 required fields
-    const validation = validateIntakeForm(formData);
-    if (!validation.valid) {
-      return res.status(400).json({
-        error: "Validation failed",
-        details: validation.errors,
-      });
-    }
+      <p>
+        Submit your details to begin a structured review of tariff exposure,
+        country-of-origin considerations, and import compliance factors.
+        Required fields are marked
+        <span class="required-mark">*</span>.
+      </p>
 
-    // Generate submission metadata
-    const submissionId = generateSubmissionId();
-    const timestamp = new Date().toISOString();
+      <form id="intakeForm">
+        <!-- SECTION 1: CONTACT -->
+        <h2 class="full">1. Contact Information</h2>
 
-    // Build structured JSON payload with all 6 sections
-    const logPayload = {
-      submissionId,
-      timestamp,
+        <div>
+          <label>Name <span class="required-mark">*</span></label>
+          <input type="text" name="name" required />
+        </div>
 
-      // Section 1: Contact
-      section1_contact: {
-        name: formData.name || null,
-        role: formData.role || formData.title || null,
-        phone: formData.phone || null,
-      },
+        <div>
+          <label>Role / Title</label>
+          <input
+            type="text"
+            name="role"
+            placeholder="e.g. CFO, Operations Manager"
+          />
+        </div>
 
-      // Section 2: Legal Entity (EIN is optional)
-      section2_legalEntity: {
-        companyName: formData.company_name || formData.company || null,
-        ein: formData.ein || null,
-        address: {
-          street: formData.address_street || formData.street || null,
-          city: formData.address_city || formData.city || null,
-          state: formData.address_state || formData.state || null,
-          zip: formData.address_zip || formData.zip || null,
-          country: formData.address_country || formData.country || "US",
-        },
-      },
+        <div class="full">
+          <label>Phone</label>
+          <input type="tel" name="phone" />
+        </div>
 
-      // Section 3: Email Addresses (legal_email required, others optional)
-      section3_emails: {
-        legal: formData.legal_email || null,
-        billing: formData.billing_email || null,
-        technical: formData.technical_email || null,
-      },
+        <!-- SECTION 2: LEGAL ENTITY -->
+        <h2 class="full">2. Legal Entity</h2>
 
-      // Section 4: Service Selection
-      section4_service: {
-        serviceId: formData.service_selection || null,
-        serviceName: getServiceName(formData.service_selection),
-      },
+        <div>
+          <label>Legal Company Name <span class="required-mark">*</span></label>
+          <input type="text" name="company_name" required />
+        </div>
 
-      // Section 5: Consents (all 3 required)
-      section5_consents: {
-        nda: formData.consent_nda === true || formData.consent_nda === "true",
-        engagement:
-          formData.consent_engagement === true ||
-          formData.consent_engagement === "true",
-        terms:
-          formData.consent_terms === true || formData.consent_terms === "true",
-        consentTimestamp: timestamp,
-      },
+        <div>
+          <label>EIN (Tax ID)</label>
+          <input type="text" name="ein" placeholder="12-3456789" />
+        </div>
 
-      // Section 6: Additional Info + Metadata
-      section6_additional: {
-        notes: formData.notes || formData.additional_details || null,
-        source: formData.source || "intake_form_web",
-        metadata: {
-          userAgent: req.headers["user-agent"] || "unknown",
-          ip:
-            (req.headers["x-forwarded-for"] || "").split(",")[0].trim() ||
-            "unknown",
-          referrer: req.headers["referer"] || "unknown",
-        },
-      },
+        <div class="full">
+          <label>Street Address</label>
+          <input type="text" name="address_street" />
+        </div>
 
-      // Idempotency key (prepared for M3 duplicate detection)
-      idempotencyKey: `${formData.legal_email}_${Date.now()}`,
-    };
+        <div>
+          <label>City</label>
+          <input type="text" name="address_city" />
+        </div>
 
-    // Log structured JSON to Vercel console
-    console.log("[INTAKE_SUBMISSION]", JSON.stringify(logPayload, null, 2));
+        <div>
+          <label>State</label>
+          <input type="text" name="address_state" />
+        </div>
 
-    // Return 200 OK with confirmation payload
-    return res.status(200).json({
-      success: true,
-      submissionId,
-      message:
-        "Submission received. Our team will follow up within one business day.",
-      timestamp,
-    });
-  } catch (error) {
-    // Log error server-side, never expose stack trace to client
-    console.error("[INTAKE_ERROR]", error.message, error.stack);
-    return res.status(500).json({
-      error: "Submission received. Our team will follow up.",
-    });
-  }
-};
+        <div>
+          <label>ZIP Code</label>
+          <input type="text" name="address_zip" />
+        </div>
 
-// =====================================================
-// HELPERS
-// =====================================================
+        <div>
+          <label>Country</label>
+          <input type="text" name="address_country" value="US" />
+        </div>
 
-// Service options confirmed by client
-const VALID_SERVICES = {
-  assessment: "Assessment Only",
-  full_recovery: "Full Recovery Package",
-  rerouting: "Rerouting Analysis",
-  monitoring: "Monitoring Retainer",
-  valuation: "Refund Claim Valuation Report",
-  audit_optimization: "Claim Audit & Optimization",
-};
+        <!-- SECTION 3: EMAIL ADDRESSES -->
+        <h2 class="full">3. Email Addresses</h2>
 
-function validateIntakeForm(data) {
-  const errors = [];
+        <div>
+          <label>Legal Email <span class="required-mark">*</span></label>
+          <input
+            type="email"
+            name="legal_email"
+            required
+            placeholder="legal@company.com"
+          />
+        </div>
 
-  if (!data || typeof data !== "object") {
-    return { valid: false, errors: ["No form data received"] };
-  }
+        <div>
+          <label>Billing Email</label>
+          <input
+            type="email"
+            name="billing_email"
+            placeholder="billing@company.com"
+          />
+        </div>
 
-  // Required: Company name
-  const companyName = data.company_name || data.company;
-  if (
-    !companyName ||
-    typeof companyName !== "string" ||
-    companyName.trim().length === 0
-  ) {
-    errors.push("Company name is required");
-  }
+        <div class="full">
+          <label>Technical Email</label>
+          <input
+            type="email"
+            name="technical_email"
+            placeholder="ops@company.com"
+          />
+        </div>
 
-  // Required: Legal email (valid format)
-  if (!data.legal_email || !isValidEmail(data.legal_email)) {
-    errors.push("Valid legal email address is required");
-  }
+        <!-- SECTION 4: SERVICE SELECTION -->
+        <h2 class="full">4. Service Selection</h2>
 
-  // Required: Service selection (must be one of 6 known services)
-  if (!data.service_selection) {
-    errors.push("Service selection is required");
-  } else if (!VALID_SERVICES.hasOwnProperty(data.service_selection)) {
-    errors.push(
-      `Service selection must be one of: ${Object.keys(VALID_SERVICES).join(", ")}`,
-    );
-  }
+        <div class="full">
+          <label>Select Service <span class="required-mark">*</span></label>
+          <select name="service_selection" required>
+            <option value="">— Select a service —</option>
+            <option value="assessment">Assessment Only</option>
+            <option value="full_recovery">Full Recovery Package</option>
+            <option value="rerouting">Rerouting Analysis</option>
+            <option value="monitoring">Monitoring Retainer</option>
+            <option value="valuation">Refund Claim Valuation Report</option>
+            <option value="audit_optimization">
+              Claim Audit & Optimization
+            </option>
+          </select>
+        </div>
 
-  // Required: 3 consents (all must be true)
-  if (data.consent_nda !== true && data.consent_nda !== "true") {
-    errors.push("NDA consent is required");
-  }
-  if (data.consent_engagement !== true && data.consent_engagement !== "true") {
-    errors.push("Engagement letter consent is required");
-  }
-  if (data.consent_terms !== true && data.consent_terms !== "true") {
-    errors.push("Terms of service consent is required");
-  }
+        <!-- SECTION 5: CONSENTS -->
+        <h2 class="full">5. Consents</h2>
 
-  return {
-    valid: errors.length === 0,
-    errors,
-  };
-}
+        <div class="full consent-block">
+          <label>
+            <input type="checkbox" name="consent_nda" required />
+            I agree to execute a Mutual Non-Disclosure Agreement.
+            <span class="required-mark">*</span>
+          </label>
+        </div>
 
-function isValidEmail(email) {
-  if (typeof email !== "string") return false;
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-}
+        <div class="full consent-block">
+          <label>
+            <input type="checkbox" name="consent_engagement" required />
+            I agree to execute an Engagement Letter.
+            <span class="required-mark">*</span>
+          </label>
+        </div>
 
-function getServiceName(serviceId) {
-  return VALID_SERVICES[serviceId] || null;
-}
+        <div class="full consent-block">
+          <label>
+            <input type="checkbox" name="consent_terms" required />
+            I agree to the Terms of Service.
+            <span class="required-mark">*</span>
+          </label>
+        </div>
 
-function generateSubmissionId() {
-  const ts = Date.now();
-  const rand = Math.random().toString(36).substring(2, 8).toUpperCase();
-  return `INTAKE-${ts}-${rand}`;
-}
+        <!-- SECTION 6: ADDITIONAL INFO -->
+        <h2 class="full">6. Additional Information</h2>
+
+        <div class="full">
+          <label>Notes / Additional Details</label>
+          <textarea
+            name="notes"
+            placeholder="Any context about your imports, prior CBP interactions, or specific timing needs."
+          ></textarea>
+        </div>
+
+        <button type="submit">Submit for Review</button>
+      </form>
+
+      <div
+        id="formMessage"
+        style="
+          display: none;
+          margin-top: 16px;
+          padding: 14px;
+          border-radius: 6px;
+        "
+      ></div>
+
+      <script>
+        document
+          .getElementById("intakeForm")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const msgDiv = document.getElementById("formMessage");
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+            msgDiv.style.display = "none";
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+              data[key] = value;
+            });
+
+            // Convert checkboxes to booleans
+            data.consent_nda = form.querySelector(
+              'input[name="consent_nda"]',
+            ).checked;
+            data.consent_engagement = form.querySelector(
+              'input[name="consent_engagement"]',
+            ).checked;
+            data.consent_terms = form.querySelector(
+              'input[name="consent_terms"]',
+            ).checked;
+
+            try {
+              const response = await fetch("/api/intake", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+              });
+
+              const result = await response.json();
+
+              if (response.ok && result.success) {
+                window.location.href =
+                  "/thank-you.html?ref=" +
+                  encodeURIComponent(result.submissionId);
+              } else {
+                msgDiv.style.display = "block";
+                msgDiv.style.background = "#fee";
+                msgDiv.style.color = "#900";
+                msgDiv.style.border = "1px solid #fcc";
+                const details = Array.isArray(result.details)
+                  ? " — " + result.details.join("; ")
+                  : "";
+                msgDiv.textContent =
+                  (result.error || "Submission failed.") + details;
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit for Review";
+              }
+            } catch (err) {
+              msgDiv.style.display = "block";
+              msgDiv.style.background = "#fee";
+              msgDiv.style.color = "#900";
+              msgDiv.style.border = "1px solid #fcc";
+              msgDiv.textContent =
+                "Network error. Please try again or contact us directly.";
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Submit for Review";
+            }
+          });
+      </script>
+    </main>
+
+    <footer>
+      <p>© 2026 Tariff Bureau. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
