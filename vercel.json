@@ -14,6 +14,7 @@
     { "src": "/intake-smart",      "dest": "/intake-smart.html" },
     { "src": "/updates",           "dest": "/updates.html" },
     { "src": "/updates-data.json", "dest": "/public/updates-data.json" },
-    { "src": "/api/chat",          "dest": "/api/chat.js" }
+   { "src": "/ieepa-refund-recovery", "dest": "/ieepa-refund-recovery.html" },
+    { "src": "/api/chat", "dest": "/api/chat.js" } { "src": "/api/chat",          "dest": "/api/chat.js" }
   ]
 }
