@@ -846,14 +846,21 @@
       footer { flex-direction: column; text-align: center; }
     }
   </style>
-<script defer src="/_vercel/insights/script.js"></script>
-    <!-- Weglot Language Translation -->
-    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-    <script>
-        Weglot.initialize({
-            api_key: 'wg_4cd9fdc0789e86adaafecf34d53992343'
-        });
-    </script>
+
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- FIX 1: Weglot — synchronous load (no async/defer), init wrapped in try/catch -->
+  <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+  <script>
+    try {
+      Weglot.initialize({
+        api_key: 'wg_4cd9fdc0789e86adaafecf34d53992343'
+      });
+    } catch(e) {
+      console.warn('Weglot failed to initialize:', e);
+    }
+  </script>
+
 </head>
 
 <body>
@@ -872,10 +879,12 @@
         <span class="brand-sub">Powered by TariffIQ&trade;</span>
       </div>
     </a>
+    <!-- FIX 3: Updates added to nav -->
     <nav>
       <a href="/">Home</a>
       <a href="/services">Services</a>
       <a href="/pricing">Pricing</a>
+      <a href="/updates">Updates</a>
       <a href="/intake">Intake</a>
       <a href="/contact">Contact</a>
       <a class="nav-cta" href="/intake">Start Intake</a>
@@ -892,9 +901,9 @@
           <!-- ALEX MONROE INTRO CARD -->
           <div style="display:flex;align-items:center;gap:20px;margin-bottom:28px;padding:20px 24px;background:linear-gradient(135deg,rgba(200,146,42,0.1),rgba(9,16,31,0.6));border:1px solid rgba(200,146,42,0.3);border-radius:14px;position:relative;overflow:hidden;">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold),var(--gold-lt));"></div>
-           <div style="width:90px;height:90px;border-radius:50%;border:2.5px solid var(--gold);flex-shrink:0;overflow:hidden;">
-  <img src="/alex-monroe.png" alt="Alex Monroe" style="width:100%;height:100%;object-fit:cover;display:block;">
-</div>
+            <div style="width:90px;height:90px;border-radius:50%;border:2.5px solid var(--gold);flex-shrink:0;overflow:hidden;">
+              <img src="/alex-monroe.png" alt="Alex Monroe" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
             <div style="flex:1;">
               <div style="font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:5px;">Senior Trade Intelligence Analyst</div>
               <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--white);line-height:1.1;margin-bottom:4px;">Alex Monroe</div>
@@ -937,8 +946,8 @@
           </div>
         </div>
 
-        <!-- CHATBOT -->
-        <div class="hero-panel" id="chatbot" style="scroll-margin-top:80px;">
+        <!-- FIX 2: data-wg-notranslate on chatbot panel so Weglot skips it -->
+        <div class="hero-panel" id="chatbot" style="scroll-margin-top:80px;" data-wg-notranslate>
           <div class="panel-topbar">
             <div class="panel-dots"><span></span><span></span><span></span></div>
             <div style="display:flex;flex-direction:column;line-height:1.1;flex:1;">
@@ -1136,9 +1145,11 @@
   <!-- FOOTER -->
   <footer>
     <span class="footer-brand">The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, GA</span>
+    <!-- FIX 4: Updates added to footer links -->
     <div class="footer-links">
       <a href="/services">Services</a>
       <a href="/pricing">Pricing</a>
+      <a href="/updates">Updates</a>
       <a href="/intake">Intake</a>
       <a href="/contact">Contact</a>
     </div>
