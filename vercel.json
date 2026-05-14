@@ -2,19 +2,19 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "routes": [
-    { "src": "/pricing",           "dest": "/pricing.html" },
-    { "src": "/services",          "dest": "/services.html" },
-    { "src": "/intake",            "dest": "/intake.html" },
-    { "src": "/contact",           "dest": "/contact.html" },
-    { "src": "/about",             "dest": "/about.html" },
-    { "src": "/privacy",           "dest": "/privacy.html" },
-    { "src": "/thank-you",         "dest": "/thank-you.html" },
-    { "src": "/terms",             "dest": "/terms.html" },
-    { "src": "/screening",         "dest": "/screening.html" },
-    { "src": "/intake-smart",      "dest": "/intake-smart.html" },
-    { "src": "/updates",           "dest": "/updates.html" },
-    { "src": "/updates-data.json", "dest": "/public/updates-data.json" },
-   { "src": "/ieepa-refund-recovery", "dest": "/ieepa-refund-recovery.html" },
-    { "src": "/api/chat", "dest": "/api/chat.js" } { "src": "/api/chat",          "dest": "/api/chat.js" }
+    { "src": "/pricing",               "dest": "/pricing.html" },
+    { "src": "/services",              "dest": "/services.html" },
+    { "src": "/intake",                "dest": "/intake.html" },
+    { "src": "/contact",               "dest": "/contact.html" },
+    { "src": "/about",                 "dest": "/about.html" },
+    { "src": "/privacy",               "dest": "/privacy.html" },
+    { "src": "/thank-you",             "dest": "/thank-you.html" },
+    { "src": "/terms",                 "dest": "/terms.html" },
+    { "src": "/screening",             "dest": "/screening.html" },
+    { "src": "/intake-smart",          "dest": "/intake-smart.html" },
+    { "src": "/updates",               "dest": "/updates.html" },
+    { "src": "/updates-data.json",     "dest": "/public/updates-data.json" },
+    { "src": "/ieepa-refund-recovery", "dest": "/ieepa-refund-recovery.html" },
+    { "src": "/api/chat",              "dest": "/api/chat.js" }
   ]
 }
