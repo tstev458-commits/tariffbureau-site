@@ -256,7 +256,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA || 'ffb15d63-fe30-4af9-9732-d686510e3a37',
+      process.env.DOCUSIGN_TEMPLATE_NDA || '19b2733e-9ded-4b06-ae1a-302b3aa4b400',
       "Mutual NDA — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -309,7 +309,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA || 'ffb15d63-fe30-4af9-9732-d686510e3a37',
+      process.env.DOCUSIGN_TEMPLATE_NDA || '19b2733e-9ded-4b06-ae1a-302b3aa4b400',
       "Mutual NDA — The Tariff Bureau",
       signerName,
       signerEmail,
