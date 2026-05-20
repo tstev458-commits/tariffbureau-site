@@ -273,7 +273,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS || 'd622736c-9985-424e-bb80-fc16cf4c29fd',
+      process.env.DOCUSIGN_TEMPLATE_TERMS || 'ce306ce5-2dc0-4185-9351-5c33027a175c',
       "Terms of Service — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -290,7 +290,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '3db6990c-74cc-4a4a-9879-e63082e42954',
+      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '28786dd0-fce9-4e76-87fb-2d406f9944ba',
       "Engagement Letter — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -319,7 +319,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '3db6990c-74cc-4a4a-9879-e63082e42954',
+      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '28786dd0-fce9-4e76-87fb-2d406f9944ba',
       "Engagement Letter — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -329,7 +329,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS || 'd622736c-9985-424e-bb80-fc16cf4c29fd',
+      process.env.DOCUSIGN_TEMPLATE_TERMS || 'ce306ce5-2dc0-4185-9351-5c33027a175c',
       "Terms of Service — The Tariff Bureau",
       signerName,
       signerEmail,
