@@ -256,7 +256,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA || '19b2733e-9ded-4b06-ae1a-302b3aa4b400',
+      process.env.DOCUSIGN_TEMPLATE_NDA || '1480f06b-139e-4c05-ba7a-ca8a592d0f1f',
       "Mutual NDA — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -273,7 +273,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS || 'ce306ce5-2dc0-4185-9351-5c33027a175c',
+      process.env.DOCUSIGN_TEMPLATE_TERMS || '1fa9adf3-dc3a-48fd-8cc7-4246eebaee2f',
       "Terms of Service — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -290,7 +290,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '28786dd0-fce9-4e76-87fb-2d406f9944ba',
+      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '82c15303-6793-40f4-999f-b25a87a7220d',
       "Engagement Letter — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -309,7 +309,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA || '19b2733e-9ded-4b06-ae1a-302b3aa4b400',
+      process.env.DOCUSIGN_TEMPLATE_NDA || '1480f06b-139e-4c05-ba7a-ca8a592d0f1f',
       "Mutual NDA — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -319,7 +319,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '28786dd0-fce9-4e76-87fb-2d406f9944ba',
+      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '82c15303-6793-40f4-999f-b25a87a7220d',
       "Engagement Letter — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -329,7 +329,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS || 'ce306ce5-2dc0-4185-9351-5c33027a175c',
+      process.env.DOCUSIGN_TEMPLATE_TERMS || '1fa9adf3-dc3a-48fd-8cc7-4246eebaee2f',
       "Terms of Service — The Tariff Bureau",
       signerName,
       signerEmail,
