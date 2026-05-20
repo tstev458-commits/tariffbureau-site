@@ -256,7 +256,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA,
+      process.env.DOCUSIGN_TEMPLATE_NDA || 'ffb15d63-fe30-4af9-9732-d686510e3a37',
       "Mutual NDA — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -273,7 +273,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS,
+      process.env.DOCUSIGN_TEMPLATE_TERMS || 'd622736c-9985-424e-bb80-fc16cf4c29fd',
       "Terms of Service — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -290,7 +290,7 @@ async function sendDocuSignEnvelopes(formData) {
     const r = await sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT,
+      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '3db6990c-74cc-4a4a-9879-e63082e42954',
       "Engagement Letter — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -309,7 +309,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA,
+      process.env.DOCUSIGN_TEMPLATE_NDA || 'ffb15d63-fe30-4af9-9732-d686510e3a37',
       "Mutual NDA — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -319,7 +319,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT,
+      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '3db6990c-74cc-4a4a-9879-e63082e42954',
       "Engagement Letter — The Tariff Bureau",
       signerName,
       signerEmail,
@@ -329,7 +329,7 @@ async function sendDocuSignEnvelopes(formData) {
     sendEnvelope(
       envelopesApi,
       accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS,
+      process.env.DOCUSIGN_TEMPLATE_TERMS || 'd622736c-9985-424e-bb80-fc16cf4c29fd',
       "Terms of Service — The Tariff Bureau",
       signerName,
       signerEmail,
