@@ -2,7 +2,7 @@
 // M1 + M2: Intake endpoint for Tariff Bureau
 // M1 — Validates 6 sections, logs structured JSON, returns 200 OK
 // M2 — Sends 3 DocuSign envelopes (NDA, Engagement Letter, Terms of Service)
-//      via JWT Grant authentication, in parallel (Promise.all)
+//      via JWT Grant authentication, sequentially with individual error logging
 //
 // Client-facing template fields are auto-populated via textTabs.
 // Field naming convention (must match Data Label in DocuSign template):
@@ -14,17 +14,10 @@
 // in production (set in Vercel env vars). Local dev falls back to
 // docusign-private.key file in project root (gitignored).
 //
-// Clean production logging:
-//   [INTAKE_SUBMISSION]       — full form submission payload
-//   [DOCUSIGN_ENVELOPE_REQUEST] — exact JSON sent to DocuSign for each envelope
-//   [DOCUSIGN_ENVELOPES_SENT] — envelope IDs returned (success)
-//   [DOCUSIGN_ERROR]          — exact DocuSign error response (failure)
-//
-// Phased testing supported via TEST_ONLY env var:
-//   TEST_ONLY=nda          → only NDA
-//   TEST_ONLY=terms        → only Terms
-//   TEST_ONLY=engagement   → only Engagement
-//   (unset)                → all 3 in parallel (production)
+// Template IDs (info@tariffbureau.com DocuSign sandbox account):
+//   NDA:         19b2733e-9ded-4b06-ae1a-302b3aa4b400
+//   Engagement:  28786dd0-fce9-4e76-87fb-2d406f9944ba
+//   Terms:       ce306ce5-2dc0-4185-9351-5c33027a175c
 
 const docusign = require("docusign-esign");
 const fs = require("fs");
@@ -125,21 +118,10 @@ module.exports = async function handler(req, res) {
 // M2 — DOCUSIGN INTEGRATION
 // =====================================================
 
-/**
- * Load the RSA private key for JWT signing.
- * Priority:
- *   1. process.env.DOCUSIGN_PRIVATE_KEY (production — Vercel env var)
- *   2. docusign-private.key file in project root (local dev fallback)
- *
- * The env var may contain escaped \n sequences (from .env file storage)
- * which must be converted to actual newlines for the RSA parser.
- */
 function loadDocuSignPrivateKey() {
   if (process.env.DOCUSIGN_PRIVATE_KEY) {
-    // Env var path — convert literal \n to real newlines if needed
     return process.env.DOCUSIGN_PRIVATE_KEY.replace(/\\n/g, "\n");
   }
-  // Local dev fallback — read file from project root
   const privateKeyPath = path.resolve(process.cwd(), "docusign-private.key");
   return fs.readFileSync(privateKeyPath, "utf8");
 }
@@ -178,11 +160,6 @@ async function getDocuSignAccessToken() {
   };
 }
 
-/**
- * Build textTabs array from form data — matching Data Labels configured
- * in DocuSign templates. Empty/null values are skipped so DocuSign keeps
- * the field editable with no pre-fill.
- */
 function buildClientTextTabs(formData) {
   const submissionDate = formatSubmissionDate();
 
@@ -219,7 +196,6 @@ function buildClientTextTabs(formData) {
 
 function formatSubmissionDate() {
   const now = new Date();
-  // Format: "May 19, 2026"
   return now.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -249,94 +225,50 @@ async function sendDocuSignEnvelopes(formData) {
   const signerEmail = formData.legal_email;
   const clientTextTabs = buildClientTextTabs(formData);
 
-  const testOnly = process.env.TEST_ONLY;
+  // ─── Sequential sends with individual error logging ───
+  console.log("[DOCUSIGN_SENDING] Starting sequential envelope sends...");
 
-  // ─── Phased testing ───
-  if (testOnly === "nda") {
-    const r = await sendEnvelope(
-      envelopesApi,
-      accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA || '1480f06b-139e-4c05-ba7a-ca8a592d0f1f',
-      "Mutual NDA — The Tariff Bureau",
-      signerName,
-      signerEmail,
-      dsApi,
-      clientTextTabs,
-    );
-    return {
-      ndaEnvelopeId: r.envelopeId,
-      engagementEnvelopeId: "skipped",
-      termsEnvelopeId: "skipped",
-    };
-  }
-  if (testOnly === "terms") {
-    const r = await sendEnvelope(
-      envelopesApi,
-      accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS || '1fa9adf3-dc3a-48fd-8cc7-4246eebaee2f',
-      "Terms of Service — The Tariff Bureau",
-      signerName,
-      signerEmail,
-      dsApi,
-      clientTextTabs,
-    );
-    return {
-      ndaEnvelopeId: "skipped",
-      engagementEnvelopeId: "skipped",
-      termsEnvelopeId: r.envelopeId,
-    };
-  }
-  if (testOnly === "engagement") {
-    const r = await sendEnvelope(
-      envelopesApi,
-      accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '82c15303-6793-40f4-999f-b25a87a7220d',
-      "Engagement Letter — The Tariff Bureau",
-      signerName,
-      signerEmail,
-      dsApi,
-      clientTextTabs,
-    );
-    return {
-      ndaEnvelopeId: "skipped",
-      engagementEnvelopeId: r.envelopeId,
-      termsEnvelopeId: "skipped",
-    };
-  }
+  // NDA
+  console.log("[DOCUSIGN_SENDING] Sending NDA...");
+  const ndaResult = await sendEnvelope(
+    envelopesApi,
+    accountId,
+    process.env.DOCUSIGN_TEMPLATE_NDA || '19b2733e-9ded-4b06-ae1a-302b3aa4b400',
+    "Mutual NDA — The Tariff Bureau",
+    signerName,
+    signerEmail,
+    dsApi,
+    clientTextTabs,
+  );
+  console.log("[DOCUSIGN_SENT] NDA envelope ID:", ndaResult.envelopeId);
 
-  // ─── Production: all 3 in parallel ───
-  const [ndaResult, engagementResult, termsResult] = await Promise.all([
-    sendEnvelope(
-      envelopesApi,
-      accountId,
-      process.env.DOCUSIGN_TEMPLATE_NDA || '1480f06b-139e-4c05-ba7a-ca8a592d0f1f',
-      "Mutual NDA — The Tariff Bureau",
-      signerName,
-      signerEmail,
-      dsApi,
-      clientTextTabs,
-    ),
-    sendEnvelope(
-      envelopesApi,
-      accountId,
-      process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '82c15303-6793-40f4-999f-b25a87a7220d',
-      "Engagement Letter — The Tariff Bureau",
-      signerName,
-      signerEmail,
-      dsApi,
-      clientTextTabs,
-    ),
-    sendEnvelope(
-      envelopesApi,
-      accountId,
-      process.env.DOCUSIGN_TEMPLATE_TERMS || '1fa9adf3-dc3a-48fd-8cc7-4246eebaee2f',
-      "Terms of Service — The Tariff Bureau",
-      signerName,
-      signerEmail,
-      dsApi,
-      clientTextTabs,
-    ),
-  ]);
+  // Engagement Letter
+  console.log("[DOCUSIGN_SENDING] Sending Engagement Letter...");
+  const engagementResult = await sendEnvelope(
+    envelopesApi,
+    accountId,
+    process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '28786dd0-fce9-4e76-87fb-2d406f9944ba',
+    "Engagement Letter — The Tariff Bureau",
+    signerName,
+    signerEmail,
+    dsApi,
+    clientTextTabs,
+  );
+  console.log("[DOCUSIGN_SENT] Engagement envelope ID:", engagementResult.envelopeId);
+
+  // Terms of Service
+  console.log("[DOCUSIGN_SENDING] Sending Terms of Service...");
+  const termsResult = await sendEnvelope(
+    envelopesApi,
+    accountId,
+    process.env.DOCUSIGN_TEMPLATE_TERMS || 'ce306ce5-2dc0-4185-9351-5c33027a175c',
+    "Terms of Service — The Tariff Bureau",
+    signerName,
+    signerEmail,
+    dsApi,
+    clientTextTabs,
+  );
+  console.log("[DOCUSIGN_SENT] Terms envelope ID:", termsResult.envelopeId);
 
   return {
     ndaEnvelopeId: ndaResult.envelopeId,
@@ -345,11 +277,6 @@ async function sendDocuSignEnvelopes(formData) {
   };
 }
 
-/**
- * Send a single envelope using a pre-built template.
- * Auto-detects template role structure (single-signer or multi-signer).
- * Populates client-facing template fields from form data via textTabs.
- */
 async function sendEnvelope(
   envelopesApi,
   accountId,
@@ -370,8 +297,6 @@ async function sendEnvelope(
     );
   }
 
-  // Build template roles — client-facing role gets form data + textTabs.
-  // Internal roles (Advisor) keep template defaults and receive no tabs.
   const templateRoles = signers.map((s) => {
     const roleName = (s.roleName || "").trim();
     const isClientRole = /client|signer|counterparty|recipient/i.test(roleName);
@@ -405,7 +330,7 @@ async function sendEnvelope(
   console.log(
     "[DOCUSIGN_ENVELOPE_REQUEST]",
     JSON.stringify(
-      { templateName: templateDetails.name, request: envelopeDefinition },
+      { templateName: templateDetails.name, templateId, request: envelopeDefinition },
       null,
       2,
     ),
