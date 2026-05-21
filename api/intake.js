@@ -16,7 +16,7 @@
 //
 // Template IDs (info@tariffbureau.com DocuSign sandbox account):
 //   NDA:         19b2733e-9ded-4b06-ae1a-302b3aa4b400
-//   Engagement:  28786dd0-fce9-4e76-87fb-2d406f9944ba
+//   Engagement:  45dd2018-50ed-8045-8130-87578e5314ff
 //   Terms:       ce306ce5-2dc0-4185-9351-5c33027a175c
 
 const docusign = require("docusign-esign");
@@ -247,7 +247,7 @@ async function sendDocuSignEnvelopes(formData) {
   const engagementResult = await sendEnvelope(
     envelopesApi,
     accountId,
-    process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '28786dd0-fce9-4e76-87fb-2d406f9944ba',
+    process.env.DOCUSIGN_TEMPLATE_ENGAGEMENT || '45dd2018-50ed-8045-8130-87578e5314ff',
     "Engagement Letter — The Tariff Bureau",
     signerName,
     signerEmail,
