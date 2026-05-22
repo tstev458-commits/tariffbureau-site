@@ -1,322 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>   
+<head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEW2CFVXX2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEW2CFVXX2');
-</script>
-<!-- End Google Analytics --><meta charset="UTF-8"/> 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEW2CFVXX2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TEW2CFVXX2');
+  </script>
+  <!-- End Google Analytics -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | The Tariff Bureau</title>
   <meta name="description" content="Privacy Policy for The Tariff Bureau LLC and TariffIQ. Learn how we collect, use, and protect your information." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.tariffbureau.com/privacy.html" />
+  <link rel="canonical" href="https://tariffbureau.com/privacy" />
   <link rel="icon" href="/favicon.ico" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+  <script>
+    try { Weglot.initialize({ api_key: 'wg_4cd9fdc0789e86adaafecf34d53992343' }); }
+    catch(e) { console.warn('Weglot failed to initialize:', e); }
+  </script>
+
   <style>
     :root {
-      --black:     #070707;
-      --navy:      #09101f;
-      --navy-mid:  #0f1a2e;
-      --gold:      #c8922a;
-      --gold-lt:   #e2af46;
-      --gold-pale: #f5dfa0;
-      --red:       #9b1c1c;
-      --red-lt:    #dc2626;
-      --white:     #f8f4ee;
-      --cream:     #ddd5c5;
-      --muted:     #7a8ba8;
-      --serif:     'Cormorant Garamond', Georgia, serif;
-      --mono:      'DM Mono', 'Courier New', monospace;
-      --sans:      'DM Sans', system-ui, sans-serif;
+      --black:#070707;--navy:#09101f;--navy-mid:#0f1a2e;
+      --gold:#c8922a;--gold-lt:#e2af46;--gold-pale:#f5dfa0;
+      --red:#9b1c1c;--red-lt:#dc2626;
+      --white:#f8f4ee;--cream:#ddd5c5;--muted:#7a8ba8;
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --mono:'DM Mono','Courier New',monospace;
+      --sans:'DM Sans',system-ui,sans-serif;
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--black);color:var(--white);line-height:1.6;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    .topbar{background:var(--red);color:#fff;text-align:center;padding:10px 6%;font-family:var(--mono);font-size:12px;letter-spacing:0.07em;}
+    .topbar strong{color:var(--gold-pale);font-weight:600;}
 
-    body {
-      font-family: var(--sans);
-      background: var(--black);
-      color: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    header{background:rgba(7,7,7,0.97);border-bottom:1px solid rgba(200,146,42,0.2);backdrop-filter:blur(16px);padding:0 7%;display:flex;justify-content:space-between;align-items:center;height:70px;position:sticky;top:0;z-index:300;}
+    .brand{display:flex;align-items:center;gap:13px;}
+    .brand-logo{width:42px;height:42px;object-fit:contain;}
+    .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+    .brand-name{font-family:var(--serif);font-size:21px;font-weight:600;color:var(--white);letter-spacing:0.03em;}
+    .brand-sub{font-family:var(--mono);font-size:9.5px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;}
+    nav{display:flex;gap:26px;align-items:center;font-size:13.5px;font-weight:500;color:var(--muted);}
+    nav a:hover{color:var(--gold-lt);transition:color 0.18s;}
+    .nav-cta{background:var(--gold);color:var(--black);padding:8px 18px;border-radius:5px;font-weight:600;font-size:13px;transition:background 0.18s;}
+    .nav-cta:hover{background:var(--gold-lt);}
 
-    a { text-decoration: none; color: inherit; }
+    .page-hero{background:radial-gradient(ellipse 70% 55% at 65% 10%,rgba(200,146,42,0.07),transparent 65%),radial-gradient(ellipse 50% 40% at 15% 80%,rgba(155,28,28,0.07),transparent 60%),linear-gradient(155deg,var(--black) 0%,var(--navy) 100%);padding:72px 7% 56px;position:relative;overflow:hidden;border-bottom:1px solid rgba(200,146,42,0.14);}
+    .page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(200,146,42,0.025) 60px,rgba(200,146,42,0.025) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(200,146,42,0.02) 60px,rgba(200,146,42,0.02) 61px);pointer-events:none;}
+    .page-hero-inner{max-width:860px;margin:auto;position:relative;z-index:1;}
+    .page-tag{font-family:var(--mono);font-size:10.5px;color:var(--gold);letter-spacing:0.16em;text-transform:uppercase;display:block;margin-bottom:14px;}
+    .page-hero h1{font-family:var(--serif);font-size:48px;font-weight:300;line-height:1.08;color:var(--white);margin-bottom:16px;}
+    .page-hero h1 em{font-style:italic;color:var(--gold-lt);}
+    .page-hero p{font-size:15px;color:var(--muted);font-family:var(--mono);letter-spacing:0.04em;}
 
-    /* TOPBAR */
-    .topbar {
-      background: var(--red);
-      color: #fff;
-      text-align: center;
-      padding: 10px 6%;
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.07em;
-    }
-    .topbar strong { color: var(--gold-pale); font-weight: 600; }
+    .privacy-content{max-width:860px;margin:0 auto;padding:64px 7%;}
+    .section{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(200,146,42,0.1);}
+    .section:last-child{border-bottom:none;margin-bottom:0;}
+    .section-num{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:10px;}
+    .section h2{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--white);margin-bottom:18px;line-height:1.2;}
+    .section p{color:var(--cream);font-size:15px;line-height:1.75;margin-bottom:14px;}
+    .section p:last-child{margin-bottom:0;}
+    .section ul{list-style:none;display:grid;gap:10px;margin:14px 0;}
+    .section ul li{padding-left:20px;position:relative;color:var(--cream);font-size:15px;line-height:1.65;}
+    .section ul li::before{content:"—";position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
 
-    /* HEADER */
-    header {
-      background: rgba(7,7,7,0.97);
-      border-bottom: 1px solid rgba(200,146,42,0.2);
-      backdrop-filter: blur(16px);
-      padding: 0 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-      position: sticky;
-      top: 0;
-      z-index: 300;
-    }
+    .highlight-box{background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.22);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:18px 20px;margin:20px 0;}
+    .highlight-box p{color:var(--cream);font-size:14px;margin:0;}
 
-    .brand { display: flex; align-items: center; gap: 13px; }
-    .brand-logo { width: 42px; height: 42px; object-fit: contain; }
-    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-    .brand-name { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--white); letter-spacing: 0.03em; }
-    .brand-sub { font-family: var(--mono); font-size: 9.5px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; }
+    .contact-block{background:var(--navy);border:1px solid rgba(200,146,42,0.22);border-radius:12px;padding:28px 32px;position:relative;overflow:hidden;margin-top:20px;}
+    .contact-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--gold-lt));}
+    .contact-block h3{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--white);margin-bottom:12px;}
+    .contact-block p{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:8px;}
+    .contact-block a{color:var(--gold-lt);}
+    .contact-block a:hover{color:var(--gold-pale);}
 
-    nav { display: flex; gap: 26px; align-items: center; font-size: 13.5px; font-weight: 500; color: var(--muted); }
-    nav a:hover { color: var(--gold-lt); transition: color 0.18s; }
+    footer{background:var(--navy);border-top:1px solid rgba(200,146,42,0.13);color:var(--muted);padding:36px 7%;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;flex-wrap:wrap;gap:12px;}
+    .footer-brand{font-family:var(--serif);font-size:16px;color:var(--cream);}
+    .footer-links{display:flex;gap:22px;flex-wrap:wrap;}
+    footer a{color:var(--gold);}
+    footer a:hover{color:var(--gold-lt);}
 
-    .nav-cta {
-      background: var(--gold);
-      color: var(--black);
-      padding: 8px 18px;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 13px;
-      transition: background 0.18s;
-    }
-    .nav-cta:hover { background: var(--gold-lt); }
-
-    /* PAGE HERO */
-    .page-hero {
-      background:
-        radial-gradient(ellipse 70% 55% at 65% 10%, rgba(200,146,42,0.07), transparent 65%),
-        radial-gradient(ellipse 50% 40% at 15% 80%, rgba(155,28,28,0.07), transparent 60%),
-        linear-gradient(155deg, var(--black) 0%, var(--navy) 100%);
-      padding: 72px 7% 56px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(200,146,42,0.14);
-    }
-
-    .page-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(200,146,42,0.025) 60px, rgba(200,146,42,0.025) 61px),
-        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(200,146,42,0.02) 60px, rgba(200,146,42,0.02) 61px);
-      pointer-events: none;
-    }
-
-    .page-hero-inner {
-      max-width: 860px;
-      margin: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .page-tag {
-      font-family: var(--mono);
-      font-size: 10.5px;
-      color: var(--gold);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 14px;
-    }
-
-    .page-hero h1 {
-      font-family: var(--serif);
-      font-size: 48px;
-      font-weight: 300;
-      line-height: 1.08;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .page-hero h1 em { font-style: italic; color: var(--gold-lt); }
-
-    .page-hero p {
-      font-size: 15px;
-      color: var(--muted);
-      font-family: var(--mono);
-      letter-spacing: 0.04em;
-    }
-
-    /* CONTENT */
-    .privacy-content {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 64px 7%;
-    }
-
-    .section {
-      margin-bottom: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(200,146,42,0.1);
-    }
-
-    .section:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .section-num {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .section h2 {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 18px;
-      line-height: 1.2;
-    }
-
-    .section p {
-      color: var(--cream);
-      font-size: 15px;
-      line-height: 1.75;
-      margin-bottom: 14px;
-    }
-
-    .section p:last-child { margin-bottom: 0; }
-
-    .section ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin: 14px 0;
-    }
-
-    .section ul li {
-      padding-left: 20px;
-      position: relative;
-      color: var(--cream);
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    .section ul li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-family: var(--mono);
-    }
-
-    .highlight-box {
-      background: rgba(200,146,42,0.07);
-      border: 1px solid rgba(200,146,42,0.22);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      padding: 18px 20px;
-      margin: 20px 0;
-    }
-
-    .highlight-box p {
-      color: var(--cream);
-      font-size: 14px;
-      margin: 0;
-    }
-
-    .contact-block {
-      background: var(--navy);
-      border: 1px solid rgba(200,146,42,0.22);
-      border-radius: 12px;
-      padding: 28px 32px;
-      position: relative;
-      overflow: hidden;
-      margin-top: 20px;
-    }
-
-    .contact-block::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--red), var(--gold), var(--gold-lt));
-    }
-
-    .contact-block h3 {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .contact-block p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.65;
-      margin-bottom: 8px;
-    }
-
-    .contact-block a { color: var(--gold-lt); }
-    .contact-block a:hover { color: var(--gold-pale); }
-
-    /* FOOTER */
-    footer {
-      background: var(--navy);
-      border-top: 1px solid rgba(200,146,42,0.13);
-      color: var(--muted);
-      padding: 36px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12.5px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-brand { font-family: var(--serif); font-size: 16px; color: var(--cream); }
-    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
-    footer a { color: var(--gold); }
-    footer a:hover { color: var(--gold-lt); }
-
-    /* RESPONSIVE */
-    @media (max-width: 860px) {
-      header { padding: 0 5%; }
-      nav { gap: 14px; font-size: 12.5px; }
-      .page-hero { padding: 56px 5% 48px; }
-      .page-hero h1 { font-size: 36px; }
-      .privacy-content { padding: 48px 5%; }
-      footer { flex-direction: column; text-align: center; }
+    @media(max-width:860px){
+      header{padding:0 5%;}nav{gap:14px;font-size:12.5px;}
+      .page-hero{padding:56px 5% 48px;}.page-hero h1{font-size:36px;}
+      .privacy-content{padding:48px 5%;}
+      footer{flex-direction:column;text-align:center;}
     }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
   <!-- TOPBAR -->
   <div class="topbar">
-    <strong>ALERT:</strong> CBP CAPE Portal now live — <strong>92% of eligible importers not enrolled</strong> — IEEPA refund window is open now
+    &#9888;&#65039; <strong>APPEAL DEADLINE: June 7, 2026</strong> &mdash; CAPE acceptance required before then &nbsp;|&nbsp; <strong>92% of eligible importers not yet enrolled</strong>
   </div>
 
   <!-- HEADER -->
   <header>
-    <a class="brand" href="/index.html">
+    <a class="brand" href="/">
       <img class="brand-logo" src="/tariff-bureau-logo.png" alt="The Tariff Bureau" onerror="this.style.display='none'" />
       <div class="brand-text">
         <span class="brand-name">The Tariff Bureau</span>
@@ -324,21 +121,22 @@
       </div>
     </a>
     <nav>
-      <a href="/index.html">Home</a>
-      <a href="/services.html">Services</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/intake.html">Intake</a>
-      <a href="/contact.html">Contact</a>
-      <a class="nav-cta" href="/intake.html">Start Intake</a>
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/updates">Updates</a>
+      <a href="/intake">Intake</a>
+      <a href="/contact">Contact</a>
+      <a class="nav-cta" href="/intake-smart">Free Assessment</a>
     </nav>
   </header>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
     <div class="page-hero-inner">
-      <span class="page-tag">Legal · Privacy</span>
+      <span class="page-tag">Legal &middot; Privacy</span>
       <h1>Privacy <em>Policy</em></h1>
-      <p>Last updated: April 28, 2026 &nbsp;·&nbsp; The Tariff Bureau LLC</p>
+      <p>Last updated: April 28, 2026 &nbsp;&middot;&nbsp; The Tariff Bureau LLC</p>
     </div>
   </div>
 
@@ -348,7 +146,7 @@
     <div class="section">
       <span class="section-num">Overview</span>
       <h2>Our Commitment to Your Privacy</h2>
-      <p>The Tariff Bureau LLC ("The Tariff Bureau," "we," "us," or "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy describes how we collect, use, disclose, and safeguard information when you visit our website at tariffbureau.com, interact with TariffIQ™, or engage with our advisory services.</p>
+      <p>The Tariff Bureau LLC (&ldquo;The Tariff Bureau,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy describes how we collect, use, disclose, and safeguard information when you visit our website at tariffbureau.com, interact with TariffIQ&trade;, or engage with our advisory services.</p>
       <p>By using our website or services, you agree to the collection and use of information in accordance with this policy. If you do not agree with any part of this policy, please do not use our services.</p>
       <div class="highlight-box">
         <p><strong style="color:var(--gold);">Important:</strong> The Tariff Bureau is an advisory firm. We are not a law firm and do not provide legal advice. Nothing in our communications or services constitutes legal, tax, or customs brokerage advice. Clients are solely responsible for all decisions made in reliance on our advisory services.</p>
@@ -398,8 +196,8 @@
       <h2>How We Share Your Information</h2>
       <p>We do not sell, trade, or rent your personal information to third parties. We may share information in the following limited circumstances:</p>
       <ul>
-        <li><strong style="color:var(--gold-lt);">Service Providers:</strong> Trusted vendors who assist us in operating our website, processing payments, or delivering services — all bound by confidentiality obligations</li>
-        <li><strong style="color:var(--gold-lt);">AI Platform:</strong> TariffIQ is powered by Anthropic's Claude API. Queries submitted through the TariffIQ chatbot are processed by Anthropic in accordance with their privacy policy and data use terms</li>
+        <li><strong style="color:var(--gold-lt);">Service Providers:</strong> Trusted vendors who assist us in operating our website, processing payments, or delivering services &mdash; all bound by confidentiality obligations</li>
+        <li><strong style="color:var(--gold-lt);">AI Platform:</strong> TariffIQ is powered by Anthropic&rsquo;s Claude API. Queries submitted through the TariffIQ chatbot are processed by Anthropic in accordance with their privacy policy and data use terms</li>
         <li><strong style="color:var(--gold-lt);">Legal Requirements:</strong> When required by law, court order, or governmental authority, or when necessary to protect our rights or the safety of others</li>
         <li><strong style="color:var(--gold-lt);">Business Transfers:</strong> In connection with a merger, acquisition, or sale of all or a portion of our assets, with appropriate confidentiality protections</li>
         <li><strong style="color:var(--gold-lt);">With Your Consent:</strong> In any other circumstance where you have provided explicit written consent</li>
@@ -408,20 +206,20 @@
 
     <div class="section">
       <span class="section-num">Section 4</span>
-      <h2>TariffIQ Chatbot & AI Processing</h2>
-      <p>The TariffIQ chatbot on our website is powered by Anthropic's Claude AI. When you submit queries through TariffIQ, your input is transmitted to Anthropic's API for processing. Please be aware of the following:</p>
+      <h2>TariffIQ Chatbot &amp; AI Processing</h2>
+      <p>The TariffIQ chatbot on our website is powered by Anthropic&rsquo;s Claude AI. When you submit queries through TariffIQ, your input is transmitted to Anthropic&rsquo;s API for processing. Please be aware of the following:</p>
       <ul>
         <li>Do not submit sensitive personal information, Social Security numbers, financial account numbers, or confidential trade secrets through the chatbot</li>
-        <li>TariffIQ is designed for general IEEPA tariff and CAPE advisory questions — not for transmitting proprietary business documents</li>
+        <li>TariffIQ is designed for general IEEPA tariff and CAPE advisory questions &mdash; not for transmitting proprietary business documents</li>
         <li>Chatbot conversations are not attorney-client privileged communications</li>
-        <li>Anthropic's own privacy policy governs their processing of API data — we encourage you to review it at anthropic.com</li>
+        <li>Anthropic&rsquo;s own privacy policy governs their processing of API data &mdash; we encourage you to review it at anthropic.com</li>
       </ul>
       <p>For sensitive business information, please use our secure intake form or contact us directly at <a href="mailto:legal@tariffbureau.com" style="color:var(--gold-lt);">legal@tariffbureau.com</a>.</p>
     </div>
 
     <div class="section">
       <span class="section-num">Section 5</span>
-      <h2>Cookies & Tracking Technologies</h2>
+      <h2>Cookies &amp; Tracking Technologies</h2>
       <p>Our website may use cookies and similar technologies to enhance your experience and analyze site usage. Types of cookies we may use include:</p>
       <ul>
         <li><strong style="color:var(--gold-lt);">Essential Cookies:</strong> Required for the website to function properly</li>
@@ -436,7 +234,7 @@
       <h2>Data Retention</h2>
       <p>We retain personal information for as long as necessary to fulfill the purposes described in this policy, maintain our engagement records, and comply with applicable legal and regulatory obligations. Specifically:</p>
       <ul>
-        <li>Client engagement files are retained for a minimum of seven (7) years following completion of the engagement, consistent with applicable recordkeeping standards</li>
+        <li>Client engagement files are retained for a minimum of seven (7) years following completion of the engagement</li>
         <li>Website analytics data is retained for up to twenty-six (26) months</li>
         <li>Contact form and general inquiry data is retained for up to three (3) years if no engagement results</li>
         <li>Chatbot interaction logs may be retained by Anthropic in accordance with their data retention policies</li>
@@ -458,13 +256,13 @@
 
     <div class="section">
       <span class="section-num">Section 8</span>
-      <h2>Your Rights & Choices</h2>
+      <h2>Your Rights &amp; Choices</h2>
       <p>Depending on your location and applicable law, you may have the following rights regarding your personal information:</p>
       <ul>
         <li><strong style="color:var(--gold-lt);">Access:</strong> Request a copy of the personal information we hold about you</li>
         <li><strong style="color:var(--gold-lt);">Correction:</strong> Request correction of inaccurate or incomplete information</li>
         <li><strong style="color:var(--gold-lt);">Deletion:</strong> Request deletion of your personal information, subject to legal retention obligations</li>
-        <li><strong style="color:var(--gold-lt);">Opt-Out:</strong> Opt out of non-essential marketing communications at any time by contacting us or using unsubscribe links in emails</li>
+        <li><strong style="color:var(--gold-lt);">Opt-Out:</strong> Opt out of non-essential marketing communications at any time</li>
         <li><strong style="color:var(--gold-lt);">Data Portability:</strong> Request a portable copy of your information in a common format where technically feasible</li>
       </ul>
       <p>To exercise any of these rights, contact us at <a href="mailto:legal@tariffbureau.com" style="color:var(--gold-lt);">legal@tariffbureau.com</a>. We will respond to verifiable requests within thirty (30) days.</p>
@@ -478,14 +276,14 @@
 
     <div class="section">
       <span class="section-num">Section 10</span>
-      <h2>Children's Privacy</h2>
+      <h2>Children&rsquo;s Privacy</h2>
       <p>Our services are intended for business professionals and are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately and we will delete it promptly.</p>
     </div>
 
     <div class="section">
       <span class="section-num">Section 11</span>
       <h2>Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. We will post the updated policy on this page with a revised "Last Updated" date. Your continued use of our website or services after any changes constitutes your acceptance of the revised policy.</p>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. We will post the updated policy on this page with a revised &ldquo;Last Updated&rdquo; date. Your continued use of our website or services after any changes constitutes your acceptance of the revised policy.</p>
       <p>For material changes affecting how we use client engagement data, we will provide direct notice to active clients via email.</p>
     </div>
 
@@ -493,13 +291,13 @@
       <span class="section-num">Section 12</span>
       <h2>Contact Us</h2>
       <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
-
       <div class="contact-block">
         <h3>The Tariff Bureau LLC</h3>
         <p>3343 Peachtree Rd. NE, Suite 145 PMB550<br/>Atlanta, Georgia 30326<br/>United States</p>
-        <p>Privacy & Legal Inquiries: <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a></p>
+        <p>Privacy &amp; Legal Inquiries: <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a></p>
         <p>General Inquiries: <a href="mailto:hello@tariffbureau.com">hello@tariffbureau.com</a></p>
-        <p style="margin-top:16px; font-size:13px;">TariffIQ™ is a trademark of The Tariff Bureau LLC. This Privacy Policy applies solely to The Tariff Bureau LLC and tariffbureau.com.</p>
+        <p>Phone: <a href="tel:14048825839">(404) 882-5839</a></p>
+        <p style="margin-top:16px;font-size:13px;">TariffIQ&trade; is a trademark of The Tariff Bureau LLC. This Privacy Policy applies solely to The Tariff Bureau LLC and tariffbureau.com.</p>
       </div>
     </div>
 
@@ -507,15 +305,15 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-brand">The Tariff Bureau LLC &nbsp;·&nbsp; Atlanta, GA</span>
+    <span class="footer-brand">The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, GA &nbsp;&middot;&nbsp; <a href="tel:14048825839">(404) 882-5839</a></span>
     <div class="footer-links">
-      <a href="/services.html">Services</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/intake.html">Intake</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/privacy.html">Privacy</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/updates">Updates</a>
+      <a href="/intake">Intake</a>
+      <a href="/contact">Contact</a>
     </div>
-    <span>© 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;·&nbsp; TariffIQ™ is a trademark of The Tariff Bureau LLC.</span>
+    <span>&copy; 2026 The Tariff Bureau LLC. All rights reserved. &nbsp;&middot;&nbsp; TariffIQ&trade; is a trademark of The Tariff Bureau LLC.</span>
   </footer>
 
 </body>
