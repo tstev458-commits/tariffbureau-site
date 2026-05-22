@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
+<head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEW2CFVXX2"></script>
@@ -10,11 +10,57 @@
   gtag('js', new Date());
   gtag('config', 'G-TEW2CFVXX2');
 </script>
-<!-- End Google Analytics --><meta charset="UTF-8"/>
+<!-- End Google Analytics -->
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Services — The Tariff Bureau LLC</title>
-<meta name="description" content="IEEPA tariff refund recovery services for U.S. importers and international DDP manufacturers. Assessment, full recovery, rerouting, and monitoring."/>
+<title>IEEPA Tariff Refund Recovery Services | The Tariff Bureau LLC | Atlanta, GA</title>
+<meta name="description" content="Six service tiers for IEEPA tariff refund recovery — from eligibility screening to full CBP CAPE filing. $35.46B already processing. Powered by TariffIQ and Alex Monroe."/>
+<meta name="keywords" content="IEEPA tariff refund services, CBP CAPE portal filing, tariff refund recovery, CAPE declaration, ACE portal enrollment, import duty refund 2026, tariff bureau Atlanta, IEEPA refund eligibility, customs duty recovery, claim audit optimization, rerouting analysis, trade monitoring retainer, DDP manufacturer refund, TariffIQ, Alex Monroe"/>
+<meta name="author" content="The Tariff Bureau LLC"/>
+<meta name="robots" content="index, follow"/>
+<meta name="geo.region" content="US-GA"/>
+<meta name="geo.placename" content="Atlanta, Georgia"/>
+<link rel="canonical" href="https://tariffbureau.com/services"/>
+
+<!-- Open Graph -->
+<meta property="og:title" content="IEEPA Tariff Refund Recovery Services | The Tariff Bureau"/>
+<meta property="og:description" content="Six service tiers for IEEPA tariff refund recovery. $35.46B already processing through CBP CAPE portal. 92% of eligible importers not enrolled."/>
+<meta property="og:url" content="https://tariffbureau.com/services"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="The Tariff Bureau"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="IEEPA Tariff Refund Recovery Services | The Tariff Bureau"/>
+<meta name="twitter:description" content="$35.46B processing. CAPE portal live. Six service tiers from screening to full recovery. Powered by TariffIQ."/>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "IEEPA Tariff Refund Recovery Services",
+  "url": "https://tariffbureau.com/services",
+  "provider": {
+    "@type": "Organization",
+    "name": "The Tariff Bureau LLC",
+    "url": "https://tariffbureau.com",
+    "telephone": "+14048825839",
+    "email": "hello@tariffbureau.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3343 Peachtree Rd NE, Suite 145 PMB 550",
+      "addressLocality": "Atlanta",
+      "addressRegion": "GA",
+      "postalCode": "30326",
+      "addressCountry": "US"
+    }
+  },
+  "description": "AI-powered IEEPA tariff refund recovery advisory services including eligibility screening, full CAPE filing, claim audit, rerouting analysis, and trade monitoring."
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -172,6 +218,12 @@ h1 em { color: var(--gold); font-style: italic; }
 .seg-item::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
 @media (max-width: 700px) { .segments { grid-template-columns: 1fr; } }
 
+/* HASHTAGS */
+.hashtags { background: var(--navy-dark); padding: 28px 40px; border-top: 1px solid var(--border); }
+.hashtags-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px; }
+.htag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); border: 1px solid rgba(201,168,76,0.15); padding: 5px 12px; border-radius: 2px; cursor: default; transition: color 0.2s, border-color 0.2s; }
+.htag:hover { color: var(--gold); border-color: var(--gold); }
+
 /* CTA BAND */
 .cta-band { background: var(--gold); padding: 60px 40px; text-align: center; }
 .cta-band h2 { font-size: clamp(24px, 4vw, 42px); color: var(--navy); font-weight: 700; margin-bottom: 12px; }
@@ -203,6 +255,7 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
   .service-card.featured { grid-column: span 1; }
   .steps { grid-template-columns: 1fr 1fr; }
   .hero-stats { gap: 28px; }
+  .hashtags { padding: 24px 20px; }
 }
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -213,11 +266,11 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
   <a class="nav-brand" href="/">The Tariff Bureau</a>
   <div class="nav-links">
     <a href="/services" class="active">Services</a>
-    <a href="/pricing">Pricing</a>
+    <a href="/updates">Updates</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
   </div>
-  <a class="nav-cta" href="/intake">Start Assessment</a>
+  <a class="nav-cta" href="/intake-smart">Free Assessment</a>
 </nav>
 
 <!-- HERO -->
@@ -231,8 +284,12 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
   <p class="hero-sub fade-up delay-2">From rapid eligibility assessment to full CBP CAPE filing — six service tiers designed for U.S. importers and international DDP manufacturers.</p>
   <div class="hero-stats fade-up delay-3">
     <div class="stat">
+      <div class="stat-num">$35.46B</div>
+      <div class="stat-label">Already Processing</div>
+    </div>
+    <div class="stat">
       <div class="stat-num">$166B</div>
-      <div class="stat-label">Refund Pool</div>
+      <div class="stat-label">Total Refund Pool</div>
     </div>
     <div class="stat">
       <div class="stat-num">92%</div>
@@ -241,10 +298,6 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
     <div class="stat">
       <div class="stat-num">60–90</div>
       <div class="stat-label">Day CBP Processing</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">$0</div>
-      <div class="stat-label">Upfront on Contingency</div>
     </div>
   </div>
 </section>
@@ -465,12 +518,36 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
   </div>
 </div>
 
+<!-- HASHTAGS -->
+<div class="hashtags">
+  <div class="hashtags-inner">
+    <span class="htag">#IEEPA</span>
+    <span class="htag">#TariffRefund</span>
+    <span class="htag">#CAPE</span>
+    <span class="htag">#CBP</span>
+    <span class="htag">#ACEPortal</span>
+    <span class="htag">#ImportDuties</span>
+    <span class="htag">#TradePolicy</span>
+    <span class="htag">#DutyRecovery</span>
+    <span class="htag">#USImporters</span>
+    <span class="htag">#SupplyChain</span>
+    <span class="htag">#CustomsBroker</span>
+    <span class="htag">#TradeCompliance</span>
+    <span class="htag">#AlexMonroe</span>
+    <span class="htag">#TariffIQ</span>
+    <span class="htag">#TariffBureau</span>
+    <span class="htag">#AtlantaBusiness</span>
+    <span class="htag">#DDP</span>
+    <span class="htag">#IOR</span>
+  </div>
+</div>
+
 <!-- CTA -->
 <div class="cta-band">
   <h2>Ready to Know What You're Owed?</h2>
-  <p>Free eligibility assessment. No retainer. No commitment until you see the numbers.</p>
+  <p>$35.46B already processing · Free eligibility assessment · No retainer · No commitment until you see the numbers</p>
   <div class="cta-group">
-    <a href="/intake" class="cta-primary">Start Free Assessment</a>
+    <a href="/intake-smart" class="cta-primary">Start Free Assessment</a>
     <a href="/" class="cta-secondary">Talk to Alex Monroe</a>
   </div>
 </div>
@@ -479,10 +556,11 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
 <footer>
   <div class="footer-text">
     The Tariff Bureau LLC &nbsp;·&nbsp; Atlanta, Georgia &nbsp;·&nbsp;
-    <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a> &nbsp;·&nbsp;
+    <a href="tel:14048825839">(404) 882-5839</a> &nbsp;·&nbsp;
+    <a href="mailto:hello@tariffbureau.com">hello@tariffbureau.com</a> &nbsp;·&nbsp;
     <a href="/terms">Terms</a> &nbsp;·&nbsp;
     <a href="/privacy">Privacy</a><br/>
-    Advisory information only. Not legal advice. Not licensed customs brokerage. No specific refund amount or CBP approval guaranteed.
+    Advisory information only. Not legal advice. Not licensed customs brokerage. No specific refund amount or CBP approval guaranteed. The Tariff Bureau LLC is not affiliated with CBP or any U.S. government agency.
   </div>
 </footer>
 
