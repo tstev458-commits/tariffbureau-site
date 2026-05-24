@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEW2CFVXX2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TEW2CFVXX2');
+  </script>
+  <!-- End Google Analytics -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact The Tariff Bureau | IEEPA Tariff Refund Recovery | Atlanta, GA</title>
@@ -12,11 +22,19 @@
   <meta name="geo.placename" content="Atlanta, Georgia" />
   <link rel="canonical" href="https://tariffbureau.com/contact" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Contact The Tariff Bureau | Tariff Refund Recovery" />
   <meta property="og:description" content="Reach our team for IEEPA tariff refund assessment. AI-powered trade intelligence — Atlanta, GA." />
   <meta property="og:url" content="https://tariffbureau.com/contact" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Tariff Bureau" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact The Tariff Bureau | Tariff Refund Recovery" />
+  <meta name="twitter:description" content="Reach our team for IEEPA tariff refund assessment. AI-powered trade intelligence — Atlanta, GA." />
+
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -27,7 +45,7 @@
       "@type": "Organization",
       "name": "The Tariff Bureau LLC",
       "url": "https://tariffbureau.com",
-      "telephone": ["+1-888-680-9992", "+1-404-882-5839"],
+      "telephone": "+1-404-882-5839",
       "email": "hello@tariffbureau.com",
       "address": {
         "@type": "PostalAddress",
@@ -62,7 +80,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -75,7 +92,6 @@
       overflow-x: hidden;
     }
 
-    /* ── BACKGROUND TEXTURE ── */
     body::before {
       content: '';
       position: fixed;
@@ -127,8 +143,17 @@
       letter-spacing: 0.1em !important;
       text-transform: uppercase !important;
       transition: background 0.2s, color 0.2s !important;
+      border-radius: 2px;
     }
     .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+    /* ── HAMBURGER (mobile) ── */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--gold); margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
 
     /* ── PAGE HEADER ── */
     .page-header {
@@ -159,3 +184,322 @@
     }
     .page-header h1 span { color: var(--gold); }
     .page-header p {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.4s;
+    }
+
+    /* ── CONTACT GRID ── */
+    .contact-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px 100px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    .contact-card {
+      background: rgba(17,32,80,0.6);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 40px 36px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .contact-card:nth-child(1) { animation-delay: 0.5s; }
+    .contact-card:nth-child(2) { animation-delay: 0.65s; }
+    .contact-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      box-shadow: 0 8px 40px rgba(201,168,76,0.06);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .card-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+
+    .card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .card-action:hover {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .card-action svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ── INFO ROW ── */
+    .info-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+
+    .info-item {
+      background: rgba(17,32,80,0.4);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .info-item:nth-child(1) { animation-delay: 0.8s; }
+    .info-item:nth-child(2) { animation-delay: 0.9s; }
+    .info-item:nth-child(3) { animation-delay: 1.0s; }
+
+    .info-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .info-value {
+      font-size: 15px;
+      color: var(--white);
+      font-weight: 400;
+    }
+    .info-value a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .info-value a:hover { color: var(--gold); }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer-bar {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      color: var(--gray);
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 1.1s;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 40px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a {
+      font-size: 12px;
+      color: var(--gray);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--lgray);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .page-header { padding: 60px 24px 40px; }
+      .contact-section { padding: 0 24px 80px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .info-row { grid-template-columns: 1fr; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-brand">The Tariff Bureau</a>
+    <div class="nav-links">
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/ieepa-refund-recovery">IEEPA Recovery</a>
+      <a href="/contact" class="active">Contact</a>
+      <a href="/intake-smart" class="nav-cta">Free Eligibility Check</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <p class="page-eyebrow">Get In Touch</p>
+    <h1>Contact <span>The Tariff Bureau</span></h1>
+    <p>Speak with Alex Monroe, our AI trade analyst, or connect directly with our team. We respond within one business day.</p>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+
+    <!-- PRIMARY CONTACT CARDS -->
+    <div class="contact-grid">
+
+      <!-- Alex Monroe AI -->
+      <div class="contact-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M18 3l1.5 1.5M20 6h2M18 9l1.5-1.5"/></svg>
+        </div>
+        <div class="card-label">AI Trade Analyst</div>
+        <div class="card-title">Alex Monroe</div>
+        <div class="card-desc">
+          Start with Alex — available 24/7 for instant IEEPA eligibility assessment, refund estimates, and trade intelligence. No wait, no forms.
+        </div>
+        <a href="/" class="card-action">
+          Chat with Alex
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Direct Phone -->
+      <div class="contact-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="card-label">Direct Line</div>
+        <div class="card-title">(404) 882-5839</div>
+        <div class="card-desc">
+          Prefer to speak with a person? Call our Atlanta office. Available Monday through Friday, 9 AM – 6 PM Eastern.
+        </div>
+        <a href="tel:+14048825839" class="card-action">
+          Call Now
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- INFO ROW -->
+    <div class="info-row">
+
+      <div class="info-item">
+        <div class="info-label">Email</div>
+        <div class="info-value">
+          <a href="mailto:hello@tariffbureau.com">hello@tariffbureau.com</a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-label">Office Address</div>
+        <div class="info-value">3343 Peachtree Rd NE, Suite 145 PMB 550<br>Atlanta, GA 30326</div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-label">Response Time</div>
+        <div class="info-value">Within 1 business day<br>AI chat available 24/7</div>
+      </div>
+
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer-bar">
+      Advisory information only. Not legal advice or licensed customs brokerage. The Tariff Bureau LLC is not affiliated with CBP or any U.S. government agency.
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="/" class="footer-brand">The Tariff Bureau</a>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/ieepa-refund-recovery">IEEPA Recovery</a>
+      <a href="/intake-smart">Free Assessment</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 The Tariff Bureau LLC. All rights reserved.</div>
+  </footer>
+
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
