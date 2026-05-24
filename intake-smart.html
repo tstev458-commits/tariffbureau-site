@@ -3,12 +3,12 @@
 <head>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEW2CFVXX2"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-72D7G0ZNZR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-TEW2CFVXX2');
+    gtag('config', 'G-72D7G0ZNZR');
   </script>
   <!-- End Google Analytics -->
 
@@ -219,12 +219,10 @@
 </head>
 <body>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     &#9888;&#65039; <strong>APPEAL DEADLINE: June 7, 2026</strong> &mdash; CAPE acceptance required before then &nbsp;|&nbsp; <strong>$35.46B already processing &middot; 92% of eligible importers not yet enrolled</strong>
   </div>
 
-  <!-- HEADER -->
   <header>
     <a class="brand" href="/">
       <img class="brand-logo" src="/tariff-bureau-logo.png" alt="The Tariff Bureau" onerror="this.style.display='none'" />
@@ -252,7 +250,6 @@
       <p>Submit your import data. Alex Monroe analyzes your entries, scores your FCA risk, and generates a written eligibility determination &mdash; automatically. No sales call. No waiting.</p>
     </div>
 
-    <!-- STEP INDICATORS -->
     <div class="steps" id="stepIndicators">
       <div class="step active" id="si1"><div class="step-dot">01</div><div class="step-label">Company</div></div>
       <div class="step" id="si2"><div class="step-dot">02</div><div class="step-label">Entries</div></div>
@@ -260,12 +257,10 @@
       <div class="step" id="si4"><div class="step-dot">04</div><div class="step-label">Report</div></div>
     </div>
 
-    <!-- FORM CONTAINER -->
     <div id="formContainer"></div>
 
   </div>
 
-  <!-- HASHTAGS -->
   <div style="background:var(--navy);border-top:1px solid rgba(200,146,42,0.13);padding:28px 7%;">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;">
       <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--muted);border:1px solid rgba(200,146,42,0.18);padding:5px 12px;border-radius:2px;">#IEEPA</span>
@@ -283,7 +278,6 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <span class="footer-brand">The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, GA &nbsp;&middot;&nbsp; <a href="tel:14048825839">(404) 882-5839</a></span>
     <div class="footer-links">
@@ -297,7 +291,6 @@
   </footer>
 
 <script>
-// ─── STATE ────────────────────────────────────────────────────────────────────
 let step = 1;
 let formData = {
   company: '', contact: '', email: '', phone: '', country: 'US',
@@ -318,36 +311,21 @@ function render() {
 
 function updateStepIndicators() {
   for (let i = 1; i <= 4; i++) {
-    const el = document.getElementById(`si${i}`);
+    const el = document.getElementById('si' + i);
     el.className = 'step' + (i < step ? ' done' : i === step ? ' active' : '');
-    el.querySelector('.step-dot').textContent = i < step ? '✓' : `0${i}`;
+    el.querySelector('.step-dot').textContent = i < step ? '\u2713' : '0' + i;
   }
 }
 
 function renderStep1(c) {
-  c.innerHTML = `
-    <div class="form-card">
-      <div class="form-section-title">Company Information</div>
-      <div class="form-section-sub">Tell us about your company. All information is held confidential under our <a href="/privacy" style="color:var(--gold);">Privacy Policy</a>.</div>
-      <div class="field-grid">
-        <div class="field"><label>Company Name *</label><input type="text" id="f_company" value="${formData.company}" placeholder="Acme Imports LLC"/></div>
-        <div class="field"><label>Contact Name *</label><input type="text" id="f_contact" value="${formData.contact}" placeholder="Jane Smith"/></div>
-      </div>
-      <div class="field-grid">
-        <div class="field"><label>Business Email *</label><input type="email" id="f_email" value="${formData.email}" placeholder="jane@company.com"/></div>
-        <div class="field"><label>Phone</label><input type="tel" id="f_phone" value="${formData.phone}" placeholder="+1 (404) 555-0100"/></div>
-      </div>
-      <div class="field-grid triple">
-        <div class="field"><label>Country of Domicile</label><select id="f_country">${['US','China','Vietnam','Taiwan','South Korea','Netherlands','Brazil','India','Bangladesh','Indonesia','Other'].map(ct=>`<option value="${ct}" ${formData.country===ct?'selected':''}>${ct}</option>`).join('')}</select></div>
-        <div class="field"><label>Entity Type</label><select id="f_entityType"><option value="corporation" ${formData.entityType==='corporation'?'selected':''}>Corporation</option><option value="llc" ${formData.entityType==='llc'?'selected':''}>LLC</option><option value="partnership" ${formData.entityType==='partnership'?'selected':''}>Partnership</option><option value="individual" ${formData.entityType==='individual'?'selected':''}>Individual/Sole Proprietor</option><option value="foreign" ${formData.entityType==='foreign'?'selected':''}>Foreign Entity</option></select></div>
-        <div class="field"><label>Importer Type</label><select id="f_importerType"><option value="domestic" ${formData.importerType==='domestic'?'selected':''}>US Domestic IOR</option><option value="ddp" ${formData.importerType==='ddp'?'selected':''}>Foreign DDP Supplier</option><option value="broker" ${formData.importerType==='broker'?'selected':''}>Licensed Customs Broker</option></select></div>
-      </div>
-      <div class="form-nav">
-        <div></div>
-        <button class="btn-next" onclick="saveStep1();goTo(2);">Next: Entry Data &rarr;</button>
-      </div>
-      <div class="disclaimer">By submitting, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</div>
-    </div>`;
+  c.innerHTML = '<div class="form-card"><div class="form-section-title">Company Information</div><div class="form-section-sub">Tell us about your company. All information is held confidential under our <a href="/privacy" style="color:var(--gold);">Privacy Policy</a>.</div><div class="field-grid"><div class="field"><label>Company Name *</label><input type="text" id="f_company" value="" placeholder="Acme Imports LLC"/></div><div class="field"><label>Contact Name *</label><input type="text" id="f_contact" value="" placeholder="Jane Smith"/></div></div><div class="field-grid"><div class="field"><label>Business Email *</label><input type="email" id="f_email" value="" placeholder="jane@company.com"/></div><div class="field"><label>Phone</label><input type="tel" id="f_phone" value="" placeholder="+1 (404) 555-0100"/></div></div><div class="field-grid triple"><div class="field"><label>Country of Domicile</label><select id="f_country"><option value="US" selected>US</option><option value="China">China</option><option value="Vietnam">Vietnam</option><option value="Taiwan">Taiwan</option><option value="South Korea">South Korea</option><option value="Netherlands">Netherlands</option><option value="Brazil">Brazil</option><option value="India">India</option><option value="Bangladesh">Bangladesh</option><option value="Indonesia">Indonesia</option><option value="Other">Other</option></select></div><div class="field"><label>Entity Type</label><select id="f_entityType"><option value="corporation" selected>Corporation</option><option value="llc">LLC</option><option value="partnership">Partnership</option><option value="individual">Individual/Sole Proprietor</option><option value="foreign">Foreign Entity</option></select></div><div class="field"><label>Importer Type</label><select id="f_importerType"><option value="domestic" selected>US Domestic IOR</option><option value="ddp">Foreign DDP Supplier</option><option value="broker">Licensed Customs Broker</option></select></div></div><div class="form-nav"><div></div><button class="btn-next" onclick="saveStep1();goTo(2);">Next: Entry Data &rarr;</button></div><div class="disclaimer">By submitting, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</div></div>';
+  document.getElementById('f_company').value = formData.company;
+  document.getElementById('f_contact').value = formData.contact;
+  document.getElementById('f_email').value = formData.email;
+  document.getElementById('f_phone').value = formData.phone;
+  document.getElementById('f_country').value = formData.country;
+  document.getElementById('f_entityType').value = formData.entityType;
+  document.getElementById('f_importerType').value = formData.importerType;
 }
 
 function saveStep1() {
@@ -361,38 +339,15 @@ function saveStep1() {
 }
 
 function renderStep2(c) {
-  c.innerHTML = `
-    <div class="form-card">
-      <div class="form-section-title">IEEPA Entry Data</div>
-      <div class="form-section-sub">Enter your CBP entry numbers, HTS codes, countries of origin, and estimated IEEPA duties paid. Enter up to 20 entries — or paste your totals if you have more.</div>
-      <div class="entry-table-wrap">
-        <div class="entry-table-hdr"><span>Entry Number</span><span>HTS Code</span><span>Origin</span><span>IEEPA Duty Paid ($)</span><span></span></div>
-        <div id="entryRows">${formData.entries.map((e,i) => entryRowHTML(e,i)).join('')}</div>
-      </div>
-      <button class="add-entry-btn" onclick="addEntry()">+ Add Entry</button>
-      <div style="margin-top:20px;">
-        <div class="field-grid">
-          <div class="field"><label>Total Estimated IEEPA Duties Paid ($)</label><input type="number" id="f_totalDuty" value="${formData.totalDuty}" placeholder="85000"/><span class="field-hint">Your best estimate across all entries. Include duties paid 2025–2026.</span></div>
-          <div class="field"><label>Customs Broker Name (if any)</label><input type="text" id="f_brokerName" value="${formData.brokerName}" placeholder="ABC Brokerage LLC"/></div>
-        </div>
-      </div>
-      <div id="riskPreview" style="margin-top:16px;"></div>
-      <div class="form-nav">
-        <button class="btn-back" onclick="goTo(1)">&larr; Back</button>
-        <button class="btn-next" onclick="saveStep2();goTo(3);">Next: Risk Factors &rarr;</button>
-      </div>
-    </div>`;
+  const rows = formData.entries.map((e,i) => entryRowHTML(e,i)).join('');
+  c.innerHTML = '<div class="form-card"><div class="form-section-title">IEEPA Entry Data</div><div class="form-section-sub">Enter your CBP entry numbers, HTS codes, countries of origin, and estimated IEEPA duties paid. Enter up to 20 entries.</div><div class="entry-table-wrap"><div class="entry-table-hdr"><span>Entry Number</span><span>HTS Code</span><span>Origin</span><span>IEEPA Duty Paid ($)</span><span></span></div><div id="entryRows">' + rows + '</div></div><button class="add-entry-btn" onclick="addEntry()">+ Add Entry</button><div style="margin-top:20px;"><div class="field-grid"><div class="field"><label>Total Estimated IEEPA Duties Paid ($)</label><input type="number" id="f_totalDuty" placeholder="85000"/><span class="field-hint">Your best estimate across all entries.</span></div><div class="field"><label>Customs Broker Name (if any)</label><input type="text" id="f_brokerName" placeholder="ABC Brokerage LLC"/></div></div></div><div id="riskPreview" style="margin-top:16px;"></div><div class="form-nav"><button class="btn-back" onclick="goTo(1)">&larr; Back</button><button class="btn-next" onclick="saveStep2();goTo(3);">Next: Risk Factors &rarr;</button></div></div>';
+  document.getElementById('f_totalDuty').value = formData.totalDuty;
+  document.getElementById('f_brokerName').value = formData.brokerName;
   updateRiskPreview();
 }
 
 function entryRowHTML(e, i) {
-  return `<div class="entry-row" id="erow_${i}">
-    <input type="text" placeholder="Entry # (e.g. 12345678-8)" value="${e.entryNum}" oninput="formData.entries[${i}].entryNum=this.value;updateRiskPreview()"/>
-    <input type="text" placeholder="HTS (e.g. 8471.30.01)" value="${e.hts}" oninput="formData.entries[${i}].hts=this.value;updateRiskPreview()"/>
-    <input type="text" placeholder="CN/VN/TW…" value="${e.origin}" oninput="formData.entries[${i}].origin=this.value"/>
-    <input type="number" placeholder="0.00" value="${e.dutyPaid}" oninput="formData.entries[${i}].dutyPaid=this.value;updateRiskPreview()"/>
-    <button class="del-btn" onclick="removeEntry(${i})" title="Remove">&#10005;</button>
-  </div>`;
+  return '<div class="entry-row" id="erow_' + i + '"><input type="text" placeholder="Entry #" value="' + (e.entryNum||'') + '" oninput="formData.entries[' + i + '].entryNum=this.value;updateRiskPreview()"/><input type="text" placeholder="HTS" value="' + (e.hts||'') + '" oninput="formData.entries[' + i + '].hts=this.value"/><input type="text" placeholder="CN/VN/TW" value="' + (e.origin||'') + '" oninput="formData.entries[' + i + '].origin=this.value"/><input type="number" placeholder="0.00" value="' + (e.dutyPaid||'') + '" oninput="formData.entries[' + i + '].dutyPaid=this.value;updateRiskPreview()"/><button class="del-btn" onclick="removeEntry(' + i + ')" title="Remove">&#10005;</button></div>';
 }
 
 function addEntry() {
@@ -417,41 +372,22 @@ function updateRiskPreview() {
   const total = parseFloat(formData.totalDuty) || formData.entries.reduce((s,e)=>s+parseFloat(e.dutyPaid||0),0);
   const pct = Math.min(100, (total / 500000) * 100);
   let color = '#4ade80', label = 'Standard Review', riskNote = 'Below CBP mandatory audit threshold.';
-  if (total >= 250000) { color = '#fbbf24'; label = 'Elevated — Pre-Audit Recommended'; riskNote = 'CBP flags $250K+ claims for mandatory review. Pre-submission audit strongly recommended.'; }
-  if (total >= 500000) { color = '#f87171'; label = 'High — Pre-Audit Required'; riskNote = 'Large claim. FCA exposure risk elevated. Claim Audit & Optimization required before certification.'; }
+  if (total >= 250000) { color = '#fbbf24'; label = 'Elevated — Pre-Audit Recommended'; riskNote = 'CBP flags $250K+ claims for mandatory review.'; }
+  if (total >= 500000) { color = '#f87171'; label = 'High — Pre-Audit Required'; riskNote = 'Large claim. FCA exposure risk elevated.'; }
   const rp = document.getElementById('riskPreview');
   if (rp && total > 0) {
-    rp.innerHTML = `<div class="risk-meter"><div class="risk-label">Estimated Recovery & FCA Risk Level</div><div class="risk-bar-wrap"><div class="risk-bar" style="width:${pct}%;background:${color};"></div></div><div class="risk-score-text" style="color:${color};">$${total.toLocaleString()} estimated &middot; <strong>${label}</strong> &mdash; ${riskNote}</div></div>`;
+    rp.innerHTML = '<div class="risk-meter"><div class="risk-label">Estimated Recovery & FCA Risk Level</div><div class="risk-bar-wrap"><div class="risk-bar" style="width:' + pct + '%;background:' + color + ';"></div></div><div class="risk-score-text" style="color:' + color + ';">$' + total.toLocaleString() + ' estimated &middot; <strong>' + label + '</strong> &mdash; ' + riskNote + '</div></div>';
   }
 }
 
 function renderStep3(c) {
-  c.innerHTML = `
-    <div class="form-card">
-      <div class="form-section-title">Compliance & Risk Factors</div>
-      <div class="form-section-sub">Alex Monroe uses these factors to assess your FCA exposure before generating your eligibility determination. Honest answers protect you — all information is confidential.</div>
-      <div class="field-grid">
-        <div class="field"><label>ACE Portal Account Active?</label><select id="f_hasAce"><option value="yes" ${formData.hasAce==='yes'?'selected':''}>Yes — active ACE account</option><option value="no" ${formData.hasAce==='no'?'selected':''}>No — need to register</option><option value="unsure" ${formData.hasAce==='unsure'?'selected':''}>Unsure</option></select></div>
-        <div class="field"><label>ACH Refund Enrollment in ACE?</label><select id="f_hasAch"><option value="yes" ${formData.hasAch==='yes'?'selected':''}>Yes — bank info enrolled</option><option value="no" ${formData.hasAch==='no'?'selected':''}>No — not enrolled</option><option value="unsure" ${formData.hasAch==='unsure'?'selected':''}>Unsure</option></select></div>
-      </div>
-      <div class="field-grid">
-        <div class="field"><label>Any Prior CBP Disclosures or Penalties?</label><select id="f_priorDisclosures"><option value="no" ${formData.priorDisclosures==='no'?'selected':''}>No — clean compliance history</option><option value="minor" ${formData.priorDisclosures==='minor'?'selected':''}>Minor — resolved disclosures</option><option value="yes" ${formData.priorDisclosures==='yes'?'selected':''}>Yes — active or significant</option></select></div>
-        <div class="field"><label>Primary Valuation Method Used</label><select id="f_valuationMethod"><option value="transaction" ${formData.valuationMethod==='transaction'?'selected':''}>Transaction Value (most common)</option><option value="computed" ${formData.valuationMethod==='computed'?'selected':''}>Computed Value</option><option value="deductive" ${formData.valuationMethod==='deductive'?'selected':''}>Deductive Value</option><option value="other" ${formData.valuationMethod==='other'?'selected':''}>Other / Unsure</option></select></div>
-      </div>
-      <div class="field-grid">
-        <div class="field"><label>Any Transshipment Through Third Countries?</label><select id="f_transshipment"><option value="no" ${formData.transshipment==='no'?'selected':''}>No — direct shipment</option><option value="yes_documented" ${formData.transshipment==='yes_documented'?'selected':''}>Yes — fully documented</option><option value="yes_undocumented" ${formData.transshipment==='yes_undocumented'?'selected':''}>Yes — limited documentation</option></select></div>
-        <div class="field"><label>Additional Context (optional)</label><input type="text" id="f_additionalInfo" value="${formData.additionalInfo}" placeholder="Related party transactions, special circumstances…"/></div>
-      </div>
-      <div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.18);border-radius:8px;padding:14px 16px;margin-top:8px;">
-        <span style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:4px;">What happens next</span>
-        <p style="font-size:13px;color:var(--cream);line-height:1.6;margin:0;">Alex Monroe will analyze your entry data and compliance profile, calculate your estimated IEEPA refund with statutory interest, score your FCA risk level per entry, and generate a written eligibility determination — in under 60 seconds.</p>
-      </div>
-      <div class="form-nav">
-        <button class="btn-back" onclick="goTo(2)">&larr; Back</button>
-        <button class="btn-submit" id="submitBtn" onclick="saveStep3();generateReport()">Generate My Report &rarr;</button>
-      </div>
-      <div class="disclaimer">Submission is confidential. Report is advisory only — not legal advice. By submitting you agree to our <a href="/terms">Terms of Service</a>.</div>
-    </div>`;
+  c.innerHTML = '<div class="form-card"><div class="form-section-title">Compliance & Risk Factors</div><div class="form-section-sub">Alex Monroe uses these factors to assess your FCA exposure before generating your eligibility determination.</div><div class="field-grid"><div class="field"><label>ACE Portal Account Active?</label><select id="f_hasAce"><option value="yes">Yes — active ACE account</option><option value="no">No — need to register</option><option value="unsure">Unsure</option></select></div><div class="field"><label>ACH Refund Enrollment in ACE?</label><select id="f_hasAch"><option value="yes">Yes — bank info enrolled</option><option value="no">No — not enrolled</option><option value="unsure">Unsure</option></select></div></div><div class="field-grid"><div class="field"><label>Any Prior CBP Disclosures or Penalties?</label><select id="f_priorDisclosures"><option value="no">No — clean compliance history</option><option value="minor">Minor — resolved disclosures</option><option value="yes">Yes — active or significant</option></select></div><div class="field"><label>Primary Valuation Method Used</label><select id="f_valuationMethod"><option value="transaction">Transaction Value (most common)</option><option value="computed">Computed Value</option><option value="deductive">Deductive Value</option><option value="other">Other / Unsure</option></select></div></div><div class="field-grid"><div class="field"><label>Any Transshipment Through Third Countries?</label><select id="f_transshipment"><option value="no">No — direct shipment</option><option value="yes_documented">Yes — fully documented</option><option value="yes_undocumented">Yes — limited documentation</option></select></div><div class="field"><label>Additional Context (optional)</label><input type="text" id="f_additionalInfo" placeholder="Related party transactions, special circumstances…"/></div></div><div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.18);border-radius:8px;padding:14px 16px;margin-top:8px;"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:4px;">What happens next</span><p style="font-size:13px;color:var(--cream);line-height:1.6;margin:0;">Alex Monroe will analyze your entry data, calculate your estimated IEEPA refund with statutory interest, score your FCA risk level, and generate a written eligibility determination — in under 60 seconds.</p></div><div class="form-nav"><button class="btn-back" onclick="goTo(2)">&larr; Back</button><button class="btn-submit" id="submitBtn" onclick="saveStep3();generateReport()">Generate My Report &rarr;</button></div><div class="disclaimer">Submission is confidential. Report is advisory only — not legal advice. By submitting you agree to our <a href="/terms">Terms of Service</a>.</div></div>';
+  document.getElementById('f_hasAce').value = formData.hasAce;
+  document.getElementById('f_hasAch').value = formData.hasAch;
+  document.getElementById('f_priorDisclosures').value = formData.priorDisclosures;
+  document.getElementById('f_valuationMethod').value = formData.valuationMethod;
+  document.getElementById('f_transshipment').value = formData.transshipment;
+  document.getElementById('f_additionalInfo').value = formData.additionalInfo;
 }
 
 function saveStep3() {
@@ -464,24 +400,12 @@ function saveStep3() {
 }
 
 function showGenerating() {
-  document.getElementById('formContainer').innerHTML = `
-    <div class="form-card generating">
-      <div class="gen-spinner"></div>
-      <div class="gen-title">Alex Monroe is analyzing your entries</div>
-      <div class="gen-sub">TariffIQ&trade; &middot; Powered by Anthropic Claude</div>
-      <div class="gen-steps">
-        <div class="gen-step done" id="gs1"><span class="gen-dot"></span>Validating entry data format</div>
-        <div class="gen-step active" id="gs2"><span class="gen-dot"></span>Checking Phase 1 CAPE eligibility</div>
-        <div class="gen-step" id="gs3"><span class="gen-dot"></span>Calculating IEEPA refund + statutory interest</div>
-        <div class="gen-step" id="gs4"><span class="gen-dot"></span>Scoring FCA exposure per entry</div>
-        <div class="gen-step" id="gs5"><span class="gen-dot"></span>Generating written determination</div>
-      </div>
-    </div>`;
+  document.getElementById('formContainer').innerHTML = '<div class="form-card generating"><div class="gen-spinner"></div><div class="gen-title">Alex Monroe is analyzing your entries</div><div class="gen-sub">TariffIQ&trade; &middot; Powered by Anthropic Claude</div><div class="gen-steps"><div class="gen-step done" id="gs1"><span class="gen-dot"></span>Validating entry data format</div><div class="gen-step active" id="gs2"><span class="gen-dot"></span>Checking Phase 1 CAPE eligibility</div><div class="gen-step" id="gs3"><span class="gen-dot"></span>Calculating IEEPA refund + statutory interest</div><div class="gen-step" id="gs4"><span class="gen-dot"></span>Scoring FCA exposure per entry</div><div class="gen-step" id="gs5"><span class="gen-dot"></span>Generating written determination</div></div></div>';
   const steps = [2,3,4,5];
   steps.forEach((s,i) => {
     setTimeout(() => {
-      document.getElementById(`gs${s}`)?.classList.replace('active','done');
-      if (steps[i+1]) document.getElementById(`gs${steps[i+1]}`)?.classList.add('active');
+      document.getElementById('gs'+s)?.classList.replace('active','done');
+      if (steps[i+1]) document.getElementById('gs'+steps[i+1])?.classList.add('active');
     }, (i+1)*1200);
   });
 }
@@ -496,44 +420,10 @@ async function generateReport() {
   const total = parseFloat(formData.totalDuty) || formData.entries.reduce((s,e)=>s+parseFloat(e.dutyPaid||0),0);
   const interestRate = formData.entityType === 'individual' ? 7 : 6;
   const entryList = formData.entries.filter(e=>e.entryNum||e.hts||e.dutyPaid).map(e=>
-    `Entry ${e.entryNum||'[#TBD]'} | HTS: ${e.hts||'[TBD]'} | Origin: ${e.origin||'[TBD]'} | IEEPA Duty: $${parseFloat(e.dutyPaid||0).toLocaleString()}`
+    'Entry ' + (e.entryNum||'[#TBD]') + ' | HTS: ' + (e.hts||'[TBD]') + ' | Origin: ' + (e.origin||'[TBD]') + ' | IEEPA Duty: $' + parseFloat(e.dutyPaid||0).toLocaleString()
   ).join('\n');
 
-  const prompt = `You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau. Generate a formal IEEPA Eligibility Determination Report for the following client submission.
-
-CLIENT SUBMISSION:
-Company: ${formData.company}
-Contact: ${formData.contact}
-Email: ${formData.email}
-Country: ${formData.country}
-Entity Type: ${formData.entityType}
-Importer Type: ${formData.importerType}
-Customs Broker: ${formData.brokerName || 'None specified'}
-
-ENTRY DATA:
-${entryList || 'No specific entries provided — general assessment requested'}
-
-Total Estimated IEEPA Duties Paid: $${total.toLocaleString()}
-Statutory Interest Rate: ${interestRate}% (${formData.entityType})
-
-COMPLIANCE PROFILE:
-ACE Portal: ${formData.hasAce}
-ACH Enrollment: ${formData.hasAch}
-Prior Disclosures: ${formData.priorDisclosures}
-Valuation Method: ${formData.valuationMethod}
-Transshipment: ${formData.transshipment}
-Additional Info: ${formData.additionalInfo || 'None'}
-
-Generate a structured report with these exact sections:
-1. PRELIMINARY VERDICT — qualified/needs-review/not-qualified with brief reason
-2. IEEPA EXPOSURE ANALYSIS — analyze entries, estimate refund amount with statutory interest
-3. PHASE 1 CAPE ELIGIBILITY — assess Phase 1 vs Phase 2 for their entries
-4. FCA RISK ASSESSMENT — score overall risk (Low/Medium/High/Critical) and explain specific risk factors
-5. ACE & ACH STATUS — flag any enrollment issues that must be resolved before filing
-6. RECOMMENDED NEXT STEPS — specific numbered action items
-7. ADVISORY NOTES — caveats, June 7 appeal deadline warning, recommendation on Claim Audit tier
-
-Be direct, specific, and authoritative. Use dollar amounts where possible. End with: "This assessment is advisory only and does not constitute legal advice. — Alex Monroe, TariffIQ™, The Tariff Bureau LLC"`;
+  const prompt = 'You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau. Generate a formal IEEPA Eligibility Determination Report.\n\nCOMPANY: ' + formData.company + '\nCONTACT: ' + formData.contact + '\nEMAIL: ' + formData.email + '\nCOUNTRY: ' + formData.country + '\nENTITY: ' + formData.entityType + '\nIMPORTER TYPE: ' + formData.importerType + '\nBROKER: ' + (formData.brokerName||'None') + '\n\nENTRIES:\n' + (entryList||'No entries — general assessment') + '\n\nTOTAL IEEPA DUTIES: $' + total.toLocaleString() + '\nINTEREST RATE: ' + interestRate + '%\n\nCOMPLIANCE: ACE=' + formData.hasAce + ', ACH=' + formData.hasAch + ', Disclosures=' + formData.priorDisclosures + ', Valuation=' + formData.valuationMethod + ', Transshipment=' + formData.transshipment + '\nNOTES: ' + (formData.additionalInfo||'None') + '\n\nGenerate a structured report with sections: 1. PRELIMINARY VERDICT 2. IEEPA EXPOSURE ANALYSIS 3. PHASE 1 CAPE ELIGIBILITY 4. FCA RISK ASSESSMENT 5. ACE & ACH STATUS 6. RECOMMENDED NEXT STEPS 7. ADVISORY NOTES\n\nEnd with: "This assessment is advisory only and does not constitute legal advice. — Alex Monroe, TariffIQ\u2122, The Tariff Bureau LLC"';
 
   try {
     const res = await fetch('/api/chat', {
@@ -547,7 +437,7 @@ Be direct, specific, and authoritative. Use dollar amounts where possible. End w
     renderReport(report, total);
     submitToFormspree();
   } catch(err) {
-    renderReport(`Unable to connect to TariffIQ at this time. Please email your intake data to hello@tariffbureau.com and Alex Monroe will respond within one business day.\n\nError: ${err.message}`, total);
+    renderReport('Unable to connect to TariffIQ at this time. Please email your intake data to hello@tariffbureau.com and Alex Monroe will respond within one business day.\n\nError: ' + err.message, total);
   }
 }
 
@@ -561,42 +451,17 @@ function renderReport(reportText, totalDuty) {
   const isReview = /review|conditional|partial/i.test(verdictText);
 
   let verdictBadge = '';
-  if (isQualified && !isReview) verdictBadge = `<div class="verdict-badge verdict-qualified">&#10003; Preliminary Qualified &mdash; IEEPA Refund Eligible</div>`;
-  else if (isReview) verdictBadge = `<div class="verdict-badge verdict-review">&#9888; Requires Review &mdash; Conditional Eligibility</div>`;
-  else verdictBadge = `<div class="verdict-badge verdict-disqualified">&#10005; Not Qualified at This Time</div>`;
+  if (isQualified && !isReview) verdictBadge = '<div class="verdict-badge verdict-qualified">&#10003; Preliminary Qualified &mdash; IEEPA Refund Eligible</div>';
+  else if (isReview) verdictBadge = '<div class="verdict-badge verdict-review">&#9888; Requires Review &mdash; Conditional Eligibility</div>';
+  else verdictBadge = '<div class="verdict-badge verdict-disqualified">&#10005; Not Qualified at This Time</div>';
 
-  const formatted = reportText
-    .split('\n')
-    .map(line => {
-      if (/^\d+\.\s+[A-Z\s&]+$/.test(line.trim()) || /^[A-Z\s&]+:/.test(line.trim())) {
-        return `<div class="report-section-label">${line.trim()}</div>`;
-      }
-      if (line.trim().startsWith('—') || line.trim().startsWith('-')) {
-        return `<div style="padding-left:16px;margin:4px 0;color:var(--cream);font-size:14px;">&bull; ${line.replace(/^[-—]\s*/,'')}</div>`;
-      }
-      return line.trim() ? `<p style="margin-bottom:10px;">${line}</p>` : '';
-    })
-    .join('');
+  const formatted = reportText.split('\n').map(line => {
+    if (/^\d+\.\s+[A-Z\s&]+$/.test(line.trim()) || /^[A-Z\s&]+:/.test(line.trim())) return '<div class="report-section-label">' + line.trim() + '</div>';
+    if (line.trim().startsWith('\u2014') || line.trim().startsWith('-')) return '<div style="padding-left:16px;margin:4px 0;color:var(--cream);font-size:14px;">&bull; ' + line.replace(/^[-\u2014]\s*/,'') + '</div>';
+    return line.trim() ? '<p style="margin-bottom:10px;">' + line + '</p>' : '';
+  }).join('');
 
-  document.getElementById('formContainer').innerHTML = `
-    <div class="report-card">
-      <div class="report-header">
-        <div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div>
-        <div class="report-meta">Ref: ${refId}<br/>Date: ${today}<br/>Analyst: Alex Monroe<br/>Client: ${formData.company}<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div>
-      </div>
-      <div class="report-body">
-        ${verdictBadge}
-        <div class="report-section-content">${formatted}</div>
-      </div>
-      <div class="report-actions">
-        <button class="btn-print" onclick="window.print()">&#128424; Print / Save PDF</button>
-        <a class="btn-engage" href="/intake?ref=${refId}&company=${encodeURIComponent(formData.company)}">Proceed to Full Engagement &rarr;</a>
-        <button class="btn-restart" onclick="location.reload()">Start New Assessment</button>
-      </div>
-    </div>
-    <div class="disclaimer">
-      This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice, not customs brokerage, and does not constitute a final eligibility determination by CBP. Reference: ${refId} &middot; <a href="/terms">Terms of Service</a>
-    </div>`;
+  document.getElementById('formContainer').innerHTML = '<div class="report-card"><div class="report-header"><div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div><div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div></div><div class="report-body">' + verdictBadge + '<div class="report-section-content">' + formatted + '</div></div><div class="report-actions"><button class="btn-print" onclick="window.print()">&#128424; Print / Save PDF</button><a class="btn-engage" href="/intake?ref=' + refId + '&company=' + encodeURIComponent(formData.company) + '">Proceed to Full Engagement &rarr;</a><button class="btn-restart" onclick="location.reload()">Start New Assessment</button></div></div><div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
 async function submitToFormspree() {
@@ -632,5 +497,10 @@ function goTo(s) {
 
 render();
 </script>
+
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+
 </body>
 </html>
