@@ -12,6 +12,7 @@
     { "src": "/thank-you",             "dest": "/thank-you.html" },
     { "src": "/terms",                 "dest": "/terms.html" },
     { "src": "/intake-smart",          "dest": "/intake-smart.html" },
+    { "src": "/screening",             "dest": "/screening.html" },
     { "src": "/updates",               "dest": "/updates.html" },
     { "src": "/updates-data.json",     "dest": "/public/updates-data.json" },
     { "src": "/ieepa-refund-recovery", "dest": "/ieepa-refund-recovery.html" },
