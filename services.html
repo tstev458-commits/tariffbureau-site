@@ -3,12 +3,12 @@
 <head>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEW2CFVXX2"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72D7G0ZNZR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-TEW2CFVXX2');
+  gtag('config', 'G-72D7G0ZNZR');
 </script>
 <!-- End Google Analytics -->
 
@@ -85,8 +85,6 @@ body {
   color: var(--text);
   overflow-x: hidden;
 }
-
-/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: var(--navy);
@@ -101,8 +99,6 @@ nav {
 .nav-links a:hover, .nav-links a.active { color: var(--gold); }
 .nav-cta { background: var(--gold); color: var(--navy); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 20px; text-decoration: none; transition: all 0.2s; }
 .nav-cta:hover { background: var(--gold-light); }
-
-/* HERO */
 .hero {
   background: var(--navy-dark);
   padding: 120px 40px 80px;
@@ -126,23 +122,13 @@ h1 em { color: var(--gold); font-style: italic; }
 .stat { text-align: center; }
 .stat-num { font-size: 28px; color: var(--gold); font-weight: 700; letter-spacing: -0.02em; }
 .stat-label { font-family: 'DM Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px; }
-
-/* SECTION */
 .section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
 .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
 .section-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.15em; opacity: 0.7; }
 .section-title { font-size: clamp(22px, 3vw, 32px); color: var(--navy); font-weight: 600; }
 .section-line { flex: 1; height: 1px; background: var(--border); }
-
-/* SERVICE CARDS */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2px; background: var(--border); border: 1px solid var(--border); }
-.service-card {
-  background: #fff;
-  padding: 36px 32px;
-  position: relative;
-  transition: all 0.25s;
-  cursor: default;
-}
+.service-card { background: #fff; padding: 36px 32px; position: relative; transition: all 0.25s; cursor: default; }
 .service-card:hover { background: var(--navy); }
 .service-card:hover .sc-icon-wrap { border-color: var(--gold); background: rgba(201,168,76,0.1); }
 .service-card:hover .sc-icon { color: var(--gold); }
@@ -170,13 +156,7 @@ h1 em { color: var(--gold); font-style: italic; }
 .sc-feature::before { content: '→'; position: absolute; left: -2px; color: var(--gold); font-size: 10px; }
 .sc-cta { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--navy); color: var(--gold); padding: 9px 20px; text-decoration: none; border: 1px solid var(--border); transition: all 0.25s; }
 .sc-cta:hover { background: var(--gold); color: var(--navy); }
-.service-card:hover .sc-cta:hover { background: #fff; color: var(--navy); }
-
-/* FEATURED CARD */
-.service-card.featured {
-  background: var(--navy);
-  grid-column: span 2;
-}
+.service-card.featured { background: var(--navy); grid-column: span 2; }
 @media (max-width: 700px) { .service-card.featured { grid-column: span 1; } }
 .service-card.featured .sc-tag { color: rgba(255,255,255,0.4); }
 .service-card.featured .sc-name { color: #fff; font-size: 24px; }
@@ -190,8 +170,6 @@ h1 em { color: var(--gold); font-style: italic; }
 .service-card.featured .sc-icon-wrap { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.08); }
 .service-card.featured .sc-icon { color: var(--gold); }
 .service-card.featured:hover { background: var(--navy-mid); }
-
-/* HOW IT WORKS */
 .how-section { background: var(--navy-dark); padding: 80px 40px; }
 .how-inner { max-width: 1100px; margin: 0 auto; }
 .how-header { text-align: center; margin-bottom: 56px; }
@@ -205,8 +183,6 @@ h1 em { color: var(--gold); font-style: italic; }
 .step-title { font-size: 14px; color: #fff; font-weight: 600; margin-bottom: 8px; }
 .step-desc { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; line-height: 1.7; }
 @media (max-width: 700px) { .steps { grid-template-columns: 1fr 1fr; gap: 32px; } .steps::before { display: none; } }
-
-/* SEGMENT BANDS */
 .segments { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); max-width: 1100px; margin: 0 auto; }
 .segment { background: #fff; padding: 40px 36px; transition: background 0.2s; }
 .segment:hover { background: var(--gold-dim); }
@@ -217,14 +193,10 @@ h1 em { color: var(--gold); font-style: italic; }
 .seg-item { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-light); padding-left: 18px; position: relative; }
 .seg-item::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
 @media (max-width: 700px) { .segments { grid-template-columns: 1fr; } }
-
-/* HASHTAGS */
 .hashtags { background: var(--navy-dark); padding: 28px 40px; border-top: 1px solid var(--border); }
 .hashtags-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px; }
 .htag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); border: 1px solid rgba(201,168,76,0.15); padding: 5px 12px; border-radius: 2px; cursor: default; transition: color 0.2s, border-color 0.2s; }
 .htag:hover { color: var(--gold); border-color: var(--gold); }
-
-/* CTA BAND */
 .cta-band { background: var(--gold); padding: 60px 40px; text-align: center; }
 .cta-band h2 { font-size: clamp(24px, 4vw, 42px); color: var(--navy); font-weight: 700; margin-bottom: 12px; }
 .cta-band p { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(27,58,92,0.65); letter-spacing: 0.06em; margin-bottom: 32px; }
@@ -233,20 +205,15 @@ h1 em { color: var(--gold); font-style: italic; }
 .cta-primary:hover { background: var(--navy-dark); }
 .cta-secondary { background: transparent; color: var(--navy); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; border: 2px solid var(--navy); transition: all 0.2s; }
 .cta-secondary:hover { background: rgba(27,58,92,0.1); }
-
-/* FOOTER */
 footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; border-top: 1px solid var(--border); }
 .footer-text { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; line-height: 1.8; }
 .footer-text a { color: var(--gold); text-decoration: none; opacity: 0.7; }
 .footer-text a:hover { opacity: 1; }
-
-/* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 .fade-up { animation: fadeUp 0.6s ease forwards; }
 .delay-1 { animation-delay: 0.1s; opacity: 0; }
 .delay-2 { animation-delay: 0.2s; opacity: 0; }
 .delay-3 { animation-delay: 0.3s; opacity: 0; }
-
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
@@ -273,7 +240,6 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
   <a class="nav-cta" href="/intake-smart">Free Assessment</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-rule fade-up">
     <span></span>
@@ -283,48 +249,33 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
   <h1 class="fade-up delay-1">Every Service Built Around<br/><em>One Outcome: Your Refund</em></h1>
   <p class="hero-sub fade-up delay-2">From rapid eligibility assessment to full CBP CAPE filing — six service tiers designed for U.S. importers and international DDP manufacturers.</p>
   <div class="hero-stats fade-up delay-3">
-    <div class="stat">
-      <div class="stat-num">$35.46B</div>
-      <div class="stat-label">Already Processing</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">$166B</div>
-      <div class="stat-label">Total Refund Pool</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">92%</div>
-      <div class="stat-label">Unenrolled Importers</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">60–90</div>
-      <div class="stat-label">Day CBP Processing</div>
-    </div>
+    <div class="stat"><div class="stat-num">$35.46B</div><div class="stat-label">Already Processing</div></div>
+    <div class="stat"><div class="stat-num">$166B</div><div class="stat-label">Total Refund Pool</div></div>
+    <div class="stat"><div class="stat-num">92%</div><div class="stat-label">Unenrolled Importers</div></div>
+    <div class="stat"><div class="stat-num">60&ndash;90</div><div class="stat-label">Day CBP Processing</div></div>
   </div>
 </section>
 
-<!-- SERVICES GRID -->
 <div style="padding: 80px 40px; max-width: 1100px; margin: 0 auto;">
   <div class="section-header">
     <span class="section-num">01</span>
     <h2 class="section-title">Service Tiers</h2>
     <div class="section-line"></div>
   </div>
-
   <div class="services-grid">
 
-    <!-- FEATURED -->
     <div class="service-card featured">
       <div class="sc-top">
-        <div class="sc-icon-wrap"><div class="sc-icon">⚡</div></div>
+        <div class="sc-icon-wrap"><div class="sc-icon">&#9889;</div></div>
         <span class="sc-badge">Most Popular</span>
       </div>
       <div class="sc-tag">Full Service</div>
       <div class="sc-name">Full Recovery Package</div>
       <div class="sc-price-row">
-        <span class="sc-price">$4,000 base + 12–15% contingency</span>
+        <span class="sc-price">$4,000 base + 12&ndash;15% contingency</span>
         <span class="sc-price-label">of refund recovered</span>
       </div>
-      <p class="sc-desc">Our end-to-end service. We handle ACE/ACH enrollment, documentation, CBP CAPE filing, and Form 4811 ACH authorization. You sign. We file. CBP pays. Zero upfront beyond the base engagement — contingency deducted from your refund.</p>
+      <p class="sc-desc">Our end-to-end service. We handle ACE/ACH enrollment, documentation, CBP CAPE filing, and Form 4811 ACH authorization. You sign. We file. CBP pays. Zero upfront beyond the base engagement &mdash; contingency deducted from your refund.</p>
       <div class="sc-features">
         <div class="sc-feature">ACE/ACH enrollment verification and completion</div>
         <div class="sc-feature">HTS classification review and CAPE eligibility mapping</div>
@@ -332,19 +283,18 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
         <div class="sc-feature">CAPE Declaration filing through licensed customs broker</div>
         <div class="sc-feature">Form 4811 ACH routing and net proceeds wire to client</div>
       </div>
-      <a href="/intake" class="sc-cta">Start Full Recovery →</a>
+      <a href="/intake" class="sc-cta">Start Full Recovery &rarr;</a>
     </div>
 
-    <!-- CARD 2 -->
     <div class="service-card">
       <div class="sc-top">
-        <div class="sc-icon-wrap"><div class="sc-icon">🔍</div></div>
+        <div class="sc-icon-wrap"><div class="sc-icon">&#128269;</div></div>
         <span class="sc-badge">Entry Point</span>
       </div>
       <div class="sc-tag">Advisory</div>
       <div class="sc-name">Assessment Only</div>
       <div class="sc-price-row">
-        <span class="sc-price">$8,000 – $18,000</span>
+        <span class="sc-price">$8,000 &ndash; $18,000</span>
         <span class="sc-price-label">flat fee</span>
       </div>
       <p class="sc-desc">A comprehensive IEEPA tariff exposure analysis. Know your refund potential before committing to full recovery. Includes HTS mapping, CAPE eligibility scoring, ACE enrollment status, and a written refund estimate.</p>
@@ -354,19 +304,18 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
         <div class="sc-feature">ACE/ACH enrollment gap analysis</div>
         <div class="sc-feature">Written advisory report with recovery recommendations</div>
       </div>
-      <a href="/intake" class="sc-cta">Request Assessment →</a>
+      <a href="/intake" class="sc-cta">Request Assessment &rarr;</a>
     </div>
 
-    <!-- CARD 3 -->
     <div class="service-card">
       <div class="sc-top">
-        <div class="sc-icon-wrap"><div class="sc-icon">📋</div></div>
+        <div class="sc-icon-wrap"><div class="sc-icon">&#128203;</div></div>
         <span class="sc-badge">Lender Use</span>
       </div>
       <div class="sc-tag">Valuation</div>
       <div class="sc-name">Refund Claim Valuation Report</div>
       <div class="sc-price-row">
-        <span class="sc-price">$8,000 – $18,000</span>
+        <span class="sc-price">$8,000 &ndash; $18,000</span>
         <span class="sc-price-label">flat fee</span>
       </div>
       <p class="sc-desc">Independent refund claim valuations for credit underwriting, collateral assessment, and borrowing base calculations. Designed for trade finance lenders and asset-based lenders with importer borrowers.</p>
@@ -376,19 +325,18 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
         <div class="sc-feature">Form 4811 authorization mapping</div>
         <div class="sc-feature">Lender-ready report format for underwriting</div>
       </div>
-      <a href="/contact" class="sc-cta">Request Valuation →</a>
+      <a href="/contact" class="sc-cta">Request Valuation &rarr;</a>
     </div>
 
-    <!-- CARD 4 -->
     <div class="service-card">
       <div class="sc-top">
-        <div class="sc-icon-wrap"><div class="sc-icon">🔧</div></div>
+        <div class="sc-icon-wrap"><div class="sc-icon">&#128295;</div></div>
         <span class="sc-badge">Optimization</span>
       </div>
       <div class="sc-tag">Advisory</div>
-      <div class="sc-name">Claim Audit & Optimization</div>
+      <div class="sc-name">Claim Audit &amp; Optimization</div>
       <div class="sc-price-row">
-        <span class="sc-price">$6,000 – $15,000</span>
+        <span class="sc-price">$6,000 &ndash; $15,000</span>
         <span class="sc-price-label">flat fee</span>
       </div>
       <p class="sc-desc">Already filed a claim? We audit it for missed entries, misclassified HTS codes, and documentation gaps that could reduce your recovery or trigger a CBP rejection.</p>
@@ -398,19 +346,18 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
         <div class="sc-feature">Documentation completeness scoring</div>
         <div class="sc-feature">Amended filing recommendations</div>
       </div>
-      <a href="/intake" class="sc-cta">Request Audit →</a>
+      <a href="/intake" class="sc-cta">Request Audit &rarr;</a>
     </div>
 
-    <!-- CARD 5 -->
     <div class="service-card">
       <div class="sc-top">
-        <div class="sc-icon-wrap"><div class="sc-icon">🌐</div></div>
+        <div class="sc-icon-wrap"><div class="sc-icon">&#127758;</div></div>
         <span class="sc-badge">Strategic</span>
       </div>
       <div class="sc-tag">Supply Chain</div>
       <div class="sc-name">Rerouting Analysis</div>
       <div class="sc-price-row">
-        <span class="sc-price">$10,000 – $40,000</span>
+        <span class="sc-price">$10,000 &ndash; $40,000</span>
         <span class="sc-price-label">flat fee</span>
       </div>
       <p class="sc-desc">Forward-looking supply chain restructuring analysis to reduce future tariff exposure. Evaluates alternative country of origin, FTA utilization, bonded warehouse strategies, and HTS engineering.</p>
@@ -420,19 +367,18 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
         <div class="sc-feature">Bonded warehouse and FTZ opportunity assessment</div>
         <div class="sc-feature">HTS engineering review for duty minimization</div>
       </div>
-      <a href="/intake" class="sc-cta">Request Analysis →</a>
+      <a href="/intake" class="sc-cta">Request Analysis &rarr;</a>
     </div>
 
-    <!-- CARD 6 -->
     <div class="service-card">
       <div class="sc-top">
-        <div class="sc-icon-wrap"><div class="sc-icon">📡</div></div>
+        <div class="sc-icon-wrap"><div class="sc-icon">&#128225;</div></div>
         <span class="sc-badge">Ongoing</span>
       </div>
       <div class="sc-tag">Intelligence</div>
       <div class="sc-name">Trade Monitoring Retainer</div>
       <div class="sc-price-row">
-        <span class="sc-price">$3,000 – $10,000</span>
+        <span class="sc-price">$3,000 &ndash; $10,000</span>
         <span class="sc-price-label">per month</span>
       </div>
       <p class="sc-desc">Continuous tariff landscape monitoring, CBP regulatory updates, IEEPA litigation tracking, and proactive alerts for changes affecting your import portfolio. Delivered via TariffIQ weekly intelligence briefs.</p>
@@ -442,50 +388,28 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
         <div class="sc-feature">IEEPA litigation and regulatory change alerts</div>
         <div class="sc-feature">On-call Alex Monroe advisory access</div>
       </div>
-      <a href="/contact" class="sc-cta">Start Retainer →</a>
+      <a href="/contact" class="sc-cta">Start Retainer &rarr;</a>
     </div>
 
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
 <section class="how-section">
   <div class="how-inner">
     <div class="how-header">
       <h2>How Full Recovery Works</h2>
-      <p>From first conversation to ACH wire — five steps, 60–90 days</p>
+      <p>From first conversation to ACH wire &mdash; five steps, 60&ndash;90 days</p>
     </div>
     <div class="steps">
-      <div class="step">
-        <div class="step-num"><span>01</span></div>
-        <div class="step-title">Assessment</div>
-        <div class="step-desc">TariffIQ maps your HTS codes to CAPE eligibility and quantifies refund exposure.</div>
-      </div>
-      <div class="step">
-        <div class="step-num"><span>02</span></div>
-        <div class="step-title">Enrollment</div>
-        <div class="step-desc">We verify and complete your ACE/ACH enrollment — the step 80% of importers miss.</div>
-      </div>
-      <div class="step">
-        <div class="step-num"><span>03</span></div>
-        <div class="step-title">Documentation</div>
-        <div class="step-desc">Entry summaries, payment records, and supporting docs compiled in CBP-ready format.</div>
-      </div>
-      <div class="step">
-        <div class="step-num"><span>04</span></div>
-        <div class="step-title">Filing</div>
-        <div class="step-desc">CAPE Declaration filed through licensed broker. You sign Form 4811 for ACH authorization.</div>
-      </div>
-      <div class="step">
-        <div class="step-num"><span>05</span></div>
-        <div class="step-title">Recovery</div>
-        <div class="step-desc">CBP processes, ACH arrives, contingency deducted, net proceeds wired to you.</div>
-      </div>
+      <div class="step"><div class="step-num"><span>01</span></div><div class="step-title">Assessment</div><div class="step-desc">TariffIQ maps your HTS codes to CAPE eligibility and quantifies refund exposure.</div></div>
+      <div class="step"><div class="step-num"><span>02</span></div><div class="step-title">Enrollment</div><div class="step-desc">We verify and complete your ACE/ACH enrollment &mdash; the step 80% of importers miss.</div></div>
+      <div class="step"><div class="step-num"><span>03</span></div><div class="step-title">Documentation</div><div class="step-desc">Entry summaries, payment records, and supporting docs compiled in CBP-ready format.</div></div>
+      <div class="step"><div class="step-num"><span>04</span></div><div class="step-title">Filing</div><div class="step-desc">CAPE Declaration filed through licensed broker. You sign Form 4811 for ACH authorization.</div></div>
+      <div class="step"><div class="step-num"><span>05</span></div><div class="step-title">Recovery</div><div class="step-desc">CBP processes, ACH arrives, contingency deducted, net proceeds wired to you.</div></div>
     </div>
   </div>
 </section>
 
-<!-- WHO WE SERVE -->
 <div style="padding: 80px 40px; max-width: 1100px; margin: 0 auto;">
   <div class="section-header">
     <span class="section-num">02</span>
@@ -496,9 +420,9 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
     <div class="segment">
       <div class="seg-eyebrow">Segment A</div>
       <div class="seg-title">U.S. Mid-Market Importers</div>
-      <p class="seg-desc">Companies importing $5M–$500M annually that paid IEEPA tariffs on Chinese goods, consumer products, electronics, apparel, or industrial inputs. If you haven't filed a CAPE claim — or aren't sure — your refund may still be recoverable.</p>
+      <p class="seg-desc">Companies importing $5M&ndash;$500M annually that paid IEEPA tariffs on Chinese goods, consumer products, electronics, apparel, or industrial inputs. If you haven&rsquo;t filed a CAPE claim &mdash; or aren&rsquo;t sure &mdash; your refund may still be recoverable.</p>
       <div class="seg-list">
-        <div class="seg-item">Annual import spend $5M–$500M</div>
+        <div class="seg-item">Annual import spend $5M&ndash;$500M</div>
         <div class="seg-item">Goods subject to Section 301, 232, or Liberation Day tariffs</div>
         <div class="seg-item">Active or lapsed ACE portal account</div>
         <div class="seg-item">U.S.-based importer of record</div>
@@ -507,7 +431,7 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
     <div class="segment">
       <div class="seg-eyebrow">Segment B</div>
       <div class="seg-title">International DDP Manufacturers</div>
-      <p class="seg-desc">Foreign manufacturers in Vietnam, Taiwan, South Korea, India, Bangladesh, and Indonesia who shipped DDP to U.S. buyers and absorbed IEEPA tariffs into their pricing. You may be the IOR — and the refund may belong to you.</p>
+      <p class="seg-desc">Foreign manufacturers in Vietnam, Taiwan, South Korea, India, Bangladesh, and Indonesia who shipped DDP to U.S. buyers and absorbed IEEPA tariffs into their pricing.</p>
       <div class="seg-list">
         <div class="seg-item">DDP Incoterms on U.S.-bound shipments</div>
         <div class="seg-item">Manufacturer as importer of record</div>
@@ -518,51 +442,40 @@ footer { background: var(--navy-dark); padding: 32px 40px; text-align: center; b
   </div>
 </div>
 
-<!-- HASHTAGS -->
 <div class="hashtags">
   <div class="hashtags-inner">
-    <span class="htag">#IEEPA</span>
-    <span class="htag">#TariffRefund</span>
-    <span class="htag">#CAPE</span>
-    <span class="htag">#CBP</span>
-    <span class="htag">#ACEPortal</span>
-    <span class="htag">#ImportDuties</span>
-    <span class="htag">#TradePolicy</span>
-    <span class="htag">#DutyRecovery</span>
-    <span class="htag">#USImporters</span>
-    <span class="htag">#SupplyChain</span>
-    <span class="htag">#CustomsBroker</span>
-    <span class="htag">#TradeCompliance</span>
-    <span class="htag">#AlexMonroe</span>
-    <span class="htag">#TariffIQ</span>
-    <span class="htag">#TariffBureau</span>
-    <span class="htag">#AtlantaBusiness</span>
-    <span class="htag">#DDP</span>
-    <span class="htag">#IOR</span>
+    <span class="htag">#IEEPA</span><span class="htag">#TariffRefund</span><span class="htag">#CAPE</span>
+    <span class="htag">#CBP</span><span class="htag">#ACEPortal</span><span class="htag">#ImportDuties</span>
+    <span class="htag">#TradePolicy</span><span class="htag">#DutyRecovery</span><span class="htag">#USImporters</span>
+    <span class="htag">#SupplyChain</span><span class="htag">#CustomsBroker</span><span class="htag">#TradeCompliance</span>
+    <span class="htag">#AlexMonroe</span><span class="htag">#TariffIQ</span><span class="htag">#TariffBureau</span>
+    <span class="htag">#AtlantaBusiness</span><span class="htag">#DDP</span><span class="htag">#IOR</span>
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta-band">
-  <h2>Ready to Know What You're Owed?</h2>
-  <p>$35.46B already processing · Free eligibility assessment · No retainer · No commitment until you see the numbers</p>
+  <h2>Ready to Know What You&rsquo;re Owed?</h2>
+  <p>$35.46B already processing &nbsp;&middot;&nbsp; Free eligibility assessment &nbsp;&middot;&nbsp; No retainer &nbsp;&middot;&nbsp; No commitment until you see the numbers</p>
   <div class="cta-group">
     <a href="/intake-smart" class="cta-primary">Start Free Assessment</a>
     <a href="/" class="cta-secondary">Talk to Alex Monroe</a>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-text">
-    The Tariff Bureau LLC &nbsp;·&nbsp; Atlanta, Georgia &nbsp;·&nbsp;
-    <a href="tel:14048825839">(404) 882-5839</a> &nbsp;·&nbsp;
-    <a href="mailto:hello@tariffbureau.com">hello@tariffbureau.com</a> &nbsp;·&nbsp;
-    <a href="/terms">Terms</a> &nbsp;·&nbsp;
+    The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, Georgia &nbsp;&middot;&nbsp;
+    <a href="tel:14048825839">(404) 882-5839</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:hello@tariffbureau.com">hello@tariffbureau.com</a> &nbsp;&middot;&nbsp;
+    <a href="/terms">Terms</a> &nbsp;&middot;&nbsp;
     <a href="/privacy">Privacy</a><br/>
     Advisory information only. Not legal advice. Not licensed customs brokerage. No specific refund amount or CBP approval guaranteed. The Tariff Bureau LLC is not affiliated with CBP or any U.S. government agency.
   </div>
 </footer>
+
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 
 </body>
 </html>
