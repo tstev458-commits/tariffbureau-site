@@ -157,8 +157,26 @@ The Tariff Bureau LLC is not a law firm and does not provide legal advice. All a
 
 - **Legal name:** The Tariff Bureau LLC
 - **Address:** 3343 Peachtree Rd. NE, Suite 145 PMB550, Atlanta, Georgia 30326
+- **Phone:** (404) 882-5839
 - **Domain:** tariffbureau.com
 - **General inquiries:** hello@tariffbureau.com
 - **Legal inquiries:** legal@tariffbureau.com
 - **AI platform:** TariffIQ™
 - **AI analyst:** Alex Monroe, Senior Trade Intelligence Analyst
+
+---
+
+## Pages
+
+- https://tariffbureau.com/
+- https://tariffbureau.com/about
+- https://tariffbureau.com/services
+- https://tariffbureau.com/pricing
+- https://tariffbureau.com/ieepa-refund-recovery
+- https://tariffbureau.com/intake-smart
+- https://tariffbureau.com/intake
+- https://tariffbureau.com/screening
+- https://tariffbureau.com/updates
+- https://tariffbureau.com/contact
+- https://tariffbureau.com/terms
+- https://tariffbureau.com/privacy
