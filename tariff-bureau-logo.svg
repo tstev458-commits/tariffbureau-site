@@ -22,7 +22,7 @@
     </radialGradient>
   </defs>
 
-  <circle cx="340" cy="340" r="320" fill="url(#bgDark)"/>
+  <circle cx="340" cy="340" r="320" fill="transparent"/>
   <circle cx="340" cy="340" r="318" fill="none" stroke="#c07800" stroke-width="1"/>
   <circle cx="340" cy="340" r="310" fill="none" stroke="#fff0b0" stroke-width="2.5"/>
   <circle cx="340" cy="340" r="306" fill="none" stroke="#e0a020" stroke-width="0.8" opacity="0.7"/>
