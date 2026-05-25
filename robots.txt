@@ -1,5 +1,6 @@
 # The Tariff Bureau LLC — robots.txt
-# https://www.tariffbureau.com
+# https://tariffbureau.com
+# Updated: May 25, 2026
 
 # ── General crawlers ────────────────────────────────────
 User-agent: *
@@ -7,6 +8,7 @@ Allow: /
 Disallow: /api/
 Disallow: /.env
 Disallow: /node_modules/
+Disallow: /thank-you
 
 # ── Google ──────────────────────────────────────────────
 User-agent: Googlebot
@@ -26,6 +28,9 @@ User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 # Anthropic / Claude
@@ -76,10 +81,26 @@ Allow: /
 User-agent: ia_archiver
 Allow: /
 
+# Mistral AI
+User-agent: MistralBot
+Allow: /
+
+# xAI / Grok
+User-agent: Grok
+Allow: /
+
+# Brave Search
+User-agent: Brave-Search
+Allow: /
+
+# DuckDuckBot
+User-agent: DuckDuckBot
+Allow: /
+
 # ── Sitemaps ─────────────────────────────────────────────
-Sitemap: https://www.tariffbureau.com/sitemap.xml
+Sitemap: https://tariffbureau.com/sitemap.xml
 
 # ── AI Content Files ─────────────────────────────────────
 # LLM-optimized content index
-# https://www.tariffbureau.com/llms.txt
-# https://www.tariffbureau.com/llms-full.txt
+# https://tariffbureau.com/llms.txt
+# https://tariffbureau.com/llms-full.txt
