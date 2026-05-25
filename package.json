@@ -1,7 +1,21 @@
 {
   "name": "tariffbureau-site",
   "version": "1.0.0",
+  "description": "The Tariff Bureau LLC — TariffIQ Platform",
   "dependencies": {
-    "docusign-esign": "^9.0.0"
+    "docusign-esign": "^9.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "overrides": {
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "audit": "npm audit --audit-level=high",
+    "audit-fix": "npm audit fix"
   }
 }
