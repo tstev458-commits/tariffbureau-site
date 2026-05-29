@@ -10,7 +10,6 @@
     gtag('js', new Date());
     gtag('config', 'G-72D7G0ZNZR');
   </script>
-  <!-- End Google Analytics -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -279,7 +278,7 @@
   </div>
 
   <footer>
-    <span class="footer-brand">The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, GA &nbsp;&middot;&nbsp; <a href="tel:14048825839">(404) 882-5839</a></span>
+    <span class="footer-brand">The Tariff Bureau LLC &nbsp;&middot;&nbsp; Atlanta, GA &nbsp;&middot;&nbsp; <a href="tel:+14048825839">(404) 882-5839</a></span>
     <div class="footer-links">
       <a href="/services">Services</a>
       <a href="/pricing">Pricing</a>
@@ -318,7 +317,7 @@ function updateStepIndicators() {
 }
 
 function renderStep1(c) {
-  c.innerHTML = '<div class="form-card"><div class="form-section-title">Company Information</div><div class="form-section-sub">Tell us about your company. All information is held confidential under our <a href="/privacy" style="color:var(--gold);">Privacy Policy</a>.</div><div class="field-grid"><div class="field"><label>Company Name *</label><input type="text" id="f_company" value="" placeholder="Acme Imports LLC"/></div><div class="field"><label>Contact Name *</label><input type="text" id="f_contact" value="" placeholder="Jane Smith"/></div></div><div class="field-grid"><div class="field"><label>Business Email *</label><input type="email" id="f_email" value="" placeholder="jane@company.com"/></div><div class="field"><label>Phone</label><input type="tel" id="f_phone" value="" placeholder="+1 (404) 555-0100"/></div></div><div class="field-grid triple"><div class="field"><label>Country of Domicile</label><select id="f_country"><option value="US" selected>US</option><option value="China">China</option><option value="Vietnam">Vietnam</option><option value="Taiwan">Taiwan</option><option value="South Korea">South Korea</option><option value="Netherlands">Netherlands</option><option value="Brazil">Brazil</option><option value="India">India</option><option value="Bangladesh">Bangladesh</option><option value="Indonesia">Indonesia</option><option value="Other">Other</option></select></div><div class="field"><label>Entity Type</label><select id="f_entityType"><option value="corporation" selected>Corporation</option><option value="llc">LLC</option><option value="partnership">Partnership</option><option value="individual">Individual/Sole Proprietor</option><option value="foreign">Foreign Entity</option></select></div><div class="field"><label>Importer Type</label><select id="f_importerType"><option value="domestic" selected>US Domestic IOR</option><option value="ddp">Foreign DDP Supplier</option><option value="broker">Licensed Customs Broker</option></select></div></div><div class="form-nav"><div></div><button class="btn-next" onclick="saveStep1();goTo(2);">Next: Entry Data &rarr;</button></div><div class="disclaimer">By submitting, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</div></div>';
+  c.innerHTML = '<div class="form-card"><div class="form-section-title">Company Information</div><div class="form-section-sub">Tell us about your company. All information is held confidential under our <a href="/privacy" style="color:var(--gold);">Privacy Policy</a>.</div><div class="field-grid"><div class="field"><label>Company Name *</label><input type="text" id="f_company" value="" placeholder="Acme Imports LLC"/></div><div class="field"><label>Contact Name *</label><input type="text" id="f_contact" value="" placeholder="Jane Smith"/></div></div><div class="field-grid"><div class="field"><label>Business Email *</label><input type="email" id="f_email" value="" placeholder="jane@company.com"/></div><div class="field"><label>Phone</label><input type="tel" id="f_phone" value="" placeholder="+1 (404) 555-0100"/></div></div><div class="field-grid triple"><div class="field"><label>Country of Domicile</label><select id="f_country"><option value="US" selected>US</option><option value="China">China</option><option value="Vietnam">Vietnam</option><option value="Taiwan">Taiwan</option><option value="South Korea">South Korea</option><option value="Netherlands">Netherlands</option><option value="Brazil">Brazil</option><option value="India">India</option><option value="Bangladesh">Bangladesh</option><option value="Indonesia">Indonesia</option><option value="Other">Other</option></select></div><div class="field"><label>Entity Type</label><select id="f_entityType"><option value="corporation" selected>Corporation</option><option value="llc">LLC</option><option value="partnership">Partnership</option><option value="individual">Individual/Sole Proprietor</option><option value="foreign">Foreign Entity</option></select></div><div class="field"><label>Importer Type</label><select id="f_importerType"><option value="domestic" selected>US Domestic IOR</option><option value="ddp">Foreign DDP Supplier</option><option value="broker">Licensed Customs Broker</option></select></div></div><div class="form-nav"><div></div><button class="btn-next" onclick="if(!validateStep1())return;saveStep1();goTo(2);">Next: Entry Data &rarr;</button></div><div class="disclaimer">By submitting, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</div></div>';
   document.getElementById('f_company').value = formData.company;
   document.getElementById('f_contact').value = formData.contact;
   document.getElementById('f_email').value = formData.email;
@@ -326,6 +325,16 @@ function renderStep1(c) {
   document.getElementById('f_country').value = formData.country;
   document.getElementById('f_entityType').value = formData.entityType;
   document.getElementById('f_importerType').value = formData.importerType;
+}
+
+function validateStep1() {
+  const company = document.getElementById('f_company').value.trim();
+  const contact = document.getElementById('f_contact').value.trim();
+  const email = document.getElementById('f_email').value.trim();
+  if (!company) { alert('Please enter your company name.'); document.getElementById('f_company').focus(); return false; }
+  if (!contact) { alert('Please enter your contact name.'); document.getElementById('f_contact').focus(); return false; }
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); document.getElementById('f_email').focus(); return false; }
+  return true;
 }
 
 function saveStep1() {
@@ -464,27 +473,28 @@ function renderReport(reportText, totalDuty) {
   document.getElementById('formContainer').innerHTML = '<div class="report-card"><div class="report-header"><div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div><div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div></div><div class="report-body">' + verdictBadge + '<div class="report-section-content">' + formatted + '</div></div><div class="report-actions"><button class="btn-print" onclick="window.print()">&#128424; Print / Save PDF</button><a class="btn-engage" href="/intake?ref=' + refId + '&company=' + encodeURIComponent(formData.company) + '">Proceed to Full Engagement &rarr;</a><button class="btn-restart" onclick="location.reload()">Start New Assessment</button></div></div><div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
+// FIXED: switched from JSON to FormData — Formspree free tier requires multipart
 async function submitToFormspree() {
   try {
+    const fd = new FormData();
+    fd.append('_subject', 'New TariffIQ Screening \u2014 ' + (formData.company || 'Unknown'));
+    fd.append('source', 'TariffIQ Smart Intake');
+    fd.append('company', formData.company);
+    fd.append('contact', formData.contact);
+    fd.append('email', formData.email);
+    fd.append('phone', formData.phone || '');
+    fd.append('country', formData.country);
+    fd.append('entityType', formData.entityType);
+    fd.append('importerType', formData.importerType);
+    fd.append('totalDuty', formData.totalDuty || '0');
+    fd.append('brokerName', formData.brokerName || '');
+    fd.append('hasAce', formData.hasAce);
+    fd.append('hasAch', formData.hasAch);
+    fd.append('priorDisclosures', formData.priorDisclosures);
+    fd.append('entries', JSON.stringify(formData.entries));
     await fetch('https://formspree.io/f/xvzdgzyo', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        source: 'TariffIQ Smart Intake',
-        company: formData.company,
-        contact: formData.contact,
-        email: formData.email,
-        phone: formData.phone,
-        country: formData.country,
-        entityType: formData.entityType,
-        importerType: formData.importerType,
-        totalDuty: formData.totalDuty,
-        brokerName: formData.brokerName,
-        hasAce: formData.hasAce,
-        hasAch: formData.hasAch,
-        priorDisclosures: formData.priorDisclosures,
-        entries: JSON.stringify(formData.entries)
-      })
+      body: fd
     });
   } catch(e) { console.log('Formspree skip', e); }
 }
@@ -500,7 +510,6 @@ render();
 
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
-  <!-- End Cloudflare Web Analytics -->
 
 </body>
 </html>
