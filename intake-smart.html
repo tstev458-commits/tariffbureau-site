@@ -473,30 +473,29 @@ function renderReport(reportText, totalDuty) {
   document.getElementById('formContainer').innerHTML = '<div class="report-card"><div class="report-header"><div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div><div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div></div><div class="report-body">' + verdictBadge + '<div class="report-section-content">' + formatted + '</div></div><div class="report-actions"><button class="btn-print" onclick="window.print()">&#128424; Print / Save PDF</button><a class="btn-engage" href="/intake?ref=' + refId + '&company=' + encodeURIComponent(formData.company) + '">Proceed to Full Engagement &rarr;</a><button class="btn-restart" onclick="location.reload()">Start New Assessment</button></div></div><div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
-// FIXED: switched from JSON to FormData — Formspree free tier requires multipart
+// Routes lead data to /api/notify which emails terrence@tariffbureau.com via Resend
 async function submitToFormspree() {
   try {
-    const fd = new FormData();
-    fd.append('_subject', 'New TariffIQ Screening \u2014 ' + (formData.company || 'Unknown'));
-    fd.append('source', 'TariffIQ Smart Intake');
-    fd.append('company', formData.company);
-    fd.append('contact', formData.contact);
-    fd.append('email', formData.email);
-    fd.append('phone', formData.phone || '');
-    fd.append('country', formData.country);
-    fd.append('entityType', formData.entityType);
-    fd.append('importerType', formData.importerType);
-    fd.append('totalDuty', formData.totalDuty || '0');
-    fd.append('brokerName', formData.brokerName || '');
-    fd.append('hasAce', formData.hasAce);
-    fd.append('hasAch', formData.hasAch);
-    fd.append('priorDisclosures', formData.priorDisclosures);
-    fd.append('entries', JSON.stringify(formData.entries));
-    await fetch('https://formspree.io/f/xvzdgzyo', {
+    await fetch('/api/notify', {
       method: 'POST',
-      body: fd
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        company: formData.company,
+        contact: formData.contact,
+        email: formData.email,
+        phone: formData.phone || '',
+        country: formData.country,
+        entityType: formData.entityType,
+        importerType: formData.importerType,
+        totalDuty: formData.totalDuty || '0',
+        brokerName: formData.brokerName || '',
+        hasAce: formData.hasAce,
+        hasAch: formData.hasAch,
+        priorDisclosures: formData.priorDisclosures,
+        entries: JSON.stringify(formData.entries)
+      })
     });
-  } catch(e) { console.log('Formspree skip', e); }
+  } catch(e) { console.log('Notify skip', e); }
 }
 
 function goTo(s) {
