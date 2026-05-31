@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Tariff Impact Assessment | The Tariff Bureau</title>
+<meta name="description" content="Find out in 60 seconds how much your business may be owed in IEEPA tariff refunds. Free AI-powered assessment from The Tariff Bureau." />
+<meta property="og:title" content="Free Tariff Impact Assessment | The Tariff Bureau" />
+<meta property="og:description" content="Find out in 60 seconds how much your business may be owed in IEEPA tariff refunds." />
+<meta property="og:url" content="https://tariffbureau.com/assessment" />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://tariffbureau.com/assessment" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72D7G0ZNZR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-72D7G0ZNZR');</script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #122040;
+    --navy-light: #1a3060;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-pale: #f5e9c8;
+    --white: #ffffff;
+    --off-white: #f8f6f0;
+    --text-muted: #6b7280;
+    --border: #e5e0d4;
+    --error: #dc2626;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* HERO STRIP */
+  .hero-strip {
+    background: var(--navy);
+    padding: 64px 24px 56px;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 720px;
+    margin: 0 auto 16px;
+  }
+
+  .hero-headline em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* MAIN LAYOUT */
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ALEX MONROE CARD */
+  .alex-intro {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .alex-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .alex-text p:first-child {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  .alex-text p:last-child {
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* FORM CARD */
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 40px;
+  }
+
+  @media (max-width: 600px) {
+    .form-card { padding: 24px 20px; }
+  }
+
+  .form-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+
+  label .req { color: var(--gold); margin-left: 2px; }
+
+  input, select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--navy);
+    background: var(--off-white);
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.18s, background 0.18s;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230a1628' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  input:focus, select:focus {
+    border-color: var(--gold);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+
+  input.error, select.error { border-color: var(--error); }
+
+  .field-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .field-error {
+    font-size: 12px;
+    color: var(--error);
+    display: none;
+  }
+
+  .field-error.visible { display: block; }
+
+  /* DIVIDER */
+  .form-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 28px 0;
+  }
+
+  /* SUBMIT */
+  .submit-area { margin-top: 28px; }
+
+  .btn-submit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    background: var(--gold);
+    border: none;
+    border-radius: 3px;
+    padding: 16px 40px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    width: 100%;
+    transition: background 0.18s, transform 0.12s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-submit:hover { background: var(--gold-light); }
+  .btn-submit:active { transform: scale(0.99); }
+  .btn-submit:disabled { background: #d4c9a0; cursor: not-allowed; }
+
+  .btn-submit .btn-spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(10,22,40,0.3);
+    border-top-color: var(--navy);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin: 0 auto;
+  }
+
+  .btn-submit.loading .btn-text { display: none; }
+  .btn-submit.loading .btn-spinner { display: block; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .submit-disclaimer {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .trust-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 28px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  footer a { color: rgba(201,168,76,0.7); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">The Tariff <span>Bureau</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/updates.html">Updates</a></li>
+    <li><a href="/intake-smart.html">Start Claim</a></li>
+  </ul>
+</nav>
+
+<div class="hero-strip">
+  <div class="hero-eyebrow">Free &mdash; No Obligation &mdash; 60 Seconds</div>
+  <h1 class="hero-headline">How Much Are You<br><em>Owed in Tariff Refunds?</em></h1>
+  <p class="hero-sub">Our AI analyst Alex Monroe will calculate your estimated IEEPA refund exposure and tell you whether it's worth filing a formal claim.</p>
+</div>
+
+<div class="page-wrap">
+
+  <div class="alex-intro">
+    <div class="alex-avatar">AM</div>
+    <div class="alex-text">
+      <p>Alex Monroe &mdash; TariffIQ&trade; Analyst</p>
+      <p>Answer five questions about your import profile and I'll give you an honest estimate of your potential refund exposure under IEEPA Section 232/301 relief. Takes under a minute. No personal information required.</p>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-section-title">Your Import Profile</div>
+
+    <form id="assessmentForm" novalidate>
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="country">Country of Origin <span class="req">*</span></label>
+          <select id="country" name="country" required>
+            <option value="">Select country&hellip;</option>
+            <option value="CN">China (PRC)</option>
+            <option value="VN">Vietnam</option>
+            <option value="IN">India</option>
+            <option value="MX">Mexico</option>
+            <option value="KR">South Korea</option>
+            <option value="TW">Taiwan</option>
+            <option value="TH">Thailand</option>
+            <option value="DE">Germany</option>
+            <option value="JP">Japan</option>
+            <option value="CA">Canada</option>
+            <option value="OTHER">Other</option>
+          </select>
+          <span class="field-error" id="err-country">Please select a country of origin.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Product Category <span class="req">*</span></label>
+          <select id="category" name="category" required>
+            <option value="">Select category&hellip;</option>
+            <option value="electronics">Electronics &amp; Components</option>
+            <option value="machinery">Machinery &amp; Equipment</option>
+            <option value="steel">Steel &amp; Aluminum Products</option>
+            <option value="apparel">Apparel &amp; Textiles</option>
+            <option value="chemicals">Chemicals &amp; Plastics</option>
+            <option value="furniture">Furniture &amp; Fixtures</option>
+            <option value="auto">Auto Parts &amp; Vehicles</option>
+            <option value="consumer">Consumer Goods</option>
+            <option value="food">Food &amp; Agricultural</option>
+            <option value="other">Other / Mixed</option>
+          </select>
+          <span class="field-error" id="err-category">Please select a product category.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="import_value">Annual Import Value (USD) <span class="req">*</span></label>
+          <select id="import_value" name="import_value" required>
+            <option value="">Select range&hellip;</option>
+            <option value="250000">Under $250K</option>
+            <option value="750000">$250K &ndash; $1M</option>
+            <option value="3000000">$1M &ndash; $5M</option>
+            <option value="12500000">$5M &ndash; $20M</option>
+            <option value="50000000">$20M &ndash; $100M</option>
+            <option value="100000000">Over $100M</option>
+          </select>
+          <span class="field-error" id="err-import_value">Please select your annual import value.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="trade_terms">Trade Terms <span class="req">*</span></label>
+          <select id="trade_terms" name="trade_terms" required>
+            <option value="">Select terms&hellip;</option>
+            <option value="ddp">DDP &mdash; Delivered Duty Paid</option>
+            <option value="dap">DAP / FOB &mdash; Importer pays duty</option>
+            <option value="unsure">Not sure</option>
+          </select>
+          <span class="field-hint">DDP = foreign seller paid the tariff. You may still have a claim.</span>
+          <span class="field-error" id="err-trade_terms">Please select your trade terms.</span>
+        </div>
+
+        <div class="form-group full">
+          <label for="hts">HTS Code (optional)</label>
+          <input type="text" id="hts" name="hts" placeholder="e.g. 8471.30.0100" maxlength="20" autocomplete="off" />
+          <span class="field-hint">Leave blank if unknown &mdash; Alex will estimate based on your product category.</span>
+        </div>
+
+      </div>
+
+      <div class="submit-area">
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Run My Free Assessment &rarr;</span>
+          <span class="btn-spinner"></span>
+        </button>
+        <p class="submit-disclaimer">No account. No obligation. Results in seconds.<br>
+        By submitting you agree to our <a href="/terms-of-service.html" style="color:var(--gold);">Terms of Service</a> and <a href="/privacy.html" style="color:var(--gold);">Privacy Policy</a>.</p>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Attorney-reviewed process
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      CBP CAPE Phase 1 open now
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>
+      Contingency-based &mdash; no upfront cost
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>The Tariff Bureau LLC &bull; 3343 Peachtree Rd NE, Suite 145 PMB 550, Atlanta, GA 30326<br>
+  <a href="tel:4048825839">(404) 882-5839</a> &bull; <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a> &bull;
+  <a href="/terms-of-service.html">Terms</a> &bull; <a href="/">tariffbureau.com</a></p>
+  <p style="margin-top:8px;">This assessment is for informational purposes only and does not constitute legal advice. Results are estimates based on publicly available tariff schedules.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('assessmentForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  const REQUIRED = ['country','category','import_value','trade_terms'];
+
+  function validateField(id) {
+    const el = document.getElementById(id);
+    const err = document.getElementById('err-' + id);
+    if (!el.value) {
+      el.classList.add('error');
+      if (err) err.classList.add('visible');
+      return false;
+    }
+    el.classList.remove('error');
+    if (err) err.classList.remove('visible');
+    return true;
+  }
+
+  REQUIRED.forEach(id => {
+    document.getElementById(id).addEventListener('change', () => validateField(id));
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+    REQUIRED.forEach(id => { if (!validateField(id)) valid = false; });
+    if (!valid) return;
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    const country = document.getElementById('country').value;
+    const category = document.getElementById('category').value;
+    const importVal = parseInt(document.getElementById('import_value').value);
+    const terms = document.getElementById('trade_terms').value;
+    const hts = document.getElementById('hts').value.trim();
+    const fname = document.getElementById('fname').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    const params = new URLSearchParams({
+      country, category, import_value: importVal,
+      trade_terms: terms,
+      hts: hts || '',
+      fname: fname || '',
+      company: company || '',
+      email: email || ''
+    });
+
+    setTimeout(() => {
+      window.location.href = '/assessment-result.html?' + params.toString();
+    }, 900);
+  });
+</script>
+
+</body>
+</html>
