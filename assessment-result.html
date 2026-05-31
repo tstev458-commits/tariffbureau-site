@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Tariff Refund Assessment | The Tariff Bureau</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72D7G0ZNZR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-72D7G0ZNZR');</script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #122040;
+    --navy-light: #1a3060;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-pale: #f5e9c8;
+    --white: #ffffff;
+    --off-white: #f8f6f0;
+    --text-muted: #6b7280;
+    --border: #e5e0d4;
+    --green: #15803d;
+    --green-bg: #f0fdf4;
+    --green-border: #bbf7d0;
+    --amber: #b45309;
+    --amber-bg: #fffbeb;
+    --amber-border: #fde68a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  nav {
+    background: var(--navy);
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* RESULT HERO */
+  .result-hero {
+    background: var(--navy);
+    padding: 52px 24px 48px;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .result-eyebrow {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .result-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 36px);
+    color: var(--white);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .result-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* PAGE WRAP */
+  .page-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 44px 24px 80px;
+  }
+
+  /* REFUND RANGE CARD */
+  .range-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 36px 40px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) { .range-card { padding: 28px 20px; } }
+
+  .range-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .range-value {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 7vw, 60px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .range-note {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .range-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px auto;
+  }
+
+  .range-basis {
+    font-size: 14px;
+    color: var(--navy);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* SIGNAL CARDS GRID */
+  .signal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 580px) { .signal-grid { grid-template-columns: 1fr; } }
+
+  .signal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
+
+  .signal-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .signal-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .signal-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.45;
+    font-weight: 300;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+
+  .badge-high { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .badge-medium { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .badge-low { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+
+  /* ALEX MESSAGE */
+  .alex-message {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .alex-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .alex-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .alex-id p:first-child {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .alex-id p:last-child {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+  }
+
+  .alex-body {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .alex-body strong { color: var(--gold-light); font-weight: 500; }
+
+  /* CTA CARD */
+  .cta-card {
+    background: var(--gold);
+    border-radius: 4px;
+    padding: 36px 40px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) { .cta-card { padding: 28px 20px; } }
+
+  .cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    color: rgba(10,22,40,0.7);
+    margin-bottom: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--navy);
+    border: none;
+    border-radius: 3px;
+    padding: 16px 40px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.18s, transform 0.1s;
+  }
+
+  .btn-cta:hover { background: var(--navy-light); }
+  .btn-cta:active { transform: scale(0.99); }
+
+  .cta-reassurance {
+    margin-top: 14px;
+    font-size: 13px;
+    color: rgba(10,22,40,0.55);
+  }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .disclaimer strong { color: var(--navy); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 28px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  footer p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+  footer a { color: rgba(201,168,76,0.7); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">The Tariff <span>Bureau</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/assessment.html">New Assessment</a></li>
+    <li><a href="/intake-smart.html">Start Claim</a></li>
+  </ul>
+</nav>
+
+<div class="result-hero">
+  <div class="result-eyebrow">Assessment Complete &mdash; TariffIQ&trade;</div>
+  <h1 class="result-name" id="resultName">Your Tariff Refund Assessment</h1>
+  <p class="result-sub" id="resultSub">Based on your import profile &mdash; generated by Alex Monroe</p>
+</div>
+
+<div class="page-wrap">
+
+  <div class="range-card">
+    <div class="range-label">Estimated Refund Exposure</div>
+    <div class="range-value" id="refundRange">&mdash;</div>
+    <div class="range-note" id="refundNote">Calculating&hellip;</div>
+    <div class="range-divider"></div>
+    <div class="range-basis" id="refundBasis"></div>
+  </div>
+
+  <div class="signal-grid" id="signalGrid">
+    <!-- Populated by JS -->
+  </div>
+
+  <div class="alex-message">
+    <div class="alex-header">
+      <div class="alex-avatar">AM</div>
+      <div class="alex-id">
+        <p>Alex Monroe &mdash; TariffIQ&trade;</p>
+        <p>AI Trade Analyst &bull; The Tariff Bureau</p>
+      </div>
+    </div>
+    <div class="alex-body" id="alexBody">
+      Analyzing your profile&hellip;
+    </div>
+  </div>
+
+  <div class="cta-card">
+    <div class="cta-headline" id="ctaHeadline">Ready to File Your Claim?</div>
+    <div class="cta-sub" id="ctaSub">Start your full refund recovery on contingency &mdash; we only get paid when you do.</div>
+    <a href="/intake-smart.html" class="btn-cta">Start My Formal Claim &rarr;</a>
+    <p class="cta-reassurance">No upfront cost. Attorney-reviewed. CBP CAPE-compliant filing.</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Important disclaimer:</strong> This assessment is an estimate only, based on publicly available IEEPA tariff schedules and your self-reported import profile. It does not constitute legal advice and is not a guarantee of refund eligibility or amount. Actual refund amounts depend on verified entry data, CBP review, and applicable exclusion criteria. Consult a licensed customs broker or trade attorney before filing. The Tariff Bureau LLC, Atlanta, GA.
+  </div>
+
+</div>
+
+<footer>
+  <p>The Tariff Bureau LLC &bull; 3343 Peachtree Rd NE, Suite 145 PMB 550, Atlanta, GA 30326<br>
+  <a href="tel:4048825839">(404) 882-5839</a> &bull; <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a></p>
+</footer>
+
+<script>
+(function() {
+  const p = new URLSearchParams(window.location.search);
+  const country = p.get('country') || '';
+  const category = p.get('category') || '';
+  const importVal = parseInt(p.get('import_value')) || 0;
+  const terms = p.get('trade_terms') || '';
+  const hts = p.get('hts') || '';
+  const fname = p.get('fname') || '';
+  const company = p.get('company') || '';
+
+  // Country tariff rates (IEEPA Section 301/232 indicative rates)
+  const countryRates = {
+    CN: { rate: 0.145, label: 'China', risk: 'high', note: 'Subject to IEEPA 145% tariff schedule' },
+    VN: { rate: 0.46, label: 'Vietnam', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    IN: { rate: 0.26, label: 'India', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    MX: { rate: 0.25, label: 'Mexico', risk: 'medium', note: 'USMCA status affects eligibility' },
+    KR: { rate: 0.25, label: 'South Korea', risk: 'medium', note: 'Subject to reciprocal tariffs' },
+    TW: { rate: 0.32, label: 'Taiwan', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    TH: { rate: 0.36, label: 'Thailand', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    DE: { rate: 0.20, label: 'Germany', risk: 'medium', note: 'EU reciprocal tariff schedule' },
+    JP: { rate: 0.24, label: 'Japan', risk: 'medium', note: 'Subject to reciprocal tariffs' },
+    CA: { rate: 0.25, label: 'Canada', risk: 'medium', note: 'Non-USMCA goods subject to tariffs' },
+    OTHER: { rate: 0.10, label: 'Other', risk: 'low', note: '10% universal baseline tariff applies' }
+  };
+
+  // Recovery rate: what % of tariffs paid may be refundable
+  const recoveryByCategory = {
+    electronics: 0.65,
+    machinery: 0.60,
+    steel: 0.55,
+    apparel: 0.50,
+    chemicals: 0.55,
+    furniture: 0.52,
+    auto: 0.58,
+    consumer: 0.48,
+    food: 0.35,
+    other: 0.50
+  };
+
+  const categoryLabels = {
+    electronics: 'Electronics & Components',
+    machinery: 'Machinery & Equipment',
+    steel: 'Steel & Aluminum Products',
+    apparel: 'Apparel & Textiles',
+    chemicals: 'Chemicals & Plastics',
+    furniture: 'Furniture & Fixtures',
+    auto: 'Auto Parts & Vehicles',
+    consumer: 'Consumer Goods',
+    food: 'Food & Agricultural',
+    other: 'Mixed / Other'
+  };
+
+  const cr = countryRates[country] || countryRates['OTHER'];
+  const recRate = recoveryByCategory[category] || 0.50;
+
+  // Estimated tariffs paid annually
+  const tariffsPaid = importVal * cr.rate;
+
+  // DDP adjustment: if seller paid, recovery pathway still exists but haircut
+  const ddpMultiplier = terms === 'ddp' ? 0.85 : 1.0;
+
+  // Estimated refund range
+  const baseRefund = tariffsPaid * recRate * ddpMultiplier;
+  const low = Math.round(baseRefund * 0.6);
+  const high = Math.round(baseRefund * 1.25);
+
+  function fmt(n) {
+    if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+    return '$' + n.toLocaleString();
+  }
+
+  // Determine urgency tier
+  const risk = cr.risk;
+  const urgency = high > 500000 ? 'high' : high > 50000 ? 'medium' : 'low';
+
+  // Populate hero
+  const displayName = fname ? fname + '\u2019s' : company ? company + '\u2019s' : 'Your';
+  document.getElementById('resultName').textContent = displayName + ' Tariff Refund Assessment';
+  document.getElementById('resultSub').textContent = (cr.label || 'Import') + ' \u2014 ' + (categoryLabels[category] || 'Mixed goods') + ' \u2014 Generated by Alex Monroe';
+
+  // Populate refund range
+  document.getElementById('refundRange').textContent = fmt(low) + ' \u2013 ' + fmt(high);
+  document.getElementById('refundNote').textContent = 'Estimated recoverable amount (annual import basis)';
+  document.getElementById('refundBasis').innerHTML =
+    'Based on <strong>' + fmt(importVal) + '</strong> annual imports from <strong>' + cr.label + '</strong> ' +
+    'in <strong>' + (categoryLabels[category] || 'your category') + '</strong> ' +
+    'at an indicative <strong>' + Math.round(cr.rate * 100) + '% IEEPA tariff rate</strong> and ' +
+    '<strong>' + Math.round(recRate * 100) + '% estimated recovery rate</strong> for your product category.' +
+    (terms === 'ddp' ? ' DDP terms noted \u2014 refund pathway still available via importer of record assignment.' : '');
+
+  // Signal cards
+  const ddpNote = terms === 'ddp'
+    ? 'DDP seller paid duties. Importer of record assignment required \u2014 still recoverable.'
+    : terms === 'dap' ? 'You paid duties directly as importer. Strongest refund position.'
+    : 'Trade terms unclear. Our team will verify your IOR status during intake.';
+
+  const htsBadge = hts ? 'HTS ' + hts : 'Estimated from product category';
+
+  const signals = [
+    {
+      label: 'Filing Eligibility',
+      badge: risk === 'high' ? 'high' : risk === 'medium' ? 'medium' : 'low',
+      badgeText: risk === 'high' ? 'High Priority' : risk === 'medium' ? 'Eligible' : 'Verify',
+      value: cr.note,
+      note: 'CBP CAPE Phase 1 window is open. File before the window closes.'
+    },
+    {
+      label: 'Trade Terms',
+      badge: terms === 'dap' ? 'high' : terms === 'ddp' ? 'medium' : 'low',
+      badgeText: terms === 'dap' ? 'Strong Position' : terms === 'ddp' ? 'Recoverable' : 'Needs Review',
+      value: terms === 'ddp' ? 'Delivered Duty Paid (DDP)' : terms === 'dap' ? 'DAP / Importer pays duty' : 'Not confirmed',
+      note: ddpNote
+    },
+    {
+      label: 'HTS Classification',
+      badge: hts ? 'high' : 'low',
+      badgeText: hts ? 'Provided' : 'Estimated',
+      value: htsBadge,
+      note: hts ? 'Confirmed classification accelerates CBP filing.' : 'We will identify your HTS code during intake at no charge.'
+    },
+    {
+      label: 'Refund Urgency',
+      badge: urgency,
+      badgeText: urgency === 'high' ? 'Act Now' : urgency === 'medium' ? 'Time-Sensitive' : 'Review',
+      value: urgency === 'high' ? 'Significant exposure detected' : urgency === 'medium' ? 'Moderate exposure' : 'Baseline exposure',
+      note: 'CAPE portal refund window may be limited. Early filers receive priority processing.'
+    }
+  ];
+
+  const grid = document.getElementById('signalGrid');
+  signals.forEach(s => {
+    grid.innerHTML += '<div class="signal-card">' +
+      '<div class="signal-label">' + s.label + '</div>' +
+      '<span class="badge badge-' + s.badge + '">' + s.badgeText + '</span>' +
+      '<div class="signal-value">' + s.value + '</div>' +
+      '<div class="signal-note">' + s.note + '</div>' +
+      '</div>';
+  });
+
+  // Alex Monroe message
+  const ddpLine = terms === 'ddp'
+    ? 'I also noted your goods arrive on DDP terms, meaning your foreign supplier originally paid the duties. That does <strong>not</strong> disqualify your claim \u2014 we can establish importer of record rights and pursue recovery on your behalf. It adds one step to intake, nothing more.'
+    : '';
+
+  const urgencyLine = urgency === 'high'
+    ? 'At this exposure level, I would treat this as an <strong>immediate priority</strong>. The CBP CAPE portal is open now, but refund windows in trade law are notoriously finite. Importers who file in Phase 1 have historically seen faster processing and higher approval rates.'
+    : urgency === 'medium'
+    ? 'This is a <strong>meaningful refund opportunity</strong> that warrants a formal claim. I would not leave this on the table.'
+    : 'Even at the baseline level, this is a <strong>real recoverable amount</strong>. Our contingency model means you risk nothing by exploring it.';
+
+  document.getElementById('alexBody').innerHTML =
+    (fname ? 'Hi ' + fname + ' \u2014 ' : '') +
+    'based on your import profile, I\u2019m seeing <strong>estimated refund exposure of ' + fmt(low) + ' to ' + fmt(high) + '</strong> on an annualized basis under current IEEPA tariff schedules. ' +
+    'This is derived from your <strong>' + fmt(importVal) + ' in imports from ' + cr.label + '</strong>, ' +
+    'subject to an indicative ' + Math.round(cr.rate * 100) + '% tariff rate, ' +
+    'with a ' + Math.round(recRate * 100) + '% estimated recovery rate for ' + (categoryLabels[category] || 'your product category') + '.' +
+    '<br><br>' + ddpLine + (ddpLine ? '<br><br>' : '') +
+    urgencyLine +
+    '<br><br>The next step is a full intake so we can pull your actual CBP entry data, verify your HTS classifications, and prepare your Form 4811 filing through our licensed customs broker partner. <strong>Our fee is contingency-based \u2014 you pay nothing unless we recover.</strong>';
+
+  // CTA
+  if (urgency === 'high') {
+    document.getElementById('ctaHeadline').textContent = 'Don\u2019t Leave ' + fmt(Math.round((low + high) / 2)) + ' on the Table.';
+    document.getElementById('ctaSub').textContent = 'Start your formal recovery claim now. We handle the entire CBP filing process on contingency.';
+  } else if (company) {
+    document.getElementById('ctaHeadline').textContent = company + ': Start Your Formal Claim';
+  }
+
+  // GA event
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'assessment_complete', {
+      country: country,
+      category: category,
+      urgency: urgency,
+      refund_high: high
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
