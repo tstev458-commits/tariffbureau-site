@@ -66,6 +66,7 @@
     { "src": "/api/chat",              "dest": "/api/chat.js" },
     { "src": "/api/intake",            "dest": "/api/intake.js" },
     { "src": "/assessment",            "dest": "/assessment.html" },
+    { "src": "/assessment-result",     "dest": "/assessment-result.html" },
     { "src": "/pricing",               "dest": "/pricing.html" },
     { "src": "/services",              "dest": "/services.html" },
     { "src": "/intake",                "dest": "/intake.html" },
