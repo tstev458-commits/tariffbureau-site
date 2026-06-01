@@ -63,7 +63,9 @@
     }
   ],
   "routes": [
-    { "src": "/assessment",            "dest": "/intake-smart.html" },
+    { "src": "/api/chat",              "dest": "/api/chat.js" },
+    { "src": "/api/intake",            "dest": "/api/intake.js" },
+    { "src": "/assessment",            "dest": "/assessment.html" },
     { "src": "/pricing",               "dest": "/pricing.html" },
     { "src": "/services",              "dest": "/services.html" },
     { "src": "/intake",                "dest": "/intake.html" },
@@ -76,8 +78,6 @@
     { "src": "/screening",             "dest": "/screening.html" },
     { "src": "/updates",               "dest": "/updates.html" },
     { "src": "/updates-data.json",     "dest": "/public/updates-data.json" },
-    { "src": "/ieepa-refund-recovery", "dest": "/ieepa-refund-recovery.html" },
-    { "src": "/api/chat",              "dest": "/api/chat.js" },
-    { "src": "/api/intake",            "dest": "/api/intake.js" }
+    { "src": "/ieepa-refund-recovery", "dest": "/ieepa-refund-recovery.html" }
   ]
 }
