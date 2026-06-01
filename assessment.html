@@ -379,9 +379,9 @@
   <a href="/" class="nav-logo">The Tariff <span>Bureau</span></a>
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/updates.html">Updates</a></li>
-    <li><a href="/intake-smart.html">Start Claim</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/updates">Updates</a></li>
+    <li><a href="/intake-smart">Start Claim</a></li>
   </ul>
 </nav>
 
@@ -484,7 +484,7 @@
           <span class="btn-spinner"></span>
         </button>
         <p class="submit-disclaimer">No account. No obligation. Results in seconds.<br>
-        By submitting you agree to our <a href="/terms-of-service.html" style="color:var(--gold);">Terms of Service</a> and <a href="/privacy.html" style="color:var(--gold);">Privacy Policy</a>.</p>
+        By submitting you agree to our <a href="/terms" style="color:var(--gold);">Terms of Service</a> and <a href="/privacy.html" style="color:var(--gold);">Privacy Policy</a>.</p>
       </div>
 
     </form>
@@ -510,7 +510,7 @@
 <footer>
   <p>The Tariff Bureau LLC &bull; 3343 Peachtree Rd NE, Suite 145 PMB 550, Atlanta, GA 30326<br>
   <a href="tel:4048825839">(404) 882-5839</a> &bull; <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a> &bull;
-  <a href="/terms-of-service.html">Terms</a> &bull; <a href="/">tariffbureau.com</a></p>
+  <a href="/terms">Terms</a> &bull; <a href="/">tariffbureau.com</a></p>
   <p style="margin-top:8px;">This assessment is for informational purposes only and does not constitute legal advice. Results are estimates based on publicly available tariff schedules.</p>
 </footer>
 
@@ -551,17 +551,11 @@
     const importVal = parseInt(document.getElementById('import_value').value);
     const terms = document.getElementById('trade_terms').value;
     const hts = document.getElementById('hts').value.trim();
-    const fname = document.getElementById('fname').value.trim();
-    const company = document.getElementById('company').value.trim();
-    const email = document.getElementById('email').value.trim();
 
     const params = new URLSearchParams({
       country, category, import_value: importVal,
       trade_terms: terms,
-      hts: hts || '',
-      fname: fname || '',
-      company: company || '',
-      email: email || ''
+      hts: hts || ''
     });
 
     setTimeout(() => {
