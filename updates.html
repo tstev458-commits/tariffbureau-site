@@ -1,650 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Updates &amp; Alerts | The Tariff Bureau LLC</title>
-  <meta name="description" content="Latest IEEPA tariff refund updates, CAPE portal alerts, and filing deadlines for U.S. importers." />
-
-  <!-- ══════════════════════════════════════════
-       SECURITY META TAGS
-  ══════════════════════════════════════════ -->
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self';
-             script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com;
-             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-             font-src 'self' https://fonts.gstatic.com;
-             img-src 'self' data: https://www.google-analytics.com;
-             connect-src 'self' https://www.google-analytics.com https://static.cloudflareinsights.com;
-             frame-ancestors 'none';
-             base-uri 'self';
-             form-action 'self' https://formspree.io;" />
-  <!-- Clickjacking protection -->
-  <meta http-equiv="X-Frame-Options" content="DENY" />
-  <!-- MIME sniffing protection -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <!-- Referrer policy -->
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <!-- Permissions policy — disable unused browser APIs -->
-  <meta http-equiv="Permissions-Policy"
-    content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()" />
-  <!-- XSS Protection (legacy browsers) -->
-  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-  <!-- No caching for sensitive advisory pages -->
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-
-  <!-- ══════════════════════════════════════════
-       SEO & OPEN GRAPH
-  ══════════════════════════════════════════ -->
-  <link rel="canonical" href="https://tariffbureau.com/updates" />
-  <meta property="og:title" content="Updates &amp; Alerts | The Tariff Bureau LLC" />
-  <meta property="og:description" content="Latest IEEPA tariff refund updates, CAPE portal alerts, and filing deadlines for U.S. importers." />
-  <meta property="og:url" content="https://tariffbureau.com/updates" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="The Tariff Bureau LLC" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Updates &amp; Alerts | The Tariff Bureau LLC" />
-  <meta name="twitter:description" content="Latest IEEPA refund updates, CAPE portal alerts, and filing deadlines for U.S. importers." />
-
-  <!-- ══════════════════════════════════════════
-       GOOGLE ANALYTICS
-  ══════════════════════════════════════════ -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-72D7G0ZNZR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-72D7G0ZNZR');
-  </script>
-
-  <!-- ══════════════════════════════════════════
-       FONTS
-  ══════════════════════════════════════════ -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --teal:        #0e7c5b;
-      --teal-dark:   #095c43;
-      --teal-light:  #e8f5f0;
-      --teal-mid:    #c2e8db;
-      --alert:       #b91c1c;
-      --alert-bg:    #fef2f2;
-      --alert-border:#fecaca;
-      --gold:        #b7791f;
-      --gold-bg:     #fffbeb;
-      --gold-border: #fcd34d;
-      --text:        #1a1a1a;
-      --muted:       #6b7280;
-      --border:      #e5e7eb;
-      --white:       #ffffff;
-      --bg:          #f9fafb;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    /* ══════════════════════════════════════════
-       SCROLLING TICKER BANNER
-    ══════════════════════════════════════════ */
-    .ticker-wrap {
-      background: #0a2e22;
-      color: #6ee7c7;
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 8px 0;
-      position: relative;
-      z-index: 200;
-    }
-    .ticker-wrap::before,
-    .ticker-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 80px;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .ticker-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, #0a2e22, transparent);
-    }
-    .ticker-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, #0a2e22, transparent);
-    }
-    .ticker-label {
-      display: inline-block;
-      background: var(--alert);
-      color: var(--white);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 2px 10px;
-      border-radius: 3px;
-      margin-right: 16px;
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-    }
-    .ticker-track {
-      display: inline-block;
-      animation: ticker-scroll 40s linear infinite;
-      padding-left: 100%;
-    }
-    .ticker-track:hover { animation-play-state: paused; }
-    .ticker-item {
-      display: inline-block;
-      font-size: 0.775rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      padding: 0 40px 0 0;
-    }
-    .ticker-item .dot {
-      color: var(--teal);
-      margin-right: 10px;
-      font-size: 0.6rem;
-    }
-    .ticker-item .highlight {
-      color: #fcd34d;
-      font-weight: 700;
-    }
-    @keyframes ticker-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ══════════════════════════════════════════
-       NAV
-    ══════════════════════════════════════════ */
-    nav {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.25rem;
-      color: var(--teal);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--teal); }
-    .nav-cta {
-      background: var(--teal);
-      color: var(--white) !important;
-      padding: 8px 18px;
-      border-radius: 6px;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--teal-dark) !important; color: var(--white) !important; }
-
-    /* ══════════════════════════════════════════
-       PAGE HEADER
-    ══════════════════════════════════════════ */
-    .page-header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 48px 24px 40px;
-    }
-    .page-header-inner { max-width: 800px; margin: 0 auto; }
-    .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 12px;
-    }
-    .page-header h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.25rem;
-      line-height: 1.2;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-    .page-header p {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 560px;
-    }
-
-    /* ══════════════════════════════════════════
-       MAIN LAYOUT
-    ══════════════════════════════════════════ */
-    .main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-
-    /* ══════════════════════════════════════════
-       URGENT ALERT BANNER
-    ══════════════════════════════════════════ */
-    .alert-banner {
-      background: var(--alert-bg);
-      border: 1.5px solid var(--alert-border);
-      border-left: 4px solid var(--alert);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .alert-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
-    .alert-banner strong {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--alert);
-      margin-bottom: 4px;
-    }
-    .alert-banner p {
-      font-size: 0.875rem;
-      color: #7f1d1d;
-      line-height: 1.6;
-    }
-    .alert-banner a { color: var(--alert); font-weight: 600; text-decoration: underline; }
-
-    /* ══════════════════════════════════════════
-       UPDATE CARDS
-    ══════════════════════════════════════════ */
-    .update-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 32px;
-      margin-bottom: 28px;
-    }
-    .update-card.featured {
-      border-color: var(--teal-mid);
-      border-left: 4px solid var(--teal);
-    }
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-    .badge-urgent  { background: #fee2e2; color: var(--alert); }
-    .badge-update  { background: var(--teal-light); color: var(--teal-dark); }
-    .badge-market  { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-border); }
-    .card-date     { font-size: 0.8rem; color: var(--muted); }
-
-    .update-card h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      line-height: 1.3;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-    .update-card p {
-      font-size: 0.925rem;
-      color: #374151;
-      line-height: 1.75;
-      margin-bottom: 14px;
-    }
-    .update-card p:last-of-type { margin-bottom: 0; }
-
-    /* Stat row */
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 20px 0;
-    }
-    .stat-box {
-      background: var(--teal-light);
-      border: 1px solid var(--teal-mid);
-      border-radius: 8px;
-      padding: 16px;
-      text-align: center;
-    }
-    .stat-box .stat-number {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.6rem;
-      color: var(--teal-dark);
-      display: block;
-      line-height: 1.2;
-    }
-    .stat-box .stat-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 4px;
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    /* Deadline box */
-    .deadline-box {
-      background: var(--gold-bg);
-      border: 1px solid var(--gold-border);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 20px 0;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .deadline-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-    .deadline-box strong { display: block; font-size: 0.85rem; font-weight: 600; color: #78350f; margin-bottom: 4px; }
-    .deadline-box p { font-size: 0.825rem !important; color: #92400e !important; margin-bottom: 0 !important; }
-
-    /* List */
-    .update-list { list-style: none; margin: 14px 0; padding: 0; }
-    .update-list li {
-      font-size: 0.9rem;
-      color: #374151;
-      padding: 6px 0 6px 22px;
-      position: relative;
-      border-bottom: 1px solid var(--border);
-      line-height: 1.6;
-    }
-    .update-list li:last-child { border-bottom: none; }
-    .update-list li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
-
-    /* CTA button */
-    .card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 20px;
-      background: var(--teal);
-      color: var(--white);
-      font-size: 0.875rem;
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .card-cta:hover { background: var(--teal-dark); }
-
-    /* Section label */
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 24px;
-      margin-top: 8px;
-    }
-
-    /* ══════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════ */
-    footer {
-      background: #0a2e22;
-      color: #a7c4b9;
-      padding: 40px 24px;
-      text-align: center;
-      font-size: 0.825rem;
-    }
-    footer a { color: #6ee7c7; text-decoration: none; }
-    footer strong { color: var(--white); }
-    footer p { margin-bottom: 6px; }
-
-    /* ══════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════ */
-    @media (max-width: 600px) {
-      .page-header h1 { font-size: 1.7rem; }
-      .stat-row { grid-template-columns: 1fr 1fr; }
-      .nav-links { display: none; }
-      .update-card { padding: 22px; }
-      .ticker-label { display: none; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>IEEPA Tariff Refund Updates — June 2026 | The Tariff Bureau</title>
+<meta name="description" content="Breaking: DOJ signals Federal Circuit appeal of CIT universal IEEPA refund order. CBP Commissioner ordered to appear June 9. What importers must do now."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://tariffbureau.com/updates"/>
+<meta property="og:title" content="IEEPA Refund Crisis: DOJ Appeals, CBP Commissioner Summoned — June 2026"/>
+<meta property="og:description" content="DOJ filed intent to appeal the universal IEEPA refund injunction on May 29. Finally liquidated entries now at serious risk. The Tariff Bureau breaks it down."/>
+<meta property="og:url" content="https://tariffbureau.com/updates"/>
+<meta property="og:type" content="website"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72D7G0ZNZR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-72D7G0ZNZR');</script>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js" onload="Weglot.initialize({api_key:'wg_4cd9fdc0789e86adaafecf34d53992343'})"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{--navy:#0b1829;--navy-mid:#112240;--navy-card:#162d4a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:#8a6d2f;--white:#f5f0e8;--muted:#8fa4bc;--border:rgba(201,168,76,.18);--red:#d64a4a;--amber:#e08c2a;--green:#2e9e6b;--blue:#5b8dee;--radius:6px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;}
+  .appeal-bar{background:linear-gradient(90deg,#6b0000,#8b0000);padding:9px 20px;display:flex;align-items:center;justify-content:center;gap:14px;border-bottom:1px solid rgba(255,100,100,.3);flex-wrap:wrap;}
+  .ab-tag{background:#fff;color:#700000;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:3px 9px;border-radius:2px;flex-shrink:0;}
+  .ab-txt{font-size:12.5px;font-weight:600;color:#fff;text-align:center;}
+  .ab-txt b{color:#ffd700;}
+  nav{position:sticky;top:0;z-index:90;background:rgba(11,24,41,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+  .nav-i{max-width:1160px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .lm{width:32px;height:32px;background:var(--gold);border-radius:4px;display:flex;align-items:center;justify-content:center;}
+  .lt{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);}
+  .lt span{color:var(--gold);}
+  .nl{display:flex;align-items:center;gap:22px;list-style:none;}
+  .nl a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;}
+  .nl a:hover{color:var(--white);}
+  .ncta{background:var(--gold);color:var(--navy)!important;font-weight:600!important;padding:7px 16px;border-radius:var(--radius);}
+  .wrap{max-width:860px;margin:0 auto;padding:52px 24px 80px;}
+  .page-tag{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:14px;}
+  .page-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;line-height:1.15;color:var(--white);margin-bottom:10px;}
+  .page-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:36px;max-width:680px;}
+  /* BREAKING ALERT */
+  .breaking{background:linear-gradient(135deg,rgba(214,74,74,.12),rgba(155,28,28,.08));border:1px solid rgba(214,74,74,.5);border-left:5px solid #d64a4a;border-radius:10px;padding:24px 28px;margin-bottom:36px;}
+  .breaking-tag{font-family:'DM Mono',monospace;font-size:9.5px;color:#e87070;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+  .bpulse{width:7px;height:7px;border-radius:50%;background:#e87070;animation:pl 1.5s ease-in-out infinite;}
+  @keyframes pl{0%,100%{opacity:1;}50%{opacity:.3;}}
+  .breaking h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:10px;}
+  .breaking p{font-size:14px;color:#e8c5c5;line-height:1.7;}
+  .breaking p strong{color:#fff;}
+  .breaking-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+  .bfact{background:rgba(0,0,0,.2);border:1px solid rgba(214,74,74,.25);border-radius:6px;padding:12px 16px;}
+  .bfact-label{font-family:'DM Mono',monospace;font-size:9px;color:#e87070;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+  .bfact-val{font-size:13.5px;font-weight:600;color:var(--white);line-height:1.4;}
+  /* STRATEGY BLOCK */
+  .strategy{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(11,24,41,0) 70%);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:28px 32px;margin-bottom:36px;}
+  .strategy-tag{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;}
+  .strategy h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:14px;}
+  .strategy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+  .sg{background:rgba(0,0,0,.25);border:1px solid var(--border);border-radius:8px;padding:16px;}
+  .sg-num{font-family:'DM Mono',monospace;font-size:24px;font-weight:700;color:var(--gold);opacity:.4;line-height:1;margin-bottom:8px;}
+  .sg-title{font-size:13.5px;font-weight:700;color:var(--white);margin-bottom:5px;}
+  .sg-desc{font-size:12.5px;color:var(--muted);line-height:1.6;}
+  /* SECTION HEADERS */
+  .section-hd{margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+  .section-tag{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:6px;}
+  .section-hd h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);}
+  /* UPDATE CARDS */
+  .updates{display:flex;flex-direction:column;gap:16px;margin-bottom:44px;}
+  .uc{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;padding:22px 24px;position:relative;transition:border-color .2s;}
+  .uc:hover{border-color:rgba(201,168,76,.4);}
+  .uc.critical{border-left:4px solid var(--red);border-color:rgba(214,74,74,.4);}
+  .uc.critical:hover{border-color:rgba(214,74,74,.7);}
+  .uc.warn{border-left:4px solid var(--amber);}
+  .uc.positive{border-left:4px solid var(--green);}
+  .uc.intel{border-left:4px solid var(--blue);}
+  .uc-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+  .uc-tag{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:3px;}
+  .t-red{background:rgba(214,74,74,.15);color:#e87070;}
+  .t-amber{background:rgba(224,140,42,.15);color:#e8a84a;}
+  .t-green{background:rgba(46,158,107,.15);color:#4dc48a;}
+  .t-blue{background:rgba(91,141,238,.15);color:#7faff5;}
+  .t-gold{background:rgba(201,168,76,.15);color:var(--gold);}
+  .t-purple{background:rgba(155,114,207,.15);color:#c39ef5;}
+  .uc-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+  .uc-src{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+  .uc h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px;}
+  .uc p{font-size:13.5px;color:var(--muted);line-height:1.7;}
+  .uc p strong{color:var(--white);}
+  .uc-action{margin-top:14px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:6px;padding:10px 14px;}
+  .uc-action-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+  .uc-action p{font-size:12.5px;color:var(--white);line-height:1.6;margin:0;}
+  /* CTA */
+  .cta-block{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(11,24,41,0) 60%);border:1px solid var(--border);border-radius:12px;padding:36px;text-align:center;margin-top:44px;}
+  .cta-block h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white);margin-bottom:10px;}
+  .cta-block p{font-size:14.5px;color:var(--muted);max-width:520px;margin:0 auto 24px;line-height:1.7;}
+  .btn-gold{display:inline-block;background:var(--gold);color:var(--navy);font-size:14px;font-weight:700;padding:13px 28px;border-radius:var(--radius);text-decoration:none;transition:all .2s;margin:4px;}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+  .btn-outline{display:inline-block;background:transparent;color:var(--white);font-size:14px;font-weight:500;padding:13px 28px;border-radius:var(--radius);text-decoration:none;border:1px solid rgba(245,240,232,.25);transition:all .2s;margin:4px;}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+  footer{background:var(--navy-mid);border-top:1px solid var(--border);margin-top:36px;padding:24px 6%;text-align:center;font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;}
+  footer a{color:var(--gold);text-decoration:none;}
+  .mob-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--navy-mid);border-top:2px solid var(--gold);padding:10px 16px;gap:10px;align-items:center;}
+  .ms-cta{flex:1;background:var(--gold);color:var(--navy);font-size:13.5px;font-weight:700;padding:13px 10px;border-radius:var(--radius);text-decoration:none;text-align:center;display:block;}
+  @media(max-width:900px){.nl{display:none;}.strategy-grid{grid-template-columns:1fr 1fr;}.breaking-grid{grid-template-columns:1fr;}}
+  @media(max-width:600px){.wrap{padding:32px 16px 60px;}.strategy-grid{grid-template-columns:1fr;}.strategy{padding:20px 18px;}.breaking{padding:18px 18px;}}
+  @media(max-width:768px){.mob-sticky{display:flex;}body{padding-bottom:76px;}}
+</style>
 </head>
-
 <body>
 
-<!-- ══════════════════════════════════════════
-     SCROLLING TICKER BANNER
-══════════════════════════════════════════ -->
-<div class="ticker-wrap" role="marquee" aria-label="Breaking updates">
-  <span class="ticker-label">LIVE</span>
-  <div class="ticker-track">
-    <!-- First pass -->
-    <span class="ticker-item"><span class="dot">●</span><span class="highlight">DEADLINE:</span> June 7, 2026 — Government appeal window closes. Stay may pause CAPE processing.</span>
-    <span class="ticker-item"><span class="dot">●</span>330,000 eligible importers · $166 billion in IEEPA duties subject to refund</span>
-    <span class="ticker-item"><span class="dot">●</span><span class="highlight">37% of CAPE declarations failed validation</span> as of April 26, 2026 — Is yours one of them?</span>
-    <span class="ticker-item"><span class="dot">●</span>First ACH refund payments began May 12, 2026 · 60–90 day processing window</span>
-    <span class="ticker-item"><span class="dot">●</span>80-day rolling window for unliquidated entries · 180-day protest deadline for liquidated entries</span>
-    <span class="ticker-item"><span class="dot">●</span>CAPE Phase 1 live since April 20, 2026 · Only IOR or authorized customs broker may file</span>
-    <span class="ticker-item"><span class="dot">●</span>ACH bank enrollment required in ACE before any refund can be issued</span>
-    <!-- Duplicate for seamless loop -->
-    <span class="ticker-item"><span class="dot">●</span><span class="highlight">DEADLINE:</span> June 7, 2026 — Government appeal window closes. Stay may pause CAPE processing.</span>
-    <span class="ticker-item"><span class="dot">●</span>330,000 eligible importers · $166 billion in IEEPA duties subject to refund</span>
-    <span class="ticker-item"><span class="dot">●</span><span class="highlight">37% of CAPE declarations failed validation</span> as of April 26, 2026 — Is yours one of them?</span>
-    <span class="ticker-item"><span class="dot">●</span>First ACH refund payments began May 12, 2026 · 60–90 day processing window</span>
-    <span class="ticker-item"><span class="dot">●</span>80-day rolling window for unliquidated entries · 180-day protest deadline for liquidated entries</span>
-    <span class="ticker-item"><span class="dot">●</span>CAPE Phase 1 live since April 20, 2026 · Only IOR or authorized customs broker may file</span>
-    <span class="ticker-item"><span class="dot">●</span>ACH bank enrollment required in ACE before any refund can be issued</span>
-  </div>
+<div class="appeal-bar" role="alert">
+  <span class="ab-tag">&#128308; Breaking</span>
+  <span class="ab-txt">DOJ signals Federal Circuit appeal &mdash; <b>CBP Commissioner ordered to appear June 9</b> &mdash; Finally liquidated entries now at risk</span>
 </div>
 
-<!-- ══════════════════════════════════════════
-     NAV
-══════════════════════════════════════════ -->
 <nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">The Tariff Bureau</a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
+  <div class="nav-i">
+    <a href="/" class="nav-logo">
+      <div class="lm"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="8" width="16" height="2" rx="1" fill="#0b1829"/><rect x="4" y="4" width="10" height="2" rx="1" fill="#0b1829"/><rect x="7" y="12" width="4" height="2" rx="1" fill="#0b1829"/></svg></div>
+      <span class="lt">The <span>Tariff</span> Bureau</span>
+    </a>
+    <ul class="nl">
       <li><a href="/about">About</a></li>
       <li><a href="/services">Services</a></li>
-      <li><a href="/updates" class="active">Updates</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/intake-smart" class="nav-cta">Check Eligibility</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/ieepa-refund-recovery">IEEPA Guide</a></li>
+      <li><a href="/screening" class="ncta">Free Screening</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     PAGE HEADER
-══════════════════════════════════════════ -->
-<div class="page-header">
-  <div class="page-header-inner">
-    <div class="eyebrow">Tariff Bureau Intelligence</div>
-    <h1>Updates &amp; Alerts</h1>
-    <p>Real-time IEEPA refund intelligence, CAPE portal developments, and deadline tracking for U.S. importers.</p>
+<div class="wrap">
+
+  <span class="page-tag">Intelligence Feed &bull; Updated June 2, 2026</span>
+  <h1 class="page-title">IEEPA Refund Crisis:<br/>DOJ Appeals &mdash; What Happens Next</h1>
+  <p class="page-sub">The landscape shifted dramatically on May 29, 2026. DOJ signaled its intent to appeal the CIT's universal refund injunction to the Federal Circuit. CBP reversed its position on finally liquidated entries. Judge Eaton summoned the CBP Commissioner to testify. Here is everything importers need to know &mdash; and The Tariff Bureau's post-June 7 strategy.</p>
+
+  <!-- BREAKING ALERT -->
+  <div class="breaking">
+    <div class="breaking-tag"><span class="bpulse"></span>Breaking &bull; June 2, 2026 &bull; Thompson Hine / Sheppard / Hogan Lovells</div>
+    <h2>DOJ Signals Federal Circuit Appeal &mdash; Finally Liquidated Entries Now at Serious Risk</h2>
+    <p>On <strong>May 29, 2026</strong>, the U.S. Department of Justice filed a motion signaling its intent to appeal the CIT's universal IEEPA refund injunction to the <strong>Federal Circuit Court of Appeals</strong>. In the same motion, <strong>CBP reversed its prior position</strong> and asserted &mdash; for the first time &mdash; that it lacks statutory authority to reliquidate "finally liquidated" entries (those more than 90 days past liquidation) without an importer-specific court order. Judge Eaton <strong>denied the DOJ motion</strong> and ordered <strong>CBP Commissioner Rodney Scott to appear in person on June 9, 2026</strong> to explain the agency's compliance timeline. The DOJ appeal deadline is <strong>June 6, 2026</strong>. An appeal to the Federal Circuit is now widely expected before then.</p>
+    <div class="breaking-grid">
+      <div class="bfact"><div class="bfact-label">DOJ Appeal Deadline</div><div class="bfact-val">June 6, 2026 &mdash; Federal Circuit</div></div>
+      <div class="bfact"><div class="bfact-label">Show Cause Hearing</div><div class="bfact-val">June 9, 2026 &mdash; CBP Commissioner testifies</div></div>
+      <div class="bfact"><div class="bfact-label">At-Risk Entries</div><div class="bfact-val">Finally liquidated entries &gt;90 days old</div></div>
+      <div class="bfact"><div class="bfact-label">Refunds Processing</div><div class="bfact-val">~$85B processed as of May 27 &mdash; Phase 1 continues</div></div>
+    </div>
   </div>
+
+  <!-- POST-JUNE 7 STRATEGY -->
+  <div class="strategy">
+    <div class="strategy-tag">&#9889; The Tariff Bureau &bull; Post-June 7 Market Strategy</div>
+    <h2>Three Revenue Pillars After the Deadline</h2>
+    <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:4px;">The CAPE Phase 1 window is not the end &mdash; it is the beginning. The DOJ appeal, finally liquidated entry dispute, CAPE Phase 2, Section 301/232 exposure, and Section 122 refund potential create three sustained advisory revenue streams post-June 7.</p>
+    <div class="strategy-grid">
+      <div class="sg">
+        <div class="sg-num">01</div>
+        <div class="sg-title">Finally Liquidated Entry Litigation</div>
+        <div class="sg-desc">Importers with entries &gt;90 days past liquidation now need individual CIT complaints to secure refunds if the DOJ appeal succeeds. The Tariff Bureau coordinates CIT complaint filing through licensed trade counsel. This is a new high-value advisory track.</div>
+      </div>
+      <div class="sg">
+        <div class="sg-num">02</div>
+        <div class="sg-title">CAPE Phase 2 + Protest Advisory</div>
+        <div class="sg-desc">CBP has not announced Phase 2 scope or timing. Entries currently excluded from Phase 1 &mdash; including those under protest &mdash; will need advisory support when Phase 2 opens. The Tariff Bureau will be positioned as the go-to Phase 2 advisory firm.</div>
+      </div>
+      <div class="sg">
+        <div class="sg-num">03</div>
+        <div class="sg-title">Section 301 / 232 Compliance Advisory</div>
+        <div class="sg-desc">The post-IEEPA tariff architecture is Section 301 and 232 driven. Both carry refund and classification dispute potential. The Tariff Bureau expands from IEEPA refund recovery into a full-spectrum tariff advisory practice for the permanent tariff era.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LATEST UPDATES -->
+  <div class="section-hd">
+    <span class="section-tag">Latest Intelligence &bull; June 2026</span>
+    <h2>Critical Developments &mdash; This Week</h2>
+  </div>
+
+  <div class="updates">
+
+    <div class="uc critical">
+      <div class="uc-meta">
+        <span class="uc-tag t-red">&#128308; Critical &bull; Breaking</span>
+        <span class="uc-date">June 1&ndash;2, 2026</span>
+        <span class="uc-src">&bull; Thompson Hine SmarTrade / Sheppard / Hogan Lovells</span>
+      </div>
+      <h3>CBP Reverses on Finally Liquidated Entries &mdash; Appeals Expected Before June 6</h3>
+      <p>In a <strong>May 29 motion</strong>, CBP asserted for the first time that it lacks authority to reliquidate entries more than 90 days past liquidation without importer-specific court orders. This directly contradicts CBP's own published IEEPA FAQ, which had promised Phase 2 coverage for finally liquidated entries. DOJ simultaneously signaled intent to appeal the CIT's universal injunction to the Federal Circuit and seek a <strong>stay limiting refunds to only those importers who have filed their own CIT complaints</strong>. Judge Eaton denied the motion and ordered <strong>CBP Commissioner Rodney Scott to appear in person June 9</strong>. As of May 27, CBP had processed approximately <strong>$85 billion</strong> in IEEPA refunds &mdash; over half the total pool.</p>
+      <div class="uc-action">
+        <div class="uc-action-label">&#9889; Action Required</div>
+        <p>If your entries include any finally liquidated entries (&gt;90 days past liquidation), <strong>do not wait for Phase 2</strong>. File a CIT complaint now through trade counsel. The Tariff Bureau can coordinate this referral. Contact us immediately.</p>
+      </div>
+    </div>
+
+    <div class="uc critical">
+      <div class="uc-meta">
+        <span class="uc-tag t-red">&#128680; Deadline Alert</span>
+        <span class="uc-date">June 6, 2026</span>
+        <span class="uc-src">&bull; DOJ / Federal Circuit</span>
+      </div>
+      <h3>DOJ Federal Circuit Appeal Deadline &mdash; Tomorrow</h3>
+      <p>The U.S. Department of Justice has until <strong>June 6, 2026</strong> to file its appeal of the CIT's universal injunction with the Federal Circuit Court of Appeals. Based on DOJ's May 29 filing, this appeal is widely expected. DOJ will argue the CIT exceeded its authority by issuing a <strong>"universal injunction"</strong> covering non-litigant importers on finally liquidated entries. If DOJ files and seeks a stay, the Federal Circuit could <strong>freeze refund processing on finally liquidated entries</strong> pending appeal. Phase 1 unliquidated refunds are expected to continue regardless.</p>
+      <div class="uc-action">
+        <div class="uc-action-label">&#9889; What This Means For You</div>
+        <p>Importers with only unliquidated or within-80-day entries in Phase 1 are likely protected. Importers relying on Phase 2 for finally liquidated entries face real risk of needing to file individual CIT cases. The Tariff Bureau is monitoring this filing in real time.</p>
+      </div>
+    </div>
+
+    <div class="uc warn">
+      <div class="uc-meta">
+        <span class="uc-tag t-amber">&#9878;&#65039; Section 122 Struck Down</span>
+        <span class="uc-date">May 20, 2026</span>
+        <span class="uc-src">&bull; Court of International Trade</span>
+      </div>
+      <h3>CIT Strikes Down Section 122 Global 10% Tariff &mdash; New Refund Pool Opening</h3>
+      <p>On <strong>May 20, 2026</strong>, the Court of International Trade ruled that the <strong>10% global Section 122 tariffs</strong> imposed February 24, 2026 are invalid. Section 122 is a balance-of-payments provision and the Court found the statutory conditions were not met. Importers who paid the 10% Section 122 tariff from February 24 through the ruling date now have a <strong>separate potential refund claim</strong> entirely distinct from IEEPA. The administration is expected to appeal and may accelerate Section 232 replacement measures before the July 24 expiration.</p>
+      <div class="uc-action">
+        <div class="uc-action-label">&#9889; New Advisory Opportunity</div>
+        <p>Section 122 refund claims follow a different CBP path than CAPE. The Tariff Bureau is evaluating Section 122 advisory services for clients with significant post-February 24 imports. If this applies to you, flag it in your intake.</p>
+      </div>
+    </div>
+
+    <div class="uc positive">
+      <div class="uc-meta">
+        <span class="uc-tag t-green">&#9989; Payments Flowing</span>
+        <span class="uc-date">May 27, 2026</span>
+        <span class="uc-src">&bull; CIT Filing / Hogan Lovells</span>
+      </div>
+      <h3>$85 Billion Processed &mdash; Phase 1 ACH Refunds Actively Hitting Accounts</h3>
+      <p>As of <strong>May 27, 2026</strong>, CBP confirmed to the CIT that it was processing approximately <strong>$85 billion</strong> in IEEPA refunds &mdash; more than half the estimated $166 billion total pool. Phase 1 ACH payments began May 12. The CBP CAPE system has now accepted over <strong>15.1 million individual entries</strong> and liquidated more than <strong>8.3 million</strong>. Importers with clean Phase 1 CAPE declarations and active ACH enrollment are receiving refunds now. Interest under 19 U.S.C. &sect; 1505 continues to accrue at an estimated <strong>$650 million per month</strong> industry-wide.</p>
+      <div class="uc-action">
+        <div class="uc-action-label">&#9889; Check Your Status</div>
+        <p>Log into ACE and run the ES-022 report to check your CAPE declaration status, entry validation, and ACH payment tracking. If you haven't filed yet, Phase 1 capacity remains open.</p>
+      </div>
+    </div>
+
+    <div class="uc intel">
+      <div class="uc-meta">
+        <span class="uc-tag t-blue">&#128202; Market Intelligence</span>
+        <span class="uc-date">May 21, 2026</span>
+        <span class="uc-src">&bull; PRNewswire / NYSE: CATO</span>
+      </div>
+      <h3>Cato Corporation Q1 Profit Triples &mdash; Directly Credits IEEPA Refund</h3>
+      <p>Cato Corp (NYSE: CATO) reported Q1 2026 net income of <strong>$9.3 million</strong> vs. $3.3 million a year ago &mdash; a 3x increase management explicitly attributed to the company's IEEPA refund claim. EPS came in at <strong>$0.47 vs. $0.17</strong>. This is the clearest public confirmation yet that IEEPA refunds are material balance sheet events for mid-market importers &mdash; not just large multinationals. The Cato filing validates The Tariff Bureau's core thesis: <strong>every eligible importer should be filing, not waiting.</strong></p>
+    </div>
+
+    <div class="uc intel">
+      <div class="uc-meta">
+        <span class="uc-tag t-purple">&#128203; Legislative</span>
+        <span class="uc-date">May 2026</span>
+        <span class="uc-src">&bull; U.S. Senate &bull; S.3905</span>
+      </div>
+      <h3>Tariff Refund Act of 2026 (S.3905) &mdash; Legislative Backstop Independent of Appeal</h3>
+      <p>Senate bill <strong>S.3905</strong>, co-sponsored by Senator Hickenlooper (CO) and a bipartisan coalition, would require CBP to refund all IEEPA duties within <strong>180 days of enactment</strong> with statutory interest &mdash; and create a priority queue for small businesses. Critically, this legislation would function as a <strong>backstop independent of the Federal Circuit appeal</strong>. A successful DOJ appeal would not defeat the bill's mandate if enacted. A separate coalition of <strong>26 Senators</strong> wrote to CBP Commissioner Scott calling for <strong>fully automated refunds</strong> using CBP's existing data, bypassing the CAPE opt-in process entirely.</p>
+    </div>
+
+    <div class="uc warn">
+      <div class="uc-meta">
+        <span class="uc-tag t-amber">&#9888;&#65039; Post-IEEPA Tariff Landscape</span>
+        <span class="uc-date">March&ndash;June 2026</span>
+        <span class="uc-src">&bull; USTR / Foley &amp; Lardner / Plante Moran</span>
+      </div>
+      <h3>Section 301 &amp; 232 Now Anchor U.S. Tariff Architecture &mdash; Permanent Exposure for Importers</h3>
+      <p>The post-IEEPA tariff landscape is organized around <strong>three permanent authorities</strong>: Section 122 (expiring July 24, now struck down), <strong>Section 232</strong> as the national security tool, and <strong>Section 301</strong> as the country/policy unfair-trade tool. USTR has initiated sweeping Section 301 investigations targeting <strong>16 major trading partners</strong> for structural overcapacity in steel, autos, semiconductors, batteries, and chemicals. Section 232 tariffs on steel (25%) and aluminum remain in force and were modified April 6. <strong>Vietnam was named Priority Foreign Country</strong> on April 30, opening a Section 301 investigation with new tariffs expected post-July 24. Effective landed duty on China-origin goods now routinely exceeds <strong>50%</strong>.</p>
+      <div class="uc-action">
+        <div class="uc-action-label">&#9889; Strategic Implication</div>
+        <p>Tariffs are permanent. Importers need ongoing classification analysis, supply chain rerouting advisory, and Section 301/232 exposure monitoring &mdash; not just a one-time IEEPA refund claim. The Tariff Bureau's Phase 2 practice is built for this.</p>
+      </div>
+    </div>
+
+    <div class="uc intel">
+      <div class="uc-meta">
+        <span class="uc-tag t-blue">&#127963;&#65039; Compliance Warning</span>
+        <span class="uc-date">April 21, 2026</span>
+        <span class="uc-src">&bull; PRNewswire &bull; Gaia Dynamics</span>
+      </div>
+      <h3>30% Error Rate in CAPE Filings &mdash; CBP Declares 2026 &ldquo;Year of the Audit&rdquo;</h3>
+      <p>Gaia Dynamics analyzed over <strong>300,000 IEEPA entry line items</strong> and found a <strong>30% discrepancy rate</strong> in CAPE submissions. Common errors: wrong Chapter 99 HTS codes, entries not enrolled for ACH, CSV formatting errors, and mixing non-IEEPA entries in the declaration file. CBP has officially designated <strong>2026 as "The Year of the Audit."</strong> CAPE submissions reopen historical entries to CBP scrutiny. A rejected declaration does not just delay your refund &mdash; it can trigger a full compliance audit of your import history.</p>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;">The Tariff Bureau &bull; Act Now</div>
+    <h2>Your Refund Path &mdash; Even After June 7</h2>
+    <p>The DOJ appeal changes the landscape but does not close it. Phase 1 refunds continue. Finally liquidated entries need individual CIT filings. Section 122 creates a new recovery pool. The Tariff Bureau is your guide through every phase &mdash; start with a free eligibility screening today.</p>
+    <a href="/screening" class="btn-gold">Free Eligibility Screening &rarr;</a>
+    <a href="tel:+14048825839" class="btn-outline">&#128222; (404) 882-5839</a>
+    <p style="font-size:11.5px;color:var(--muted);margin-top:16px;margin-bottom:0;">Mon&ndash;Fri 9am&ndash;6pm ET &bull; <a href="mailto:hello@tariffbureau.com" style="color:var(--gold);text-decoration:none;">hello@tariffbureau.com</a> &bull; Advisory only &mdash; not legal advice</p>
+  </div>
+
 </div>
 
-<!-- ══════════════════════════════════════════
-     MAIN CONTENT
-══════════════════════════════════════════ -->
-<main class="main">
+<div class="mob-sticky">
+  <a href="/screening" class="ms-cta">Free Screening &rarr;</a>
+</div>
 
-  <!-- URGENT BANNER -->
-  <div class="alert-banner">
-    <div class="alert-icon">🚨</div>
-    <div>
-      <strong>CRITICAL DEADLINE: June 7, 2026 — Government Appeal Window Closes</strong>
-      <p>If the government files an appeal and a court stay is granted, CAPE refund processing may pause. Importers who have not yet filed are at risk of losing their recovery window. <a href="/intake-smart">Check your eligibility now →</a></p>
-    </div>
-  </div>
-
-  <!-- FEATURED UPDATE -->
-  <div class="section-label">Latest Update</div>
-
-  <div class="update-card featured">
-    <div class="card-meta">
-      <span class="badge badge-urgent">Urgent</span>
-      <span class="card-date">May 27, 2026</span>
-    </div>
-    <h2>Nearly 150,000 Importers Facing CAPE Rejection — And Most Don't Know It Yet</h2>
-
-    <p>Since the CBP CAPE portal opened on April 20, 2026, tens of thousands of IEEPA refund declarations have failed validation — many from importers who believed their filings were complete. CBP data shows that approximately <strong>37% of all CAPE declarations submitted failed file-level validation</strong>, meaning the entire submission was rejected before a single entry was reviewed.</p>
-
-    <div class="stat-row">
-      <div class="stat-box">
-        <span class="stat-number">330K</span>
-        <span class="stat-label">Eligible importers who paid IEEPA duties</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-number">$166B</span>
-        <span class="stat-label">Total IEEPA duties paid — eligible for refund</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-number">37%</span>
-        <span class="stat-label">Of CAPE declarations failed validation as of April 26</span>
-      </div>
-    </div>
-
-    <p>The most common reasons for rejection include formatting errors in the CSV upload (hidden spaces, improper entry number format), entries outside the 80-day liquidation window, missing IEEPA HTS codes, and mismatches between the filer's ACE account and the Importer of Record on file. When a declaration fails file-level validation, <strong>ACE rejects the entire submission</strong> — not just individual entries.</p>
-
-    <div class="deadline-box">
-      <div class="deadline-icon">⏳</div>
-      <div>
-        <strong>The 80-Day Rolling Window Is Closing Every Day</strong>
-        <p>CAPE Phase 1 covers unliquidated entries and entries within 80 days of liquidation. Entries that liquidated in February and March 2026 may already be outside this window. Importers with liquidated entries have a 180-day protest window under 19 U.S.C. §1514 — but that clock is running.</p>
-      </div>
-    </div>
-
-    <p>For importers who are not U.S. customs brokers, navigating ACE validation rules, entry classification, and liquidation timelines is a technical and procedural challenge. The consequences of a missed or rejected filing are significant: once the protest window closes, CBP has no obligation to issue a refund, regardless of the amount owed.</p>
-
-    <p><strong>The Tariff Bureau LLC provides AI-powered IEEPA refund advisory services</strong> — helping U.S. importers assess eligibility, estimate refund exposure, and coordinate with licensed customs brokers for accurate CAPE declaration preparation. Our free eligibility screening takes under five minutes.</p>
-
-    <a href="/intake-smart" class="card-cta">Run Your Free Eligibility Screening →</a>
-  </div>
-
-  <!-- PRIOR UPDATES -->
-  <div class="section-label">Prior Updates</div>
-
-  <div class="update-card">
-    <div class="card-meta">
-      <span class="badge badge-update">CAPE Update</span>
-      <span class="card-date">May 12, 2026</span>
-    </div>
-    <h2>First CAPE Refund Payments Begin — What Approved Filers Need to Know</h2>
-    <p>The U.S. Department of Treasury began issuing the first ACH refund payments for approved IEEPA CAPE declarations on May 12, 2026. Refunds are consolidated — a single ACH payment covers all approved entries within a declaration — and include applicable statutory interest. Only importers with valid ACH banking information enrolled in ACE are eligible to receive payments.</p>
-    <ul class="update-list">
-      <li>ACH bank enrollment in ACE is required before any refund can be issued</li>
-      <li>The REV-603 Trade Refund report in ACE tracks successful refunds</li>
-      <li>The REV-613 ACH Rejected Refunds report shows any ACH failures due to missing enrollment</li>
-      <li>CBP estimates 60–90 days from declaration acceptance to payment for most approved claims</li>
-    </ul>
-  </div>
-
-  <div class="update-card">
-    <div class="card-meta">
-      <span class="badge badge-update">Portal Alert</span>
-      <span class="card-date">April 28, 2026</span>
-    </div>
-    <h2>CBP Files CIT Status Update: 75,306 Declarations Submitted in First Week</h2>
-    <p>On April 28, 2026, CBP Executive Director Brandon Lord filed a status declaration with the U.S. Court of International Trade confirming that, as of April 26, over 75,000 CAPE declarations had been submitted covering more than 11 million entries — approximately 21% of total eligible entries. Of those, roughly 63% passed file validation. CBP confirmed that approximately 1.74 million validated entries had already been liquidated and entered the refund processing queue.</p>
-    <ul class="update-list">
-      <li>75,306 CAPE declarations submitted as of April 26, 2026</li>
-      <li>47,315 passed file validation (~63%); approximately 28,000 were rejected outright</li>
-      <li>11.2 million entries covered — roughly 21% of total eligible entries</li>
-      <li>1.74 million entries already liquidated and in refund processing</li>
-    </ul>
-  </div>
-
-  <div class="update-card">
-    <div class="card-meta">
-      <span class="badge badge-update">CAPE Launch</span>
-      <span class="card-date">April 20, 2026</span>
-    </div>
-    <h2>CAPE Phase 1 Goes Live — The 80-Day Window Starts Now</h2>
-    <p>U.S. Customs and Border Protection officially launched CAPE Phase 1 on April 20, 2026 at 8:00 a.m. ET, opening the first electronic pathway for IEEPA tariff refund claims. Phase 1 is limited to unliquidated entries and entries within 80 days of liquidation. Additional phases will expand eligibility to reconciliation entries, drawback claims, and historically liquidated entries later in 2026. Entries subject to antidumping or countervailing duties are excluded from Phase 1.</p>
-    <ul class="update-list">
-      <li>Submissions require a CSV file (CBP template) uploaded via the CAPE tab in ACE</li>
-      <li>Each CAPE Declaration limited to 9,999 entries — multiple submissions allowed</li>
-      <li>No supporting documentation required at time of submission</li>
-      <li>Only the Importer of Record or the authorized customs broker who filed the entries may submit</li>
-    </ul>
-  </div>
-
-  <div class="update-card">
-    <div class="card-meta">
-      <span class="badge badge-market">Background</span>
-      <span class="card-date">February 2026</span>
-    </div>
-    <h2>Supreme Court Rules IEEPA Tariffs Unlawful — $166 Billion Refund Universe Opens</h2>
-    <p>In February 2026, the U.S. Supreme Court held that tariffs imposed under the International Emergency Economic Powers Act (IEEPA) were unlawful. The ruling covered tariffs paid beginning February 4, 2025 (fentanyl-related) and April 5, 2025 (reciprocal tariffs), as well as tariffs related to Venezuela, Brazil, and Russia. Subsequent Court of International Trade orders directed CBP to liquidate and reliquidate entries without IEEPA duties and to develop a scalable refund mechanism — which became CAPE. An estimated 330,000 importers paid approximately $166 billion in IEEPA duties across more than 53 million entries.</p>
-  </div>
-
-</main>
-
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
 <footer>
-  <p><strong>The Tariff Bureau LLC</strong></p>
-  <p>3343 Peachtree Rd NE, Suite 145 PMB 550 &nbsp;·&nbsp; Atlanta, Georgia 30326</p>
-  <p style="margin-top:8px;">
-    <a href="tel:+14048825839">(404) 882-5839</a> &nbsp;·&nbsp;
-    <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a> &nbsp;·&nbsp;
-    <a href="https://tariffbureau.com">tariffbureau.com</a>
-  </p>
-  <p style="margin-top:16px; font-size:0.75rem; color:#6b9e8e;">
-    &copy; 2026 The Tariff Bureau LLC &nbsp;·&nbsp;
-    <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="/terms">Terms of Service</a>
-  </p>
-  <p style="margin-top:8px; font-size:0.72rem; color:#4d7a6b; max-width:640px; margin-left:auto; margin-right:auto;">
-    The Tariff Bureau LLC provides AI-powered advisory services only. We are not a licensed customs broker, attorney, or financial advisor. Nothing on this page constitutes legal or financial advice. Importers should work with a licensed customs broker for CAPE declaration preparation and submission.
-  </p>
+  TariffIQ&trade; is an AI advisory tool &mdash; not legal advice &nbsp;&middot;&nbsp;
+  <a href="/terms">Terms</a> &nbsp;&middot;&nbsp;
+  <a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp;
+  <a href="/">Home</a> &nbsp;&middot;&nbsp;
+  &copy; 2026 The Tariff Bureau LLC
 </footer>
 
-<!-- ══════════════════════════════════════════
-     CLOUDFLARE WEB ANALYTICS
-══════════════════════════════════════════ -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-  data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"2892db64ba004db7afaf3e87cd369425"}'></script>
 
+</script>
 </body>
 </html>
