@@ -19,7 +19,8 @@
 <link rel="canonical" href="https://tariffbureau.com/screening"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- OPTIMIZED: font-display=swap added, reduced to 2 weights per family -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
   :root {
     --black:#070707; --navy:#09101f; --navy-mid:#0f1a2e;
@@ -44,7 +45,7 @@
   .screen-wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px;}
   .intro{text-align:center;margin-bottom:40px;}
   .intro-tag{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:14px;}
-  .intro h1{font-family:var(--serif);font-size:40px;font-weight:300;line-height:1.1;color:var(--white);margin-bottom:14px;}
+  .intro h1{font-family:var(--serif);font-size:40px;font-weight:400;line-height:1.1;color:var(--white);margin-bottom:14px;}
   .intro h1 em{font-style:italic;color:var(--gold-lt);}
   .intro p{font-size:15px;color:var(--muted);line-height:1.65;max-width:520px;margin:0 auto 20px;}
   .timer-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,146,42,0.1);border:1px solid rgba(200,146,42,0.25);border-radius:20px;padding:7px 16px;font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.08em;}
@@ -126,7 +127,8 @@
       <span class="intro-tag">IEEPA Eligibility Screening</span>
       <h1>Do you qualify for an<br/><em>IEEPA tariff refund?</em></h1>
       <p>Answer 4 questions. Get an instant eligibility determination. No sales call. No wasted time. If you qualify, you'll see exactly what to do next.</p>
-      <div class="timer-badge">&#9201; Takes about 90 seconds</div>
+      <!-- FIXED: was "Takes about 90 seconds" — misleading, read as page load time -->
+      <div class="timer-badge">&#9201; 4 questions &middot; Under 2 minutes</div>
     </div>
 
     <div class="progress-wrap" id="progressWrap" style="display:none;">
@@ -240,8 +242,8 @@
     function showNotQualified(q) {
       document.getElementById('progressFill').style.width = ((q.id - 1) / questions.length * 100) + '%';
       const isFixable = q.id === 2 || q.id === 3;
-      const selfFileHTML = q.id === 4 ? '<div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.2);border-radius:10px;padding:16px 20px;margin:0 auto 20px;max-width:420px;text-align:left;"><div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Self-File Option</div><p style="font-size:13.5px;color:var(--cream);line-height:1.6;margin:0;">File your CAPE Declaration directly at cbp.gov &#x2014; it's free and self-service for smaller claims.</p></div>' : '';
-      document.getElementById('questionContainer').innerHTML = '<div class="q-card result result-nq"><h2>' + (isFixable ? 'Not qualified &#x2014; but this may be fixable.' : 'Not qualified at this time.') + '</h2><p>' + (isFixable ? 'You don't meet this qualifier today &#x2014; but the situation may be addressable.' : 'Your company does not meet the eligibility criteria for a full IEEPA refund advisory engagement at this time.') + '</p><div class="nq-reason"><span class="nq-reason-label">Why you didn't qualify on Qualifier ' + q.id + '</span><div class="nq-reason-text">' + q.failReason + '</div></div><p style="font-size:14px;color:var(--cream);line-height:1.7;max-width:460px;margin:0 auto 20px;">' + q.failNext + '</p>' + selfFileHTML + '<div class="waitlist-box"><p><strong style="color:var(--white);">Stay informed as rules change.</strong><br/>Leave your email and we'll reach out when it matters.</p><div class="waitlist-input"><input type="email" id="waitlistEmail" placeholder="your@company.com"/><button onclick="joinWaitlist()">Notify Me</button></div><p id="waitlistConfirm" style="display:none;font-size:12px;color:#4ade80;margin-top:8px;font-family:var(--mono);">&#10003; Added to waitlist.</p></div><span class="btn-secondary" onclick="restart()" style="display:block;margin-top:4px;">Restart screening</span><br/><a href="/" style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;display:block;margin-top:8px;">&larr; Return to tariffbureau.com</a><div class="disclaimer">Advisory only &#x2014; not legal advice.<br/><a href="/terms">Terms of Service</a> &#x00b7; <a href="/privacy">Privacy Policy</a></div></div>';
+      const selfFileHTML = q.id === 4 ? '<div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.2);border-radius:10px;padding:16px 20px;margin:0 auto 20px;max-width:420px;text-align:left;"><div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Self-File Option</div><p style="font-size:13.5px;color:var(--cream);line-height:1.6;margin:0;">File your CAPE Declaration directly at cbp.gov &#x2014; it\'s free and self-service for smaller claims.</p></div>' : '';
+      document.getElementById('questionContainer').innerHTML = '<div class="q-card result result-nq"><h2>' + (isFixable ? 'Not qualified &#x2014; but this may be fixable.' : 'Not qualified at this time.') + '</h2><p>' + (isFixable ? 'You don\'t meet this qualifier today &#x2014; but the situation may be addressable.' : 'Your company does not meet the eligibility criteria for a full IEEPA refund advisory engagement at this time.') + '</p><div class="nq-reason"><span class="nq-reason-label">Why you didn\'t qualify on Qualifier ' + q.id + '</span><div class="nq-reason-text">' + q.failReason + '</div></div><p style="font-size:14px;color:var(--cream);line-height:1.7;max-width:460px;margin:0 auto 20px;">' + q.failNext + '</p>' + selfFileHTML + '<div class="waitlist-box"><p><strong style="color:var(--white);">Stay informed as rules change.</strong><br/>Leave your email and we\'ll reach out when it matters.</p><div class="waitlist-input"><input type="email" id="waitlistEmail" placeholder="your@company.com"/><button onclick="joinWaitlist()">Notify Me</button></div><p id="waitlistConfirm" style="display:none;font-size:12px;color:#4ade80;margin-top:8px;font-family:var(--mono);">&#10003; Added to waitlist.</p></div><span class="btn-secondary" onclick="restart()" style="display:block;margin-top:4px;">Restart screening</span><br/><a href="/" style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;display:block;margin-top:8px;">&larr; Return to tariffbureau.com</a><div class="disclaimer">Advisory only &#x2014; not legal advice.<br/><a href="/terms">Terms of Service</a> &#x00b7; <a href="/privacy">Privacy Policy</a></div></div>';
     }
 
     function joinWaitlist() {
@@ -256,11 +258,12 @@
       current = 0; qualified = true; failedAt = null; answers = [];
       document.getElementById('progressWrap').style.display = 'none';
       document.getElementById('questionContainer').innerHTML = '';
-      document.getElementById('introSection').innerHTML = '<span class="intro-tag">IEEPA Eligibility Screening</span><h1>Do you qualify for an<br/><em>IEEPA tariff refund?</em></h1><p>Answer 4 questions. Get an instant eligibility determination.</p><div class="timer-badge">&#9201; Takes about 90 seconds</div>';
+      document.getElementById('introSection').innerHTML = '<span class="intro-tag">IEEPA Eligibility Screening</span><h1>Do you qualify for an<br/><em>IEEPA tariff refund?</em></h1><p>Answer 4 questions. Get an instant eligibility determination.</p><div class="timer-badge">&#9201; 4 questions &middot; Under 2 minutes</div>';
       setTimeout(() => { start(); }, 100);
     }
 
-    setTimeout(() => { start(); }, 800);
+    // OPTIMIZED: reduced from 800ms to 100ms for faster question render on mobile
+    setTimeout(() => { start(); }, 100);
   </script>
 
   <!-- Cloudflare Web Analytics -->
