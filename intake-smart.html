@@ -513,7 +513,6 @@ function renderErrorReport(errorMessage, totalDuty) {
         '</div>' +
       '</div>' +
       '<div class="report-actions">' +
-        '<a class="btn-engage" href="/intake?ref=' + refId + '&company=' + encodeURIComponent(formData.company) + '">Proceed to Full Engagement &rarr;</a>' +
         '<button class="btn-restart" onclick="location.reload()">Start New Assessment</button>' +
       '</div>' +
     '</div>' +
@@ -540,7 +539,7 @@ function renderReport(reportText, totalDuty) {
     return line.trim() ? '<p style="margin-bottom:10px;">' + line + '</p>' : '';
   }).join('');
 
-  document.getElementById('formContainer').innerHTML = '<div class="report-card"><div class="report-header"><div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div><div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div></div><div class="report-body">' + verdictBadge + '<div class="report-section-content">' + formatted + '</div></div><div class="report-actions"><button class="btn-print" onclick="window.print()">&#128424; Print / Save PDF</button><a class="btn-engage" href="/intake?ref=' + refId + '&company=' + encodeURIComponent(formData.company) + '">Proceed to Full Engagement &rarr;</a><button class="btn-restart" onclick="location.reload()">Start New Assessment</button></div></div><div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
+  document.getElementById('formContainer').innerHTML = '<div class="report-card"><div class="report-header"><div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div><div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div></div><div class="report-body">' + verdictBadge + '<div class="report-section-content">' + formatted + '</div></div><div class="report-actions"><button class="btn-restart" onclick="location.reload()">Start New Assessment</button></div></div><div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
 // Routes lead data to /api/notify which emails terrence@tariffbureau.com via Resend
