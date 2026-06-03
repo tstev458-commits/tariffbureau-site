@@ -578,7 +578,7 @@ function renderReport(reportText, totalDuty) {
 
 async function submitToFormspree() {
   try {
-    await fetch('/api/notify', {
+    await fetch('/api/intake', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -598,6 +598,7 @@ async function submitToFormspree() {
       })
     });
   } catch(e) { console.log('Notify skip', e); }
+  window.location.href = '/thank-you';
 }
 
 function goTo(s) {
