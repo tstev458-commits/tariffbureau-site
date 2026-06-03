@@ -195,6 +195,12 @@
     .disclaimer{margin-top:28px;font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.7;letter-spacing:0.04em;text-align:center;}
     .disclaimer a{color:var(--gold);}
 
+    /* ── Error box shown when /api/chat fails ── */
+    .api-error-box{background:rgba(155,28,28,0.12);border:1px solid rgba(155,28,28,0.35);border-radius:10px;padding:20px 24px;margin-top:16px;}
+    .api-error-box h3{font-family:var(--mono);font-size:11px;color:#f87171;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+    .api-error-box p{font-size:13px;color:var(--cream);line-height:1.6;margin-bottom:6px;}
+    .api-error-box code{font-family:var(--mono);font-size:11px;color:#fca5a5;background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:3px;word-break:break-all;}
+
     footer{background:var(--navy);border-top:1px solid rgba(200,146,42,0.13);color:var(--muted);padding:36px 7%;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;flex-wrap:wrap;gap:12px;}
     .footer-brand{font-family:var(--serif);font-size:16px;color:var(--cream);}
     .footer-links{display:flex;gap:22px;flex-wrap:wrap;}
@@ -419,6 +425,9 @@ function showGenerating() {
   });
 }
 
+// ─────────────────────────────────────────────────────────────
+// generateReport — robust fetch with full error surfacing
+// ─────────────────────────────────────────────────────────────
 async function generateReport() {
   const btn = document.getElementById('submitBtn');
   if (btn) btn.disabled = true;
@@ -434,20 +443,81 @@ async function generateReport() {
 
   const prompt = 'You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau. Generate a formal IEEPA Eligibility Determination Report.\n\nCOMPANY: ' + formData.company + '\nCONTACT: ' + formData.contact + '\nEMAIL: ' + formData.email + '\nCOUNTRY: ' + formData.country + '\nENTITY: ' + formData.entityType + '\nIMPORTER TYPE: ' + formData.importerType + '\nBROKER: ' + (formData.brokerName||'None') + '\n\nENTRIES:\n' + (entryList||'No entries — general assessment') + '\n\nTOTAL IEEPA DUTIES: $' + total.toLocaleString() + '\nINTEREST RATE: ' + interestRate + '%\n\nCOMPLIANCE: ACE=' + formData.hasAce + ', ACH=' + formData.hasAch + ', Disclosures=' + formData.priorDisclosures + ', Valuation=' + formData.valuationMethod + ', Transshipment=' + formData.transshipment + '\nNOTES: ' + (formData.additionalInfo||'None') + '\n\nGenerate a structured report with sections: 1. PRELIMINARY VERDICT 2. IEEPA EXPOSURE ANALYSIS 3. PHASE 1 CAPE ELIGIBILITY 4. FCA RISK ASSESSMENT 5. ACE & ACH STATUS 6. RECOMMENDED NEXT STEPS 7. ADVISORY NOTES\n\nEnd with: "This assessment is advisory only and does not constitute legal advice. — Alex Monroe, TariffIQ\u2122, The Tariff Bureau LLC"';
 
+  let rawText = '';
+  let httpStatus = null;
+
   try {
     const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages: [{ role: 'user', content: prompt }] })
     });
-    const data = await res.json();
-    const report = data.reply || data.error || 'Unable to generate report. Please contact hello@tariffbureau.com.';
+
+    httpStatus = res.status;
+
+    // Always read as text first — never call .json() directly
+    rawText = await res.text();
+
+    // Guard: empty body
+    if (!rawText || !rawText.trim()) {
+      throw new Error('Empty response from /api/chat (HTTP ' + httpStatus + '). Check that the serverless function is deployed and ANTHROPIC_API_KEY is set in Vercel environment variables.');
+    }
+
+    // Guard: HTML error page (Vercel 404/500, auth wall, etc.)
+    if (rawText.trim().startsWith('<')) {
+      throw new Error('Server returned an HTML page instead of JSON (HTTP ' + httpStatus + '). The /api/chat route may not exist or is throwing an unhandled error. Raw preview: ' + rawText.slice(0, 200));
+    }
+
+    // Now safe to parse
+    let data;
+    try {
+      data = JSON.parse(rawText);
+    } catch (parseErr) {
+      throw new Error('Response is not valid JSON (HTTP ' + httpStatus + '). Parse error: ' + parseErr.message + '. Raw preview: ' + rawText.slice(0, 200));
+    }
+
+    // Handle API-level errors returned as JSON
+    if (data.error && !data.reply) {
+      throw new Error('API returned an error: ' + (typeof data.error === 'string' ? data.error : JSON.stringify(data.error)));
+    }
+
+    const report = data.reply || 'Report generated but no content returned. Please contact hello@tariffbureau.com.';
     await new Promise(r => setTimeout(r, 1000));
     renderReport(report, total);
     submitToFormspree();
+
   } catch(err) {
-    renderReport('Unable to connect to TariffIQ at this time. Please email your intake data to hello@tariffbureau.com and Alex Monroe will respond within one business day.\n\nError: ' + err.message, total);
+    // Render a helpful error card instead of the generic fallback message
+    await new Promise(r => setTimeout(r, 600));
+    renderErrorReport(err.message, total);
   }
+}
+
+function renderErrorReport(errorMessage, totalDuty) {
+  const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const refId = 'TB-' + Date.now().toString(36).toUpperCase();
+
+  document.getElementById('formContainer').innerHTML =
+    '<div class="report-card">' +
+      '<div class="report-header">' +
+        '<div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div>' +
+        '<div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:#f87171;">Connection Error</span></div>' +
+      '</div>' +
+      '<div class="report-body">' +
+        '<div class="verdict-badge verdict-disqualified">&#9888; TariffIQ Connection Error</div>' +
+        '<div class="api-error-box">' +
+          '<h3>&#9888; Unable to reach TariffIQ at this time</h3>' +
+          '<p>Your intake data was received but the AI analysis could not complete. Alex Monroe will follow up manually.</p>' +
+          '<p><strong>What to do now:</strong> Email <a href="mailto:hello@tariffbureau.com" style="color:var(--gold);">hello@tariffbureau.com</a> with your company name and Reference ID below. Alex Monroe will respond within one business day.</p>' +
+          '<p style="margin-top:10px;font-family:var(--mono);font-size:10px;color:var(--muted);">Technical detail: <code>' + errorMessage.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</code></p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="report-actions">' +
+        '<a class="btn-engage" href="/intake?ref=' + refId + '&company=' + encodeURIComponent(formData.company) + '">Proceed to Full Engagement &rarr;</a>' +
+        '<button class="btn-restart" onclick="location.reload()">Start New Assessment</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="disclaimer">Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
 function renderReport(reportText, totalDuty) {
