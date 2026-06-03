@@ -34,7 +34,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -70,8 +69,9 @@
 
   .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 20px;
     list-style: none;
+    align-items: center;
   }
 
   .nav-links a {
@@ -83,6 +83,19 @@
   }
 
   .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-links .nav-cta {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 3px;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    transition: background 0.18s;
+  }
+
+  .nav-links .nav-cta:hover { background: var(--gold-light); color: var(--navy); }
 
   /* HERO STRIP */
   .hero-strip {
@@ -273,7 +286,6 @@
 
   .field-error.visible { display: block; }
 
-  /* DIVIDER */
   .form-divider {
     border: none;
     border-top: 1px solid var(--border);
@@ -355,6 +367,293 @@
     flex-shrink: 0;
   }
 
+  /* ==============================
+     REPORT SECTION (hidden until generated)
+     ============================== */
+  #reportSection {
+    display: none;
+    margin-top: 40px;
+  }
+
+  .report-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 36px 40px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--navy);
+  }
+
+  @media (max-width: 600px) { .report-card { padding: 24px 20px; } }
+
+  .report-card h1, .report-card h2, .report-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy);
+    margin: 24px 0 10px;
+    line-height: 1.3;
+  }
+
+  .report-card h1 { font-size: 22px; }
+  .report-card h2 { font-size: 18px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .report-card h3 { font-size: 15px; color: var(--navy-light); }
+
+  .report-card p { margin-bottom: 12px; }
+  .report-card ul, .report-card ol { margin: 10px 0 14px 20px; }
+  .report-card li { margin-bottom: 6px; }
+  .report-card strong { color: var(--navy); font-weight: 600; }
+  .report-card em { color: var(--gold); font-style: normal; font-weight: 500; }
+
+  .report-card hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  .report-header {
+    background: var(--navy);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .report-header-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .report-header-text p:first-child {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .report-header-text p:last-child {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+  }
+
+  /* REPORT LOADING STATE */
+  .report-loading {
+    text-align: center;
+    padding: 48px 20px;
+  }
+
+  .report-loading-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(201,168,76,0.2);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+  }
+
+  .report-loading p {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .report-loading strong {
+    color: var(--navy);
+    display: block;
+    font-size: 17px;
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ==============================
+     POST-REPORT CTA — TWO PATH
+     ============================== */
+  .post-report-cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2145 100%);
+    border-top: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 52px 40px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) { .post-report-cta { padding: 36px 20px; } }
+
+  .post-cta-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .post-cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .post-cta-intro {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* TWO PATH CARDS */
+  .cta-two-path {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+
+  @media (max-width: 580px) {
+    .cta-two-path { grid-template-columns: 1fr; }
+  }
+
+  .cta-path-card {
+    border-radius: 4px;
+    padding: 28px 24px;
+    text-align: left;
+    position: relative;
+    transition: transform 0.15s;
+  }
+
+  .cta-path-card:hover { transform: translateY(-2px); }
+
+  .cta-path-card.path-talk {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .cta-path-card.path-proceed {
+    background: var(--gold);
+    border: 1px solid var(--gold);
+  }
+
+  .cta-path-icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .cta-path-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .path-talk .cta-path-label { color: var(--gold); }
+  .path-proceed .cta-path-label { color: rgba(10,22,40,0.6); }
+
+  .cta-path-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .path-talk .cta-path-title { color: var(--white); }
+  .path-proceed .cta-path-title { color: var(--navy); }
+
+  .cta-path-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .path-talk .cta-path-desc { color: rgba(255,255,255,0.55); }
+  .path-proceed .cta-path-desc { color: rgba(10,22,40,0.65); }
+
+  .cta-path-btn {
+    display: block;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 13px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.18s, color 0.18s;
+  }
+
+  .path-talk .cta-path-btn {
+    background: transparent;
+    border: 1.5px solid rgba(201,168,76,0.5);
+    color: var(--gold-light);
+  }
+
+  .path-talk .cta-path-btn:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+  }
+
+  .path-proceed .cta-path-btn {
+    background: var(--navy);
+    border: 1.5px solid var(--navy);
+    color: var(--white);
+  }
+
+  .path-proceed .cta-path-btn:hover { background: var(--navy-light); }
+
+  .post-cta-restart {
+    margin-top: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .post-cta-restart a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(255,255,255,0.2);
+    cursor: pointer;
+  }
+
+  .post-cta-restart a:hover { color: rgba(255,255,255,0.6); }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .disclaimer strong { color: var(--navy); }
+
   /* FOOTER */
   footer {
     background: var(--navy);
@@ -363,14 +662,13 @@
     border-top: 1px solid rgba(201,168,76,0.2);
   }
 
-  footer p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.6;
-  }
-
+  footer p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
   footer a { color: rgba(201,168,76,0.7); text-decoration: none; }
   footer a:hover { color: var(--gold-light); }
+
+  /* Markdown rendering helpers */
+  .md-content h2 { margin-top: 28px; }
+  .md-content p + p { margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -381,7 +679,7 @@
     <li><a href="/">Home</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/updates">Updates</a></li>
-    <li><a href="/intake-smart">Start Claim</a></li>
+    <li><a href="/intake-smart" class="nav-cta">Full Intake &rarr;</a></li>
   </ul>
 </nav>
 
@@ -393,116 +691,181 @@
 
 <div class="page-wrap">
 
-  <div class="alex-intro">
-    <div class="alex-avatar">AM</div>
-    <div class="alex-text">
-      <p>Alex Monroe &mdash; TariffIQ&trade; Analyst</p>
-      <p>Answer five questions about your import profile and I'll give you an honest estimate of your potential refund exposure under IEEPA Section 232/301 relief. Takes under a minute. No personal information required.</p>
+  <!-- FORM SECTION -->
+  <div id="formSection">
+    <div class="alex-intro">
+      <div class="alex-avatar">AM</div>
+      <div class="alex-text">
+        <p>Alex Monroe &mdash; TariffIQ&trade; Analyst</p>
+        <p>Answer five questions about your import profile and I'll give you an honest estimate of your potential refund exposure under IEEPA Section 232/301 relief. Takes under a minute. No personal information required.</p>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="form-section-title">Your Import Profile</div>
+
+      <form id="assessmentForm" novalidate>
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="country">Country of Origin <span class="req">*</span></label>
+            <select id="country" name="country" required>
+              <option value="">Select country&hellip;</option>
+              <option value="CN">China (PRC)</option>
+              <option value="VN">Vietnam</option>
+              <option value="IN">India</option>
+              <option value="MX">Mexico</option>
+              <option value="KR">South Korea</option>
+              <option value="TW">Taiwan</option>
+              <option value="TH">Thailand</option>
+              <option value="DE">Germany</option>
+              <option value="JP">Japan</option>
+              <option value="CA">Canada</option>
+              <option value="OTHER">Other</option>
+            </select>
+            <span class="field-error" id="err-country">Please select a country of origin.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Product Category <span class="req">*</span></label>
+            <select id="category" name="category" required>
+              <option value="">Select category&hellip;</option>
+              <option value="electronics">Electronics &amp; Components</option>
+              <option value="machinery">Machinery &amp; Equipment</option>
+              <option value="steel">Steel &amp; Aluminum Products</option>
+              <option value="apparel">Apparel &amp; Textiles</option>
+              <option value="chemicals">Chemicals &amp; Plastics</option>
+              <option value="furniture">Furniture &amp; Fixtures</option>
+              <option value="auto">Auto Parts &amp; Vehicles</option>
+              <option value="consumer">Consumer Goods</option>
+              <option value="food">Food &amp; Agricultural</option>
+              <option value="other">Other / Mixed</option>
+            </select>
+            <span class="field-error" id="err-category">Please select a product category.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="import_value">Annual Import Value (USD) <span class="req">*</span></label>
+            <select id="import_value" name="import_value" required>
+              <option value="">Select range&hellip;</option>
+              <option value="250000">Under $250K</option>
+              <option value="750000">$250K &ndash; $1M</option>
+              <option value="3000000">$1M &ndash; $5M</option>
+              <option value="12500000">$5M &ndash; $20M</option>
+              <option value="50000000">$20M &ndash; $100M</option>
+              <option value="100000000">Over $100M</option>
+            </select>
+            <span class="field-error" id="err-import_value">Please select your annual import value.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="trade_terms">Trade Terms <span class="req">*</span></label>
+            <select id="trade_terms" name="trade_terms" required>
+              <option value="">Select terms&hellip;</option>
+              <option value="ddp">DDP &mdash; Delivered Duty Paid</option>
+              <option value="dap">DAP / FOB &mdash; Importer pays duty</option>
+              <option value="unsure">Not sure</option>
+            </select>
+            <span class="field-hint">DDP = foreign seller paid the tariff. You may still have a claim.</span>
+            <span class="field-error" id="err-trade_terms">Please select your trade terms.</span>
+          </div>
+
+          <div class="form-group full">
+            <label for="hts">HTS Code (optional)</label>
+            <input type="text" id="hts" name="hts" placeholder="e.g. 8471.30.0100" maxlength="20" autocomplete="off" />
+            <span class="field-hint">Leave blank if unknown &mdash; Alex will estimate based on your product category.</span>
+          </div>
+
+        </div>
+
+        <div class="submit-area">
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-text">Run My Free Assessment &rarr;</span>
+            <span class="btn-spinner"></span>
+          </button>
+          <p class="submit-disclaimer">No account. No obligation. Results in seconds.<br>
+          By submitting you agree to our <a href="/terms" style="color:var(--gold);">Terms of Service</a> and <a href="/privacy" style="color:var(--gold);">Privacy Policy</a>.</p>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="trust-bar">
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Attorney-reviewed process
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        CBP CAPE Phase 1 open now
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>
+        Contingency-based &mdash; no upfront cost
+      </div>
     </div>
   </div>
 
-  <div class="form-card">
-    <div class="form-section-title">Your Import Profile</div>
+  <!-- REPORT SECTION (shown after form submit) -->
+  <div id="reportSection">
 
-    <form id="assessmentForm" novalidate>
-      <div class="form-grid">
+    <div class="report-card">
+      <div class="report-header">
+        <div class="report-header-avatar">AM</div>
+        <div class="report-header-text">
+          <p>Alex Monroe &mdash; TariffIQ&trade;</p>
+          <p>AI Trade Analyst &bull; The Tariff Bureau LLC</p>
+        </div>
+      </div>
 
-        <div class="form-group">
-          <label for="country">Country of Origin <span class="req">*</span></label>
-          <select id="country" name="country" required>
-            <option value="">Select country&hellip;</option>
-            <option value="CN">China (PRC)</option>
-            <option value="VN">Vietnam</option>
-            <option value="IN">India</option>
-            <option value="MX">Mexico</option>
-            <option value="KR">South Korea</option>
-            <option value="TW">Taiwan</option>
-            <option value="TH">Thailand</option>
-            <option value="DE">Germany</option>
-            <option value="JP">Japan</option>
-            <option value="CA">Canada</option>
-            <option value="OTHER">Other</option>
-          </select>
-          <span class="field-error" id="err-country">Please select a country of origin.</span>
+      <div id="reportLoading" class="report-loading">
+        <div class="report-loading-spinner"></div>
+        <strong>Analyzing your import profile&hellip;</strong>
+        <p>Alex Monroe is reviewing your data against current IEEPA tariff schedules.</p>
+      </div>
+
+      <div id="reportContent" class="md-content" style="display:none;"></div>
+    </div>
+
+    <!-- ============================
+         POST-REPORT CTA — TWO PATH
+         ============================ -->
+    <div class="post-report-cta" id="postReportCta" style="display:none;">
+      <div class="post-cta-eyebrow">Assessment Complete &mdash; How Would You Like to Proceed?</div>
+      <h2 class="post-cta-headline" id="ctaHeadline">Your Next Step With Alex Monroe</h2>
+      <p class="post-cta-intro" id="ctaSub">Choose the path that fits where you are right now. Both are free and require no commitment.</p>
+
+      <div class="cta-two-path">
+
+        <!-- PATH A: Talk First -->
+        <div class="cta-path-card path-talk">
+          <span class="cta-path-icon">📞</span>
+          <div class="cta-path-label">Not Sure Yet</div>
+          <div class="cta-path-title">Talk to Alex Monroe First</div>
+          <div class="cta-path-desc">30-minute discovery call. Alex will review your situation, answer questions, and tell you exactly what recovery looks like for your business.</div>
+          <a href="https://calendar.app.google/KUwDScsGb2ez3LQ4A" target="_blank" class="cta-path-btn">Schedule a Call &rarr;</a>
         </div>
 
-        <div class="form-group">
-          <label for="category">Product Category <span class="req">*</span></label>
-          <select id="category" name="category" required>
-            <option value="">Select category&hellip;</option>
-            <option value="electronics">Electronics &amp; Components</option>
-            <option value="machinery">Machinery &amp; Equipment</option>
-            <option value="steel">Steel &amp; Aluminum Products</option>
-            <option value="apparel">Apparel &amp; Textiles</option>
-            <option value="chemicals">Chemicals &amp; Plastics</option>
-            <option value="furniture">Furniture &amp; Fixtures</option>
-            <option value="auto">Auto Parts &amp; Vehicles</option>
-            <option value="consumer">Consumer Goods</option>
-            <option value="food">Food &amp; Agricultural</option>
-            <option value="other">Other / Mixed</option>
-          </select>
-          <span class="field-error" id="err-category">Please select a product category.</span>
-        </div>
-
-        <div class="form-group">
-          <label for="import_value">Annual Import Value (USD) <span class="req">*</span></label>
-          <select id="import_value" name="import_value" required>
-            <option value="">Select range&hellip;</option>
-            <option value="250000">Under $250K</option>
-            <option value="750000">$250K &ndash; $1M</option>
-            <option value="3000000">$1M &ndash; $5M</option>
-            <option value="12500000">$5M &ndash; $20M</option>
-            <option value="50000000">$20M &ndash; $100M</option>
-            <option value="100000000">Over $100M</option>
-          </select>
-          <span class="field-error" id="err-import_value">Please select your annual import value.</span>
-        </div>
-
-        <div class="form-group">
-          <label for="trade_terms">Trade Terms <span class="req">*</span></label>
-          <select id="trade_terms" name="trade_terms" required>
-            <option value="">Select terms&hellip;</option>
-            <option value="ddp">DDP &mdash; Delivered Duty Paid</option>
-            <option value="dap">DAP / FOB &mdash; Importer pays duty</option>
-            <option value="unsure">Not sure</option>
-          </select>
-          <span class="field-hint">DDP = foreign seller paid the tariff. You may still have a claim.</span>
-          <span class="field-error" id="err-trade_terms">Please select your trade terms.</span>
-        </div>
-
-        <div class="form-group full">
-          <label for="hts">HTS Code (optional)</label>
-          <input type="text" id="hts" name="hts" placeholder="e.g. 8471.30.0100" maxlength="20" autocomplete="off" />
-          <span class="field-hint">Leave blank if unknown &mdash; Alex will estimate based on your product category.</span>
+        <!-- PATH B: Ready to Proceed -->
+        <div class="cta-path-card path-proceed">
+          <span class="cta-path-icon">✅</span>
+          <div class="cta-path-label">Ready to Go</div>
+          <div class="cta-path-title">Select My Service &amp; Start My Claim</div>
+          <div class="cta-path-desc">Submit your full import data, select your service tier, sign documents, and receive your invoice — all in one flow.</div>
+          <a href="/intake-smart" class="cta-path-btn">Begin Full Intake &rarr;</a>
         </div>
 
       </div>
 
-      <div class="submit-area">
-        <button type="submit" class="btn-submit" id="submitBtn">
-          <span class="btn-text">Run My Free Assessment &rarr;</span>
-          <span class="btn-spinner"></span>
-        </button>
-        <p class="submit-disclaimer">No account. No obligation. Results in seconds.<br>
-        By submitting you agree to our <a href="/terms" style="color:var(--gold);">Terms of Service</a> and <a href="/privacy" style="color:var(--gold);">Privacy Policy</a>.</p>
-      </div>
+      <p class="post-cta-restart">
+        <a id="restartLink">Start a new assessment</a>
+      </p>
+    </div>
 
-    </form>
-  </div>
+    <div class="disclaimer">
+      <strong>Important disclaimer:</strong> This assessment is an AI-generated estimate only, based on publicly available IEEPA tariff schedules and your self-reported import profile. It does not constitute legal advice and is not a guarantee of refund eligibility or amount. Actual refund amounts depend on verified entry data, CBP review, and applicable exclusion criteria. Consult a licensed customs broker or trade attorney before filing. The Tariff Bureau LLC, Atlanta, GA.
+    </div>
 
-  <div class="trust-bar">
-    <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Attorney-reviewed process
-    </div>
-    <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      CBP CAPE Phase 1 open now
-    </div>
-    <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>
-      Contingency-based &mdash; no upfront cost
-    </div>
   </div>
 
 </div>
@@ -515,9 +878,58 @@
 </footer>
 
 <script>
-  const form = document.getElementById('assessmentForm');
-  const submitBtn = document.getElementById('submitBtn');
+  // ─── Country / category data ───────────────────────────────────────────────
+  const countryRates = {
+    CN: { rate: 0.145, label: 'China', risk: 'high', note: 'Subject to IEEPA 145% tariff schedule' },
+    VN: { rate: 0.46,  label: 'Vietnam', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    IN: { rate: 0.26,  label: 'India', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    MX: { rate: 0.25,  label: 'Mexico', risk: 'medium', note: 'USMCA status affects eligibility' },
+    KR: { rate: 0.25,  label: 'South Korea', risk: 'medium', note: 'Subject to reciprocal tariffs' },
+    TW: { rate: 0.32,  label: 'Taiwan', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    TH: { rate: 0.36,  label: 'Thailand', risk: 'high', note: 'Subject to reciprocal IEEPA tariffs' },
+    DE: { rate: 0.20,  label: 'Germany', risk: 'medium', note: 'EU reciprocal tariff schedule' },
+    JP: { rate: 0.24,  label: 'Japan', risk: 'medium', note: 'Subject to reciprocal tariffs' },
+    CA: { rate: 0.25,  label: 'Canada', risk: 'medium', note: 'Non-USMCA goods subject to tariffs' },
+    OTHER: { rate: 0.10, label: 'Other', risk: 'low', note: '10% universal baseline tariff applies' }
+  };
 
+  const recoveryByCategory = {
+    electronics: 0.65, machinery: 0.60, steel: 0.55, apparel: 0.50,
+    chemicals: 0.55, furniture: 0.52, auto: 0.58, consumer: 0.48,
+    food: 0.35, other: 0.50
+  };
+
+  const categoryLabels = {
+    electronics: 'Electronics & Components', machinery: 'Machinery & Equipment',
+    steel: 'Steel & Aluminum Products', apparel: 'Apparel & Textiles',
+    chemicals: 'Chemicals & Plastics', furniture: 'Furniture & Fixtures',
+    auto: 'Auto Parts & Vehicles', consumer: 'Consumer Goods',
+    food: 'Food & Agricultural', other: 'Mixed / Other'
+  };
+
+  function fmt(n) {
+    if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+    return '$' + n.toLocaleString();
+  }
+
+  // ─── Simple markdown renderer ──────────────────────────────────────────────
+  function renderMarkdown(md) {
+    return md
+      .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+      .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+      .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/^[-•] (.+)$/gm, '<li>$1</li>')
+      .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+      .replace(/^---+$/gm, '<hr>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/^(?!<[h|u|l|h])/gm, '')
+      .split('\n').map(l => l.trim() ? (l.startsWith('<') ? l : '<p>' + l + '</p>') : '').join('\n');
+  }
+
+  // ─── Form validation ───────────────────────────────────────────────────────
   const REQUIRED = ['country','category','import_value','trade_terms'];
 
   function validateField(id) {
@@ -537,30 +949,133 @@
     document.getElementById(id).addEventListener('change', () => validateField(id));
   });
 
-  form.addEventListener('submit', function(e) {
+  // ─── Restart ───────────────────────────────────────────────────────────────
+  document.getElementById('restartLink').addEventListener('click', function() {
+    document.getElementById('reportSection').style.display = 'none';
+    document.getElementById('formSection').style.display = 'block';
+    document.getElementById('assessmentForm').reset();
+    document.getElementById('reportContent').innerHTML = '';
+    document.getElementById('reportContent').style.display = 'none';
+    document.getElementById('reportLoading').style.display = 'block';
+    document.getElementById('postReportCta').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ─── Form submit ───────────────────────────────────────────────────────────
+  document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     let valid = true;
     REQUIRED.forEach(id => { if (!validateField(id)) valid = false; });
     if (!valid) return;
 
+    const submitBtn = document.getElementById('submitBtn');
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
 
-    const country = document.getElementById('country').value;
-    const category = document.getElementById('category').value;
-    const importVal = parseInt(document.getElementById('import_value').value);
-    const terms = document.getElementById('trade_terms').value;
-    const hts = document.getElementById('hts').value.trim();
+    const country    = document.getElementById('country').value;
+    const category   = document.getElementById('category').value;
+    const importVal  = parseInt(document.getElementById('import_value').value);
+    const terms      = document.getElementById('trade_terms').value;
+    const hts        = document.getElementById('hts').value.trim();
 
-    const params = new URLSearchParams({
-      country, category, import_value: importVal,
-      trade_terms: terms,
-      hts: hts || ''
-    });
+    // Hide form, show report skeleton
+    document.getElementById('formSection').style.display = 'none';
+    document.getElementById('reportSection').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    setTimeout(() => {
-      window.location.href = '/assessment-result?' + params.toString();
-    }, 900);
+    // ─── Calculate ranges ────────────────────────────────────────────────
+    const cr        = countryRates[country] || countryRates['OTHER'];
+    const recRate   = recoveryByCategory[category] || 0.50;
+    const tariffsPaid  = importVal * cr.rate;
+    const ddpMult   = terms === 'ddp' ? 0.85 : 1.0;
+    const baseRefund = tariffsPaid * recRate * ddpMult;
+    const low  = Math.round(baseRefund * 0.6);
+    const high = Math.round(baseRefund * 1.25);
+    const urgency = high > 500000 ? 'high' : high > 50000 ? 'medium' : 'low';
+
+    // ─── Build AI prompt ─────────────────────────────────────────────────
+    const prompt = `You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau LLC. You are generating a formal IEEPA Tariff Refund Eligibility Assessment report.
+
+Client import profile:
+- Country of Origin: ${cr.label} (${country})
+- Product Category: ${categoryLabels[category] || category}
+- Annual Import Value: ${fmt(importVal)}
+- Trade Terms: ${terms === 'ddp' ? 'DDP (Delivered Duty Paid — seller paid duties)' : terms === 'dap' ? 'DAP/FOB (Importer pays duties)' : 'Unknown/Unsure'}
+- HTS Code: ${hts || 'Not provided — estimate from category'}
+- Indicative IEEPA Tariff Rate: ${Math.round(cr.rate * 100)}%
+- Estimated Refund Range: ${fmt(low)} – ${fmt(high)}
+- Recovery Rate for Category: ${Math.round(recRate * 100)}%
+- Risk Level: ${cr.risk}
+
+Write a formal assessment report in markdown format. Structure it as follows:
+
+# IEEPA ELIGIBILITY DETERMINATION REPORT
+
+Include these sections:
+## 1. Preliminary Verdict
+## 2. IEEPA Exposure Analysis
+## 3. Phase 1 CAPE Eligibility
+## 4. FCA Risk Assessment
+## 5. Recommended Next Steps
+## 6. Advisory Notes
+
+Be specific, professional, authoritative. Use the actual numbers provided. Flag DDP trade terms if applicable. Note the CAPE deadline urgency. End with a brief summary paragraph. Sign off as Alex Monroe, TariffIQ™, The Tariff Bureau LLC.
+
+Do NOT include a call to action at the end — that is handled separately. Do NOT include any placeholder text in brackets. Use actual analysis based on the data provided.`;
+
+    // ─── Call Claude API ─────────────────────────────────────────────────
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+
+      const data = await response.json();
+      const text = data.content && data.content[0] && data.content[0].text
+        ? data.content[0].text
+        : 'Unable to generate report. Please try again.';
+
+      // Render report
+      document.getElementById('reportLoading').style.display = 'none';
+      const contentEl = document.getElementById('reportContent');
+      contentEl.innerHTML = renderMarkdown(text);
+      contentEl.style.display = 'block';
+
+      // Show CTA
+      const ctaEl = document.getElementById('postReportCta');
+
+      if (urgency === 'high') {
+        document.getElementById('ctaHeadline').textContent = 'Don\u2019t Leave ' + fmt(Math.round((low + high) / 2)) + ' on the Table.';
+        document.getElementById('ctaSub').textContent = 'Your exposure is significant. Start your formal CAPE recovery claim now \u2014 we handle everything on contingency.';
+      } else if (urgency === 'medium') {
+        document.getElementById('ctaHeadline').textContent = 'A Real Recovery Opportunity Awaits.';
+        document.getElementById('ctaSub').textContent = 'Your assessment shows meaningful refund exposure. The next step is a full intake \u2014 no cost, no commitment.';
+      }
+
+      ctaEl.style.display = 'block';
+
+      // Scroll to CTA
+      setTimeout(() => {
+        ctaEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
+
+      // GA event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'assessment_complete', {
+          country: country, category: category,
+          urgency: urgency, refund_high: high
+        });
+      }
+
+    } catch (err) {
+      document.getElementById('reportLoading').innerHTML =
+        '<p style="color:var(--error);text-align:center;">Something went wrong generating your report. Please <a href="/assessment" style="color:var(--gold);">try again</a>.</p>';
+    }
   });
 </script>
 
