@@ -594,7 +594,7 @@ async function submitToFormspree() {
         hasAce: formData.hasAce,
         hasAch: formData.hasAch,
         priorDisclosures: formData.priorDisclosures,
-        entries: JSON.stringify(formData.entries)
+        entries: formData.entries.map((e,i) => `Entry ${i+1}: #${e.entryNum||"TBD"} | HTS: ${e.hts||"TBD"} | Origin: ${e.origin||"TBD"} | Duty Paid: $${parseFloat(e.dutyPaid||0).toLocaleString()}`).join("\n")
       })
     });
   } catch(e) { console.log('Notify skip', e); }
