@@ -319,7 +319,9 @@ let formData = {
   entries: [{ entryNum: '', hts: '', origin: '', dutyPaid: '' }],
   totalDuty: '', brokerName: '', hasAce: 'yes', hasAch: 'yes',
   priorDisclosures: 'no', valuationMethod: 'transaction',
-  transshipment: 'no', additionalInfo: ''
+  transshipment: 'no', additionalInfo: '',
+  serviceSelection: '', consentNda: false, consentEngagement: false, consentTerms: false,
+  role: '', ein: '', street: '', city: '', state: '', zip: ''
 };
 
 function render() {
@@ -412,22 +414,61 @@ function updateRiskPreview() {
 }
 
 function renderStep3(c) {
-  c.innerHTML = '<div class="form-card"><div class="form-section-title">Compliance & Risk Factors</div><div class="form-section-sub">Alex Monroe uses these factors to assess your FCA exposure before generating your eligibility determination.</div><div class="field-grid"><div class="field"><label>ACE Portal Account Active?</label><select id="f_hasAce"><option value="yes">Yes — active ACE account</option><option value="no">No — need to register</option><option value="unsure">Unsure</option></select></div><div class="field"><label>ACH Refund Enrollment in ACE?</label><select id="f_hasAch"><option value="yes">Yes — bank info enrolled</option><option value="no">No — not enrolled</option><option value="unsure">Unsure</option></select></div></div><div class="field-grid"><div class="field"><label>Any Prior CBP Disclosures or Penalties?</label><select id="f_priorDisclosures"><option value="no">No — clean compliance history</option><option value="minor">Minor — resolved disclosures</option><option value="yes">Yes — active or significant</option></select></div><div class="field"><label>Primary Valuation Method Used</label><select id="f_valuationMethod"><option value="transaction">Transaction Value (most common)</option><option value="computed">Computed Value</option><option value="deductive">Deductive Value</option><option value="other">Other / Unsure</option></select></div></div><div class="field-grid"><div class="field"><label>Any Transshipment Through Third Countries?</label><select id="f_transshipment"><option value="no">No — direct shipment</option><option value="yes_documented">Yes — fully documented</option><option value="yes_undocumented">Yes — limited documentation</option></select></div><div class="field"><label>Additional Context (optional)</label><input type="text" id="f_additionalInfo" placeholder="Related party transactions, special circumstances…"/></div></div><div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.18);border-radius:8px;padding:14px 16px;margin-top:8px;"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:4px;">What happens next</span><p style="font-size:13px;color:var(--cream);line-height:1.6;margin:0;">Alex Monroe will analyze your entry data, calculate your estimated IEEPA refund with statutory interest, score your FCA risk level, and generate a written eligibility determination — in under 60 seconds.</p></div><div class="form-nav"><button class="btn-back" onclick="goTo(2)">&larr; Back</button><button class="btn-submit" id="submitBtn" onclick="saveStep3();generateReport()">Generate My Report &rarr;</button></div><div class="disclaimer">Submission is confidential. Report is advisory only — not legal advice. By submitting you agree to our <a href="/terms">Terms of Service</a>.</div></div>';
+  c.innerHTML = '<div class="form-card"><div class="form-section-title">Compliance, Service & Agreements</div><div class="form-section-sub">Select your service tier, confirm compliance details, and agree to our engagement documents. DocuSign envelopes will be sent to your email immediately upon submission.</div>' +
+
+    // Service Selection
+    '<div style="margin-bottom:20px;"><div class="field"><label>Service Selection *</label><select id="f_serviceSelection"><option value="">Select a service tier&hellip;</option><option value="assessment">Assessment Only — Eligibility report + refund estimate</option><option value="full_recovery">Full Recovery Package — End-to-end CAPE filing on contingency</option><option value="valuation">Refund Claim Valuation Report — Detailed refund calculation</option><option value="audit_optimization">Claim Audit & Optimization — Review existing claims</option><option value="rerouting">Rerouting Analysis — Supply chain restructuring</option><option value="monitoring">Monitoring Retainer — Ongoing tariff monitoring</option></select></div></div>' +
+
+    // Additional fields for DocuSign
+    '<div class="field-grid"><div class="field"><label>Your Title / Role</label><input type="text" id="f_role" placeholder="VP of Operations, CEO…"/></div><div class="field"><label>Company EIN (optional)</label><input type="text" id="f_ein" placeholder="12-3456789"/></div></div>' +
+    '<div class="field-grid"><div class="field"><label>Street Address</label><input type="text" id="f_street" placeholder="123 Main St"/></div><div class="field"><label>City</label><input type="text" id="f_city" placeholder="Atlanta"/></div></div>' +
+    '<div class="field-grid"><div class="field"><label>State</label><input type="text" id="f_state" placeholder="GA"/></div><div class="field"><label>ZIP Code</label><input type="text" id="f_zip" placeholder="30326"/></div></div>' +
+
+    // Compliance
+    '<div class="field-grid" style="margin-top:4px;"><div class="field"><label>ACE Portal Account Active?</label><select id="f_hasAce"><option value="yes">Yes — active ACE account</option><option value="no">No — need to register</option><option value="unsure">Unsure</option></select></div><div class="field"><label>ACH Refund Enrollment in ACE?</label><select id="f_hasAch"><option value="yes">Yes — bank info enrolled</option><option value="no">No — not enrolled</option><option value="unsure">Unsure</option></select></div></div>' +
+    '<div class="field-grid"><div class="field"><label>Any Prior CBP Disclosures or Penalties?</label><select id="f_priorDisclosures"><option value="no">No — clean compliance history</option><option value="minor">Minor — resolved disclosures</option><option value="yes">Yes — active or significant</option></select></div><div class="field"><label>Additional Context (optional)</label><input type="text" id="f_additionalInfo" placeholder="Related party transactions, special circumstances…"/></div></div>' +
+
+    // Consent checkboxes
+    '<div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.25);border-radius:8px;padding:20px;margin-top:16px;margin-bottom:8px;">' +
+    '<div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">Engagement Agreements — DocuSign envelopes sent to your email</div>' +
+    '<label style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;cursor:pointer;"><input type="checkbox" id="f_consentNda" style="width:16px;height:16px;margin-top:2px;accent-color:var(--gold);flex-shrink:0;"/><span style="font-size:13px;color:var(--cream);line-height:1.5;">I agree to review and sign the <strong>Mutual Non-Disclosure Agreement</strong> via DocuSign</span></label>' +
+    '<label style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;cursor:pointer;"><input type="checkbox" id="f_consentEngagement" style="width:16px;height:16px;margin-top:2px;accent-color:var(--gold);flex-shrink:0;"/><span style="font-size:13px;color:var(--cream);line-height:1.5;">I agree to review and sign the <strong>Engagement Letter</strong> via DocuSign</span></label>' +
+    '<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;"><input type="checkbox" id="f_consentTerms" style="width:16px;height:16px;margin-top:2px;accent-color:var(--gold);flex-shrink:0;"/><span style="font-size:13px;color:var(--cream);line-height:1.5;">I agree to the <strong>Terms of Service</strong> of The Tariff Bureau LLC</span></label>' +
+    '</div>' +
+
+    '<div class="form-nav"><button class="btn-back" onclick="goTo(2)">&larr; Back</button><button class="btn-submit" id="submitBtn" onclick="saveStep3();generateReport()">Generate My Report &rarr;</button></div>' +
+    '<div class="disclaimer">Submission is confidential. Report is advisory only — not legal advice. DocuSign envelopes fire automatically on submission.</div></div>';
+  document.getElementById('f_serviceSelection').value = formData.serviceSelection;
+  document.getElementById('f_role').value = formData.role;
+  document.getElementById('f_ein').value = formData.ein;
+  document.getElementById('f_street').value = formData.street;
+  document.getElementById('f_city').value = formData.city;
+  document.getElementById('f_state').value = formData.state;
+  document.getElementById('f_zip').value = formData.zip;
   document.getElementById('f_hasAce').value = formData.hasAce;
   document.getElementById('f_hasAch').value = formData.hasAch;
   document.getElementById('f_priorDisclosures').value = formData.priorDisclosures;
-  document.getElementById('f_valuationMethod').value = formData.valuationMethod;
-  document.getElementById('f_transshipment').value = formData.transshipment;
   document.getElementById('f_additionalInfo').value = formData.additionalInfo;
+  document.getElementById('f_consentNda').checked = formData.consentNda;
+  document.getElementById('f_consentEngagement').checked = formData.consentEngagement;
+  document.getElementById('f_consentTerms').checked = formData.consentTerms;
 }
 
 function saveStep3() {
+  formData.serviceSelection = document.getElementById('f_serviceSelection').value;
+  formData.role = document.getElementById('f_role').value;
+  formData.ein = document.getElementById('f_ein').value;
+  formData.street = document.getElementById('f_street').value;
+  formData.city = document.getElementById('f_city').value;
+  formData.state = document.getElementById('f_state').value;
+  formData.zip = document.getElementById('f_zip').value;
   formData.hasAce = document.getElementById('f_hasAce').value;
   formData.hasAch = document.getElementById('f_hasAch').value;
   formData.priorDisclosures = document.getElementById('f_priorDisclosures').value;
-  formData.valuationMethod = document.getElementById('f_valuationMethod').value;
-  formData.transshipment = document.getElementById('f_transshipment').value;
   formData.additionalInfo = document.getElementById('f_additionalInfo').value;
+  formData.consentNda = document.getElementById('f_consentNda').checked;
+  formData.consentEngagement = document.getElementById('f_consentEngagement').checked;
+  formData.consentTerms = document.getElementById('f_consentTerms').checked;
 }
 
 function showGenerating() {
@@ -582,22 +623,36 @@ async function submitToFormspree() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        company: formData.company,
-        contact: formData.contact,
-        email: formData.email,
+        // Fields expected by intake.js
+        name: formData.contact,
+        company_name: formData.company,
+        legal_email: formData.email,
         phone: formData.phone || '',
-        country: formData.country,
-        entityType: formData.entityType,
-        importerType: formData.importerType,
-        totalDuty: formData.totalDuty || '0',
-        brokerName: formData.brokerName || '',
-        hasAce: formData.hasAce,
-        hasAch: formData.hasAch,
-        priorDisclosures: formData.priorDisclosures,
-        entries: formData.entries.map((e,i) => `Entry ${i+1}: #${e.entryNum||"TBD"} | HTS: ${e.hts||"TBD"} | Origin: ${e.origin||"TBD"} | Duty Paid: $${parseFloat(e.dutyPaid||0).toLocaleString()}`).join("\n")
+        role: formData.role || '',
+        ein: formData.ein || '',
+        address_street: formData.street || '',
+        address_city: formData.city || '',
+        address_state: formData.state || '',
+        address_zip: formData.zip || '',
+        address_country: formData.country || 'US',
+        service_selection: formData.serviceSelection,
+        consent_nda: formData.consentNda,
+        consent_engagement: formData.consentEngagement,
+        consent_terms: formData.consentTerms,
+        // Additional context
+        importer_type: formData.importerType,
+        entity_type: formData.entityType,
+        total_duty: formData.totalDuty || '0',
+        broker_name: formData.brokerName || '',
+        has_ace: formData.hasAce,
+        has_ach: formData.hasAch,
+        prior_disclosures: formData.priorDisclosures,
+        notes: formData.additionalInfo || '',
+        entries: formData.entries.map((e,i) => `Entry ${i+1}: #${e.entryNum||'TBD'} | HTS: ${e.hts||'TBD'} | Origin: ${e.origin||'TBD'} | Duty Paid: $${parseFloat(e.dutyPaid||0).toLocaleString()}`).join('\n'),
+        source: 'TariffIQ Smart Intake'
       })
     });
-  } catch(e) { console.log('Notify skip', e); }
+  } catch(e) { console.log('Intake submit error', e); }
   window.location.href = '/thank-you';
 }
 
