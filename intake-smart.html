@@ -485,6 +485,19 @@ function showGenerating() {
 async function generateReport() {
   const btn = document.getElementById('submitBtn');
   if (btn) btn.disabled = true;
+
+  // ── Validate required Step 3 fields before proceeding ──
+  if (!formData.serviceSelection) {
+    alert('Please select a service tier before submitting.');
+    if (btn) btn.disabled = false;
+    return;
+  }
+  if (!formData.consentNda || !formData.consentEngagement || !formData.consentTerms) {
+    alert('Please check all three agreement boxes to proceed. DocuSign envelopes will be sent to your email.');
+    if (btn) btn.disabled = false;
+    return;
+  }
+
   step = 4;
   updateStepIndicators();
   showGenerating();
@@ -495,7 +508,10 @@ async function generateReport() {
     'Entry ' + (e.entryNum||'[#TBD]') + ' | HTS: ' + (e.hts||'[TBD]') + ' | Origin: ' + (e.origin||'[TBD]') + ' | IEEPA Duty: $' + parseFloat(e.dutyPaid||0).toLocaleString()
   ).join('\n');
 
-  const prompt = 'You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau. Generate a formal IEEPA Eligibility Determination Report.\n\nCOMPANY: ' + formData.company + '\nCONTACT: ' + formData.contact + '\nEMAIL: ' + formData.email + '\nCOUNTRY: ' + formData.country + '\nENTITY: ' + formData.entityType + '\nIMPORTER TYPE: ' + formData.importerType + '\nBROKER: ' + (formData.brokerName||'None') + '\n\nENTRIES:\n' + (entryList||'No entries — general assessment') + '\n\nTOTAL IEEPA DUTIES: $' + total.toLocaleString() + '\nINTEREST RATE: ' + interestRate + '%\n\nCOMPLIANCE: ACE=' + formData.hasAce + ', ACH=' + formData.hasAch + ', Disclosures=' + formData.priorDisclosures + ', Valuation=' + formData.valuationMethod + ', Transshipment=' + formData.transshipment + '\nNOTES: ' + (formData.additionalInfo||'None') + '\n\nGenerate a structured report with sections: 1. PRELIMINARY VERDICT 2. IEEPA EXPOSURE ANALYSIS 3. PHASE 1 CAPE ELIGIBILITY 4. FCA RISK ASSESSMENT 5. ACE & ACH STATUS 6. RECOMMENDED NEXT STEPS 7. ADVISORY NOTES\n\nEnd with: "This assessment is advisory only and does not constitute legal advice. — Alex Monroe, TariffIQ\u2122, The Tariff Bureau LLC"';
+  const prompt = 'You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau. Generate a formal IEEPA Eligibility Determination Report.\n\nCOMPANY: ' + formData.company + '\nCONTACT: ' + formData.contact + '\nEMAIL: ' + formData.email + '\nCOUNTRY: ' + formData.country + '\nENTITY: ' + formData.entityType + '\nIMPORTER TYPE: ' + formData.importerType + '\nBROKER: ' + (formData.brokerName||'None') + '\n\nENTRIES:\n' + (entryList||'No entries — general assessment') + '\n\nTOTAL IEEPA DUTIES: $' + total.toLocaleString() + '\nINTEREST RATE: ' + interestRate + '%\n\nCOMPLIANCE: ACE=' + formData.hasAce + ', ACH=' + formData.hasAch + ', Disclosures=' + formData.priorDisclosures + '\nNOTES: ' + (formData.additionalInfo||'None') + '\n\nGenerate a structured report with sections: 1. PRELIMINARY VERDICT 2. IEEPA EXPOSURE ANALYSIS 3. PHASE 1 CAPE ELIGIBILITY 4. FCA RISK ASSESSMENT 5. ACE & ACH STATUS 6. RECOMMENDED NEXT STEPS 7. ADVISORY NOTES\n\nEnd with: "This assessment is advisory only and does not constitute legal advice. — Alex Monroe, TariffIQ\u2122, The Tariff Bureau LLC"';
+
+  // ── Fire DocuSign via /api/intake FIRST, in parallel with AI report ──
+  const intakePromise = sendToIntake();
 
   let rawText = '';
   let httpStatus = null;
@@ -526,11 +542,14 @@ async function generateReport() {
     }
 
     const report = data.reply || 'Report generated but no content returned. Please contact hello@tariffbureau.com.';
-    await new Promise(r => setTimeout(r, 1000));
-    renderReport(report, total);
-    submitToFormspree();
+
+    // ── Wait for DocuSign to complete before rendering report ──
+    const intakeResult = await intakePromise;
+    await new Promise(r => setTimeout(r, 500));
+    renderReport(report, total, intakeResult);
 
   } catch(err) {
+    await intakePromise.catch(() => {}); // don't block on intake error
     await new Promise(r => setTimeout(r, 600));
     renderErrorReport(err.message, total);
   }
@@ -562,7 +581,7 @@ function renderErrorReport(errorMessage, totalDuty) {
     '<div class="disclaimer">Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
-function renderReport(reportText, totalDuty) {
+function renderReport(reportText, totalDuty, intakeResult) {
   const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   const refId = 'TB-' + Date.now().toString(36).toUpperCase();
 
@@ -582,9 +601,15 @@ function renderReport(reportText, totalDuty) {
     return line.trim() ? '<p style="margin-bottom:10px;">' + line + '</p>' : '';
   }).join('');
 
+  // ── DocuSign status banner ──────────────────────────────
+  const dsStatus = (intakeResult && intakeResult.success)
+    ? '<div style="background:rgba(21,128,61,0.12);border:1px solid rgba(21,128,61,0.3);border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#4ade80;">&#10003; <strong>DocuSign envelopes sent</strong> — Check ' + formData.email + ' for your NDA, Engagement Letter, and Terms of Service.</div>'
+    : '<div style="background:rgba(200,146,42,0.1);border:1px solid rgba(200,146,42,0.3);border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:var(--gold-lt);">&#9888; DocuSign envelopes are processing — you will receive them at ' + formData.email + ' shortly. If not received within 5 minutes, contact <a href=\"mailto:hello@tariffbureau.com\" style=\"color:var(--gold)\">hello@tariffbureau.com</a>.</div>';
+
   // ── TWO-PATH CTA ──────────────────────────────────────────
   const ctaHTML =
     '<div class="report-actions">' +
+      dsStatus +
       '<div class="report-actions-label">How would you like to proceed?</div>' +
       '<div class="report-actions-grid">' +
         '<div class="action-card action-call">' +
@@ -617,13 +642,12 @@ function renderReport(reportText, totalDuty) {
     '<div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
-async function submitToFormspree() {
+async function sendToIntake() {
   try {
-    await fetch('/api/intake', {
+    const res = await fetch('/api/intake', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        // Fields expected by intake.js
         name: formData.contact,
         company_name: formData.company,
         legal_email: formData.email,
@@ -639,7 +663,6 @@ async function submitToFormspree() {
         consent_nda: formData.consentNda,
         consent_engagement: formData.consentEngagement,
         consent_terms: formData.consentTerms,
-        // Additional context
         importer_type: formData.importerType,
         entity_type: formData.entityType,
         total_duty: formData.totalDuty || '0',
@@ -652,8 +675,12 @@ async function submitToFormspree() {
         source: 'TariffIQ Smart Intake'
       })
     });
-  } catch(e) { console.log('Intake submit error', e); }
-  window.location.href = '/thank-you';
+    const data = await res.json();
+    return { success: true, envelopes: data.envelopes };
+  } catch(e) {
+    console.log('Intake submit error', e);
+    return { success: false, error: e.message };
+  }
 }
 
 function goTo(s) {
