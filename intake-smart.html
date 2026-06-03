@@ -187,19 +187,35 @@
     .verdict-review{background:rgba(200,146,42,0.1);border:1px solid rgba(200,146,42,0.3);color:var(--gold-lt);}
     .verdict-disqualified{background:rgba(155,28,28,0.12);border:1px solid rgba(155,28,28,0.3);color:#f87171;}
 
-    .report-actions{display:flex;gap:12px;padding:24px 36px;border-top:1px solid rgba(200,146,42,0.1);background:rgba(200,146,42,0.03);flex-wrap:wrap;}
-    .btn-print{background:var(--gold);color:var(--black);padding:11px 22px;border-radius:7px;font-family:var(--sans);font-weight:700;font-size:13.5px;border:none;cursor:pointer;}
-    .btn-engage{background:linear-gradient(135deg,var(--red),#7f1d1d);color:#fff;padding:11px 22px;border-radius:7px;font-family:var(--sans);font-weight:700;font-size:13.5px;border:none;cursor:pointer;text-decoration:none;display:inline-block;}
-    .btn-restart{background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--muted);padding:11px 18px;border-radius:7px;font-family:var(--sans);font-size:13px;cursor:pointer;}
+    /* ── POST-REPORT ACTIONS ── */
+    .report-actions{padding:28px 36px;border-top:1px solid rgba(200,146,42,0.1);background:rgba(200,146,42,0.03);}
+    .report-actions-label{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;}
+    .report-actions-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+    @media(max-width:580px){.report-actions-grid{grid-template-columns:1fr;}}
+    .action-card{border-radius:10px;padding:20px;text-align:left;}
+    .action-card.action-call{background:rgba(255,255,255,0.04);border:1px solid rgba(200,146,42,0.2);}
+    .action-card.action-intake{background:linear-gradient(135deg,rgba(200,146,42,0.15),rgba(226,175,70,0.1));border:1px solid rgba(200,146,42,0.35);}
+    .action-card-icon{font-size:20px;margin-bottom:8px;display:block;}
+    .action-card-label{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;}
+    .action-card-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--white);margin-bottom:6px;line-height:1.2;}
+    .action-card-desc{font-size:12.5px;color:var(--muted);line-height:1.5;margin-bottom:14px;}
+    .action-btn{display:block;text-align:center;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:11px 16px;border-radius:7px;text-decoration:none;transition:all 0.18s;border:none;cursor:pointer;}
+    .action-card.action-call .action-btn{background:transparent;border:1px solid rgba(200,146,42,0.4);color:var(--gold-lt);}
+    .action-card.action-call .action-btn:hover{background:rgba(200,146,42,0.1);}
+    .action-card.action-intake .action-btn{background:var(--gold);color:var(--black);}
+    .action-card.action-intake .action-btn:hover{background:var(--gold-lt);}
+    .report-actions-restart{text-align:center;font-size:12px;color:rgba(255,255,255,0.25);}
+    .report-actions-restart a{color:rgba(255,255,255,0.35);border-bottom:1px dotted rgba(255,255,255,0.2);cursor:pointer;}
+    .report-actions-restart a:hover{color:rgba(255,255,255,0.55);}
 
-    .disclaimer{margin-top:28px;font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.7;letter-spacing:0.04em;text-align:center;}
-    .disclaimer a{color:var(--gold);}
-
-    /* ── Error box shown when /api/chat fails ── */
+    /* ── Error box ── */
     .api-error-box{background:rgba(155,28,28,0.12);border:1px solid rgba(155,28,28,0.35);border-radius:10px;padding:20px 24px;margin-top:16px;}
     .api-error-box h3{font-family:var(--mono);font-size:11px;color:#f87171;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
     .api-error-box p{font-size:13px;color:var(--cream);line-height:1.6;margin-bottom:6px;}
     .api-error-box code{font-family:var(--mono);font-size:11px;color:#fca5a5;background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:3px;word-break:break-all;}
+
+    .disclaimer{margin-top:28px;font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.7;letter-spacing:0.04em;text-align:center;}
+    .disclaimer a{color:var(--gold);}
 
     footer{background:var(--navy);border-top:1px solid rgba(200,146,42,0.13);color:var(--muted);padding:36px 7%;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;flex-wrap:wrap;gap:12px;}
     .footer-brand{font-family:var(--serif);font-size:16px;color:var(--cream);}
@@ -425,9 +441,6 @@ function showGenerating() {
   });
 }
 
-// ─────────────────────────────────────────────────────────────
-// generateReport — robust fetch with full error surfacing
-// ─────────────────────────────────────────────────────────────
 async function generateReport() {
   const btn = document.getElementById('submitBtn');
   if (btn) btn.disabled = true;
@@ -454,29 +467,19 @@ async function generateReport() {
     });
 
     httpStatus = res.status;
-
-    // Always read as text first — never call .json() directly
     rawText = await res.text();
 
-    // Guard: empty body
     if (!rawText || !rawText.trim()) {
-      throw new Error('Empty response from /api/chat (HTTP ' + httpStatus + '). Check that the serverless function is deployed and ANTHROPIC_API_KEY is set in Vercel environment variables.');
+      throw new Error('Empty response from /api/chat (HTTP ' + httpStatus + '). Check ANTHROPIC_API_KEY in Vercel environment variables.');
     }
-
-    // Guard: HTML error page (Vercel 404/500, auth wall, etc.)
     if (rawText.trim().startsWith('<')) {
-      throw new Error('Server returned an HTML page instead of JSON (HTTP ' + httpStatus + '). The /api/chat route may not exist or is throwing an unhandled error. Raw preview: ' + rawText.slice(0, 200));
+      throw new Error('Server returned HTML instead of JSON (HTTP ' + httpStatus + '). Raw preview: ' + rawText.slice(0, 200));
     }
 
-    // Now safe to parse
     let data;
-    try {
-      data = JSON.parse(rawText);
-    } catch (parseErr) {
-      throw new Error('Response is not valid JSON (HTTP ' + httpStatus + '). Parse error: ' + parseErr.message + '. Raw preview: ' + rawText.slice(0, 200));
-    }
+    try { data = JSON.parse(rawText); }
+    catch (parseErr) { throw new Error('Response is not valid JSON (HTTP ' + httpStatus + '). Parse error: ' + parseErr.message); }
 
-    // Handle API-level errors returned as JSON
     if (data.error && !data.reply) {
       throw new Error('API returned an error: ' + (typeof data.error === 'string' ? data.error : JSON.stringify(data.error)));
     }
@@ -487,7 +490,6 @@ async function generateReport() {
     submitToFormspree();
 
   } catch(err) {
-    // Render a helpful error card instead of the generic fallback message
     await new Promise(r => setTimeout(r, 600));
     renderErrorReport(err.message, total);
   }
@@ -508,12 +510,12 @@ function renderErrorReport(errorMessage, totalDuty) {
         '<div class="api-error-box">' +
           '<h3>&#9888; Unable to reach TariffIQ at this time</h3>' +
           '<p>Your intake data was received but the AI analysis could not complete. Alex Monroe will follow up manually.</p>' +
-          '<p><strong>What to do now:</strong> Email <a href="mailto:hello@tariffbureau.com" style="color:var(--gold);">hello@tariffbureau.com</a> with your company name and Reference ID below. Alex Monroe will respond within one business day.</p>' +
+          '<p><strong>What to do now:</strong> Email <a href="mailto:hello@tariffbureau.com" style="color:var(--gold);">hello@tariffbureau.com</a> with your company name and Reference ID below.</p>' +
           '<p style="margin-top:10px;font-family:var(--mono);font-size:10px;color:var(--muted);">Technical detail: <code>' + errorMessage.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</code></p>' +
         '</div>' +
       '</div>' +
       '<div class="report-actions">' +
-        '<button class="btn-restart" onclick="location.reload()">Start New Assessment</button>' +
+        '<div class="report-actions-restart"><a onclick="location.reload()">Start a new assessment</a></div>' +
       '</div>' +
     '</div>' +
     '<div class="disclaimer">Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
@@ -539,10 +541,41 @@ function renderReport(reportText, totalDuty) {
     return line.trim() ? '<p style="margin-bottom:10px;">' + line + '</p>' : '';
   }).join('');
 
-  document.getElementById('formContainer').innerHTML = '<div class="report-card"><div class="report-header"><div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div><div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div></div><div class="report-body">' + verdictBadge + '<div class="report-section-content">' + formatted + '</div></div><div class="report-actions"><button class="btn-restart" onclick="location.reload()">Start New Assessment</button></div></div><div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
+  // ── TWO-PATH CTA ──────────────────────────────────────────
+  const ctaHTML =
+    '<div class="report-actions">' +
+      '<div class="report-actions-label">How would you like to proceed?</div>' +
+      '<div class="report-actions-grid">' +
+        '<div class="action-card action-call">' +
+          '<span class="action-card-icon">&#128222;</span>' +
+          '<div class="action-card-label">Not Sure Yet</div>' +
+          '<div class="action-card-title">Talk to Alex Monroe First</div>' +
+          '<div class="action-card-desc">30-minute discovery call. Alex will walk through your results and outline the exact recovery path for your business.</div>' +
+          '<a href="https://calendar.app.google/KUwDScsGb2ez3LQ4A" target="_blank" class="action-btn">Schedule a Call &rarr;</a>' +
+        '</div>' +
+        '<div class="action-card action-intake">' +
+          '<span class="action-card-icon">&#10003;</span>' +
+          '<div class="action-card-label">Ready to Go</div>' +
+          '<div class="action-card-title">Start My Formal Claim</div>' +
+          '<div class="action-card-desc">Select your service tier, sign documents, and receive your invoice — all in one flow. Contingency-based.</div>' +
+          '<a href="/intake" class="action-btn">Begin Full Intake &rarr;</a>' +
+        '</div>' +
+      '</div>' +
+      '<div class="report-actions-restart"><a onclick="location.reload()">Start a new assessment</a></div>' +
+    '</div>';
+
+  document.getElementById('formContainer').innerHTML =
+    '<div class="report-card">' +
+      '<div class="report-header">' +
+        '<div><div class="report-logo">The Tariff Bureau LLC<span>TariffIQ&trade; Eligibility Determination</span></div></div>' +
+        '<div class="report-meta">Ref: ' + refId + '<br/>Date: ' + today + '<br/>Analyst: Alex Monroe<br/>Client: ' + formData.company + '<br/>Status: <span style="color:var(--gold);">Advisory &mdash; Preliminary</span></div>' +
+      '</div>' +
+      '<div class="report-body">' + verdictBadge + '<div class="report-section-content">' + formatted + '</div></div>' +
+      ctaHTML +
+    '</div>' +
+    '<div class="disclaimer">This is an AI-generated preliminary assessment by TariffIQ&trade; powered by Anthropic Claude. Advisory only &mdash; not legal advice. Reference: ' + refId + ' &middot; <a href="/terms">Terms of Service</a></div>';
 }
 
-// Routes lead data to /api/notify which emails terrence@tariffbureau.com via Resend
 async function submitToFormspree() {
   try {
     await fetch('/api/notify', {
