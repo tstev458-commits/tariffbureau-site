@@ -59,7 +59,7 @@ module.exports = async function handler(req, res) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`
       },
       body: JSON.stringify({
-        from: 'TariffIQ Intake <noreply@tariffbureau.com>',
+        from: 'TariffIQ Intake <onboarding@resend.dev>',
         to: ['terrence@tariffbureau.com'],
         subject: `New TariffIQ Screening — ${d.company || 'Unknown'} ($${parseFloat(d.totalDuty||0).toLocaleString()})`,
         html
