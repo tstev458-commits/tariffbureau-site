@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-72D7G0ZNZR"></script>
 <script>
@@ -11,12 +10,16 @@
   gtag('config', 'G-72D7G0ZNZR');
 </script>
 <!-- End Google Analytics -->
-
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>IEEPA Eligibility Screening | The Tariff Bureau</title>
 <meta name="description" content="Find out in 90 seconds if your company qualifies for an IEEPA tariff refund. 4 questions. Instant result. No sales call required."/>
 <link rel="canonical" href="https://tariffbureau.com/screening"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <meta property="og:image" content="https://tariffbureau.com/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <!-- OPTIMIZED: font-display=swap added, reduced to 2 weights per family -->
@@ -106,11 +109,9 @@
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-
   <div class="topbar">
     &#9888;&#65039; <strong>APPEAL DEADLINE: June 7, 2026</strong> &mdash; CAPE acceptance required before then &nbsp;|&nbsp; <strong>92% of eligible importers not yet enrolled</strong>
   </div>
-
   <header>
     <a class="brand" href="/">
       <div>
@@ -120,9 +121,7 @@
     </a>
     <a class="back-link" href="/">&larr; Back to site</a>
   </header>
-
   <div class="screen-wrap">
-
     <div class="intro" id="introSection">
       <span class="intro-tag">IEEPA Eligibility Screening</span>
       <h1>Do you qualify for an<br/><em>IEEPA tariff refund?</em></h1>
@@ -130,7 +129,6 @@
       <!-- FIXED: was "Takes about 90 seconds" — misleading, read as page load time -->
       <div class="timer-badge">&#9201; 4 questions &middot; Under 2 minutes</div>
     </div>
-
     <div class="progress-wrap" id="progressWrap" style="display:none;">
       <div class="progress-labels">
         <span class="progress-label" id="pl1">01 &middot; Tariff Exposure</span>
@@ -141,15 +139,11 @@
       </div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
     </div>
-
     <div id="questionContainer"></div>
-
   </div>
-
   <footer>
     TariffIQ&trade; is an AI advisory tool &mdash; not legal advice &nbsp;&middot;&nbsp; <a href="/terms">Terms</a> &nbsp;&middot;&nbsp; <a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; &copy; 2026 The Tariff Bureau LLC
   </footer>
-
   <script>
     const questions = [
       {
@@ -194,15 +188,12 @@
         failReason: "", failNext: ""
       }
     ];
-
     let current = 0, qualified = true, failedAt = null, answers = [];
-
     function start() {
       document.getElementById('introSection').innerHTML = '';
       document.getElementById('progressWrap').style.display = 'block';
       showQuestion(0);
     }
-
     function showQuestion(idx) {
       const q = questions[idx];
       updateProgress(idx);
@@ -210,7 +201,6 @@
       const maybeHTML = q.maybe ? '<button class="ans-btn" onclick="answer(' + idx + ', \'maybe\')"><span class="ans-icon">?</span><span class="ans-text"><span class="ans-label">' + q.maybe.label + '</span><span class="ans-sub">' + q.maybe.sub + '</span></span></button>' : '';
       container.innerHTML = '<div class="q-card"><span class="q-num">' + q.num + '</span><div class="q-title">' + q.title + '</div><p class="q-desc">' + q.desc + '</p><div class="answers"><button class="ans-btn yes" onclick="answer(' + idx + ', \'yes\')"><span class="ans-icon">&#10003;</span><span class="ans-text"><span class="ans-label">' + q.yes.label + '</span><span class="ans-sub">' + q.yes.sub + '</span></span></button>' + maybeHTML + '<button class="ans-btn no" onclick="answer(' + idx + ', \'no\')"><span class="ans-icon">&#10005;</span><span class="ans-text"><span class="ans-label">' + q.no.label + '</span><span class="ans-sub">' + q.no.sub + '</span></span></button></div></div>';
     }
-
     function answer(idx, val) {
       answers.push({ q: idx + 1, answer: val });
       const q = questions[idx];
@@ -219,17 +209,14 @@
       if (idx < questions.length - 1) { current = idx + 1; setTimeout(() => showQuestion(current), 200); }
       else { const q5 = answers.find(a => a.q === 5); showQualified(q5 && q5.answer === 'yes'); }
     }
-
     function updateProgress(idx) {
       document.getElementById('progressFill').style.width = ((idx / questions.length) * 100) + '%';
       ['pl1','pl2','pl3','pl4','pl5'].forEach((id, i) => document.getElementById(id).classList.toggle('active', i === idx));
     }
-
     function showDDPPath() {
       document.getElementById('progressFill').style.width = '50%';
       document.getElementById('questionContainer').innerHTML = '<div class="q-card result result-qualified"><h2>International <em>DDP Supplier Path</em></h2><p>You shipped goods to a U.S. buyer under DDP terms. Your U.S. buyer was the IOR and is the direct refund recipient. However, you have commercial leverage to recover that cost through contractual pass-through, price renegotiation, or IOR restructuring on future shipments.</p><div class="price-box"><div class="price" style="font-size:32px;">International DDP Advisory</div><div class="price-note">The Tariff Bureau advises DDP foreign manufacturers across Vietnam, China, Taiwan, South Korea, India, Bangladesh, Indonesia, Netherlands, and Brazil.</div></div><a class="btn-primary" href="/intake?type=international-ddp">Start International DDP Screening &rarr;</a><br/><span class="btn-secondary" onclick="restart()">Restart screening</span><div class="disclaimer"><a href="/terms">Terms of Service</a> &middot; <a href="/privacy">Privacy Policy</a></div></div>';
     }
-
     function showQualified(needsAudit) {
       document.getElementById('progressFill').style.width = '100%';
       const aceMaybe = answers.find(a => a.q === 3 && a.answer === 'maybe');
@@ -238,14 +225,12 @@
       const auditAlert = needsAudit ? '<div style="background:rgba(155,28,28,0.12);border:1px solid rgba(155,28,28,0.3);border-left:4px solid #dc2626;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 auto 20px;max-width:480px;text-align:left;"><div style="font-family:var(--mono);font-size:9.5px;color:#f87171;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;">&#9888; $250K+ Risk Alert &#x2014; Pre-Filing Audit Required</div><p style="font-size:13.5px;color:var(--cream);line-height:1.65;margin:0;">CBP flags all claims of $250,000 or more for mandatory review. The DOJ&#x2013;DHS Trade Fraud Task Force monitors CAPE filings using AI. A pre-submission audit is not optional at this level.</p></div>' : '';
       document.getElementById('questionContainer').innerHTML = '<div class="q-card result result-qualified"><span class="result-icon">&#127919;</span><h2>You <em>appear to qualify.</em></h2><p>Based on your answers, your company meets the four eligibility criteria for an IEEPA tariff refund. The next step is a formal $1,500 Eligibility Screening.</p><div class="score-card"><div class="score-row"><span class="score-check">&#10003;</span> IEEPA tariff exposure &#x2014; April 2025 to February 2026</div><div class="score-row"><span class="score-check">&#10003;</span> Importer of Record status confirmed</div><div class="score-row"><span class="score-check">&#10003;</span> ACE Portal access</div><div class="score-row"><span class="score-check">&#10003;</span> Recovery threshold &#x2014; $50,000+ estimated</div></div>' + (aceMaybe ? '<p style="font-size:13px;color:var(--cream);margin-bottom:20px;line-height:1.6;"><strong style="color:var(--gold-lt);">Note:</strong> ACE/ACH enrollment needs to be confirmed before filing.</p>' : '') + auditAlert + '<div class="price-box"><div class="price">' + (needsAudit ? '$6K&#x2013;$15K + $1,500' : '$1,500') + '</div><div class="price-label">' + (needsAudit ? 'Claim Audit first &#x00b7; credited toward full engagement' : 'Flat fee &#x00b7; Written eligibility determination &#x00b7; 3&#x2013;5 business days') + '</div><div class="price-note">' + (needsAudit ? 'Given your $250K+ exposure, we recommend starting with the Claim Audit. Both fees are credited toward full engagement.' : 'Credited in full toward any full advisory engagement. This is a written deliverable signed by The Tariff Bureau.') + '</div></div><div style="font-family:var(--mono);font-size:10px;color:var(--red-lt);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">&#9888; Appeal deadline: June 7, 2026</div><a class="btn-primary" href="' + ctaHref + '">' + ctaText + '</a><br/><span class="btn-secondary" onclick="restart()">Restart screening</span><div class="disclaimer">Eligibility determination is advisory only &#x2014; not legal advice, not customs brokerage.<br/><a href="/terms">Terms of Service</a> &#x00b7; <a href="/privacy">Privacy Policy</a></div></div>';
     }
-
     function showNotQualified(q) {
       document.getElementById('progressFill').style.width = ((q.id - 1) / questions.length * 100) + '%';
       const isFixable = q.id === 2 || q.id === 3;
       const selfFileHTML = q.id === 4 ? '<div style="background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.2);border-radius:10px;padding:16px 20px;margin:0 auto 20px;max-width:420px;text-align:left;"><div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Self-File Option</div><p style="font-size:13.5px;color:var(--cream);line-height:1.6;margin:0;">File your CAPE Declaration directly at cbp.gov &#x2014; it\'s free and self-service for smaller claims.</p></div>' : '';
       document.getElementById('questionContainer').innerHTML = '<div class="q-card result result-nq"><h2>' + (isFixable ? 'Not qualified &#x2014; but this may be fixable.' : 'Not qualified at this time.') + '</h2><p>' + (isFixable ? 'You don\'t meet this qualifier today &#x2014; but the situation may be addressable.' : 'Your company does not meet the eligibility criteria for a full IEEPA refund advisory engagement at this time.') + '</p><div class="nq-reason"><span class="nq-reason-label">Why you didn\'t qualify on Qualifier ' + q.id + '</span><div class="nq-reason-text">' + q.failReason + '</div></div><p style="font-size:14px;color:var(--cream);line-height:1.7;max-width:460px;margin:0 auto 20px;">' + q.failNext + '</p>' + selfFileHTML + '<div class="waitlist-box"><p><strong style="color:var(--white);">Stay informed as rules change.</strong><br/>Leave your email and we\'ll reach out when it matters.</p><div class="waitlist-input"><input type="email" id="waitlistEmail" placeholder="your@company.com"/><button onclick="joinWaitlist()">Notify Me</button></div><p id="waitlistConfirm" style="display:none;font-size:12px;color:#4ade80;margin-top:8px;font-family:var(--mono);">&#10003; Added to waitlist.</p></div><span class="btn-secondary" onclick="restart()" style="display:block;margin-top:4px;">Restart screening</span><br/><a href="/" style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;display:block;margin-top:8px;">&larr; Return to tariffbureau.com</a><div class="disclaimer">Advisory only &#x2014; not legal advice.<br/><a href="/terms">Terms of Service</a> &#x00b7; <a href="/privacy">Privacy Policy</a></div></div>';
     }
-
     function joinWaitlist() {
       const email = document.getElementById('waitlistEmail').value.trim();
       if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
@@ -253,7 +238,6 @@
       document.getElementById('waitlistEmail').disabled = true;
       document.querySelector('.waitlist-input button').disabled = true;
     }
-
     function restart() {
       current = 0; qualified = true; failedAt = null; answers = [];
       document.getElementById('progressWrap').style.display = 'none';
@@ -261,14 +245,11 @@
       document.getElementById('introSection').innerHTML = '<span class="intro-tag">IEEPA Eligibility Screening</span><h1>Do you qualify for an<br/><em>IEEPA tariff refund?</em></h1><p>Answer 4 questions. Get an instant eligibility determination.</p><div class="timer-badge">&#9201; 4 questions &middot; Under 2 minutes</div>';
       setTimeout(() => { start(); }, 100);
     }
-
     // OPTIMIZED: reduced from 800ms to 100ms for faster question render on mobile
     setTimeout(() => { start(); }, 100);
   </script>
-
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2892db64ba004db7afaf3e87cd369425"}'></script>
   <!-- End Cloudflare Web Analytics -->
-
 </body>
 </html>

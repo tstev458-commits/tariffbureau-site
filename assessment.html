@@ -10,6 +10,11 @@
 <meta property="og:url" content="https://tariffbureau.com/assessment" />
 <meta property="og:type" content="website" />
 <link rel="canonical" href="https://tariffbureau.com/assessment" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <meta property="og:image" content="https://tariffbureau.com/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -32,17 +37,14 @@
     --border: #e5e0d4;
     --error: #dc2626;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--off-white);
     color: var(--navy);
     min-height: 100vh;
   }
-
   /* NAV */
   nav {
     background: var(--navy);
@@ -56,7 +58,6 @@
     z-index: 100;
     border-bottom: 1px solid rgba(201,168,76,0.2);
   }
-
   .nav-logo {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
@@ -64,16 +65,13 @@
     text-decoration: none;
     letter-spacing: 0.02em;
   }
-
   .nav-logo span { color: var(--gold); }
-
   .nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
     align-items: center;
   }
-
   .nav-links a {
     color: rgba(255,255,255,0.75);
     text-decoration: none;
@@ -81,9 +79,7 @@
     font-weight: 400;
     transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--gold-light); }
-
   .nav-links .nav-cta {
     background: var(--gold);
     color: var(--navy);
@@ -94,9 +90,7 @@
     letter-spacing: 0.03em;
     transition: background 0.18s;
   }
-
   .nav-links .nav-cta:hover { background: var(--gold-light); color: var(--navy); }
-
   /* HERO STRIP */
   .hero-strip {
     background: var(--navy);
@@ -104,7 +98,6 @@
     text-align: center;
     border-bottom: 3px solid var(--gold);
   }
-
   .hero-eyebrow {
     display: inline-block;
     background: rgba(201,168,76,0.15);
@@ -118,7 +111,6 @@
     margin-bottom: 20px;
     border: 1px solid rgba(201,168,76,0.3);
   }
-
   .hero-headline {
     font-family: 'Playfair Display', serif;
     font-size: clamp(28px, 5vw, 48px);
@@ -128,12 +120,10 @@
     max-width: 720px;
     margin: 0 auto 16px;
   }
-
   .hero-headline em {
     color: var(--gold);
     font-style: normal;
   }
-
   .hero-sub {
     font-size: 16px;
     color: rgba(255,255,255,0.65);
@@ -142,14 +132,12 @@
     line-height: 1.6;
     font-weight: 300;
   }
-
   /* MAIN LAYOUT */
   .page-wrap {
     max-width: 860px;
     margin: 0 auto;
     padding: 48px 24px 80px;
   }
-
   /* ALEX MONROE CARD */
   .alex-intro {
     background: var(--white);
@@ -162,7 +150,6 @@
     gap: 16px;
     margin-bottom: 36px;
   }
-
   .alex-avatar {
     width: 48px;
     height: 48px;
@@ -178,7 +165,6 @@
     color: var(--gold);
     font-weight: 700;
   }
-
   .alex-text p:first-child {
     font-size: 13px;
     font-weight: 600;
@@ -187,14 +173,12 @@
     letter-spacing: 0.08em;
     margin-bottom: 4px;
   }
-
   .alex-text p:last-child {
     font-size: 15px;
     color: var(--navy);
     line-height: 1.55;
     font-weight: 300;
   }
-
   /* FORM CARD */
   .form-card {
     background: var(--white);
@@ -202,11 +186,9 @@
     border-radius: 4px;
     padding: 36px 40px;
   }
-
   @media (max-width: 600px) {
     .form-card { padding: 24px 20px; }
   }
-
   .form-section-title {
     font-size: 11px;
     font-weight: 600;
@@ -217,30 +199,24 @@
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
   }
-
   .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-bottom: 20px;
   }
-
   @media (max-width: 600px) {
     .form-grid { grid-template-columns: 1fr; }
   }
-
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-group.full { grid-column: 1 / -1; }
-
   label {
     font-size: 13px;
     font-weight: 500;
     color: var(--navy);
     letter-spacing: 0.01em;
   }
-
   label .req { color: var(--gold); margin-left: 2px; }
-
   input, select {
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
@@ -256,45 +232,36 @@
     -webkit-appearance: none;
     appearance: none;
   }
-
   select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230a1628' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
     padding-right: 36px;
   }
-
   input:focus, select:focus {
     border-color: var(--gold);
     background: var(--white);
     box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
   }
-
   input.error, select.error { border-color: var(--error); }
-
   .field-hint {
     font-size: 12px;
     color: var(--text-muted);
     line-height: 1.4;
   }
-
   .field-error {
     font-size: 12px;
     color: var(--error);
     display: none;
   }
-
   .field-error.visible { display: block; }
-
   .form-divider {
     border: none;
     border-top: 1px solid var(--border);
     margin: 28px 0;
   }
-
   /* SUBMIT */
   .submit-area { margin-top: 28px; }
-
   .btn-submit {
     font-family: 'DM Sans', sans-serif;
     font-size: 16px;
@@ -311,11 +278,9 @@
     position: relative;
     overflow: hidden;
   }
-
   .btn-submit:hover { background: var(--gold-light); }
   .btn-submit:active { transform: scale(0.99); }
   .btn-submit:disabled { background: #d4c9a0; cursor: not-allowed; }
-
   .btn-submit .btn-spinner {
     display: none;
     width: 18px;
@@ -326,12 +291,9 @@
     animation: spin 0.7s linear infinite;
     margin: 0 auto;
   }
-
   .btn-submit.loading .btn-text { display: none; }
   .btn-submit.loading .btn-spinner { display: block; }
-
   @keyframes spin { to { transform: rotate(360deg); } }
-
   .submit-disclaimer {
     font-size: 12px;
     color: var(--text-muted);
@@ -339,7 +301,6 @@
     margin-top: 12px;
     line-height: 1.5;
   }
-
   /* TRUST BAR */
   .trust-bar {
     display: flex;
@@ -350,7 +311,6 @@
     padding-top: 32px;
     border-top: 1px solid var(--border);
   }
-
   .trust-item {
     display: flex;
     align-items: center;
@@ -359,14 +319,12 @@
     color: var(--text-muted);
     font-weight: 400;
   }
-
   .trust-icon {
     width: 18px;
     height: 18px;
     color: var(--gold);
     flex-shrink: 0;
   }
-
   /* ==============================
      REPORT SECTION (hidden until generated)
      ============================== */
@@ -374,7 +332,6 @@
     display: none;
     margin-top: 40px;
   }
-
   .report-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -386,32 +343,26 @@
     line-height: 1.75;
     color: var(--navy);
   }
-
   @media (max-width: 600px) { .report-card { padding: 24px 20px; } }
-
   .report-card h1, .report-card h2, .report-card h3 {
     font-family: 'Playfair Display', serif;
     color: var(--navy);
     margin: 24px 0 10px;
     line-height: 1.3;
   }
-
   .report-card h1 { font-size: 22px; }
   .report-card h2 { font-size: 18px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
   .report-card h3 { font-size: 15px; color: var(--navy-light); }
-
   .report-card p { margin-bottom: 12px; }
   .report-card ul, .report-card ol { margin: 10px 0 14px 20px; }
   .report-card li { margin-bottom: 6px; }
   .report-card strong { color: var(--navy); font-weight: 600; }
   .report-card em { color: var(--gold); font-style: normal; font-weight: 500; }
-
   .report-card hr {
     border: none;
     border-top: 1px solid var(--border);
     margin: 24px 0;
   }
-
   .report-header {
     background: var(--navy);
     border-radius: 3px;
@@ -421,7 +372,6 @@
     align-items: center;
     gap: 14px;
   }
-
   .report-header-avatar {
     width: 44px;
     height: 44px;
@@ -436,7 +386,6 @@
     color: var(--gold);
     flex-shrink: 0;
   }
-
   .report-header-text p:first-child {
     font-size: 12px;
     font-weight: 600;
@@ -444,19 +393,16 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-
   .report-header-text p:last-child {
     font-size: 12px;
     color: rgba(255,255,255,0.45);
     font-weight: 300;
   }
-
   /* REPORT LOADING STATE */
   .report-loading {
     text-align: center;
     padding: 48px 20px;
   }
-
   .report-loading-spinner {
     width: 36px;
     height: 36px;
@@ -466,13 +412,11 @@
     animation: spin 0.8s linear infinite;
     margin: 0 auto 20px;
   }
-
   .report-loading p {
     font-size: 15px;
     color: var(--text-muted);
     font-weight: 300;
   }
-
   .report-loading strong {
     color: var(--navy);
     display: block;
@@ -480,7 +424,6 @@
     margin-bottom: 6px;
     font-family: 'Playfair Display', serif;
   }
-
   /* ==============================
      POST-REPORT CTA — TWO PATH
      ============================== */
@@ -492,9 +435,7 @@
     text-align: center;
     margin-bottom: 24px;
   }
-
   @media (max-width: 600px) { .post-report-cta { padding: 36px 20px; } }
-
   .post-cta-eyebrow {
     font-size: 11px;
     font-weight: 600;
@@ -503,7 +444,6 @@
     color: var(--gold);
     margin-bottom: 16px;
   }
-
   .post-cta-headline {
     font-family: 'Playfair Display', serif;
     font-size: clamp(24px, 4vw, 34px);
@@ -512,7 +452,6 @@
     line-height: 1.2;
     margin-bottom: 12px;
   }
-
   .post-cta-intro {
     font-size: 15px;
     color: rgba(255,255,255,0.55);
@@ -521,7 +460,6 @@
     line-height: 1.65;
     font-weight: 300;
   }
-
   /* TWO PATH CARDS */
   .cta-two-path {
     display: grid;
@@ -530,11 +468,9 @@
     max-width: 680px;
     margin: 0 auto 32px;
   }
-
   @media (max-width: 580px) {
     .cta-two-path { grid-template-columns: 1fr; }
   }
-
   .cta-path-card {
     border-radius: 4px;
     padding: 28px 24px;
@@ -542,25 +478,20 @@
     position: relative;
     transition: transform 0.15s;
   }
-
   .cta-path-card:hover { transform: translateY(-2px); }
-
   .cta-path-card.path-talk {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
   }
-
   .cta-path-card.path-proceed {
     background: var(--gold);
     border: 1px solid var(--gold);
   }
-
   .cta-path-icon {
     font-size: 22px;
     margin-bottom: 12px;
     display: block;
   }
-
   .cta-path-label {
     font-size: 10px;
     font-weight: 700;
@@ -568,10 +499,8 @@
     text-transform: uppercase;
     margin-bottom: 8px;
   }
-
   .path-talk .cta-path-label { color: var(--gold); }
   .path-proceed .cta-path-label { color: rgba(10,22,40,0.6); }
-
   .cta-path-title {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
@@ -579,20 +508,16 @@
     line-height: 1.25;
     margin-bottom: 10px;
   }
-
   .path-talk .cta-path-title { color: var(--white); }
   .path-proceed .cta-path-title { color: var(--navy); }
-
   .cta-path-desc {
     font-size: 13px;
     line-height: 1.55;
     font-weight: 300;
     margin-bottom: 20px;
   }
-
   .path-talk .cta-path-desc { color: rgba(255,255,255,0.55); }
   .path-proceed .cta-path-desc { color: rgba(10,22,40,0.65); }
-
   .cta-path-btn {
     display: block;
     text-align: center;
@@ -606,41 +531,33 @@
     text-decoration: none;
     transition: background 0.18s, color 0.18s;
   }
-
   .path-talk .cta-path-btn {
     background: transparent;
     border: 1.5px solid rgba(201,168,76,0.5);
     color: var(--gold-light);
   }
-
   .path-talk .cta-path-btn:hover {
     background: rgba(201,168,76,0.1);
     border-color: var(--gold);
   }
-
   .path-proceed .cta-path-btn {
     background: var(--navy);
     border: 1.5px solid var(--navy);
     color: var(--white);
   }
-
   .path-proceed .cta-path-btn:hover { background: var(--navy-light); }
-
   .post-cta-restart {
     margin-top: 8px;
     font-size: 13px;
     color: rgba(255,255,255,0.25);
   }
-
   .post-cta-restart a {
     color: rgba(255,255,255,0.35);
     text-decoration: none;
     border-bottom: 1px dotted rgba(255,255,255,0.2);
     cursor: pointer;
   }
-
   .post-cta-restart a:hover { color: rgba(255,255,255,0.6); }
-
   /* DISCLAIMER */
   .disclaimer {
     background: var(--white);
@@ -651,9 +568,7 @@
     color: var(--text-muted);
     line-height: 1.6;
   }
-
   .disclaimer strong { color: var(--navy); }
-
   /* FOOTER */
   footer {
     background: var(--navy);
@@ -661,18 +576,15 @@
     text-align: center;
     border-top: 1px solid rgba(201,168,76,0.2);
   }
-
   footer p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
   footer a { color: rgba(201,168,76,0.7); text-decoration: none; }
   footer a:hover { color: var(--gold-light); }
-
   /* Markdown rendering helpers */
   .md-content h2 { margin-top: 28px; }
   .md-content p + p { margin-top: 8px; }
 </style>
 </head>
 <body>
-
 <nav>
   <a href="/" class="nav-logo">The Tariff <span>Bureau</span></a>
   <ul class="nav-links">
@@ -682,15 +594,12 @@
     <li><a href="/intake-smart" class="nav-cta">Full Intake &rarr;</a></li>
   </ul>
 </nav>
-
 <div class="hero-strip">
   <div class="hero-eyebrow">Free &mdash; No Obligation &mdash; 60 Seconds</div>
   <h1 class="hero-headline">How Much Are You<br><em>Owed in Tariff Refunds?</em></h1>
   <p class="hero-sub">Our AI analyst Alex Monroe will calculate your estimated IEEPA refund exposure and tell you whether it's worth filing a formal claim.</p>
 </div>
-
 <div class="page-wrap">
-
   <!-- FORM SECTION -->
   <div id="formSection">
     <div class="alex-intro">
@@ -700,13 +609,10 @@
         <p>Answer five questions about your import profile and I'll give you an honest estimate of your potential refund exposure under IEEPA Section 232/301 relief. Takes under a minute. No personal information required.</p>
       </div>
     </div>
-
     <div class="form-card">
       <div class="form-section-title">Your Import Profile</div>
-
       <form id="assessmentForm" novalidate>
         <div class="form-grid">
-
           <div class="form-group">
             <label for="country">Country of Origin <span class="req">*</span></label>
             <select id="country" name="country" required>
@@ -725,7 +631,6 @@
             </select>
             <span class="field-error" id="err-country">Please select a country of origin.</span>
           </div>
-
           <div class="form-group">
             <label for="category">Product Category <span class="req">*</span></label>
             <select id="category" name="category" required>
@@ -743,7 +648,6 @@
             </select>
             <span class="field-error" id="err-category">Please select a product category.</span>
           </div>
-
           <div class="form-group">
             <label for="import_value">Annual Import Value (USD) <span class="req">*</span></label>
             <select id="import_value" name="import_value" required>
@@ -757,7 +661,6 @@
             </select>
             <span class="field-error" id="err-import_value">Please select your annual import value.</span>
           </div>
-
           <div class="form-group">
             <label for="trade_terms">Trade Terms <span class="req">*</span></label>
             <select id="trade_terms" name="trade_terms" required>
@@ -769,15 +672,12 @@
             <span class="field-hint">DDP = foreign seller paid the tariff. You may still have a claim.</span>
             <span class="field-error" id="err-trade_terms">Please select your trade terms.</span>
           </div>
-
           <div class="form-group full">
             <label for="hts">HTS Code (optional)</label>
             <input type="text" id="hts" name="hts" placeholder="e.g. 8471.30.0100" maxlength="20" autocomplete="off" />
             <span class="field-hint">Leave blank if unknown &mdash; Alex will estimate based on your product category.</span>
           </div>
-
         </div>
-
         <div class="submit-area">
           <button type="submit" class="btn-submit" id="submitBtn">
             <span class="btn-text">Run My Free Assessment &rarr;</span>
@@ -786,10 +686,8 @@
           <p class="submit-disclaimer">No account. No obligation. Results in seconds.<br>
           By submitting you agree to our <a href="/terms" style="color:var(--gold);">Terms of Service</a> and <a href="/privacy" style="color:var(--gold);">Privacy Policy</a>.</p>
         </div>
-
       </form>
     </div>
-
     <div class="trust-bar">
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -805,10 +703,8 @@
       </div>
     </div>
   </div>
-
   <!-- REPORT SECTION (shown after form submit) -->
   <div id="reportSection">
-
     <div class="report-card">
       <div class="report-header">
         <div class="report-header-avatar">AM</div>
@@ -817,16 +713,13 @@
           <p>AI Trade Analyst &bull; The Tariff Bureau LLC</p>
         </div>
       </div>
-
       <div id="reportLoading" class="report-loading">
         <div class="report-loading-spinner"></div>
         <strong>Analyzing your import profile&hellip;</strong>
         <p>Alex Monroe is reviewing your data against current IEEPA tariff schedules.</p>
       </div>
-
       <div id="reportContent" class="md-content" style="display:none;"></div>
     </div>
-
     <!-- ============================
          POST-REPORT CTA — TWO PATH
          ============================ -->
@@ -834,9 +727,7 @@
       <div class="post-cta-eyebrow">Assessment Complete &mdash; How Would You Like to Proceed?</div>
       <h2 class="post-cta-headline" id="ctaHeadline">Your Next Step With Alex Monroe</h2>
       <p class="post-cta-intro" id="ctaSub">Choose the path that fits where you are right now. Both are free and require no commitment.</p>
-
       <div class="cta-two-path">
-
         <!-- PATH A: Talk First -->
         <div class="cta-path-card path-talk">
           <span class="cta-path-icon">📞</span>
@@ -845,7 +736,6 @@
           <div class="cta-path-desc">30-minute discovery call. Alex will review your situation, answer questions, and tell you exactly what recovery looks like for your business.</div>
           <a href="https://calendar.app.google/KUwDScsGb2ez3LQ4A" target="_blank" class="cta-path-btn">Schedule a Call &rarr;</a>
         </div>
-
         <!-- PATH B: Ready to Proceed -->
         <div class="cta-path-card path-proceed">
           <span class="cta-path-icon">✅</span>
@@ -854,29 +744,22 @@
           <div class="cta-path-desc">Submit your full import data, select your service tier, sign documents, and receive your invoice — all in one flow.</div>
           <a href="/intake-smart" class="cta-path-btn">Begin Full Intake &rarr;</a>
         </div>
-
       </div>
-
       <p class="post-cta-restart">
         <a id="restartLink">Start a new assessment</a>
       </p>
     </div>
-
     <div class="disclaimer">
       <strong>Important disclaimer:</strong> This assessment is an AI-generated estimate only, based on publicly available IEEPA tariff schedules and your self-reported import profile. It does not constitute legal advice and is not a guarantee of refund eligibility or amount. Actual refund amounts depend on verified entry data, CBP review, and applicable exclusion criteria. Consult a licensed customs broker or trade attorney before filing. The Tariff Bureau LLC, Atlanta, GA.
     </div>
-
   </div>
-
 </div>
-
 <footer>
   <p>The Tariff Bureau LLC &bull; 3343 Peachtree Rd NE, Suite 145 PMB 550, Atlanta, GA 30326<br>
   <a href="tel:4048825839">(404) 882-5839</a> &bull; <a href="mailto:legal@tariffbureau.com">legal@tariffbureau.com</a> &bull;
   <a href="/terms">Terms</a> &bull; <a href="/">tariffbureau.com</a></p>
   <p style="margin-top:8px;">This assessment is for informational purposes only and does not constitute legal advice. Results are estimates based on publicly available tariff schedules.</p>
 </footer>
-
 <script>
   // ─── Country / category data ───────────────────────────────────────────────
   const countryRates = {
@@ -892,13 +775,11 @@
     CA: { rate: 0.25,  label: 'Canada', risk: 'medium', note: 'Non-USMCA goods subject to tariffs' },
     OTHER: { rate: 0.10, label: 'Other', risk: 'low', note: '10% universal baseline tariff applies' }
   };
-
   const recoveryByCategory = {
     electronics: 0.65, machinery: 0.60, steel: 0.55, apparel: 0.50,
     chemicals: 0.55, furniture: 0.52, auto: 0.58, consumer: 0.48,
     food: 0.35, other: 0.50
   };
-
   const categoryLabels = {
     electronics: 'Electronics & Components', machinery: 'Machinery & Equipment',
     steel: 'Steel & Aluminum Products', apparel: 'Apparel & Textiles',
@@ -906,13 +787,11 @@
     auto: 'Auto Parts & Vehicles', consumer: 'Consumer Goods',
     food: 'Food & Agricultural', other: 'Mixed / Other'
   };
-
   function fmt(n) {
     if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
     if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
     return '$' + n.toLocaleString();
   }
-
   // ─── Simple markdown renderer ──────────────────────────────────────────────
   function renderMarkdown(md) {
     return md
@@ -928,10 +807,8 @@
       .replace(/^(?!<[h|u|l|h])/gm, '')
       .split('\n').map(l => l.trim() ? (l.startsWith('<') ? l : '<p>' + l + '</p>') : '').join('\n');
   }
-
   // ─── Form validation ───────────────────────────────────────────────────────
   const REQUIRED = ['country','category','import_value','trade_terms'];
-
   function validateField(id) {
     const el = document.getElementById(id);
     const err = document.getElementById('err-' + id);
@@ -944,11 +821,9 @@
     if (err) err.classList.remove('visible');
     return true;
   }
-
   REQUIRED.forEach(id => {
     document.getElementById(id).addEventListener('change', () => validateField(id));
   });
-
   // ─── Restart ───────────────────────────────────────────────────────────────
   document.getElementById('restartLink').addEventListener('click', function() {
     document.getElementById('reportSection').style.display = 'none';
@@ -960,29 +835,24 @@
     document.getElementById('postReportCta').style.display = 'none';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-
   // ─── Form submit ───────────────────────────────────────────────────────────
   document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     let valid = true;
     REQUIRED.forEach(id => { if (!validateField(id)) valid = false; });
     if (!valid) return;
-
     const submitBtn = document.getElementById('submitBtn');
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
-
     const country    = document.getElementById('country').value;
     const category   = document.getElementById('category').value;
     const importVal  = parseInt(document.getElementById('import_value').value);
     const terms      = document.getElementById('trade_terms').value;
     const hts        = document.getElementById('hts').value.trim();
-
     // Hide form, show report skeleton
     document.getElementById('formSection').style.display = 'none';
     document.getElementById('reportSection').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
     // ─── Calculate ranges ────────────────────────────────────────────────
     const cr        = countryRates[country] || countryRates['OTHER'];
     const recRate   = recoveryByCategory[category] || 0.50;
@@ -992,10 +862,8 @@
     const low  = Math.round(baseRefund * 0.6);
     const high = Math.round(baseRefund * 1.25);
     const urgency = high > 500000 ? 'high' : high > 50000 ? 'medium' : 'low';
-
     // ─── Build AI prompt ─────────────────────────────────────────────────
     const prompt = `You are Alex Monroe, Senior Trade Intelligence Analyst at The Tariff Bureau LLC. You are generating a formal IEEPA Tariff Refund Eligibility Assessment report.
-
 Client import profile:
 - Country of Origin: ${cr.label} (${country})
 - Product Category: ${categoryLabels[category] || category}
@@ -1006,11 +874,8 @@ Client import profile:
 - Estimated Refund Range: ${fmt(low)} – ${fmt(high)}
 - Recovery Rate for Category: ${Math.round(recRate * 100)}%
 - Risk Level: ${cr.risk}
-
 Write a formal assessment report in markdown format. Structure it as follows:
-
 # IEEPA ELIGIBILITY DETERMINATION REPORT
-
 Include these sections:
 ## 1. Preliminary Verdict
 ## 2. IEEPA Exposure Analysis
@@ -1018,11 +883,8 @@ Include these sections:
 ## 4. FCA Risk Assessment
 ## 5. Recommended Next Steps
 ## 6. Advisory Notes
-
 Be specific, professional, authoritative. Use the actual numbers provided. Flag DDP trade terms if applicable. Note the CAPE deadline urgency. End with a brief summary paragraph. Sign off as Alex Monroe, TariffIQ™, The Tariff Bureau LLC.
-
 Do NOT include a call to action at the end — that is handled separately. Do NOT include any placeholder text in brackets. Use actual analysis based on the data provided.`;
-
     // ─── Call Claude API ─────────────────────────────────────────────────
     try {
       const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1034,21 +896,17 @@ Do NOT include a call to action at the end — that is handled separately. Do NO
           messages: [{ role: 'user', content: prompt }]
         })
       });
-
       const data = await response.json();
       const text = data.content && data.content[0] && data.content[0].text
         ? data.content[0].text
         : 'Unable to generate report. Please try again.';
-
       // Render report
       document.getElementById('reportLoading').style.display = 'none';
       const contentEl = document.getElementById('reportContent');
       contentEl.innerHTML = renderMarkdown(text);
       contentEl.style.display = 'block';
-
       // Show CTA
       const ctaEl = document.getElementById('postReportCta');
-
       if (urgency === 'high') {
         document.getElementById('ctaHeadline').textContent = 'Don\u2019t Leave ' + fmt(Math.round((low + high) / 2)) + ' on the Table.';
         document.getElementById('ctaSub').textContent = 'Your exposure is significant. Start your formal CAPE recovery claim now \u2014 we handle everything on contingency.';
@@ -1056,14 +914,11 @@ Do NOT include a call to action at the end — that is handled separately. Do NO
         document.getElementById('ctaHeadline').textContent = 'A Real Recovery Opportunity Awaits.';
         document.getElementById('ctaSub').textContent = 'Your assessment shows meaningful refund exposure. The next step is a full intake \u2014 no cost, no commitment.';
       }
-
       ctaEl.style.display = 'block';
-
       // Scroll to CTA
       setTimeout(() => {
         ctaEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 400);
-
       // GA event
       if (typeof gtag !== 'undefined') {
         gtag('event', 'assessment_complete', {
@@ -1071,13 +926,11 @@ Do NOT include a call to action at the end — that is handled separately. Do NO
           urgency: urgency, refund_high: high
         });
       }
-
     } catch (err) {
       document.getElementById('reportLoading').innerHTML =
         '<p style="color:var(--error);text-align:center;">Something went wrong generating your report. Please <a href="/assessment" style="color:var(--gold);">try again</a>.</p>';
     }
   });
 </script>
-
 </body>
 </html>
